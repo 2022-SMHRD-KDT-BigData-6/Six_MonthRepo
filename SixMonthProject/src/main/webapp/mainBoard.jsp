@@ -1,3 +1,6 @@
+<%@page import="com.model.MemberVO"%>
+<%@page import="com.model.BoardVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -19,6 +22,12 @@
 </head>
 <body class="is-preload">
 
+	<% //obj타입 업캐스팅 된채로 저장 
+	//request에 저장해둔 list 꺼내오기
+	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
+	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+	
+	%>
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -51,15 +60,33 @@
 
 						<tr>
 							<td>1</td>
-							<%--QueryString으로 bnum을 GoView로 보내주기 --%>
+							<%--QueryString으로 Pnum을 GoView로 보내주기 --%>
 							<td><a href="#">1번글입니다.</a></td>
 							<td>김준성</td>
 							<td>2022-06-03</td>
 							<td><a href="#">X</a></td>
 						</tr>
+						<%
+						for (int i = 0; i < list.size(); i++) {
+							BoardVO bvo = list.get(i);
+						%>
+						<tr>
+							<%-- --%>
+							<td><%=bvo.getPnum()%></td>
+							<td><a href="GoView?Pnum=<%=bvo.getPnum()%>"> 
+							    <%=bvo.getTitle()%></a></td>
+							<td><%=bvo.getWriter()%></td>
+							<td><%=bvo.getPdate()%></td>
+							<td><%=bvo.getGood() %>
+							<%-- url?name=value --%>
+							<td><a href="DeleteService?Pnum=<%=bvo.getPnum()%>">X</a></td>
+						</tr>
+						<%
+						}
+						%>
 					</tbody>
 				</table>
-				
+
 				<a href="GoWriter"><button id="writer">작성하러가기</button></a>
 			</section>
 

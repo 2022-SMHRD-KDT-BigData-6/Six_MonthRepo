@@ -26,7 +26,7 @@ public class BoardVO {
 	@NonNull
 	private String id; //아이디 
 	
-	private String goodNumber;
+	private String good;
 	
 	private String fileName; // 첨부파일
 	
