@@ -59,7 +59,7 @@ create table comment_mind(
 )									
 
 
-select * from s_post
+select * from s_post;
 									
 drop table s_member cascade constraints
 
