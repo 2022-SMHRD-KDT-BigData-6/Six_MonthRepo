@@ -15,4 +15,5 @@ public class MemberVO {
 	private String pw;
 	private String email;
 	private String nick;
+	
 }

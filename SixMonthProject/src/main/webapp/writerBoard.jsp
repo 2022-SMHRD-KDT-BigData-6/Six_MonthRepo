@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <!--
 	Stellar by HTML5 UP
@@ -24,44 +24,40 @@
 
 		<!-- Header -->
 		<header id="header">
-			<h1>자유게시판</h1>
-			<p>빅데이터 분석서비스 개발과정</p>
+			<h1>게시글 작성페이지</h1>
 		</header>
 
 		<!-- Main -->
 		<div id="main">
 
 			<!-- Content -->
-			<section id="content" class="main">
-				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-				<h2>리스트</h2>
-				<table id="list">
-					<thead>
-
-						<tr>
-							<td>번호</td>
-							<td>제목</td>
-							<td>작성자</td>
-							<td>시간</td>
-						</tr>
-
-					</thead>
-					<tbody>
-						<%--게시글 목록 출력!!!! --%>
-
-						<tr>
-							<td>1</td>
-							<%--QueryString으로 bnum을 GoView로 보내주기 --%>
-							<td><a href="#">1번글입니다.</a></td>
-							<td>김준성</td>
-							<td>2022-06-03</td>
-							<td><a href="#">X</a></td>
-						</tr>
-					</tbody>
-				</table>
-				
-				<a href="GoWriter"><button id="writer">작성하러가기</button></a>
-			</section>
+			<section>
+			<form action="InsertService" method="post" enctype="multipart/form-data"> <!-- multipart/form-data 파일 인코딩 X!! -->
+			<table id="list">
+				<tr>
+					<td>제목</td>
+					<td><input  name="title" type="text"></td>
+				</tr>
+				<tr>
+					<td>작성자</td>
+					<td><input name="writer" type="text" ></td>
+				</tr>
+				<tr>
+					<td colspan="2">내용</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<input name="file" type="file">
+					<textarea name="content" rows="10" style="resize: none;"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="reset" value="초기화"> <input
+						type="submit" value="작성하기"></td>
+				</tr>
+			</table>
+		</form>
+		</section>
 
 		</div>
 

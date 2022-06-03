@@ -28,5 +28,7 @@ public class BoardVO {
 	
 	private String goodNumber;
 	
+	private String fileName; // Ã·ºÎÆÄÀÏ
+	
 	
 }
