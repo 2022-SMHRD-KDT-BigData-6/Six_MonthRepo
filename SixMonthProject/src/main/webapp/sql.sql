@@ -15,6 +15,7 @@ create table s_post(
 	contents varchar2(1000) not null,
 	id varchar2(20) not null,
 	Pdate date not null,
+	fileName varchar2(100),
 	good number(3),
 	constraint post_Pnum_pk primary key(Pnum),
 	constraint post_id_fk foreign key (id) references s_member(id)
@@ -61,7 +62,7 @@ create table comment_mind(
 
 select * from s_post;
 									
-drop table s_member cascade constraints
+drop table comment_mind cascade constraints
 
 
 									
