@@ -1,14 +1,10 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.model.MemberVO"%>
 <%@page import="com.model.BoardVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
-<!--
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 <head>
 <title>자유게시판</title>
@@ -71,13 +67,11 @@
 							BoardVO bvo = list.get(i);
 						%>
 						<tr>
-							<%-- --%>
 							<td><%=bvo.getPnum()%></td>
 							<td><a href="GoView?Pnum=<%=bvo.getPnum()%>"> 
 							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getWriter()%></td>
+							<td><%=bvo.getId()%></td>
 							<td><%=bvo.getPdate()%></td>
-							<td><%=bvo.getGood() %>
 							<%-- url?name=value --%>
 							<td><a href="DeleteService?Pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>

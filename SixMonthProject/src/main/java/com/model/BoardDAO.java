@@ -13,6 +13,7 @@ public class BoardDAO {
 	// 동적로딩
 	// Connection객체 생성
 	// Connection pool 가져오기
+	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
 
 	// 글 전체를 가져오는 메서드
