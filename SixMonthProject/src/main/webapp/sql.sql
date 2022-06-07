@@ -65,6 +65,7 @@ select * from s_post;
 drop table comment_mind cascade constraints
 
 
+select * from s_member;
 									
 									
 									
