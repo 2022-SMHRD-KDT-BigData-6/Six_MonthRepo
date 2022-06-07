@@ -15,31 +15,29 @@ import com.model.BoardVO;
 /**
  * Servlet implementation class Goupdate
  */
-@WebServlet("/Goupdate")
-public class Goupdate extends HttpServlet {
+@WebServlet("/GoUpdate")
+public class GoUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
 		
 		//1. Pnum 파라미터 수집 
-		int Pnum = Integer.parseInt(request.getParameter("Pnum"));
+		int pnum = Integer.parseInt(request.getParameter("pnum"));
 		//2.dao.boardView(int Pnum); 사용
 		BoardDAO dao = new BoardDAO();
 		
 		
-		BoardVO bvo = dao.boardVO(Pnum);
+		BoardVO view = dao.boardVO(pnum);
 		
 		//3.객체바인딩
-		request.setAttribute("bvo", bvo);
+		request.setAttribute("view", view);
+
 		
-		
-		
-	
-	//forward 이동 
-	String nextPage ="updateBoard.jsp";
-	RequestDispatcher rd = request.getRequestDispatcher(nextPage);
-	rd.forward(request,response);
+		//forward 이동 
+		String nextPage ="updateBoard.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+		rd.forward(request,response);
 	}
 
 }

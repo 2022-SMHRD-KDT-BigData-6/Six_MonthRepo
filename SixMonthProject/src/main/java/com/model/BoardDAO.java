@@ -13,11 +13,13 @@ public class BoardDAO {
 	// 동적로딩
 	// Connection객체 생성
 	// Connection pool 가져오기
+	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
+	int cnt = 0;
 
 	// 글 전체를 가져오는 메서드
-	int cnt = 0;
 	public List<BoardVO> boardList() {
+		System.out.println(sqlSessionFactory);
 
 		// 1. SqlSession 빌려오기
 		// openSession(auto commit);
@@ -62,13 +64,13 @@ public class BoardDAO {
 		return cnt;
 	}
 
-//게시글 삭제 메서드 
-	public int boardDelete(int Pnum) {
-//1. SQLSession 빌려오기   
+	//게시글 삭제 메서드 
+	public int boardDelete(int pnum) {
+		//1. SQLSession 빌려오기   
 		SqlSession session = sqlSessionFactory.openSession(true);
-//2. SQL문 실행 
+		//2. SQL문 실행 
 		try {
-			cnt = session.delete("boardDelete",Pnum);
+			cnt = session.delete("boardDelete",pnum);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -78,11 +80,11 @@ public class BoardDAO {
 		return cnt;
 	}
 	
-	public BoardVO boardVO(int Pnum){
+	public BoardVO boardVO(int pnum){
 		//1.sqlSession 빌려오기 
 		SqlSession session = sqlSessionFactory.openSession(true);
 		//2. 준비해둔 sql문 실행
-		BoardVO cnt2 = session.selectOne("boardView",Pnum);
+		BoardVO cnt2 = session.selectOne("boardView",pnum);
 		//3. sqlsession 반환
 		session.close();
 		//4. sql 실행결과 리턴

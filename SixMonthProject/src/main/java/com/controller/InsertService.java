@@ -38,7 +38,7 @@ public class InsertService extends HttpServlet {
 		
 		// 파라미터 수집
 		String title = multi.getParameter("title");
-		String writer = multi.getParameter("writer");
+		String id = multi.getParameter("id");
 		String content = multi.getParameter("content");
 		
 		// 파일 이름 가져오기
@@ -46,7 +46,7 @@ public class InsertService extends HttpServlet {
 		
 		BoardVO bvo = new BoardVO();
 		bvo.setTitle(title);
-		bvo.setWriter(writer);
+		bvo.setId(id);
 		bvo.setContent(content);
 		bvo.setFileName(fileName);
 		

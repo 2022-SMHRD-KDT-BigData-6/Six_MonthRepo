@@ -4,9 +4,10 @@ import java.io.InputStream;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
 //  config파일을 읽어와서 database와 연결하는 객체를 관리해주는 도구
 public class SqlSessionManager {
-
+		
 	private static SqlSessionFactory sqlSessionFactory;
 
 	static {

@@ -17,19 +17,20 @@ import com.model.BoardVO;
  * Servlet implementation class Goview
  */
 @WebServlet("/GoView")
-public class Goview extends HttpServlet {
+public class GoView extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//1.Pnum 파라미터 수집
-		int Pnum = Integer.parseInt(request.getParameter("Pnum"));
+		int pnum = Integer.parseInt(request.getParameter("pnum"));
+		
 		//2DA의 boardView()메서드를 사용
-		BoardDAO dao = new com.model.BoardDAO();
-		com.model.BoardVO bvo = dao.boardVO(Pnum);
+		BoardDAO dao = new BoardDAO();
+		BoardVO view = dao.boardVO(pnum);
 		
 		// 3, 1개의 글 데이터 ==> BoardVO를 객체 바인딩
 		 //List<BoardVO>list = dvo.boardList();
-		request.setAttribute("bvo",bvo);
+		request.setAttribute("view",view);
 		
 		
 		//forward 방식으로 이동 
