@@ -18,41 +18,35 @@
 	<insert id="boardInsert" parameterType="com.model.BoardVO">
 		insert into s_post
 		values(
-		post_num_seq.nextval,
-		#{title},
-		#{content},
-		#{id},
-		sysdate,
-		#{fileName, jdbcType=VARCHAR}
+			post_num_seq.nextval,
+			#{title},
+			#{content},
+			#{id},
+			sysdate,
+			#{fileName, jdbcType=VARCHAR}
 		)
 	</insert>
 	
 	<!-- 채워줄 값이 한개만 있는경우, parameter type 생략 -->
 	<delete id="boardDelete">
 
-		delete from jdbc_board
-		where Pnum = #{Pnum}
+		delete from s_post
+		where pnum = #{pnum}
 		
 	</delete>
 
 
-	<select id="boardView" resultType="BoardVO">
-		select * from jdbc_Board
-		where Pnum = #{Pnum}
+	<select id="boardView" resultType="com.model.BoardVO">
+		select * from s_post
+		where pnum = #{pnum}
 	</select>
 
 	<!-- result 는 select 있을때만 사용 숫자만 나옴 -->
 	<update id="boardUpdate" parameterType="BoardVO">
-		update jdbc_Board
-
+		update s_post
 		set title = #{title},
 		content = #{content}
-
-		where Pnum=#{Pnum}
-
-
-
-
+		where pnum=#{pnum}
 	</update>
 
 </mapper>

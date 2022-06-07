@@ -14,12 +14,12 @@ public class BoardVO {
 	// 반드시 지킬 것!!
 	// 필드의 이름과 테이블의 컬럼명이 일치할것 
 	
-	private int Pnum;// 글번호 
+	private int pnum;// 글번호 
 	
 	private String title;// 제목 
 	private String content;// 내용 
 	private String id;// 작성자  
-	private String Pdate; // 날짜
+	private String pdate; // 날짜
 	
 	// private String good; // 공감
 	

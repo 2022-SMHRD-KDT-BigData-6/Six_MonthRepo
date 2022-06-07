@@ -63,18 +63,19 @@
 							<td>2022-06-03</td>
 							<td><a href="#">X</a></td>
 						</tr>
+						
 						<%
 						for (int i = 0; i < list.size(); i++) {
 							BoardVO bvo = list.get(i);
 						%>
 						<tr>
 							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?Pnum=<%=bvo.getPnum()%>"> 
+							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
 							    <%=bvo.getTitle()%></a></td>
 							<td><%=bvo.getId()%></td>
 							<td><%=bvo.getPdate()%></td>
 							<%-- url?name=value --%>
-							<td><a href="DeleteService?Pnum=<%=bvo.getPnum()%>">X</a></td>
+							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>
 						<%
 						}

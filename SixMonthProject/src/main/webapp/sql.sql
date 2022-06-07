@@ -13,16 +13,17 @@ insert into s_member
 values('jaewoo', '梯營辦', '1234', 'kimjaewu09@naver.com', '營辦噙');
 
 create table s_post(
-	Pnum number(3),
+	pnum number(3),
 	title varchar2(30) not null,
 	content varchar2(1000) not null,
 	id varchar2(20) not null,
-	Pdate date not null,
+	pdate date,
 	fileName varchar2(100),
 	/* good number(3), */
-	constraint post_Pnum_pk primary key(Pnum),
+	constraint post_pnum_pk primary key(pnum),
 	constraint post_id_fk foreign key (id) references s_member(id)
 )
+
 
 select * from s_post
 
@@ -47,7 +48,7 @@ create table s_comment(
 	Pnum number(3) not null,
 	comments varchar2(100) not null,
 	id varchar2(20) not null,
-	Cdate date not null,
+	Cdate date,
 	good number(3),
 	constraint com_num_pk primary key (Cnum),
 	constraint member_id_fk foreign key (id) references s_member(id),
@@ -80,7 +81,7 @@ create table comment_mind(
 
 select * from s_post;
 									
-drop table comment_mind cascade constraints
+drop table s_post cascade constraints
 
 
 select * from s_member;
