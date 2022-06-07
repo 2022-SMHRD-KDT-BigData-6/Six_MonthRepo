@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <!--
 	Stellar by HTML5 UP
@@ -26,7 +26,7 @@
 		<header id="header" class="alt">
 			<span class="logo"><img src="images/smhrd.png" alt="" /></span>
 			<h1>Smhrd커뮤니티</h1>
-			<p>빅데이터 분석서비스 개발자과정	<br />
+			<p> 빅데이터 분석서비스 개발자과정 </p>
 		</header>
 
 		<!-- Nav -->
@@ -43,7 +43,7 @@
 		<div id="main">
 
 			<!-- Introduction -->
-			
+
 			<!-- 게시판 리스트 불러오기 -->
 			<section id="intro" class="main">
 				<div class="spotlight">
@@ -67,10 +67,11 @@
 
 						</table>
 						<ul class="actions">
-							<li><a href="mainBoard.jsp" class="button">더보기</a></li>
+							<li><a href="GoMain" class="button">더보기</a></li>
 						</ul>
 					</div>
-					<span class="login"></span>
+
+					<a href="login.jsp" class="image"><img src="images/Login.jpg"/></a>
 				</div>
 			</section>
 
@@ -81,15 +82,15 @@
 				</header>
 				<ul class="features">
 					<li><span class="icon solid major style1 fa-code"></span>
-						<h3>Ipsum consequat</h3>
+						<h3>서울/경기</h3>
 						<p>Sed lorem amet ipsum dolor et amet nullam consequat a
 							feugiat consequat tempus veroeros sed consequat.</p></li>
 					<li><span class="icon major style3 fa-copy"></span>
-						<h3>Amed sed feugiat</h3>
+						<h3>광주/전남</h3>
 						<p>Sed lorem amet ipsum dolor et amet nullam consequat a
 							feugiat consequat tempus veroeros sed consequat.</p></li>
 					<li><span class="icon major style5 fa-gem"></span>
-						<h3>Dolor nullam</h3>
+						<h3>국외</h3>
 						<p>Sed lorem amet ipsum dolor et amet nullam consequat a
 							feugiat consequat tempus veroeros sed consequat.</p></li>
 				</ul>

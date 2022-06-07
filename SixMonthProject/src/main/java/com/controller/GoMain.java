@@ -30,6 +30,7 @@ public class GoMain extends HttpServlet {
 		// request 영역
 		request.setAttribute("list", list);
 		
+		
 		// forward방식으로 이동
 		// RequestDispatcher 객체 생성
 		String nextPage = "mainBoard.jsp";

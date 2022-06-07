@@ -10,7 +10,8 @@
 
 	<!-- sql문에 붙여주는 고유값 (겹치면 안된다) -->
 	<select id="boardList" resultType="com.model.BoardVO">
-		select * from s_post
+		select * 
+		from s_post
 		<!-- #{필드명} => 해당하는 변수명을 가진 필드의 값을 깨내오기 -->
 	</select>
 

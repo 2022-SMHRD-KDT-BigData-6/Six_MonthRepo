@@ -15,10 +15,11 @@ public class BoardDAO {
 	// Connection pool 가져오기
 	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
+	int cnt = 0;
 
 	// 글 전체를 가져오는 메서드
-	int cnt = 0;
 	public List<BoardVO> boardList() {
+		System.out.println(sqlSessionFactory);
 
 		// 1. SqlSession 빌려오기
 		// openSession(auto commit);

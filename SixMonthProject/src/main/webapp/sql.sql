@@ -24,7 +24,7 @@ create table s_post(
 	constraint post_id_fk foreign key (id) references s_member(id)
 )
 
-select * from S_POST
+select * from s_post
 
 insert into s_post
 values (post_num_seq.nextval, 'ㅎㅇ', '테스트중', 'jaewoo', sysdate, 'aa');
@@ -65,7 +65,7 @@ create table post_mind(
 	constraint post_mind_good_pk primary key(good),
 	constraint post_mind_id_fk foreign key (id) references s_member(id),
 	constraint post_mind_Pnum_fk foreign key (Pnum) references s_post(Pnum)
-)
+)	
 
 		
 create table comment_mind(
@@ -80,9 +80,10 @@ create table comment_mind(
 
 select * from s_post;
 									
-drop table s_post cascade constraints
+drop table comment_mind cascade constraints
 
 
+select * from s_member;
 									
 									
 									
