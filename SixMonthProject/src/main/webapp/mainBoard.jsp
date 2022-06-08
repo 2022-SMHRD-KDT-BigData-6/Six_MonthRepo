@@ -58,18 +58,7 @@
 						</tr>
 
 					</thead>
-					<tbody>
-						<%--게시글 목록 출력!!!! --%>
-
-						<tr>
-							<td>1</td>
-							<%--QueryString으로 Pnum을 GoView로 보내주기 --%>
-							<td><a href="#">1번글입니다.</a></td>
-							<td>김준성</td>
-							<td>2022-06-03</td>
-							<td><a href="#">X</a></td>
-						</tr>
-						
+					<tbody>			
 						
 						<%
 						for (int i = 0; i < list.size(); i++) {
@@ -89,17 +78,15 @@
 						%>
 					</tbody>
 				</table>
+	
+			<div class="align-center">
+					<% for(int i =0; i<=boards/10; i++){
+					%>
+					<a href="GoMain?page=<%=i*10+1%>"><%=i+1 %></a>		
+				
+				<% }%>
+			</div>
 
-					
-			<% for(int i =0; i<=boards/10; i++){
-			%>
-			<a href="GoMain?page=<%=i*10+1%>"><%=i+1 %></a>		
-		
-		<% }%>
-
-			
-		
-		<br>		
 				<div class="align-center">
 				<a href="GoWriter"><button id="writer">작성하러가기</button></a>
 				</div>
