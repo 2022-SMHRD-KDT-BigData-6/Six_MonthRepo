@@ -19,9 +19,11 @@
 </noscript>
 </head>
 <body class="is-preload">
+
 <%
 	MemberVO vo=(MemberVO)session.getAttribute("vo");
 %>
+
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -29,8 +31,10 @@
 		<header id="header" class="alt">
 			<span class="logo"><img src="images/smhrd.png" alt="" /></span>
 			<h1>Smhrd커뮤니티</h1>
+
 			<p> 빅데이터 분석서비스 개발자과정 </p>
 			
+
 		</header>
 
 		<!-- Nav -->
@@ -71,9 +75,12 @@
 
 						</table>
 						<ul class="actions">
-							<li><a href="GoMain" class="button">더보기</a></li>
+							<li><a href="GoMain?page=1" class="button">더보기</a></li>
+
 						</ul>
+
 					</div>
+
 				
 				<form>
 					<%if(vo==null){ %>
@@ -96,6 +103,7 @@
 					
 				</form>
 					
+
 				</div>
 			</section>
 

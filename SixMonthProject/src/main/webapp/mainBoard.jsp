@@ -22,7 +22,10 @@
 	//obj타입 업캐스팅 된채로 저장 
 	//request에 저장해둔 list 꺼내오기
 	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
+	int boards = (int)request.getAttribute("boards");
 	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+	
+
 	%>
 	
 	<!-- Wrapper -->
@@ -64,6 +67,7 @@
 							<td><a href="#">X</a></td>
 						</tr>
 						
+						
 						<%
 						for (int i = 0; i < list.size(); i++) {
 							BoardVO bvo = list.get(i);
@@ -82,8 +86,18 @@
 						%>
 					</tbody>
 				</table>
+					
+			<% for(int i =0; i<=boards/10; i++){
+			%>
+			<a href="GoMain?page=<%=i*10+1%>"><%=i+1 %></a>		
+		
+		<% }%>
 
-				<a href="GoWriter"><button id="writer">작성하러가기</button></a>
+			
+		
+		<BR>		
+
+		<a href="GoWriter"><button id="writer">작성하러가기</button></a>
 			</section>
 
 		</div>
