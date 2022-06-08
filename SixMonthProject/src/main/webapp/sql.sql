@@ -87,6 +87,7 @@ select *
 from (select rownum as rn, pnum, title, id, content, pdate from s_post order by pnum) A
 where a.rn between 1 and 1+9;
 
+
 select * from s_member;
 									
 									

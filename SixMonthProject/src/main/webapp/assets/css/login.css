@@ -23,7 +23,6 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	text-decoration-line: none;
 	vertical-align: baseline;}
 
 article, aside, details, figcaption, figure,
@@ -103,10 +102,7 @@ input, select, textarea {
 	
 	body {
 		background-color: #935d8c;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+		
 	}
 	
 
@@ -132,11 +128,10 @@ input, select, textarea {
 	}
 	
 
-	body, input, select, textarea, a {
+	body, input, select, textarea {
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 17pt;
 		font-weight: 300;
-		text-decoration-line: none;
 		line-height: 1.65;
 	}
 
@@ -170,14 +165,12 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease, border-bottom 0.2s ease;
 		transition: color 0.2s ease, border-bottom 0.2s ease;
 		text-decoration: none;
-		text-decoration-line: none;
 		border-bottom: dotted 1px;
 		color: inherit;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			 text-decoration-line: none;
 		}
 
 	strong, b {
@@ -214,7 +207,6 @@ input, select, textarea {
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			color: inherit;
 			text-decoration: none;
-			text-decoration-line: none;
 		}
 
 	h1 {
@@ -3795,10 +3787,3 @@ input, select, textarea {
 			}
 
 		}
-		
-
-/* updateBoard a еб╠в*/
-	
-	.back {
-		text-decoration-line: none;
-	}		

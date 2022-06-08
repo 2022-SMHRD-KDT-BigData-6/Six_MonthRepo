@@ -29,13 +29,14 @@
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<span class="logo"><img src="images/smhrd.png" alt="" /></span>
+			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<h1>Smhrd커뮤니티</h1>
 
 			<p> 빅데이터 분석서비스 개발자과정 </p>
 			
 
 		</header>
+
 
 		<!-- Nav -->
 		<nav id="nav">

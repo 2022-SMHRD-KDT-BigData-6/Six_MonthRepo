@@ -28,13 +28,16 @@
 
 	%>
 	
+	
 	<!-- Wrapper -->
 	<div id="wrapper">
 
 		<!-- Header -->
 		<header id="header">
+			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<br><br>
 			<h1>자유게시판</h1>
-			<p>빅데이터 분석서비스 개발과정</p>
+			
 		</header>
 
 		<!-- Main -->
@@ -86,6 +89,7 @@
 						%>
 					</tbody>
 				</table>
+
 					
 			<% for(int i =0; i<=boards/10; i++){
 			%>
@@ -95,9 +99,10 @@
 
 			
 		
-		<BR>		
-
-		<a href="GoWriter"><button id="writer">작성하러가기</button></a>
+		<br>		
+				<div class="align-center">
+				<a href="GoWriter"><button id="writer">작성하러가기</button></a>
+				</div>
 			</section>
 
 		</div>
