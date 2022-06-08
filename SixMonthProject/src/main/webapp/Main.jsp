@@ -1,3 +1,5 @@
+<%@page import="com.model.BoardVO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -22,6 +24,7 @@
 
 <%
 	MemberVO vo=(MemberVO)session.getAttribute("vo");
+	List<BoardVO> list = (List<BoardVO>)request.getAttribute("list");
 %>
 
 	<!-- Wrapper -->
@@ -29,7 +32,7 @@
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<h1>Smhrd커뮤니티</h1>
 
 			<p> 빅데이터 분석서비스 개발자과정 </p>
@@ -65,18 +68,21 @@
 								<td>제목</td>
 								<td>작성자</td>
 							</tr>
+							<%
+							for (int i = 0; i < 5; i++) {
+								BoardVO bvo = list.get(i);
+							%>
 							<tr>
-								<td>1번글입니다.</td>
-								<td>김준성</td>
+								<td><%=bvo.getTitle()%></td>
+								<td><%=bvo.getId()%></td>
 							</tr>
-							<tr>
-								<td>2번글입니다.</td>
-								<td>김재우</td>
-							</tr>
+							<%
+								}
+							%>
 
 						</table>
 						<ul class="actions">
-							<li><a href="GoMain?page=1" class="button">더보기</a></li>
+							<li><a href="GoFree?page=1" class="button">더보기</a></li>
 
 						</ul>
 
@@ -98,10 +104,6 @@
 						<button>로그아웃</button>
 						<%session.removeAttribute("nick"); 
 						  session.removeAttribute("name");%>
-						
-					
-					
-					
 				</form>
 					
 

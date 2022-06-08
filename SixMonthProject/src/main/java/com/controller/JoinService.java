@@ -47,7 +47,7 @@ public class JoinService extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 		} else {
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("Main.jsp");
 		}
 	}
 

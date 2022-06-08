@@ -23,7 +23,7 @@
 
 		<!-- Header -->
 		<header id="header">
-			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<br><br>
 			<h1>자유게시판</h1>
 		</header>
@@ -72,7 +72,7 @@
 				</tr>
 				<tr>
 					<td class="align-right" colspan="2"> 
-					<a href="GoMain" class="back"><button>뒤로가기</button></a>
+					<a href="GoFree?page=1" class="back"><button>뒤로가기</button></a>
 					</td>
 				</tr>
 			</table>

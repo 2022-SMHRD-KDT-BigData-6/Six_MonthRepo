@@ -18,14 +18,13 @@
 	
 			<header class="major">
 					<br><br>
-					<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+					<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 					<h2>회원가입</h2>
 				</header>
 				
 				<!-- 회원가입 form -->
 					<form action=JoinService method="post">
-		
-			<section id="first" class="main special">
+					<section id="first" class="main special">
 				<ul class="features">
 					<li>
 						<h3>아이디</h3> 

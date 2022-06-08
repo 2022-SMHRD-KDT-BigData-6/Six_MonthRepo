@@ -19,7 +19,7 @@
 	MemberVO vo=(MemberVO)session.getAttribute("vo");
 %>
 		<header id="header" class="alt">
-			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<h1>Smhrd커뮤니티</h1>
 			<p> 빅데이터 분석서비스 개발자과정 </p>
 		</header>
@@ -55,7 +55,7 @@
 				<a href="findID_PW.jsp">ID/PW 찾기</a>
 				</li>
 				<li>
-				<a href="signIn.jsp">회원가입</a>
+				<a href="Join.jsp">회원가입</a>
 				</li>
 			</ul>
 		</footer>
