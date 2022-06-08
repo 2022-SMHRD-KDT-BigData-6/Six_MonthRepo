@@ -51,17 +51,18 @@
 					<textarea name="content" rows="10" style="resize: none;"></textarea>
 					</td>
 				</tr>
-				<tr >
-					<td class="align-center" colspan="2">
-					<input type="reset" value="초기화"> 
-					<input type="submit" value="작성하기"></td>
+				<tr class="align-center">
+					<td colspan="2">
+					<input type="image" src="image/check_box.png" alt="제출">
+					</td>
 				</tr>
 			</table>
 		</form>
+		
 		<table id="list">
 		<tr>
-			<td class="align-center">
-			<a href = "GoMain?page=1"><button>뒤로가기</button></a>
+			<td class="align-right">
+			<a style="text-align:right" href = "GoMain?page=1"><image src="image/back.png" alt="뒤로가기"></image></a>
 			</td>
 		</tr>
 		</table>

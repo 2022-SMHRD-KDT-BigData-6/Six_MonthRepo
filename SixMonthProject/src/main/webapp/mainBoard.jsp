@@ -78,6 +78,9 @@
 						%>
 					</tbody>
 				</table>
+			<div class="align-right">
+				<a href="GoWriter"><image src="image/write_2.png" id="writer"></image></a>
+			</div>
 	
 			<div class="align-center">
 					<% for(int i =0; i<=boards/10; i++){
@@ -87,9 +90,6 @@
 				<% }%>
 			</div>
 
-				<div class="align-center">
-				<a href="GoWriter"><button id="writer">작성하러가기</button></a>
-				</div>
 			</section>
 
 		</div>
