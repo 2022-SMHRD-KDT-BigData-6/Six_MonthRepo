@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.model.MemberDAO;
+import com.model.MemberVO;
+
 @WebServlet("/LoginService")
 public class LoginService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -18,21 +21,22 @@ public class LoginService extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 
-		com.model.MemberVO mvo = new com.model.MemberVO();
-		mvo.setId(id);
-		mvo.setPw(pw);
+		MemberVO vo = new MemberVO();
+		vo.setId(id);
+		vo.setPw(pw);
 
-		com.model.MemberDAO dao = new com.model.MemberDAO();
-		com.model.MemberVO result = dao.login(mvo);
+		MemberDAO dao = new MemberDAO();
+		MemberVO result = dao.login(vo);
 
 		if (result != null) {
-			// 로그인 성공하면 메인페이지로
-
+			// 로그인 정보 session에 저장
 			HttpSession session = request.getSession();
-			session.setAttribute("mvo", result);
+			session.setAttribute("vo", result);
+			// 로그인 성공하면 메인페이지로
+			response.sendRedirect("index.jsp");
 		} else {
 			// 로그인 실패하면 로그인페이지로
-			response.sendRedirect("login");
+			response.sendRedirect("login.jsp");
 		}
 
 	}

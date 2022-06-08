@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,6 +27,9 @@
 </style>
 </head>
 <body class="login">
+<%
+	MemberVO vo=(MemberVO)session.getAttribute("vo");
+%>
 	<div id="wrapper" align="center">
 
 		<section id="first" class="main special">
@@ -38,10 +42,12 @@
 			<ul class="features">
 				<li>
 				<span class="id"></span>
-				<input type="text" name="id" <%=(String)request.getAttribute("id")%> placeholder="ID을 입력하세요"> 
+				<input type="text" name="id" placeholder="ID을 입력하세요"> 
 				<input type="password" name="pw" placeholder="PW를 입력하세요">
-				<input type="submit" value="로그인"	class="button fit"><a href="index.jsp"></a>
+				<input type="submit" value="로그인"	class="button fit">
 				</li>
+
+				}
 			</ul>
 			</form>
 			

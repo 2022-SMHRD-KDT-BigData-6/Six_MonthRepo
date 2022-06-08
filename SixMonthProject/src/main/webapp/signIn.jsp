@@ -48,7 +48,7 @@
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><input type="submit" value="JoinUs" class="button fit"><a href="login.jsp"></a></li>
+						<li><input type="submit" value="JoinUs" class="button fit"></li>
 					</ul>
 				</footer>
 					</form>

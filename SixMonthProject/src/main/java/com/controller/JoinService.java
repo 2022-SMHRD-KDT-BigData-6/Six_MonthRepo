@@ -22,7 +22,7 @@ public class JoinService extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		// !! main.jsp(메인페이지)생기면 action,name,value값 정해주기-> o
+		// !! signln.jsp(메인페이지)생기면 action,name,value값 정해주기-> o
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String pw = request.getParameter("pw");
@@ -47,7 +47,7 @@ public class JoinService extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
 		} else {
-			response.sendRedirect("index");
+			response.sendRedirect("index.jsp");
 		}
 	}
 

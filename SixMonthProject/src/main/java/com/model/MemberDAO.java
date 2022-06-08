@@ -22,12 +22,12 @@ public class MemberDAO {
 		return row;
 	}
 
-	public MemberVO login(MemberVO mvo) {
+	public MemberVO login(MemberVO vo) {
 
 		SqlSession session = sqlFactory.openSession(true);
 
-		// selectOne => id이 PK이기때문
-		MemberVO result = session.selectOne("login", mvo);
+		// selectOne => id가 PK이기때문
+		MemberVO result = session.selectOne("login", vo);
 
 		session.close();
 
