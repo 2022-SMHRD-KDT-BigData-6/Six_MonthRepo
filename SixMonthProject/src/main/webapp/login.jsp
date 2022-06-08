@@ -35,8 +35,8 @@
 			<ul class="features">
 				<li>
 				<span class="id"></span>
-				<input type="text"	placeholder="ID을 입력하세요"> 
-				<input type="password"	placeholder="PW를 입력하세요">
+				<input type="text" name="id" placeholder="ID을 입력하세요"> 
+				<input type="password" name="pw" placeholder="PW를 입력하세요">
 				<input type="submit" value="로그인"	class="button fit">
 				</li>
 			</ul>

@@ -31,23 +31,27 @@
 				<header class="major">
 					<h2>회원가입</h2>
 				</header>
+				
+					<form action=JoinService method="post">
 				<ul class="features">
 					<li><span class="id"></span>
 						<h3>아이디</h3> 
-						<input type="text" placeholder="ID을 입력하세요"> 
-						<h3>비밀번호</h3> <input type="password" placeholder="PW를 입력하세요">
-						<h3>비밀번호확인</h3> <input type="password" placeholder="PW를 입력하세요">
-						<h3>Email</h3> <input type="text" placeholder="Email을 입력하세요">
+						<input type="text" name="id" placeholder="ID을 입력하세요"> 
+						<h3>비밀번호</h3> <input type="password" name="pw" placeholder="PW를 입력하세요">
+						<h3>비밀번호확인</h3> <input type="password" name="pw" placeholder="PW를 입력하세요">
+						<h3>Email</h3> <input type="text" name="email" placeholder="Email을 입력하세요">
 						<a>인증번호 전송</a> <input type="text" placeholder="인증번호를 입력하세요">
-						<h3>이름</h3> <input type="text" placeholder="이름을 입력하세요">
-						<h3>닉네임</h3> <input type="text" placeholder="닉네임을 입력하세요">
+						<h3>이름</h3> <input type="text" name="name" placeholder="이름을 입력하세요">
+						<h3>닉네임</h3> <input type="text" name="nick" placeholder="닉네임을 입력하세요">
 					</li>
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><input type="submit" value="JoinUs" class="button fit"></li>
+						<li><input type="submit" value="JoinUs" class="button fit"><a href="index.jsp"></a></li>
 					</ul>
 				</footer>
+					</form>
+					
 			</section>
 	</div>
 </body>
