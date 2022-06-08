@@ -67,7 +67,15 @@
 			<tr>
 				<td class="align-center" colspan="2">
 					<a href="GoUpdate?pnum=<%=view.getPnum()%>"><button>수정하기</button></a>
+<<<<<<< HEAD
 					<a href="GoFree?page=1"><button>뒤로가기</button></a>
+=======
+				</td>
+			</tr>
+			<tr>
+				<td class="align-right" colspan="2">
+					<a href="GoMain?page=1"><image src="image/back.png"></image></a>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 				</td>
 			</tr>
 		</table>

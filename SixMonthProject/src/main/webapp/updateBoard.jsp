@@ -66,13 +66,17 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="align-right" colspan="2">
+					<td class="align-center" colspan="2">
 					<input type="image" src="image/check_box.png" alt="수정하기">
 					</td>
 				</tr>
 				<tr>
 					<td class="align-right" colspan="2"> 
+<<<<<<< HEAD
 					<a href="GoFree?page=1" class="back"><button>뒤로가기</button></a>
+=======
+					<a href="GoMain?page=1"><image src="image/back.png" alt="뒤로가기"></image></a>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 					</td>
 				</tr>
 			</table>
