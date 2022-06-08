@@ -49,5 +49,14 @@
 		fileName = #{fileName, jdbcType=VARCHAR}
 		where pnum=#{pnum}
 	</update>
+	
+	<select 
+	 id="pagging"
+	 resultType="BoardVO"
+ 	>
+	 	select * 
+		from (select rownum as rn, pnum, title, id, content, pdate from s_post order by pnum desc) A
+		where a.rn between #{page}  and  #{page} + 9
+ 	</select>
 
 </mapper>

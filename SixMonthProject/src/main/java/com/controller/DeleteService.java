@@ -28,7 +28,7 @@ public class DeleteService extends HttpServlet {
 		//4. 성공 실패 판단후 페이지 이동 
 		String nextPage = "GoMain";
 		
-		response.sendRedirect("GoMain");
+		response.sendRedirect("GoMain?page=1");
 	}
 
 }
