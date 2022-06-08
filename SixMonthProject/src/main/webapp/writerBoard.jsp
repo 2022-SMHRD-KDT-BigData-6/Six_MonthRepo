@@ -52,13 +52,21 @@
 					</td>
 				</tr>
 				<tr >
-					<td class="align-center" colspan="2"><input type="reset" value="초기화"> <input
-						type="submit" value="작성하기"></td>
+					<td class="align-center" colspan="2">
+					<input type="reset" value="초기화"> 
+					<input type="submit" value="작성하기"></td>
 				</tr>
 			</table>
 		</form>
+		<table id="list">
+		<tr>
+			<td class="align-center">
+			<a href = "GoMain?page=1"><button>뒤로가기</button></a>
+			</td>
+		</tr>
+		</table>
 		</section>
-
+		
 		</div>
 
 		<!-- Footer -->

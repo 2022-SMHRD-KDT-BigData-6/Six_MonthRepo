@@ -7,12 +7,20 @@
 
 	<!-- 회원가입sql -->
 	<insert id="memberInsert" parameterType="com.model.MemberVO">
-		insert into jdbc_member
+		insert into s_member
 		values (#{id},
 				#{name},
 				#{pw},
 				#{email},
 				#{nick})
 	</insert>
+	
+	<!-- 로그인 sql -->
+	<select id="login" parameterType="com.model.MemberVO" resultType="com.model.MemberVO">
+		select *
+		from s_member
+		where id=#{id}
+		and pw=#{pw}
+	</select>
 
 </mapper>

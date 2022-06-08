@@ -30,7 +30,7 @@
 
 		<!-- Main -->
 		<div id="main">
-		<form action="UpdateService" method="post">
+		<form action="UpdateService" method="post" enctype="multipart/form-data">
 			<table id="list">
 				<tr>
 					<td>제목</td>
@@ -48,6 +48,15 @@
 						 form태그로 보내지지 않음
 					 --%>
 					<td><%= view.getId() %></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<input name="file" type="file">
+					<%if(view.getFileName() != null){ %>
+					<img alt="" src="image/<%= view.getFileName()%>">
+					<%} %>
+					<br>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2">내용</td>
