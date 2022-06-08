@@ -61,13 +61,8 @@
 		
 		<table id="list">
 		<tr>
-<<<<<<< HEAD
-			<td class="align-center">
-			<a href = "GoFree?page=1"><button>뒤로가기</button></a>
-=======
 			<td class="align-right">
-			<a style="text-align:right" href = "GoMain?page=1"><image src="image/back.png" alt="뒤로가기"></image></a>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
+			<a href = "GoFree?page=1"><image src="image/back.png" alt="뒤로가기"></image></a>
 			</td>
 		</tr>
 		</table>
