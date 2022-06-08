@@ -6,33 +6,25 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/login.css" />
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 <title>회원가입</title>
-<style type="text/css">
-@media screen and (min-width: 900px) {
-	#forms {
-		width: 25%;
-	}
-}
-
-@media screen and (max-width: 899px) {
-	#forms {
-		width: 50%;
-	}
-}
-</style>
 </head>
 <body class="login">
+
 	<div id="wrapper" align="center">
-			<section id="first" class="main special">
-				<header class="major">
+	
+			<header class="major">
+					<br><br>
+					<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
 					<h2>회원가입</h2>
-				</header>
+			</header>
+		
+			<section id="first" class="main special">
 				<ul class="features">
-					<li><span class="id"></span>
+					<li>
 						<h3>아이디</h3> 
 						<input type="text" placeholder="ID을 입력하세요"> 
 						<h3>비밀번호</h3> <input type="password" placeholder="PW를 입력하세요">

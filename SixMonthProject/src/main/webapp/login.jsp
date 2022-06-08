@@ -6,26 +6,22 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/login.css" />
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 <title>로그인</title>
-<style type="text/css">
-@media screen and (min-width: 900px) {
-	#forms {
-		width: 25%;
-	}
-}
 
-@media screen and (max-width: 899px) {
-	#forms {
-		width: 50%;
-	}
-}
-</style>
 </head>
 <body class="login">
+		<header id="header" class="alt">
+			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<h1>Smhrd커뮤니티</h1>
+			<p> 빅데이터 분석서비스 개발자과정 </p>
+		</header>
+
+
+
 	<div id="wrapper" align="center">
 
 		<section id="first" class="main special">
@@ -34,7 +30,6 @@
 			</header>
 			<ul class="features">
 				<li>
-				<span class="id"></span>
 				<input type="text"	placeholder="ID을 입력하세요"> 
 				<input type="password"	placeholder="PW를 입력하세요">
 				<input type="submit" value="로그인"	class="button fit">
@@ -45,7 +40,12 @@
 
 		<footer class="major">
 			<ul class="actions special">
-				<li><a href="signIn.jsp">회원가입</a></li>
+				<li>
+				<a href="findID_PW.jsp">ID/PW 찾기</a>
+				</li>
+				<li>
+				<a href="signIn.jsp">회원가입</a>
+				</li>
 			</ul>
 		</footer>
 

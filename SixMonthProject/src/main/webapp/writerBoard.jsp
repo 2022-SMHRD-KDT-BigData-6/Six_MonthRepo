@@ -13,7 +13,12 @@
 </noscript>
 </head>
 <body class="is-preload">
-
+		<header id="header" class="alt">
+			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<h1>Smhrd커뮤니티</h1>
+			<p> 빅데이터 분석서비스 개발자과정 </p>
+		</header>
+	
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -46,8 +51,8 @@
 					<textarea name="content" rows="10" style="resize: none;"></textarea>
 					</td>
 				</tr>
-				<tr>
-					<td colspan="2"><input type="reset" value="초기화"> <input
+				<tr >
+					<td class="align-center" colspan="2"><input type="reset" value="초기화"> <input
 						type="submit" value="작성하기"></td>
 				</tr>
 			</table>
