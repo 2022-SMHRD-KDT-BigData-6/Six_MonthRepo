@@ -21,7 +21,6 @@
 		</header>
 
 
-
 	<div id="wrapper" align="center">
 
 		<section id="first" class="main special">
