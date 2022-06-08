@@ -41,9 +41,7 @@
 				<td>제목</td>
 				<td>
 					<%--게시글 제목 출력 --%>
-					<%=
-						view.getTitle()
-					%>
+					<%=view.getTitle()%>
 				</td>
 			</tr>
 			<tr>
@@ -69,7 +67,7 @@
 			<tr>
 				<td class="align-center" colspan="2">
 					<a href="GoUpdate?pnum=<%=view.getPnum()%>"><button>수정하기</button></a>
-					<a href="GoMain"><button>뒤로가기</button></a>
+					<a href="GoMain?page=1"><button>뒤로가기</button></a>
 				</td>
 			</tr>
 		</table>

@@ -1,4 +1,4 @@
-create table s_member(
+ create table s_member(
 	id varchar2(20),
 	name varchar2(10),
 	pw varchar2(20) not null,
@@ -83,8 +83,13 @@ select * from s_post;
 									
 drop table s_post cascade constraints
 
+select * 
+from (select rownum as rn, pnum, title, id, content, pdate from s_post order by pnum) A
+where a.rn between 1 and 1+9;
 
-	
+
+select * from s_member;
+									
 									
 									
 									
