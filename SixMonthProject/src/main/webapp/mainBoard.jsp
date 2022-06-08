@@ -26,7 +26,7 @@
 	//request에 저장해둔 list 꺼내오기
 	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
 	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
-	
+	int boards = (int)request.getAttribute("boards");
 	%>
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -86,7 +86,16 @@
 						%>
 					</tbody>
 				</table>
-
+				
+				<%for(int i =0; i<=boards/10; i++){
+			%>
+			<a href="GoMain?page=<%=i+1 %>"><%=i+1 %></a>		
+		
+		<% }%>
+			
+		
+		<BR>		
+				
 				<a href="GoWriter"><button id="writer">작성하러가기</button></a>
 			</section>
 

@@ -63,7 +63,9 @@ select * from s_post;
 									
 drop table s_member cascade constraints
 
-
+select * 
+from (select rownum as rn, bnum, title, writer, content, day from jdbc_board order by rownum) A
+where a.rn between 1 and 1+9;
 									
 									
 									

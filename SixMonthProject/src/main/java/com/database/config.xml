@@ -21,6 +21,7 @@
 
 	<!-- resource -->
 	<mappers>
+	
 		<mapper resource="com/database/MemberMapper.xml" />
 	</mappers>
 

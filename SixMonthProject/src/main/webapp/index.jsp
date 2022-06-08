@@ -68,6 +68,8 @@
 						</table>
 						<ul class="actions">
 							<li><a href="mainBoard.jsp" class="button">더보기</a></li>
+							
+							
 						</ul>
 					</div>
 					<span class="image"><img src="images/pic01.jpg" alt="" /></span>
