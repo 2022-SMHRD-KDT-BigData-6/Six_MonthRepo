@@ -7,7 +7,7 @@
 
 	<!-- 회원가입sql -->
 	<insert id="memberInsert" parameterType="com.model.MemberVO">
-		insert into jdbc_member
+		insert into s_member
 		values (#{id},
 				#{name},
 				#{pw},

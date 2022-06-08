@@ -32,6 +32,7 @@
 					<h2>회원가입</h2>
 				</header>
 				
+				<!-- 회원가입 form -->
 					<form action=JoinService method="post">
 				<ul class="features">
 					<li><span class="id"></span>
@@ -47,7 +48,7 @@
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><input type="submit" value="JoinUs" class="button fit"><a href="index.jsp"></a></li>
+						<li><input type="submit" value="JoinUs" class="button fit"><a href="login.jsp"></a></li>
 					</ul>
 				</footer>
 					</form>

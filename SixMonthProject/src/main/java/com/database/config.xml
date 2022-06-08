@@ -3,16 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<typeAliases>
+		
+		<typeAlias type="com.model.BoardVO" alias="BoardVO"/>
+		
+	</typeAliases>
+	
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-			
 				<!-- username, pw만 수정함 -->
-				<property name="driver"
-					value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url"
-					value="project-db-stu.ddns.net" />
+
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe" />
 				<property name="username" value="cgi_2_0516_3" />
 				<property name="password" value="smhrd3" />
 			</dataSource>
@@ -21,6 +25,7 @@
 
 	<!-- resource -->
 	<mappers>
+		<mapper resource="com/database/BoardMapper.xml" />
 		<mapper resource="com/database/MemberMapper.xml" />
 	</mappers>
 
