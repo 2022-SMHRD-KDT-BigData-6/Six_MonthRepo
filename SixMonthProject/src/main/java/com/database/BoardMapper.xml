@@ -45,7 +45,8 @@
 	<update id="boardUpdate" parameterType="BoardVO">
 		update s_post
 		set title = #{title},
-		content = #{content}
+		content = #{content},
+		fileName = #{fileName, jdbcType=VARCHAR}
 		where pnum=#{pnum}
 	</update>
 
