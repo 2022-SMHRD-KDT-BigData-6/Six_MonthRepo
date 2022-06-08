@@ -14,6 +14,7 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<!-- username, pw만 수정함 -->
+
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url" value="jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe" />
 				<property name="username" value="cgi_2_0516_3" />

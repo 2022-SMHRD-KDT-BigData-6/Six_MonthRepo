@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -19,7 +20,9 @@
 </head>
 <body class="is-preload">
 
-
+<%
+	MemberVO vo=(MemberVO)session.getAttribute("vo");
+%>
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -28,7 +31,10 @@
 		<header id="header" class="alt">
 			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<h1>Smhrd커뮤니티</h1>
-			<p>빅데이터 분석서비스 개발자과정</p>
+
+			<p> 빅데이터 분석서비스 개발자과정 </p>
+			
+
 		</header>
 
 
@@ -76,7 +82,28 @@
 
 					</div>
 
-					<a href="login.jsp" class="image"><img src="image/Login.jpg"/></a>
+				
+				<form>
+					<%if(vo==null){ %>
+						<a href="login.jsp" class="image"><img src="images/Login.jpg"/></a>
+					<%}else{ %>
+					<%	if(vo!=null){
+						out.print("<script>");
+						out.print("alert('로그인 되었습니다. 환영합니다~')");
+						out.print("</script>");
+						}%> 
+						<a href="#"><%=vo.getNick() %></a>
+						<a href="#"><%=vo.getName() %></a>
+						<%} %>
+						<button>로그아웃</button>
+						<%session.removeAttribute("nick"); 
+						  session.removeAttribute("name");%>
+						
+					
+					
+					
+				</form>
+					
 
 				</div>
 			</section>
