@@ -1,14 +1,10 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.model.MemberVO"%>
 <%@page import="com.model.BoardVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
-<!--
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 <head>
 <title>자유게시판</title>
@@ -22,12 +18,16 @@
 </head>
 <body class="is-preload">
 
-	<% //obj타입 업캐스팅 된채로 저장 
+	<% 
+	//obj타입 업캐스팅 된채로 저장 
 	//request에 저장해둔 list 꺼내오기
 	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
-	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 	int boards = (int)request.getAttribute("boards");
+	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+	
+
 	%>
+	
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -66,37 +66,38 @@
 							<td>2022-06-03</td>
 							<td><a href="#">X</a></td>
 						</tr>
+						
+						
 						<%
 						for (int i = 0; i < list.size(); i++) {
 							BoardVO bvo = list.get(i);
 						%>
 						<tr>
-							<%-- --%>
 							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?Pnum=<%=bvo.getPnum()%>"> 
+							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
 							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getWriter()%></td>
+							<td><%=bvo.getId()%></td>
 							<td><%=bvo.getPdate()%></td>
-							<td><%=bvo.getGood() %>
 							<%-- url?name=value --%>
-							<td><a href="DeleteService?Pnum=<%=bvo.getPnum()%>">X</a></td>
+							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>
 						<%
 						}
 						%>
 					</tbody>
 				</table>
-				
-				<%for(int i =0; i<=boards/10; i++){
+					
+			<% for(int i =0; i<=boards/10; i++){
 			%>
-			<a href="GoMain?page=<%=i+1 %>"><%=i+1 %></a>		
+			<a href="GoMain?page=<%=i*10+1%>"><%=i+1 %></a>		
 		
 		<% }%>
+
 			
 		
 		<BR>		
-				
-				<a href="GoWriter"><button id="writer">작성하러가기</button></a>
+
+		<a href="GoWriter"><button id="writer">작성하러가기</button></a>
 			</section>
 
 		</div>

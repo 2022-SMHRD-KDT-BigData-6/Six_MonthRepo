@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+
 @Data	// 기본 메서드만 생성(Getter/Setter, toString)
 @AllArgsConstructor //모든요소를 매개변수로 갖는 생성자.
 @NoArgsConstructor //기본생성자(매개변수가 없는 생성자)
-@RequiredArgsConstructor //NonNull이 붙은 요소만 매개변수로 갖는 생성자 
 public class BoardVO {
 	
 	// 반드시 지킬 것!!
@@ -17,16 +17,11 @@ public class BoardVO {
 	private int pnum;// 글번호 
 	
 	private String title;// 제목 
-	@NonNull
 	private String content;// 내용 
-	@NonNull
-	private String writer;// 작성자  
-	@NonNull
-	private String pdate; //  
-	@NonNull
-	private String id; //아이디 
+	private String id;// 작성자  
+	private String pdate; // 날짜
 	
-	private String good;
+	// private String good; // 공감
 	
 	private String fileName; // 첨부파일
 	
