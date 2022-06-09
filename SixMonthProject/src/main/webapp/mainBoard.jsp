@@ -93,7 +93,7 @@
 					
 			<% for(int i =0; i<=boards/10; i++){
 			%>
-			<a href="GoMain?page=<%=i*10+1%>"><%=i+1 %></a>		
+			<a href="GoMain?page=<%=i*10+1%>">[<%=i+1 %>]</a>		
 		
 		<% }%>
 
