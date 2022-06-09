@@ -34,7 +34,7 @@
 
 		<!-- Header -->
 		<header id="header">
-			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<br><br>
 			<h1>자유게시판</h1>
 			
@@ -82,7 +82,7 @@
 			<div class="align-center">
 					<% for(int i =0; i<=boards/10; i++){
 					%>
-					<a href="GoMain?page=<%=i*10+1%>"><%=i+1 %></a>		
+					<a href="GoFree?page=<%=i*10+1%>"><%=i+1 %></a>		
 				
 				<% }%>
 			</div>

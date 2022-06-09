@@ -14,7 +14,7 @@
 </head>
 <body class="is-preload">
 		<header id="header" class="alt">
-			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<h1>Smhrd커뮤니티</h1>
 			<p> 빅데이터 분석서비스 개발자과정 </p>
 		</header>
@@ -51,17 +51,18 @@
 					<textarea name="content" rows="10" style="resize: none;"></textarea>
 					</td>
 				</tr>
-				<tr >
-					<td class="align-center" colspan="2">
-					<input type="reset" value="초기화"> 
-					<input type="submit" value="작성하기"></td>
+				<tr class="align-center">
+					<td colspan="2">
+					<input type="image" src="image/check_box.png" alt="제출">
+					</td>
 				</tr>
 			</table>
 		</form>
+		
 		<table id="list">
 		<tr>
-			<td class="align-center">
-			<a href = "GoMain?page=1"><button>뒤로가기</button></a>
+			<td class="align-right">
+			<a href = "GoFree?page=1"><image src="image/back.png" alt="뒤로가기"></image></a>
 			</td>
 		</tr>
 		</table>
