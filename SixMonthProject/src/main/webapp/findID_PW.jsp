@@ -23,16 +23,19 @@
 					<h2>ID/PW찾기</h2>
 				</header>
 				
-				<form action="">
+				<!-- 아이디 비밀번호 찾는곳 -->
+				<form action="FindID">
 					<ul class="features">
 							<li>
 								<h3>ID찾기</h3> 
-								<input type="text" placeholder="Email을 입력하세요"> 
+								<input type="text" id="email" placeholder="Email을 입력하세요"> 
 								<input type="submit" value="ID찾기" class="button fit">
-								<%if(vo.getEmail().length()<1){ 
 								
 								
-								}%>
+								<h4>회원님의 아이디는</h4>
+								<div><%=(String)request.getAttribute("id")%></div>
+								<h4>입니다.</h4>
+								
 								
 							</li>
 							<li>
@@ -42,6 +45,7 @@
 							</li>
 					</ul>
 				</form>
+				
 				
 				<footer class="major">
 					<ul class="actions special">

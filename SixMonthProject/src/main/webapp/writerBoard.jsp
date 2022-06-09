@@ -23,7 +23,7 @@
 	%>
 	
 	<header id="header" class="alt">
-		<a href="index.jsp"><span class="logo"><img
+		<a href="GoMain"><span class="logo"><img
 				src="image/logo.big.png" /></span></a>
 		<h1>Smhrd커뮤니티</h1>
 		<p>빅데이터 분석서비스 개발자과정</p>
@@ -51,7 +51,8 @@
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td><%=vo.getNick()%></td>
+					<input type="hidden" name="id" value="<%=vo.getId() %>">
+					<td><input disabled type="text" name="id" value="<%=vo.getNick()%>"></td>
 				</tr>
 				<tr>
 					<td colspan="2">내용</td>

@@ -34,13 +34,9 @@
 		<header id="header" class="alt">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<h1>Smhrd커뮤니티</h1>
-<<<<<<< HEAD
 
-			<p> 빅데이터 분석서비스 개발자과정 </p>
-=======
 
 			<p> Created by Six_month </p>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 			
 
 		</header>
@@ -83,7 +79,8 @@
                   } else {// 로그인 했을때
                   %>
 
-                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> <a href="#"><%=vo.getNick()%></a><br>
+                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> 
+                  <a href="#"><%=vo.getNick()%></a><br>
                   <%
                   session.setAttribute("vo", vo);
                   %>
@@ -115,7 +112,7 @@
 								<td>작성자</td>
 							</tr>
 
-							<%--
+							<%
 
 							for (int i = 0; i < 5; i++) {
 								BoardVO bvo = list.get(i);
@@ -127,7 +124,7 @@
 							<%
 								}
 
-							--%>
+							%>
 
 
 						</table>
@@ -147,17 +144,7 @@
 								<td>제목</td>
 								<td>작성일자</td>
 							</tr>
-							<%-- <%
-							for (int i = 0; i < 5; i++) {
-								BoardVO bvo = list.get(i);
-							%>
-							<tr>
-								<td><%=bvo.getTitle()%></td>
-								<td><%=bvo.getId()%></td>
-							</tr>
-							<%
-								}
-							%> --%>
+
 
 						</table>
 						<div class="align-center">
@@ -167,29 +154,6 @@
 					</div>
 
 
-				
-				<form>
-						<% // 로그인 안했을때 
-						if (vo == null) {
-						%>
-						<a href="login.jsp" class="image"><image src="image/Login.jpg"></image></a>
-
-						<%
-						} else {// 로그인 했을때
-						%>
-
-						<a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> 
-						 <a href="#"><%=vo.getNick()%></a><br>
-						<%
-						session.setAttribute("vo", vo);
-						%>
-						
-						<!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
-						<a href='logout'> 로그아웃 </a>
-						<%
-						}
-						%>
-				</form>
 
 
 				</div>

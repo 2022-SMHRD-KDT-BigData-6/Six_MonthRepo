@@ -35,7 +35,7 @@ public class LoginService extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("vo", result);
 			// 로그인 성공하면 메인페이지로
-			response.sendRedirect("Main.jsp");
+			response.sendRedirect("GoMain");
 		} else {
 			// 로그인 실패하면 로그인페이지로
 			response.sendRedirect("login.jsp");
