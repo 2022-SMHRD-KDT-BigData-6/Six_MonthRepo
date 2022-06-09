@@ -6,20 +6,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
+import com.model.MemberDAO;
+import com.model.MemberVO;
 
-@WebServlet("/logout")
-public class logout extends HttpServlet {
+@WebServlet("/findID")
+public class FindID extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 로그아웃 버튼 눌렀을때 넘어오는 페이지(우리 눈에 안보임)
-		HttpSession session = request.getSession();
-		session.removeAttribute("vo");
-		response.sendRedirect("Main.jsp");
+	String email=request.getParameter("email");
+	String id = request.getParameter("id");
+	
+	MemberVO vo=(MemberVO)request.getAttribute("vo");
+	
+	if(vo==null) {
+		request.setAttribute("alertMsg","일치하는 회원이 존재하지 않습니다.");
+	}
+	
+	
+	
+	
 	
 	
 	

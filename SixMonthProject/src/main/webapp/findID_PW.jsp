@@ -1,3 +1,4 @@
+<%@page import="com.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,6 +14,9 @@
 <title>ID/PW찾기</title>
 </head>
 <body class="login">
+	<%
+	MemberVO vo=(MemberVO)session.getAttribute("vo");
+	%>
 	<div id="wrapper" align="center">
 			<section id="first" class="main special">
 				<header class="major">
@@ -25,6 +29,11 @@
 								<h3>ID찾기</h3> 
 								<input type="text" placeholder="Email을 입력하세요"> 
 								<input type="submit" value="ID찾기" class="button fit">
+								<%if(vo.getEmail().length()<1){ 
+								
+								
+								}%>
+								
 							</li>
 							<li>
 								<h3>PW찾기</h3>
