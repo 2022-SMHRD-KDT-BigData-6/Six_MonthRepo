@@ -24,8 +24,9 @@
 	<div id="wrapper">
 
 		<!-- Header -->
-		<header id="header"> <a href="index.jsp"><span
-			class="logo"><img src="image/logo.big.png" /></span></a> <br>
+
+		<header id="header"> <a href="GoMain"><span class="logo"><img
+				src="image/logo.big.png" /></span></a> <br>
 		<br>
 		<h1>자유게시판</h1>
 		</header>
@@ -50,16 +51,18 @@
 						<%-- disabled 속성을 이용해서 수정을 방지,
 						 form태그로 보내지지 않음
 					 --%>
+
 						<td><%=view.getId()%></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input name="file" type="file"> <%
- if (view.getFileName() != null) {
- %>
-							<img alt="" src="image/<%=view.getFileName()%>"> <%
- }
- %> <br>
-						</td>
+						<td colspan="2"><input name="file" type="file"> 
+					<%
+					 if (view.getFileName() != null) {
+					 %> <img alt="" src="image/<%=view.getFileName()%>"> 
+					 
+					 <%
+					 }
+					 %> <br></td>
 					</tr>
 					<tr>
 						<td colspan="2">내용</td>
@@ -69,15 +72,16 @@
 								style="resize: none;"><%=view.getContent()%></textarea></td>
 					</tr>
 					<tr>
-						<td class="align-right" colspan="2"><input type="image"
+						<td class="align-center" colspan="2"><input type="image"
 							src="image/check_box.png" alt="수정하기"></td>
 					</tr>
 					<tr>
-						<td class="align-right" colspan="2"><a href="GoMain"
-							class="back"><button>뒤로가기</button></a></td>
+						<td class="align-right" colspan="2"><a href="GoFree?page=1"
+							class="back"><image src="image/back.png" alt="뒤로가기"></image></a></td>
 					</tr>
 				</table>
 			</form>
+
 		</div>
 		<!-- Footer -->
 		<footer id="footer"> <section>

@@ -27,50 +27,59 @@
 
 
 	<!-- Header -->
-	<header id="header"> <a href="index.jsp"><span
-		class="logo"><img src="image/logo.big.png" /></span></a> <br>
-	<br>
-	<h1>자유게시판<%=vo.getNick() %></h1>
+
+	<header id="header">
+			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<br><br>
+			<h1>자유게시판</h1>
 	</header>
 
 	<!-- Wrapper -->
 	<div id="wrapper">
 
 		<div id="main">
-			<section id="content" class="main">
-			<table id="list">
-				<tr>
-					<td>제목</td>
-					<td>
-						<%--게시글 제목 출력 --%> <%=view.getTitle()%>
-					</td>
-				</tr>
-				<tr>
-					<td>작성자</td>
-					<td>
-						<%--작성자 출력 --%> <%=view.getId()%>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">내용</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<%--게시글 내용 출력 --%> <%
- if (view.getFileName() != null) {
- %> <img alt=""
-						src="image/<%=view.getFileName()%>"> <%
- }
- %> <br> <%=view.getContent()%>
-					</td>
-				</tr>
-				<tr>
-					<td class="align-center" colspan="2"><a
-						href="GoUpdate?pnum=<%=view.getPnum()%>"><button>수정하기</button></a>
-						<a href="GoMain?page=1"><button>뒤로가기</button></a></td>
-				</tr>
-			</table>
-			</section>
+
+		<section id="content" class="main">
+		<table id="list">
+			<tr>
+				<td>제목</td>
+				<td>
+					<%--게시글 제목 출력 --%>
+					<%=view.getTitle()%>
+				</td>
+			</tr>
+			<tr>
+				<td>작성자</td>
+				<td>
+					<%--작성자 출력 --%>
+					<%= view.getId() %>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">내용</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<%--게시글 내용 출력 --%>
+					<%if(view.getFileName() != null){ %>
+					<img alt="" src="image/<%= view.getFileName()%>">
+					<%} %>
+					<br>
+					<%= view.getContent() %>
+				</td>
+			</tr>
+			<tr>
+				<td class="align-center" colspan="2">
+					<a href="GoUpdate?pnum=<%=view.getPnum()%>"><button>수정하기</button></a>
+				</td>
+			</tr>
+			<tr>
+				<td class="align-right" colspan="2">
+					<a href="GoFree?page=1"><image src="image/back.png"></image></a>
+				</td>
+			</tr>
+		</table>
+		</section>
 		</div>
 		<!-- Footer -->
 		<footer id="footer"> <section>
