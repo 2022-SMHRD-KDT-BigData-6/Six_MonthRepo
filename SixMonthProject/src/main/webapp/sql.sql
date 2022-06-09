@@ -44,17 +44,28 @@ alter table s_post add foreign key(good) references post_mind(good)
 drop table s_post
 
 create table s_comment(
-	Cnum number(3),
-	Pnum number(3) not null,
+	cnum number(3),
+	pnum number(3),
 	comments varchar2(100) not null,
 	id varchar2(20) not null,
-	Cdate date,
-	good number(3),
-	constraint com_num_pk primary key (Cnum),
+	cdate date,
+	/* good number(3), */
+	constraint com_num_pk primary key (cnum),
 	constraint member_id_fk foreign key (id) references s_member(id),
-	constraint post_Pnum_fk foreign key (Pnum) references s_post(Pnum)
-)									
+	constraint post_pnum_fk foreign key (pnum) references s_post(pnum)
+)		
 
+select * from s_comment
+
+insert into s_comment
+values(comment_num_seq.nextval, '30', '´ñ±Û³»¿ë', 'jaewoo', sysdate);
+
+create sequence comment_num_seq
+	start with 1
+	increment by 1
+	maxvalue 999999
+	nocycle
+	nocache
 
 alter table s_comment add foreign key (good) references comment_mind(good)
 drop table s_comment
@@ -81,10 +92,10 @@ create table comment_mind(
 
 select * from s_post;
 									
-drop table s_post cascade constraints
+drop table s_comment cascade constraints
 
 select * 
-from (select rownum as rn, pnum, title, id, content, pdate from s_post order by pnum) A
+from (select rownum as rn, pnum, title, id, content, pdate from s_post order by pnum desc) A
 where a.rn between 1 and 1+9;
 
 

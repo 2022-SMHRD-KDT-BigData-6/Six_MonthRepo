@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.model.BoardDAO;
 import com.model.BoardVO;
+import com.model.CommentVO;
 
 @WebServlet("/GoView")
 public class GoView extends HttpServlet {
@@ -24,9 +25,10 @@ public class GoView extends HttpServlet {
       //2DA의 boardView()메서드를 사용
       BoardDAO dao = new BoardDAO();
       BoardVO view = dao.boardVO(pnum);
+
       
       // 3, 1개의 글 데이터 ==> BoardVO를 객체 바인딩
-       //List<BoardVO>list = dvo.boardList();
+      //List<BoardVO>list = dvo.boardList();
       request.setAttribute("view",view);
       
       

@@ -21,7 +21,6 @@ public class BoardDAO {
 
 	// 글 전체를 가져오는 메서드
 	public List<BoardVO> boardList() {
-		System.out.println(sqlSessionFactory);
 
 		// 1. SqlSession 빌려오기
 		// openSession(auto commit);
@@ -132,10 +131,33 @@ public class BoardDAO {
 		// 4. 쿼리문 실행 결과 리턴
 		return cnt;
 	}
+	
+	// 댓글 작성
+	public int commentInsert(CommentVO cvo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		try {
+			cnt = session.insert("commentInsert", cvo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		session.close();
+		
+		return cnt;
+	}
+	
+	public List<CommentVO> commentList() {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		List<CommentVO> list = session.selectList("boardList");
 
-	public int getCount(String kwd) {
-		// TODO Auto-generated method stub
-		return 0;
+		// 3. 빌려온 session 반환
+		session.close();
+
+		// 4. 쿼리실행 결과 리턴
+		return list;
+		
 	}
 
 }

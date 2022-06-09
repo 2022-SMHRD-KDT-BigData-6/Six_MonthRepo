@@ -1,3 +1,5 @@
+<%@page import="com.model.CommentVO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -20,6 +22,8 @@
 		// request영역에서 데이터 꺼내오기
 		// 페이지에 출력하기
 		BoardVO view = (BoardVO)request.getAttribute("view");
+		List<CommentVO> list = (List<CommentVO>)request.getAttribute("list");
+		
 	%>
 	
 	
@@ -77,6 +81,64 @@
 		</table>
 		</section>
 		</div>
+		
+		<table id="comment">
+					<thead>
+
+						<tr>
+							<td>번호</td>
+							<td>작성자</td>
+							<td>내용</td>
+							<td>시간</td>
+						</tr>
+						
+					<tbody>			
+						
+					  	<%
+						for (int i = 0; i < list.size(); i++) {
+							CommentVO cvo = list.get(i);
+						%>
+						<tr>
+							<td><%=cvo.getPnum()%></td>
+							<td><%=cvo.getId()%></td>
+							<td><%=cvo.getComments()%></td>
+							<td><%=cvo.getCdate() %></td>
+						</tr>
+						<%
+						}
+						%>
+					</tbody>
+
+					</thead>
+
+		</table>
+				
+				
+		<form action="ComInsertService" method="post" >
+			<table id="list">
+				<tr>
+					<td>글번호</td>
+					<td><input name="pnum" type="text"></td>
+				</tr>
+				<tr>
+				<%-- <input disabled type="text" value="<%=view.getWriter()%>"> --%>
+					<td>작성자</td>
+					<td><input name="id" type="text"></td>
+				</tr>
+				<tr>
+					<td colspan="2">내용</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<textarea name="contents" rows="4" cols="70""></textarea>
+					</td>
+				</tr>
+				<td width="100">
+		            <input type="submit" value="댓글 등록"> 
+		        </td>
+			</table>
+		</form>
+	
 			<!-- Footer -->
 		<footer id="footer">
 			<section>

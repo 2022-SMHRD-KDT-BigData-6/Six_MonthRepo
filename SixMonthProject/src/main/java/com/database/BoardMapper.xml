@@ -5,8 +5,10 @@
 <mapper namespace="com.model.BoardDAO">
    <!-- namespace=> DAO이름(클래스 경로까지) class 파일을 가져오는 경우 .으로 폴더구분 SQL문을 작성하는 Mapper파일 -->
 
-   <!-- select 태그 insert 태그 parameterType : 바인드변수를 채워줄 대상 사용하고자하는 문장과 동일한 이름 
-      태그 사용 resultType : select 할때만 사용 어떤 데이터 타입으로 결과를 묶어줄 것 resultType을 생략 가능 -->
+   <!-- select 태그 insert 태그 
+   parameterType : 바인드변수를 채워줄 대상 사용하고자하는 문장과 동일한 이름 
+      태그 사용 
+   resultType : select 할때만 사용 어떤 데이터 타입으로 결과를 묶어줄 것 resultType을 생략 가능 -->
 
    <!-- sql문에 붙여주는 고유값 (겹치면 안된다) -->
    <select id="boardList" resultType="com.model.BoardVO">
@@ -58,6 +60,24 @@
 		from (select rownum as rn, pnum, title, id, content, pdate from s_post order by pnum desc) A
 		where a.rn between #{page}  and  #{page} + 9
  	</select>
+ 	
+ 	<!-- 댓글 작성 -->
+ 	<insert id="commentInsert" parameterType="com.model.CommentVO">
+ 		insert into s_comment
+ 		values(
+ 			comment_num_seq.nextval,
+ 			#{pnum},
+ 			#{comments},
+ 			#{id},
+ 			sysdate
+ 		)
+ 	</insert>
+ 	
+ 	<!-- 댓글 보기 -->
+ 	<select id="commentList" resultType="com.model.CommentVO">
+      select * 
+      from s_comment
+   </select>
 
 
 </mapper>
