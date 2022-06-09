@@ -85,7 +85,7 @@
 				
 				<form>
 					<%if(vo==null){ %>
-						<a href="login.jsp" class="image"><img src="images/Login.jpg"/></a>
+						<a href="login.jsp" class="image"><img src="image/Login.jpg"/></a>
 					<%}else{ %>
 					<%	if(vo!=null){
 						out.print("<script>");
