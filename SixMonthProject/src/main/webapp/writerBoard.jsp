@@ -1,5 +1,7 @@
+<%@page import="com.model.MemberVO"%>
+<%@page import="com.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -13,11 +15,19 @@
 </noscript>
 </head>
 <body class="is-preload">
-		<header id="header" class="alt">
-			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
-			<h1>Smhrd커뮤니티</h1>
-			<p> 빅데이터 분석서비스 개발자과정 </p>
-		</header>
+	<%
+	// request영역에서 데이터 꺼내오기
+	// 페이지에 출력하기
+	BoardVO view = (BoardVO) request.getAttribute("view");
+	MemberVO vo = (MemberVO) session.getAttribute("vo");
+	%>
+	
+	<header id="header" class="alt">
+		<a href="index.jsp"><span class="logo"><img
+				src="image/logo.big.png" /></span></a>
+		<h1>Smhrd커뮤니티</h1>
+		<p>빅데이터 분석서비스 개발자과정</p>
+	</header>
 	
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -32,6 +42,7 @@
 
 			<!-- Content -->
 			<section>
+
 			<form action="InsertService" method="post" enctype="multipart/form-data"> <!-- multipart/form-data 파일 인코딩 X!! -->
 			<table id="list">
 				<tr>
@@ -40,7 +51,7 @@
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td><input name="id" type="text" ></td>
+					<td><%=vo.getNick()%></td>
 				</tr>
 				<tr>
 					<td colspan="2">내용</td>
