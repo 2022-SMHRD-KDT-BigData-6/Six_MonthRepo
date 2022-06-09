@@ -3802,3 +3802,14 @@ input, select, textarea {
 	.back {
 		text-decoration-line: none;
 	}		
+
+/* login ¼öÁ¤ */
+
+	#loginButton {
+			color: #ffffff !important;
+			box-shadow: none;
+			box-sizing: content-box;
+		}
+	
+	
+	

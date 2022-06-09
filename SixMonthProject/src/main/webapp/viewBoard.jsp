@@ -70,7 +70,7 @@
 			</tr>
 			<tr>
 				<td class="align-center" colspan="2">
-					<a href="GoUpdate?pnum=<%=view.getPnum()%>"><button>수정하기</button></a>
+					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button">수정하기</a>
 				</td>
 			</tr>
 			<tr>
