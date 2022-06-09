@@ -62,12 +62,35 @@
 				</div>
 				
 				<div class="content align-center" id="login" style="padding-right:10px" style="padding-left:10px">
-					<img alt="icon" src="image/login_logo.png">
+				<form>
+                  <% // 로그인 안했을때 
+                  if (vo == null) {
+                  %>
+                  
+                 	<img alt="icon" src="image/login_logo.png">
 					<br>
 					<a href="login.jsp" class="button primary">로그인</a>
 					<br>
 					<a href="Join.jsp" class="button">회원가입</a>
 					
+
+                  <%
+                  } else {// 로그인 했을때
+                  %>
+
+                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> <a href="#"><%=vo.getNick()%></a><br>
+                  <%
+                  session.setAttribute("vo", vo);
+                  %>
+                  
+                  <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
+                  <a href='logout'> 로그아웃 </a>
+                  <%
+                  }
+                  %>
+               </form>
+				
+		
 				</div>
 					
 			</div>
@@ -86,7 +109,7 @@
 								<td>제목</td>
 								<td>작성자</td>
 							</tr>
-							<%
+							<%-- <%
 							for (int i = 0; i < 5; i++) {
 								BoardVO bvo = list.get(i);
 							%>
@@ -96,7 +119,7 @@
 							</tr>
 							<%
 								}
-							%>
+							%> --%>
 
 						</table>
 						<div class="align-center">
@@ -115,7 +138,7 @@
 								<td>제목</td>
 								<td>작성일자</td>
 							</tr>
-							<%
+							<%-- <%
 							for (int i = 0; i < 5; i++) {
 								BoardVO bvo = list.get(i);
 							%>
@@ -125,7 +148,7 @@
 							</tr>
 							<%
 								}
-							%>
+							%> --%>
 
 						</table>
 						<div class="align-center">
