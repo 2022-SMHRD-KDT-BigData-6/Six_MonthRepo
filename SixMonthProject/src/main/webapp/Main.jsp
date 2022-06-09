@@ -90,21 +90,27 @@
 
 				
 				<form>
-					<%if(vo==null){ %>
-						<a href="login.jsp" class="image"><img src="image/Login.jpg"/></a>
-					<%}else{ %>
-					<%	if(vo!=null){
-						out.print("<script>");
-						out.print("alert('로그인 되었습니다. 환영합니다~')");
-						out.print("</script>");
-						}%> 
-						<a href="#"><%=vo.getNick() %></a>
-						<a href="#"><%=vo.getName() %></a>
-						<%} %>
-						<button>로그아웃</button>
-						<%session.removeAttribute("nick"); 
-						  session.removeAttribute("name");%>
-				</form>
+	                  <% // 로그인 안했을때 
+	                  if (vo == null) {
+	                  %>
+	                  <a href="login.jsp" class="image"><image src="image/Login.jpg"></image></a>
+	
+	                  <%
+	                  } else {// 로그인 했을때
+	                  %>
+	
+	                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> 
+	                   <a href="#"><%=vo.getNick()%></a><br>
+	                  <%
+	                  session.setAttribute("vo", vo);
+	                  %>
+	                  
+	                  <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
+	                  <a href='logout'> 로그아웃 </a>
+	                  <%
+	                  }
+	                  %>
+           	 	</form>
 					
 
 				</div>

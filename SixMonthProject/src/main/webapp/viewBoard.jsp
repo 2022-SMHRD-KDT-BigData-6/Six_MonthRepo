@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <%@page import="com.model.CommentVO"%>
 <%@page import="java.util.List"%>
+=======
+<%@page import="com.model.MemberVO"%>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 <%@page import="com.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -23,22 +27,23 @@
 		// 페이지에 출력하기
 		BoardVO view = (BoardVO)request.getAttribute("view");
 		List<CommentVO> list = (List<CommentVO>)request.getAttribute("list");
-		
 	%>
-	
-	
-	
+
+
+
 	<!-- Header -->
+
 	<header id="header">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<br><br>
 			<h1>자유게시판</h1>
 	</header>
-		
+
 	<!-- Wrapper -->
 	<div id="wrapper">
-	
+
 		<div id="main">
+
 		<section id="content" class="main">
 		<table id="list">
 			<tr>
@@ -81,6 +86,7 @@
 		</table>
 		</section>
 		</div>
+
 		
 		<table id="comment">
 					<thead>
@@ -176,8 +182,9 @@
 			<p class="copyright">
 				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
 			</p>
+
 		</footer>
-		
+
 	</div>
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
