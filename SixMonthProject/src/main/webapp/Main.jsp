@@ -35,7 +35,7 @@
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<h1>Smhrd커뮤니티</h1>
 
-			<p> 빅데이터 분석서비스 개발자과정 </p>
+			<p> Created by Six_month </p>
 			
 
 		</header>
@@ -53,13 +53,31 @@
 
 		<!-- Main -->
 		<div id="main">
-
+		
+			<!-- 로그인 및 사진 추가 -->
+			<section id="intro" class="main">
+			<div class="spotlight">
+				<div class="content" style="padding-right:10px" style="padding-left:10px">
+					<img alt="banner" src="image/banner.jpg">
+				</div>
+				
+				<div class="content align-center" id="login" style="padding-right:10px" style="padding-left:10px">
+					<img alt="icon" src="image/login_logo.png">
+					<br>
+					<a href="login.jsp" class="button primary">로그인</a>
+					<br>
+					<a href="Join.jsp" class="button">회원가입</a>
+					
+				</div>
+					
+			</div>
+			</section>
 			<!-- Introduction -->
 
 			<!-- 게시판 리스트 불러오기 -->
 			<section id="intro" class="main">
 				<div class="spotlight">
-					<div class="content">
+					<div class="content" style="padding-right:10px" style="padding-left:10px">
 						<header class="major">
 							<h2>자유게시판</h2>
 						</header>
@@ -81,30 +99,41 @@
 							%>
 
 						</table>
-						<ul class="actions">
-							<li><a href="GoFree?page=1" class="button">더보기</a></li>
+						<div class="align-center">
+							<a href="GoFree?page=1" class="button">더보기</a>
+						</div>
 
-						</ul>
+					</div>
+					
+					<!-- 공지사항 table -->
+					<div class="content" style="padding-right:10px" style="padding-left:10px">
+						<header class="major">
+							<h2>공지사항</h2>
+						</header>
+						<table >
+							<tr>
+								<td>제목</td>
+								<td>작성일자</td>
+							</tr>
+							<%
+							for (int i = 0; i < 5; i++) {
+								BoardVO bvo = list.get(i);
+							%>
+							<tr>
+								<td><%=bvo.getTitle()%></td>
+								<td><%=bvo.getId()%></td>
+							</tr>
+							<%
+								}
+							%>
+
+						</table>
+						<div class="align-center">
+							<a href="GoFree?page=1" class="button">더보기</a></li>
+						</div>
 
 					</div>
 
-				
-				<form>
-					<%if(vo==null){ %>
-						<a href="login.jsp" class="image"><img src="images/Login.jpg"/></a>
-					<%}else{ %>
-					<%	if(vo!=null){
-						out.print("<script>");
-						out.print("alert('로그인 되었습니다. 환영합니다~')");
-						out.print("</script>");
-						}%> 
-						<a href="#"><%=vo.getNick() %></a>
-						<a href="#"><%=vo.getName() %></a>
-						<%} %>
-						<button>로그아웃</button>
-						<%session.removeAttribute("nick"); 
-						  session.removeAttribute("name");%>
-				</form>
 					
 
 				</div>
