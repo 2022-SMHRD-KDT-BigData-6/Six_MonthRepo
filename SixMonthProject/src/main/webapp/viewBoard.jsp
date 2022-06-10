@@ -1,9 +1,6 @@
-<<<<<<< HEAD
+<%@page import="com.model.MemberVO"%>
 <%@page import="com.model.CommentVO"%>
 <%@page import="java.util.List"%>
-=======
-<%@page import="com.model.MemberVO"%>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 <%@page import="com.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -20,15 +17,22 @@
 <title>글 내용보기</title>
 </head>
 <body class="is-preload">
-
+	<script>
+		function cmUpdateOpen(cnum){            
+			window.name = "parentForm";            
+			window.open("CommentUpdateFormAction.co?num="+cnum,                        
+					"updateForm", "width=570, height=350, resizable = no, scrollbars = no");        
+			}
+	</script>
 
 	<%
 		// request영역에서 데이터 꺼내오기
 		// 페이지에 출력하기
 		BoardVO view = (BoardVO)request.getAttribute("view");
 		List<CommentVO> list = (List<CommentVO>)request.getAttribute("list");
+		MemberVO vo = (MemberVO)session.getAttribute("vo");
 	%>
-
+	
 
 
 	<!-- Header -->
@@ -57,7 +61,7 @@
 				<td>작성자</td>
 				<td>
 					<%--작성자 출력 --%>
-					<%= view.getId() %>
+					<%= view.getNick() %>
 				</td>
 			</tr>
 			<tr>
@@ -75,7 +79,7 @@
 			</tr>
 			<tr>
 				<td class="align-center" colspan="2">
-					<a href="GoUpdate?pnum=<%=view.getPnum()%>"><button>수정하기</button></a>
+					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button">수정하기</a>
 				</td>
 			</tr>
 			<tr>
@@ -84,67 +88,61 @@
 				</td>
 			</tr>
 		</table>
-		</section>
-		</div>
-
 		
-		<table id="comment">
-					<thead>
+		
+		<%-- 댓글 보여주기 --%>
+		<div class="comments">
 
-						<tr>
-							<td>번호</td>
-							<td>작성자</td>
-							<td>내용</td>
-							<td>시간</td>
-						</tr>
-						
-					<tbody>			
-						
-					  	<%
-						for (int i = 0; i < list.size(); i++) {
-							CommentVO cvo = list.get(i);
-						%>
-						<tr>
-							<td><%=cvo.getPnum()%></td>
-							<td><%=cvo.getId()%></td>
-							<td><%=cvo.getComments()%></td>
-							<td><%=cvo.getCdate() %></td>
-						</tr>
-						<%
-						}
-						%>
-					</tbody>
-
-					</thead>
-
-		</table>
-				
-				
-		<form action="ComInsertService" method="post" >
-			<table id="list">
-				<tr>
-					<td>글번호</td>
-					<td><input name="pnum" type="text"></td>
-				</tr>
-				<tr>
-				<%-- <input disabled type="text" value="<%=view.getWriter()%>"> --%>
-					<td>작성자</td>
-					<td><input name="id" type="text"></td>
-				</tr>
-				<tr>
-					<td colspan="2">내용</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-					<textarea name="contents" rows="4" cols="70""></textarea>
-					</td>
-				</tr>
-				<td width="100">
-		            <input type="submit" value="댓글 등록"> 
-		        </td>
-			</table>
-		</form>
-	
+               <ul class="myInfo" id="commentUl">
+                <%
+					for (int i = 0; i < list.size(); i++) {
+					CommentVO cvo = list.get(i);
+				%>
+                  <li>
+                  <h3 class="medium"><%=cvo.getNick() %></h3>
+                  </li>
+                  <li>
+                     <p class="medium"><%=cvo.getCdate() %></p>
+                  </li>
+                     <li class="align-right">
+                     <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>">X</a>
+                     </li>
+                  <p class="commentP"><%=cvo.getComments()%></p>
+                 <%
+					}
+				 %>
+               </ul>
+                  
+            </div>
+		
+		
+		<%-- 댓글 입력 --%>
+		<div class="col-12" style="padding-top: 1.5em">
+	        <form action="ComInsertService" method="post" class="writercomment">
+	        	<div class="col-12">
+						<td>
+						<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+						<input name="id" type="hidden"  value="<%=view.getId()%>">
+						<input name="nick" type="hidden" value="<%=vo.getNick() %>">
+						</td>
+					<tr>
+						<td colspan="2">
+						<textarea name="contents" id="demo-message" placeholder="댓글을 입력하세요." rows="6"></textarea>
+						</td>
+					</tr>
+				</div>
+	                  <div class="col-6 col-12-small align-right">
+	                        <input type="checkbox" id="demo-copy" name="demo-copy">
+	                        <label for="demo-copy">익명</label>
+	                  <input type="submit" class="button primary buttonSize" value="댓글등록">
+	                  </div>
+	           
+	         </form>
+      	</div>
+		
+			</section>
+		</div>
+		
 			<!-- Footer -->
 		<footer id="footer">
 			<section>

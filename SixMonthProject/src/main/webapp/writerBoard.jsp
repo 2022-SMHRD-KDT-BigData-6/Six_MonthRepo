@@ -23,7 +23,7 @@
 	%>
 	
 	<header id="header" class="alt">
-		<a href="index.jsp"><span class="logo"><img
+		<a href="GoMain"><span class="logo"><img
 				src="image/logo.big.png" /></span></a>
 		<h1>Smhrd커뮤니티</h1>
 		<p>빅데이터 분석서비스 개발자과정</p>
@@ -47,11 +47,17 @@
 			<table id="list">
 				<tr>
 					<td>제목</td>
-					<td><input  name="title" type="text"></td>
+					<td>
+						<input  name="title" type="text">
+						<input type="hidden" name="id" value="<%=vo.getId()%>">
+					</td>
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td><%=vo.getNick()%></td>
+					<td>
+						<input type="hidden" name="nick" value="<%=vo.getNick()%>">
+						<%=vo.getNick()%>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2">내용</td>
@@ -68,16 +74,21 @@
 					</td>
 				</tr>
 			</table>
-		</form>
+				
+		<div class="align-right">
+               <input type="checkbox" id="demo-copy" name="demo-copy">
+                  <label for="demo-copy" >익명</label>
+                  <input type="submit" value="작성완료" class="button">
+               </div>
+               
+         </form>
+            <div class="align-center">      
+               <a href = "GoFree?page=1" class="button primary buttonSize"> 글 목록</a>
+            </div>
+      
+         </section>
 		
-		<table id="list">
-		<tr>
-			<td class="align-right">
-			<a href = "GoFree?page=1"><image src="image/back.png" alt="뒤로가기"></image></a>
-			</td>
-		</tr>
-		</table>
-		</section>
+		
 		
 		</div>
 

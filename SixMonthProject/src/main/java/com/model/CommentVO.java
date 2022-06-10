@@ -13,6 +13,7 @@ public class CommentVO {
 	private int pnum;
 	private String comments;
 	private String id;
+	private String nick;
 	private String cdate;
 	
 

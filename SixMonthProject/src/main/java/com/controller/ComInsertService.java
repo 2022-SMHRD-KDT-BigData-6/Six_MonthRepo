@@ -19,27 +19,30 @@ public class ComInsertService extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
+		String nick = request.getParameter("nick");
 		String id = request.getParameter("id");
 		String contents = request.getParameter("contents");
 		int pnum = Integer.parseInt(request.getParameter("pnum"));
 		
 		
 		CommentVO cvo = new CommentVO();
+		cvo.setPnum(pnum);
+		cvo.setNick(nick);
 		cvo.setId(id);
 		cvo.setComments(contents);
-		cvo.setPnum(pnum);
+
 		
 		BoardDAO dao = new BoardDAO();
 		int cnt = dao.commentInsert(cvo);
 		
 
-		String nextPage = "";
+		String nextPage = "GoView?pnum="+pnum;
 		if(cnt>0) {
-			nextPage = "GoView?pnum="+pnum;
+			response.sendRedirect(nextPage);
 		}else{
-			nextPage = "GoFree?page=1";
+			response.sendRedirect(nextPage);
 		}
-		response.sendRedirect(nextPage);
+		
 	}
 
 }

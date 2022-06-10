@@ -16,8 +16,8 @@
 </head>
 <body>
 	<%
-	BoardVO view = (BoardVO) request.getAttribute("view");
-	MemberVO vo = (MemberVO) session.getAttribute("vo");
+		BoardVO view = (BoardVO) request.getAttribute("view");
+		MemberVO vo = (MemberVO) session.getAttribute("vo");
 	%>
 
 	<!-- Wrapper -->
@@ -39,9 +39,9 @@
 					<tr>
 						<td>제목</td>
 						<td>
-							<%-- hidden type 이용하면 input태그를 숨길 수 있다. --%> <input type="hidden"
-							name="pnum" value="<%=view.getPnum()%>"> <input
-							type="text" name="title" value="<%=view.getTitle()%>">
+							<%-- hidden type 이용하면 input태그를 숨길 수 있다. --%> 
+							<input type="hidden" name="pnum" value="<%=view.getPnum()%>"> 
+							<input type="text" name="title" value="<%=view.getTitle()%>">
 						</td>
 					</tr>
 					<tr>

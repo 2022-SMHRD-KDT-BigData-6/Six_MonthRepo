@@ -40,6 +40,7 @@ public class InsertService extends HttpServlet {
 		String title = multi.getParameter("title");
 		String id = multi.getParameter("id");
 		String content = multi.getParameter("content");
+		String nick = multi.getParameter("nick");
 		
 		// 파일 이름 가져오기
 		String fileName = multi.getFilesystemName("file");
@@ -47,8 +48,10 @@ public class InsertService extends HttpServlet {
 		BoardVO bvo = new BoardVO();
 		bvo.setTitle(title);
 		bvo.setId(id);
+		bvo.setNick(nick);
 		bvo.setContent(content);
 		bvo.setFileName(fileName);
+		
 		
 		// DAO이용해서 저장
 		BoardDAO dao = new BoardDAO();

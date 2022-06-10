@@ -66,7 +66,7 @@
 							<td><%=bvo.getPnum()%></td>
 							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
 							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getId()%></td>
+							<td><%=bvo.getNick()%></td>
 							<td><%=bvo.getPdate()%></td>
 							<%-- url?name=value --%>
 							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
@@ -76,7 +76,13 @@
 						%>
 					</tbody>
 				</table>
-	
+		
+				<div class="align-right">
+				<a href="GoWriter" style=""><image src="image/write_3.png" alt="작성하러가기"></image></a>
+				</div>
+				
+				<br>
+				
 			<div class="align-center">
 					<% for(int i =0; i<=boards/10; i++){
 					%>
@@ -85,9 +91,6 @@
 				<% }%>
 			</div>
 
-				<div class="align-center">
-				<a href="GoWriter"><button id="writer">작성하러가기</button></a>
-				</div>
 			</section>
 
 		</div>

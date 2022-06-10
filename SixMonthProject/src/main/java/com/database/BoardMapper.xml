@@ -14,6 +14,7 @@
    <select id="boardList" resultType="com.model.BoardVO">
       select * 
       from s_post
+      order by pnum desc
       <!-- #{필드명} => 해당하는 변수명을 가진 필드의 값을 깨내오기 -->
    </select>
 
@@ -24,7 +25,8 @@
          #{title},
          #{content},
          #{id},
-         sysdate,
+         #{nick},
+         current_date,
          #{fileName, jdbcType=VARCHAR}
       )
    </insert>
@@ -57,7 +59,7 @@
 	 resultType="BoardVO"
  	>
 	 	select * 
-		from (select rownum as rn, pnum, title, id, content, pdate from s_post order by pnum desc) A
+		from (select rownum as rn, pnum, title, nick, content, pdate from s_post order by pnum desc) A
 		where a.rn between #{page}  and  #{page} + 9
  	</select>
  	
@@ -69,7 +71,8 @@
  			#{pnum},
  			#{comments},
  			#{id},
- 			sysdate
+ 			#{nick},
+ 			current_date
  		)
  	</insert>
  	
@@ -77,7 +80,14 @@
  	<select id="commentList" resultType="com.model.CommentVO">
       select * 
       from s_comment
+      where pnum=#{pnum}
    </select>
 
-
+	<!-- 댓글 삭제 -->
+	<delete id="commentDelete">
+		delete from s_comment
+		where cnum=#{cnum}
+	</delete>
+	
+	
 </mapper>

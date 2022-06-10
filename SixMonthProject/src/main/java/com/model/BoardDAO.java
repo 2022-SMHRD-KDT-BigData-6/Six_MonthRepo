@@ -147,10 +147,11 @@ public class BoardDAO {
 		return cnt;
 	}
 	
-	public List<CommentVO> commentList() {
+	// 댓글 보기
+	public List<CommentVO> commentList(int pnum) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		
-		List<CommentVO> list = session.selectList("boardList");
+		List<CommentVO> list = session.selectList("commentList",pnum);
 
 		// 3. 빌려온 session 반환
 		session.close();
@@ -159,7 +160,24 @@ public class BoardDAO {
 		return list;
 		
 	}
-
+	
+	// 댓글 삭제
+	public int commentDelete(int cnum) {
+		//1. SQLSession 빌려오기   
+		SqlSession session = sqlSessionFactory.openSession(true);
+		//2. SQL문 실행 
+		try {
+			cnt = session.delete("commentDelete",cnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		session.close();
+	
+		
+		return cnt;
+	}
+	
+	
 }
 
 // SQL문 실행 준비
