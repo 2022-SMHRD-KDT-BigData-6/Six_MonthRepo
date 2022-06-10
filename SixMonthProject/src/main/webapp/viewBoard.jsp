@@ -43,7 +43,7 @@
 			<h1>자유게시판</h1>
 	</header>
 
-	<!-- Wrapper -->
+	<!-- 글 내용 보기 -->
 	<div id="wrapper">
 
 		<div id="main">
@@ -77,18 +77,12 @@
 					<%= view.getContent() %>
 				</td>
 			</tr>
-			<tr>
-				<td class="align-center" colspan="2">
-					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button">수정하기</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="align-right" colspan="2">
-					<a href="GoFree?page=1"><image src="image/back.png"></image></a>
-				</td>
-			</tr>
 		</table>
 		
+		  <div class="align-center" >
+            <a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button buttonSize">수정하기</a>
+            <a href="GoFree?page=1" class="button primary buttonSize">글 목록</a>
+         </div>
 		
 		<%-- 댓글 보여주기 --%>
 		<div class="comments">
