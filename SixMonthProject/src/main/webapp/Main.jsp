@@ -32,7 +32,13 @@
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<a href="GoMain">
+			
+			<span class="logo">
+			<img src="image/logo.big.png"/>
+			</span>
+			
+			</a>
 			<h1>Smhrd커뮤니티</h1>
 
 			<p> Created by Six_month </p>
@@ -58,7 +64,7 @@
 			<section id="intro" class="main">
 			<div class="spotlight">
 				<div class="content" style="padding-right:10px" style="padding-left:10px">
-					<img alt="banner" src="image/banner.jpg">
+					<img alt="banner" src="image/banner.jpg" class="bannerimg">
 				</div>
 				
 				<div class="content align-center" id="login" style="padding-right:10px" style="padding-left:10px">
@@ -77,14 +83,25 @@
                   <%
                   } else {// 로그인 했을때
                   %>
-
-                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> <a href="#"><%=vo.getNick()%></a><br>
+                  <img alt="profile" src="image/profile.png">
+                  		<br>
+                  		<p class="school"><%=vo.getName()%></p>
+                  		<p class="school"><%=vo.getNick()%></p> 
+                  		
+                  	<ul class="myInfo">
+                  		<li class="myInfo_li"><a href="myPage.jsp">내 정보</a></li>
+                  	
+                  	
                   <%
                   session.setAttribute("vo", vo);
                   %>
                   
                   <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
-                  <a href='logout'> 로그아웃 </a>
+                  		<li class="myInfo_li"><a href='logout'> 로그아웃 </a></li>
+                  		<li class="myInfo_li"><a href='myWrite.jsp' class="myArticle"> 내 글 </a></li>
+                  		<li class="myInfo_li"><a href='myComment.jsp' > 내 댓글 </a></li>
+                  		
+                  </ul>
                   <%
                   }
                   %>
@@ -94,6 +111,7 @@
 				</div>
 					
 			</div>
+			
 			</section>
 			<!-- Introduction -->
 
@@ -109,7 +127,7 @@
 								<td>제목</td>
 								<td>작성자</td>
 							</tr>
-							<%-- <%
+							 <%
 							for (int i = 0; i < 5; i++) {
 								BoardVO bvo = list.get(i);
 							%>
@@ -119,7 +137,7 @@
 							</tr>
 							<%
 								}
-							%> --%>
+							%>
 
 						</table>
 						<div class="align-center">
@@ -138,7 +156,7 @@
 								<td>제목</td>
 								<td>작성일자</td>
 							</tr>
-							<%-- <%
+							<%
 							for (int i = 0; i < 5; i++) {
 								BoardVO bvo = list.get(i);
 							%>
@@ -148,7 +166,7 @@
 							</tr>
 							<%
 								}
-							%> --%>
+							%> 
 
 						</table>
 						<div class="align-center">
@@ -249,39 +267,21 @@
 		<!-- Footer -->
 		<footer id="footer">
 			<section>
-				<h2>Aliquam sed mauris</h2>
-				<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat
-					consequat magna adipiscing tempus etiam dolore veroeros. eget
-					dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula
-					erat egestas velit, vitae tincidunt odio.</p>
-				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn More</a></li>
-				</ul>
+				<h2>핵심융합프로젝트</h2>
+				<p>제작기간 : 2022.06.03~2022.06.20</p>
+				<p>발표 : 2022.06.20</p>
 			</section>
 			<section>
-				<h2>Etiam feugiat</h2>
+				<h2>Six_Month</h2>
 				<dl class="alt">
-					<dt>Address</dt>
-					<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-					<dt>Phone</dt>
-					<dd>(000) 000-0000 x 0000</dd>
-					<dt>Email</dt>
-					<dd>
-						<a href="#">information@untitled.tld</a>
-					</dd>
+					<dt>Leader</dt>
+					<dd>Jae Woo Kim</dd>
+					<dt>member</dt>
+					<dd>Jun Seong Kim</dd>
+					<dd>Na Yun Hwang</dd>
+					<dd>Yu Rim Kim</dd>
+					<dd>Tae Min No</dd>
 				</dl>
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter alt"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-facebook-f alt"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram alt"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-github alt"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble alt"><span
-							class="label">Dribbble</span></a></li>
-				</ul>
 			</section>
 			<p class="copyright">
 				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.

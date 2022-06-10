@@ -23,7 +23,7 @@
 	%>
 	
 	<header id="header" class="alt">
-		<a href="index.jsp"><span class="logo"><img
+		<a href="GoMain"><span class="logo"><img
 				src="image/logo.big.png" /></span></a>
 		<h1>Smhrd커뮤니티</h1>
 		<p>빅데이터 분석서비스 개발자과정</p>
@@ -41,7 +41,7 @@
 		<div id="main">
 
 			<!-- Content -->
-			<section>
+			<section id="content" class="main">
 
 			<form action="InsertService" method="post" enctype="multipart/form-data"> <!-- multipart/form-data 파일 인코딩 X!! -->
 			<table id="list">
@@ -62,58 +62,40 @@
 					<textarea name="content" rows="10" style="resize: none;"></textarea>
 					</td>
 				</tr>
-				<tr class="align-center">
-					<td colspan="2">
-					<input type="image" src="image/check_box.png" alt="제출">
-					</td>
-				</tr>
 			</table>
-		</form>
+					<div class="align-right">
+					<input type="checkbox" id="demo-copy" name="demo-copy">
+						<label for="demo-copy" >익명</label>
+						<input type="submit" value="작성완료" class="button">
+					</div>
+					
+			</form>
+				<div class="align-center">		
+					<a href = "GoFree?page=1" class="button primary buttonSize"> 글 목록</a>
+				</div>
 		
-		<table id="list">
-		<tr>
-			<td class="align-right">
-			<a href = "GoFree?page=1"><image src="image/back.png" alt="뒤로가기"></image></a>
-			</td>
-		</tr>
-		</table>
-		</section>
+			</section>
 		
 		</div>
 
 		<!-- Footer -->
 		<footer id="footer">
 			<section>
-				<h2>훈민정음</h2>
-				<p>나랏말쌈이 듕귁에 달아 서로 삼앗디 아니할세</p>
-				<ul class="actions">
-					<li><a href="#" class="button">Learn More</a></li>
-				</ul>
+				<h2>핵심융합프로젝트</h2>
+				<p>제작기간 : 2022.06.03~2022.06.20</p>
+				<p>발표 : 2022.06.20</p>
 			</section>
 			<section>
-				<h2>Six_month</h2>
+				<h2>Six_Month</h2>
 				<dl class="alt">
-					<dt>Address</dt>
-					<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-					<dt>Phone</dt>
-					<dd>(000) 000-0000 x 0000</dd>
-					<dt>Email</dt>
-					<dd>
-						<a href="#">information@untitled.tld</a>
-					</dd>
+					<dt>Leader</dt>
+					<dd>Jae Woo Kim</dd>
+					<dt>member</dt>
+					<dd>Jun Seong Kim</dd>
+					<dd>Na Yun Hwang</dd>
+					<dd>Yu Rim Kim</dd>
+					<dd>Tae Min No</dd>
 				</dl>
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter alt"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-facebook-f alt"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram alt"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-github alt"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble alt"><span
-							class="label">Dribbble</span></a></li>
-				</ul>
 			</section>
 			<p class="copyright">
 				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.

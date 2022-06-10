@@ -26,6 +26,11 @@
 								<input type="text" placeholder="Email을 입력하세요"> 
 								<input type="submit" value="ID찾기" class="button fit">
 							</li>
+					</ul>
+				</form>
+				
+				<form action="">
+					<ul class="features">
 							<li>
 								<h3>PW찾기</h3>
 								<input type="text" placeholder="가입한 ID를 입력하세요">
