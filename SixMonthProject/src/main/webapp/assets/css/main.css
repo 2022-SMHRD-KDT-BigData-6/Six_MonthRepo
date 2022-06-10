@@ -90,6 +90,23 @@ input.text {
     background-color: transparent;
 }
 
+
+/* viewBoard ´ñ±Û¿ë */
+input.text {
+    margin: 0;
+    padding: 10px 85px 10px 10px;
+    border: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 20px;
+    box-sizing: border-box;
+    color: #262626;
+    font-size: 13px;
+    overflow: hidden;
+    resize: none;
+    background-color: transparent;
+}
+
 /* Basic */
 
    @-ms-viewport {
@@ -148,19 +165,18 @@ input.text {
       background-repeat:no-repeat !important
    }
    
-
-   body, input, select, textarea, a {
-      font-family: "Source Sans Pro", Helvetica, sans-serif;
-      font-size: 17pt;
-      font-weight: 300;
-      text-decoration-line: none;
-      line-height: 1.65;
-   }
-   
-   .buttonSize {
-   
-      font-size: 12pt;
-   }
+	body, input, select, textarea, a {
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 17pt;
+		font-weight: 300;
+		text-decoration-line: none;
+		line-height: 1.65;
+	}
+	
+	.buttonSize {
+	
+		font-size: 12pt;
+	}
 
       @media screen and (max-width: 1680px) {
 
@@ -172,20 +188,18 @@ input.text {
 
       @media screen and (max-width: 1280px) {
 
-         body, input, select, textarea {
-            font-size: 12pt;
-         }
-         
-      
-      }
-
-      @media screen and (max-width: 360px) {
+			body, input, select, textarea {
+				font-size: 12pt;
+			}
+			
+		
+		}
 
          body, input, select, textarea {
             font-size: 11pt;
          }
 
-      }
+      
 
    a {
       -moz-transition: color 0.2s ease, border-bottom 0.2s ease;
@@ -202,6 +216,17 @@ input.text {
          border-bottom-color: transparent;
           text-decoration-line: none;
       }
+      
+	a {
+		-moz-transition: color 0.2s ease, border-bottom 0.2s ease;
+		-webkit-transition: color 0.2s ease, border-bottom 0.2s ease;
+		-ms-transition: color 0.2s ease, border-bottom 0.2s ease;
+		transition: color 0.2s ease, border-bottom 0.2s ease;
+		text-decoration: none;
+		text-decoration-line: none;
+		/* border-bottom: dotted 1px; */
+		color: inherit;
+	}
 
    strong, b {
       font-weight: 400;
@@ -2089,19 +2114,19 @@ input.text {
       padding: 0.75em 1em;
    }
 
-   input[type="checkbox"],
-   input[type="radio"] {
-      -moz-appearance: none;
-/*       -webkit-appearance: none;
- */      -ms-appearance: none;
-      appearance: none;
-      display: block;
-      float: left;
-      margin-right: -2em;
-      opacity: 0;
-      width: 1em;
-      z-index: -1;
-   }
+	input[type="checkbox"],
+	input[type="radio"] {
+		-moz-appearance: none;
+/* 		-webkit-appearance: none;
+ */		-ms-appearance: none;
+		appearance: none;
+		display: block;
+		float: left;
+		margin-right: -2em;
+		opacity: 0;
+		width: 1em;
+		z-index: -1;
+	}
 
       input[type="checkbox"] + label,
       input[type="radio"] + label {
@@ -2397,9 +2422,17 @@ input.text {
 
 /* Image */
 
-   .bannerimg{
-      width:90%;
-   }
+	.bannerimg{
+		width:90%;
+	}
+
+
+	.image {
+		border-radius: 8px;
+		border: 0;
+		display: inline-block;
+		position: relative;
+	}
 
 
    .image {
@@ -2466,21 +2499,21 @@ input.text {
          padding-left: 0.25em;
       }
 
-   ul {
-      list-style: disc;
-      margin: 0 0 2em 0;
-      padding-left: 1em;
-   }
-   
-   li.commentli {
-   display: inline-block;
+	ul {
+		list-style: disc;
+		margin: 0 0 2em 0;
+		padding-left: 1em;
+	}
+	
+	li.commentli {
+	display: inline-block;
     width: 40px;
     height: 40px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 40px 40px;
     cursor: pointer;
-   }
+	}
 
       ul li {
          padding-left: 0.5em;
@@ -2537,11 +2570,11 @@ input.text {
       border-top-color: rgba(255, 255, 255, 0.35);
    }
 
-   dl dt {
-      color: #ffffff;
-   }
-   
-   
+	dl dt {
+		color: #ffffff;
+	}
+	
+	
 
 /* Actions */
 
@@ -3845,13 +3878,13 @@ input.text {
 
 /* login ¼öÁ¤ */
 
-   #loginButton {
-         color: #ffffff !important;
-         box-shadow: none;
-         box-sizing: content-box;
-      }
-   
-   .school {
+	#loginButton {
+			color: #ffffff !important;
+			box-shadow: none;
+			box-sizing: content-box;
+		}
+	
+	.school {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -3861,62 +3894,62 @@ input.text {
     color: #a6a6a6;
     font-size: 24px;
     text-align: center;
-   }
-   
-   ul.myInfo {
-      
-      list-style: none;
-     
-   }
-   
-   ul #commentUl {
-      width:70%;
-   }
-   .myInfo_li { 
-      display: block;
-      margin-right: 5px;
-       border: 1px solid #d6d6d6;
-       border-radius: 3px;
-       line-height: 25px;
-       color: #737373;
-       font-size: 13px;
-       text-align: center;
-       float : left;
-       width : 45%
-   }
-   
-  a.myArticle {
-   background-image: url(image/myArticle.png);
-   }
-   
-   /* ´ñ±Û CSS */
-   input.text {
-   width: 85%;
-   }
-   
-   div.comments {
-   padding: 15px 15px 0 15px;
+	}
+	
+	ul.myInfo {
+		
+		list-style: none;
+	  
+	}
+	
+	ul #commentUl {
+		width:70%;
+	}
+	.myInfo_li { 
+		display: block;
+		margin-right: 5px;
+	    border: 1px solid #d6d6d6;
+	    border-radius: 3px;
+	    line-height: 25px;
+	    color: #737373;
+	    font-size: 13px;
+	    text-align: center;
+	    float : left;
+	    width : 45%
+	}
+	
+	a.myArticle {
+	background-image: url(image/myArticle.png);
+	}
+	
+	/* ´ñ±Û CSS */
+	input.text {
+	width: 85%;
+	}
+	
+	div.comments {
+	padding: 15px 15px 0 15px;
     border-top: 1px solid #e3e3e3;
-   }
-   
-   .medium {
-      float: left;
-       max-width: 90px;
-       margin: 0 10px 5px 0;
-       height: 20px;
-       line-height: 15px;
-       font-size: 15px;
-       font-weight: bold;
-   }
-   
-   p.commentP {
-      padding-bottom: 5px;
-       line-height: 15px;
-       color: #444444;
-       font-size: 15px;
-      margin-left:2em;
-   }
-   
-   p.medium {
-      max-width: 140px;
-   }
+	}
+	
+	.medium {
+		float: left;
+	    max-width: 90px;
+	    margin: 0 10px 5px 0;
+	    height: 20px;
+	    line-height: 15px;
+	    font-size: 15px;
+	    font-weight: bold;
+	}
+	
+	p.commentP {
+		padding-bottom: 5px;
+	    line-height: 15px;
+	    color: #444444;
+	    font-size: 15px;
+		margin-left:2em;
+	}
+	
+	p.medium {
+		max-width: 100px;
+	}

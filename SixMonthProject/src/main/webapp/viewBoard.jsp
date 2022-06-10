@@ -140,48 +140,34 @@
 	         </form>
       	</div>
 		
+			
 			</section>
 		</div>
 		
-			<!-- Footer -->
+		<!-- Footer -->
 		<footer id="footer">
 			<section>
-				<h2>훈민정음</h2>
-				<p>나랏말쌈이 듕귁에 달아 서로 삼앗디 아니할세</p>
-				<ul class="actions">
-					<li><a href="#" class="button">Learn More</a></li>
-				</ul>
+				<h2>핵심융합프로젝트</h2>
+				<p>제작기간 : 2022.06.03~2022.06.20</p>
+				<p>발표 : 2022.06.20</p>
 			</section>
 			<section>
-				<h2>Six_month</h2>
+				<h2>Six_Month</h2>
 				<dl class="alt">
-					<dt>Address</dt>
-					<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-					<dt>Phone</dt>
-					<dd>(000) 000-0000 x 0000</dd>
-					<dt>Email</dt>
-					<dd>
-						<a href="#">information@untitled.tld</a>
-					</dd>
+					<dt>Leader</dt>
+					<dd>Jae Woo Kim</dd>
+					<dt>member</dt>
+					<dd>Jun Seong Kim</dd>
+					<dd>Na Yun Hwang</dd>
+					<dd>Yu Rim Kim</dd>
+					<dd>Tae Min No</dd>
 				</dl>
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter alt"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-facebook-f alt"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram alt"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-github alt"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble alt"><span
-							class="label">Dribbble</span></a></li>
-				</ul>
 			</section>
 			<p class="copyright">
 				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
 			</p>
-
 		</footer>
+
 
 	</div>
 	<!-- Scripts -->

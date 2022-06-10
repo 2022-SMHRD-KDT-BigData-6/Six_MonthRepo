@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>자유게시판</title>
+<title>내 댓글</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -18,14 +18,17 @@
 </head>
 <body class="is-preload">
 
+<%-- 
 	<% 
-		//obj타입 업캐스팅 된채로 저장 
-		//request에 저장해둔 list 꺼내오기
-		List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
-		int boards = (int)request.getAttribute("boards");
-		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
-	%>
+	//obj타입 업캐스팅 된채로 저장 
+	//request에 저장해둔 list 꺼내오기
+	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
+	int boards = (int)request.getAttribute("boards");
+	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 	
+
+	%>
+	 --%>
 	
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -34,7 +37,7 @@
 		<header id="header">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<br><br>
-			<h1>자유게시판</h1>
+			<h1>내 댓글</h1>
 			
 		</header>
 
@@ -44,21 +47,28 @@
 			<!-- Content -->
 			<section id="content" class="main">
 				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-				<h2>리스트</h2>
+				<h2>내 댓글 리스트</h2>
 				<table id="list">
 					<thead>
 
 						<tr>
 							<td>번호</td>
-							<td>제목</td>
+							<td>댓글</td>
 							<td>작성자</td>
 							<td>시간</td>
 						</tr>
 
 					</thead>
 					<tbody>			
-						
-						<%
+					
+					<tr>
+						<td>1</td>
+						<td><a href="#">오늘하루도 고생했어!!</a></td>
+						<td>Six_months</td>
+						<td>2022.06.10</td>
+						<td><a>X</</a></td>
+					</tr>
+					<%-- 	<%
 						for (int i = 0; i < list.size(); i++) {
 							BoardVO bvo = list.get(i);
 						%>
@@ -66,37 +76,34 @@
 							<td><%=bvo.getPnum()%></td>
 							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
 							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getNick()%></td>
+							<td><%=bvo.getId()%></td>
 							<td><%=bvo.getPdate()%></td>
-							<%-- url?name=value --%>
+							url?name=value
 							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>
 						<%
 						}
-						%>
+						%> --%>
 					</tbody>
 				</table>
 		
-					<div class="align-right">
-						<a href="GoWriter" class="button primary buttonSize">작성하러가기</a>
-					</div>
 				
-				<br>
-				
+		<%-- 	
+			페이징 부분
 			<div class="align-center">
 					<% for(int i =0; i<=boards/10; i++){
 					%>
 					<a href="GoFree?page=<%=i*10+1%>"><%=i+1 %></a>		
 				
 				<% }%>
-			</div>
+			</div> --%>
 
 			</section>
 
 		</div>
 
 		<!-- Footer -->
-	<footer id="footer">
+		<footer id="footer">
 			<section>
 				<h2>핵심융합프로젝트</h2>
 				<p>제작기간 : 2022.06.03~2022.06.20</p>
