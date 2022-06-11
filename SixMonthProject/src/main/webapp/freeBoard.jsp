@@ -49,7 +49,6 @@
 					
 						<form action="" method="">
 							<div class="icon-Div-Align-Right">
-							
 								<div>
 									<select style="text-align:center" id="selectHeight">
 										<option value="title">제목</option>
