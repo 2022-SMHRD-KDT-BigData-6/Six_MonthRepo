@@ -19,13 +19,11 @@
 <body class="is-preload">
 
 	<% 
-	//obj타입 업캐스팅 된채로 저장 
-	//request에 저장해둔 list 꺼내오기
-	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
-	int boards = (int)request.getAttribute("boards");
-	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
-	
-
+		//obj타입 업캐스팅 된채로 저장 
+		//request에 저장해둔 list 꺼내오기
+		List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
+		int boards = (int)request.getAttribute("boards");
+		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 	%>
 	
 	
@@ -84,7 +82,7 @@
 							<td><%=bvo.getPnum()%></td>
 							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
 							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getId()%></td>
+							<td><%=bvo.getNick()%></td>
 							<td><%=bvo.getPdate()%></td>
 							<!-- 조회수 UI 추가 -->
 							<td>1</td>

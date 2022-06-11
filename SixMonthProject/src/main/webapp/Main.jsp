@@ -123,21 +123,25 @@
 							<h2>자유게시판</h2>
 						</header>
 						<table>
+						<thead>
 							<tr>
 								<td>제목</td>
 								<td>작성자</td>
 							</tr>
-							 <%
-							for (int i = 0; i < 5; i++) {
-								BoardVO bvo = list.get(i);
-							%>
+						</thead>
+						<tbody>		
 							<tr>
-								<td><%=bvo.getTitle()%></td>
-								<td><%=bvo.getId()%></td>
+						<%
+							for(int i=0; i<5; i++){
+							BoardVO bvo = list.get(i);
+						%>
+								<td><%=bvo.getTitle() %></td>
+								<td><%=bvo.getNick() %></td>
 							</tr>
-							<%
-								}
-							%>
+						<%
+						}
+						%>
+						</tbody>
 
 						</table>
 						<div class="align-center">
@@ -173,9 +177,7 @@
 							<a href="GoFree?page=1" class="button">더보기</a></li>
 						</div>
 
-					</div>
-
-					
+					</div>			
 
 				</div>
 			</section>

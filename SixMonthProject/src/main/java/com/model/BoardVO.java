@@ -20,6 +20,7 @@ public class BoardVO {
 	private String content;// 내용 
 	private String id;// 작성자  
 	private String pdate; // 날짜
+	private String nick; // 닉네임
 	
 	// private String good; // 공감
 	

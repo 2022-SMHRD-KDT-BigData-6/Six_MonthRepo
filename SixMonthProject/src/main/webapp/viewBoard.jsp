@@ -1,4 +1,6 @@
 <%@page import="com.model.MemberVO"%>
+<%@page import="com.model.CommentVO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -15,15 +17,22 @@
 <title>글 내용보기</title>
 </head>
 <body class="is-preload">
-
+	<script>
+		function cmUpdateOpen(cnum){            
+			window.name = "parentForm";            
+			window.open("CommentUpdateFormAction.co?num="+cnum,                        
+					"updateForm", "width=570, height=350, resizable = no, scrollbars = no");        
+			}
+	</script>
 
 	<%
-	// request영역에서 데이터 꺼내오기
-	// 페이지에 출력하기
-	BoardVO view = (BoardVO) request.getAttribute("view");
-	MemberVO vo = (MemberVO) session.getAttribute("vo");
+		// request영역에서 데이터 꺼내오기
+		// 페이지에 출력하기
+		BoardVO view = (BoardVO)request.getAttribute("view");
+		List<CommentVO> list = (List<CommentVO>)request.getAttribute("list");
+		MemberVO vo = (MemberVO)session.getAttribute("vo");
 	%>
-
+	
 
 
 	<!-- Header -->
@@ -34,42 +43,42 @@
 			<h1>자유게시판</h1>
 	</header>
 
-	<!-- Wrapper -->
+	<!-- 글 내용 보기 -->
 	<div id="wrapper">
 
 		<div id="main">
 
 		<section id="content" class="main">
-			<table id="list">
-				<tr>
-					<td>제목</td>
-					<td>
-						<%--게시글 제목 출력 --%>
-						<%=view.getTitle()%>
-					</td>
-				</tr>
-				<tr>
-					<td>작성자</td>
-					<td>
-						<%--작성자 출력 --%>
-						<%= view.getId() %>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">내용</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<%--게시글 내용 출력 --%>
-						<%if(view.getFileName() != null){ %>
-						<img alt="" src="image/<%= view.getFileName()%>">
-						<%} %>
-						<br>
-						<%= view.getContent() %>
-					</td>
-				</tr>
-			</table>
-			
+
+		<table id="list">
+			<tr>
+				<td>제목</td>
+				<td>
+					<%--게시글 제목 출력 --%>
+					<%=view.getTitle()%>
+				</td>
+			</tr>
+			<tr>
+				<td>작성자</td>
+				<td>
+					<%--작성자 출력 --%>
+					<%= view.getNick() %>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">내용</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<%--게시글 내용 출력 --%>
+					<%if(view.getFileName() != null){ %>
+					<img alt="" src="image/<%= view.getFileName()%>">
+					<%} %>
+					<br>
+					<%= view.getContent() %>
+				</td>
+			</tr>
+		</table>
 			<div class="align-left">
 				<a href="#" class="vote"><img src="image/like.png" class="like_icon"> 0</a>
 				
@@ -77,7 +86,7 @@
 						<span>조회수 : 5</span>
 				</div>
 			</div>
-		
+
 			<div class="icondiv">
 				<div>
 					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
@@ -87,45 +96,59 @@
 				</div>
 			</div>
 		
+		<%-- 댓글 보여주기 --%>
+		<div class="comments">
+
+               <ul class="myInfo" id="commentUl">
+                <%
+					for (int i = 0; i < list.size(); i++) {
+					CommentVO cvo = list.get(i);
+				%>
+                  <li>
+                  <h3 class="medium"><%=cvo.getNick() %></h3>
+                  </li>
+                  <li>
+                     <p class="medium"><%=cvo.getCdate() %></p>
+                  </li>
+                     <li class="align-right">
+                     <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>">X</a>
+                     </li>
+                  <p class="commentP"><%=cvo.getComments()%></p>
+                 <%
+					}
+				 %>
+               </ul>
+                  
+            </div>
 		
-			<div class="col-12" style="padding-top: 1.5em">
-				
-				<div class="comments">
-					
-					<ul class="myInfo" id="commentUl">
-						<li>
-						<h3 class="medium">익명1</h3>
-						</li>
-						<li>
-							<p class="medium">06/09 12:07</p>
-						</li>
-							<li class="align-right">
-							<a href="">X</a>
-							</li>
-						<p class="commentP">댓글은 여기에 쓰시죵!</p>
-					</ul>
-						
-						
+		
+		<%-- 댓글 입력 --%>
+		<div class="col-12" style="padding-top: 1.5em">
+	        <form action="ComInsertService" method="post" class="writercomment">
+	        	<div class="col-12">
+						<td>
+						<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+						<input name="id" type="hidden"  value="<%=view.getId()%>">
+						<input name="nick" type="hidden" value="<%=vo.getNick() %>">
+						</td>
+					<tr>
+						<td colspan="2">
+						<textarea name="contents" id="demo-message" placeholder="댓글을 입력하세요." rows="6"></textarea>
+						</td>
+					</tr>
 				</div>
+	                  <div class="col-6 col-12-small align-right">
+	                        <input type="checkbox" id="demo-copy" name="demo-copy">
+	                        <label for="demo-copy">익명</label>
+	                  <input type="submit" class="button primary buttonSize" value="댓글등록">
+	                  </div>
+	           
+	         </form>
+      	</div>
 		
-		
-		
-				<form class="writecomment">
-							<div class="col-12">
-									<textarea name="demo-message" id="demo-message"
-										placeholder="댓글을 입력하세요." rows="6"></textarea>
-							</div>
-							<div class="col-6 col-12-small align-right">
-									<input type="checkbox" id="demo-copy" name="demo-copy">
-									<label for="demo-copy">익명</label>
-							<input type="submit" class="button primary buttonSize" value="작성완료">
-							</div>
-				</form>
-			</div>
 			
 			</section>
 		</div>
-		
 		
 		<!-- Footer -->
 		<footer id="footer">

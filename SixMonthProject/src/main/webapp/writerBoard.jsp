@@ -42,11 +42,17 @@
 			<table id="list">
 				<tr>
 					<td>제목</td>
-					<td><input  name="title" type="text"></td>
+					<td>
+						<input  name="title" type="text">
+						<input type="hidden" name="id" value="<%=vo.getId()%>">
+					</td>
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td><%=vo.getNick()%></td>
+					<td>
+						<input type="hidden" name="nick" value="<%=vo.getNick()%>">
+						<%=vo.getNick()%>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2">내용</td>
