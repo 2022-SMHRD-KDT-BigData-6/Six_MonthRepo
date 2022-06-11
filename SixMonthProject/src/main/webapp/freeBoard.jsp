@@ -49,6 +49,13 @@
 					
 						<form action="" method="">
 							<div class="icon-Div-Align-Right">
+							
+								<div>
+									<select style="text-align:center" id="selectHeight">
+										<option value="title">제목</option>
+										<option value="contents">내용</option>
+									</select>
+								</div>
 								<div>
 									<input type="text" id="searchSize">
 								</div>

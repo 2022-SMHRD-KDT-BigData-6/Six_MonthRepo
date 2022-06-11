@@ -3953,7 +3953,6 @@ input.text {
 	p.medium {
 		max-width: 100px;
 	}
-<<<<<<< HEAD
 	
 	a.vote {
 		padding-left:15px;
@@ -3976,14 +3975,6 @@ input.text {
 	}
 	
 	
-/* 	.bottonMenu {
-	display:inline-block;
-	}
-	
-	.bottomMenuList {
-	width:79%
-	} */
-	
 	.icondiv{
 		display: flex;
 		justify-content: space-between;
@@ -3996,7 +3987,7 @@ input.text {
 	
 	#searchButtonSize {
 	height:1.7em;
-	font-size: 14pt;
+	font-size: 12pt;
 	line-height:1.7em;
 	min-width: 5em;
 	
@@ -4004,5 +3995,7 @@ input.text {
 	#searchSize {
 	height:1.7em;
 	}
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
+
+	#selectHeight {
+	height: 1.7em
+	}
