@@ -45,8 +45,22 @@
 
 			<!-- Content -->
 			<section id="content" class="main">
-				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
 				<h2>리스트</h2>
+				
+					<!-- 검색기능 -->
+					
+						<form action="" method="">
+							<div class="icon-Div-Align-Right">
+								<div>
+									<input type="text" id="searchSize">
+								</div>
+								<div>
+									<input type="submit" class="button buttonSize" value="검색" id="searchButtonSize">
+								</div>
+							</div>
+						</form>
+					
+				
 				<table id="list">
 					<thead>
 
@@ -55,6 +69,8 @@
 							<td>제목</td>
 							<td>작성자</td>
 							<td>시간</td>
+							<!-- 조회수 UI 추가 -->
+							<td>조회수</td>
 						</tr>
 
 					</thead>
@@ -70,6 +86,8 @@
 							    <%=bvo.getTitle()%></a></td>
 							<td><%=bvo.getId()%></td>
 							<td><%=bvo.getPdate()%></td>
+							<!-- 조회수 UI 추가 -->
+							<td>1</td>
 							<%-- url?name=value --%>
 							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>

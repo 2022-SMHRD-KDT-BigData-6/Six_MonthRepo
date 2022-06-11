@@ -3920,3 +3920,53 @@ input.text {
 	p.medium {
 		max-width: 100px;
 	}
+	
+	a.vote {
+		padding-left:15px;
+		color: #c62917;
+		float: left;
+	    margin-left: 8px;
+	    padding: 0 2px;
+	    height: 20px;
+	    line-height: 20px;
+	    color: #a6a6a6;
+	    font-size: 24px;
+	    background-repeat: no-repeat;
+	    background-position: left center;
+	    background-size: 11px 11px;
+	    cursor: pointer;
+	}
+	
+	img.like_icon {
+		height:100%
+	}
+	
+	
+/* 	.bottonMenu {
+	display:inline-block;
+	}
+	
+	.bottomMenuList {
+	width:79%
+	} */
+	
+	.icondiv{
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	.icon-Div-Align-Right{
+		display: flex;
+		float: right;
+	}
+	
+	#searchButtonSize {
+	height:1.7em;
+	font-size: 14pt;
+	line-height:1.7em;
+	min-width: 5em;
+	
+	}
+	#searchSize {
+	height:1.7em;
+	}

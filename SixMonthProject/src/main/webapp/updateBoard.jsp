@@ -73,9 +73,13 @@
 								style="resize: none;"><%=view.getContent()%></textarea></td>
 					</tr>
 				</table>
-				<div class="col-6 col-12-small align-center">
-						<input type="submit" value="수정하기">
-						<a href="GoFree?page=1"	class="button primary buttonSize">글 목록</a>
+				<div class="col-6 col-12-small align-center icondiv">
+					<div>
+						<a href="GoFree?page=1"	class="button buttonSize">글 목록</a>
+					</div>
+					<div>
+						<input type="submit" value="수정하기" class="button primary buttonSize">
+					</div>
 				</div>
 			</form>
 			</section>
