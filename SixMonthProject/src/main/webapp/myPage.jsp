@@ -11,17 +11,17 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
-<title>로그인</title>
+<title>My Page</title>
 
 </head>
 <body class="login">
+<%-- 
 <%
 	MemberVO vo=(MemberVO)session.getAttribute("vo");
 %>
+ --%>
 		<header id="header" class="alt">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
-			<h1>Smhrd커뮤니티</h1>
-			<p> 빅데이터 분석서비스 개발자과정 </p>
 		</header>
 
 
@@ -29,34 +29,37 @@
 
 		<section id="first" class="main special">
 			<header class="major">
-				<h2>로그인</h2>
+				<h2>내 정보</h2>
 			</header>
 			
 			<!-- 로그인 form -->
-			<form action=LoginService method="post">
+			<form action=pwChange method="post">
 			<ul class="features">
 				<li>
-				<span class="id"></span>
-				<input type="text" name="id" <%=(String)session.getAttribute("id") %>placeholder="ID을 입력하세요"> 
-				<input type="password" name="pw" <%=(String)session.getAttribute("pw") %>placeholder="PW를 입력하세요">
-				<input type="submit" value="로그인"	class="button fit">
+				<span style="text-align: left">새 비밀번호</span>
+				<input type="password" name="pw" placeholder="새 비밀번호">
+				<input type="password" name="pw" placeholder="새 비밀번호 확인">
+				<span style="text-align: left">현재 비밀번호</span>
+				<input type="password" name="pw" <%=(String)session.getAttribute("pw") %>placeholder="현재 비밀번호">
+				<input type="submit" value="비밀번호변경"	class="button fit">
 				</li>
-
 			</ul>
+			</form>
+			
+			<form action=nickChange method="post">
+					<ul class="features">
+				<li>
+				<span style="text-align: left">닉네임</span>
+				<input type="text" name="text" placeholder="기존아이디">
+				<input type="submit" value="닉네임변경"	class="button fit">
+				</li>
+			</ul>
+			
+			
 			</form>
 			
 		</section>
 
-		<footer class="major">
-			<ul class="actions special">
-				<li>
-				<a href="findID_PW.jsp">ID/PW 찾기</a>
-				</li>
-				<li>
-				<a href="Join.jsp">회원가입</a>
-				</li>
-			</ul>
-		</footer>
 
 	</div>
 </body>
