@@ -90,7 +90,8 @@ where a.rn between 1 and 1+9;
 
 select * from s_member;
 									
-									
+insert into s_member
+values('³ªÀ±2', '³ªÀ±2', '123', 'ggumi1031@naver.com', '³ªÀ±2');									
 									
 									
 									

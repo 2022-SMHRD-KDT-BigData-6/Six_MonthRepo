@@ -1,5 +1,8 @@
 package com.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.database.SqlSessionManager;
@@ -10,6 +13,7 @@ public class MemberDAO {
 	private SqlSession session = null;
 	private int row = 0;
 
+	// 회원가입 DAO
 	public int insert(MemberVO vo) {
 		try {
 			session = sqlFactory.openSession(true);
@@ -22,6 +26,7 @@ public class MemberDAO {
 		return row;
 	}
 
+	// 로그인 DAO
 	public MemberVO login(MemberVO vo) {
 
 		SqlSession session = sqlFactory.openSession(true);
@@ -33,5 +38,70 @@ public class MemberDAO {
 
 		return result;
 	}
+	
+	// id찾는 DAO(email 있는지 확인)
+	public MemberVO findID(String email) {
+
+		MemberVO result = null;
+		try {
+			session = sqlFactory.openSession(true);
+			result = session.selectOne("findID", email);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return result;
+
+	}
+
+	// pw찾는 DAO(id 있는지 확인)
+	public MemberVO findPW(String id) {
+		
+		MemberVO result = null;
+		try {
+			session = sqlFactory.openSession(true);
+			result = session.selectOne("findPW", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return result;
+
+	}
+	
+	// email찾는 DAO(사용자의 id에 있는 email인지 여부)
+	public MemberVO confirmEmail(String email) {
+		
+		MemberVO result = null;
+		try {
+			session = sqlFactory.openSession(true);
+			result = session.selectOne("confirmEmail", email);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return result;
+
+	}
+	
+	// 비밀번호 변경 DAO
+		public int changePW(MemberVO vo) {
+			
+			try {
+				session = sqlFactory.openSession(true);
+				row = session.update("changePW", vo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			return row;
+		}
+
+
+	
 
 }
