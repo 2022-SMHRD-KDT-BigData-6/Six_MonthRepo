@@ -9,8 +9,15 @@
 	constraint member_nick_uk unique (nick)
 )
 
+drop table s_member
+
 insert into s_member
 values('jaewoo', '김재우', '1234', 'kimjaewu09@naver.com', '재우쓰');
+
+insert into s_member
+values('yurim', '김유림', '1234', 'yuximee@naver.com', '유리밍');
+
+
 
 create table s_post(
 	pnum number(3),
@@ -90,9 +97,9 @@ where a.rn between 1 and 1+9;
 
 select * from s_member;
 									
+select count(*) from s_member where id='jaewoo'				
 									
-									
-									
+truncate table s_member
 									
 									
 									
