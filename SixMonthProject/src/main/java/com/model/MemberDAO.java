@@ -12,6 +12,7 @@ public class MemberDAO {
 	private SqlSessionFactory sqlFactory = SqlSessionManager.getSqlSessionFactory();
 	private SqlSession session = null;
 	private int row = 0;
+	String text = null;
 
 	// 회원가입 DAO
 	public int insert(MemberVO vo) {
@@ -104,4 +105,31 @@ public class MemberDAO {
 
 	
 
+	// 아이디 중복 확인 메소드
+	public int idCheck(String id) {
+		try {
+			System.out.println(id);
+			session = sqlFactory.openSession(true);
+			row = session.selectOne("idCheck", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return row;
+	}
+
+	// 닉네임 중복 확인 메소드
+	public int nickCheck(String nick) {
+		try {
+			session = sqlFactory.openSession(true);
+			row = session.selectOne("nickCheck", nick);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return row;
+	}
 }

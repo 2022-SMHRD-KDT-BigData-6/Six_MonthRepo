@@ -19,13 +19,11 @@
 <body class="is-preload">
 
 	<% 
-	//obj타입 업캐스팅 된채로 저장 
-	//request에 저장해둔 list 꺼내오기
-	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
-	int boards = (int)request.getAttribute("boards");
-	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
-	
-
+		//obj타입 업캐스팅 된채로 저장 
+		//request에 저장해둔 list 꺼내오기
+		List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
+		int boards = (int)request.getAttribute("boards");
+		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 	%>
 	
 	
@@ -45,8 +43,28 @@
 
 			<!-- Content -->
 			<section id="content" class="main">
-				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
 				<h2>리스트</h2>
+				
+					<!-- 검색기능 -->
+					
+						<form action="" method="">
+							<div class="icon-Div-Align-Right">
+								<div>
+									<select style="text-align:center" id="selectHeight">
+										<option value="title">제목</option>
+										<option value="contents">내용</option>
+									</select>
+								</div>
+								<div>
+									<input type="text" id="searchSize">
+								</div>
+								<div>
+									<input type="submit" class="button buttonSize" value="검색" id="searchButtonSize">
+								</div>
+							</div>
+						</form>
+					
+				
 				<table id="list">
 					<thead>
 
@@ -55,6 +73,8 @@
 							<td>제목</td>
 							<td>작성자</td>
 							<td>시간</td>
+							<!-- 조회수 UI 추가 -->
+							<td>조회수</td>
 						</tr>
 
 					</thead>
@@ -68,8 +88,10 @@
 							<td><%=bvo.getPnum()%></td>
 							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
 							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getId()%></td>
+							<td><%=bvo.getNick()%></td>
 							<td><%=bvo.getPdate()%></td>
+							<!-- 조회수 UI 추가 -->
+							<td>1</td>
 							<%-- url?name=value --%>
 							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>
@@ -79,9 +101,9 @@
 					</tbody>
 				</table>
 		
-				<div class="align-right">
-				<a href="GoWriter" style=""><image src="image/write_3.png" alt="작성하러가기"></image></a>
-				</div>
+					<div class="align-right">
+						<a href="GoWriter" class="button primary buttonSize">작성하러가기</a>
+					</div>
 				
 				<br>
 				
@@ -98,43 +120,29 @@
 		</div>
 
 		<!-- Footer -->
-		<footer id="footer">
+	<footer id="footer">
 			<section>
-				<h2>훈민정음</h2>
-				<p>나랏말쌈이 듕귁에 달아 서로 삼앗디 아니할세</p>
-				<ul class="actions">
-					<li><a href="#" class="button">Learn More</a></li>
-				</ul>
+				<h2>핵심융합프로젝트</h2>
+				<p>제작기간 : 2022.06.03~2022.06.20</p>
+				<p>발표 : 2022.06.20</p>
 			</section>
 			<section>
-				<h2>Six_month</h2>
+				<h2>Six_Month</h2>
 				<dl class="alt">
-					<dt>Address</dt>
-					<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-					<dt>Phone</dt>
-					<dd>(000) 000-0000 x 0000</dd>
-					<dt>Email</dt>
-					<dd>
-						<a href="#">information@untitled.tld</a>
-					</dd>
+					<dt>Leader</dt>
+					<dd>Jae Woo Kim</dd>
+					<dt>member</dt>
+					<dd>Jun Seong Kim</dd>
+					<dd>Na Yun Hwang</dd>
+					<dd>Yu Rim Kim</dd>
+					<dd>Tae Min No</dd>
 				</dl>
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter alt"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-facebook-f alt"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram alt"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-github alt"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble alt"><span
-							class="label">Dribbble</span></a></li>
-				</ul>
 			</section>
 			<p class="copyright">
 				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
 			</p>
 		</footer>
+
 
 	</div>
 
