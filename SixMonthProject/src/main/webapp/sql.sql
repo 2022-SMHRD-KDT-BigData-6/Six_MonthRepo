@@ -105,14 +105,12 @@ drop table s_comment cascade constraints
 select * 
 from (select rownum as rn, pnum, title, id, content, pdate from s_post order by pnum desc) A
 where a.rn between 1 and 1+9;
-
-
-
-									
+				
 select count(*) from s_member where id='jaewoo'				
 									
 truncate table s_member
-									
+
+select * from S_MEMBER									
 									
 									
 									
