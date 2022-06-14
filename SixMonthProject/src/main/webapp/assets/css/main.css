@@ -167,10 +167,10 @@ input.text {
    
 	body, input, select, textarea, a {
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
-		font-size: 17pt;
+		font-size: 12pt;
 		font-weight: 300;
 		text-decoration-line: none;
-		line-height: 1.65;
+		line-height: 1.2;
 	}
 	
 	.buttonSize {
@@ -1906,7 +1906,7 @@ input.text {
       font-weight: 300;
       height: 2.75em;
       line-height: 2.75em;
-      min-width: 9.25em;
+      min-width: 5em;
       padding: 0 1.5em;
       text-align: center;
       text-decoration: none;
