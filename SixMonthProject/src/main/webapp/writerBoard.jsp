@@ -22,6 +22,15 @@
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
 	%>
 	
+
+	<header id="header" class="alt">
+		<a href="GoMain"><span class="logo"><img
+				src="image/logo.big.png" /></span></a>
+		<h1>Smhrd커뮤니티</h1>
+		<p>빅데이터 분석서비스 개발자과정</p>
+	</header>
+	
+
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -49,6 +58,7 @@
 				</tr>
 				<tr>
 					<td>작성자</td>
+
 					<td>
 						<input type="hidden" name="nick" value="<%=vo.getNick()%>">
 						<%=vo.getNick()%>

@@ -50,7 +50,10 @@
 		<footer class="major">
 			<ul class="actions special">
 				<li>
-				<a href="findID_PW.jsp">ID/PW 찾기</a>
+				<a href="findID.jsp">ID찾기</a>
+				</li>
+				<li>
+				<a href="findPW.jsp">PW찾기</a>
 				</li>
 				<li>
 				<a href="Join.jsp">회원가입</a>
