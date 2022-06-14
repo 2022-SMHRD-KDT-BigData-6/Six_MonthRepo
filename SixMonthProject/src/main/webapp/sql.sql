@@ -25,9 +25,10 @@ create table s_post(
 	content varchar2(1000) not null,
 	id varchar2(20) not null,
 	nick varchar2(10) not null,
+	good number(3) default 0,
+	hit number(3) default 0,
 	pdate date,
 	fileName varchar2(100),
-	/* good number(3), */
 	constraint post_pnum_pk primary key(pnum),
 	constraint post_id_fk foreign key (id) references s_member(id),
 	constraint post_nick_fk foreign key (nick) references s_member(nick)
@@ -35,11 +36,11 @@ create table s_post(
 
 select * from s_post
 
-insert into s_post
-values (post_num_seq.nextval, 'ㅎㅇ', '테스트중', 'jaewoo', '재우쓰', sysdate, 'aa');
+insert into s_post(pnum,title,content,id,nick,pdate,fileName)
+values(post_num_seq.nextval, '조회수 되니?', '되니?', 'jaewoo', '재우쓰', sysdate, 'aa');
 
 insert into s_post
-values (post_num_seq.nextval, 'hello', '테스트중ddd', 'jaewoo', '재우쓰', sysdate, 'bb');
+values (post_num_seq.nextval, 'ㅎㅇ', '테스트중', 'jaewoo', '재우쓰', 0, 0, sysdate, 'aa');
 
 create sequence post_num_seq
 	start with 1
@@ -48,7 +49,7 @@ create sequence post_num_seq
 	nocycle
 	nocache
 
-alter table s_post add foreign key(good) references post_mind(good)
+alter table s_post add foreign key (good) references post_mind(good)
 
 create table s_comment(
 	cnum number(3),
@@ -56,8 +57,8 @@ create table s_comment(
 	comments varchar2(100) not null,
 	id varchar2(20) not null,
 	nick varchar2(10) not null,
+	good number(3) default 0,
 	cdate date,
-	/* good number(3), */
 	constraint com_num_pk primary key (cnum),
 	constraint member_id_fk foreign key (id) references s_member(id),
 	constraint comment_nick_fk foreign key (nick) references s_member(nick),
@@ -65,6 +66,8 @@ create table s_comment(
 )		
 
 select * from s_comment
+
+alter table s_comment add(good number(3));
 
 insert into s_comment
 values(comment_num_seq.nextval, '30', '댓글내용', 'jaewoo', sysdate);
@@ -77,34 +80,33 @@ create sequence comment_num_seq
 	nocache
 
 alter table s_comment add foreign key (good) references comment_mind(good)
+
 drop table s_comment
 			
 create table post_mind(
-	good number(3),
+	pnum number(3),
 	id varchar2(20) not null,
-	Pnum number(3) not null,
-	constraint post_mind_good_pk primary key(good),
-	constraint post_mind_id_fk foreign key (id) references s_member(id),
-	constraint post_mind_Pnum_fk foreign key (Pnum) references s_post(Pnum)
+	constraint post_mind_id_fk foreign key (id) references s_member(id) on delete cascade,
+	constraint post_mind_pnum_fk foreign key (pnum) references s_post(pnum) on delete cascade
 )	
-		
+
+select * from post_mind
+
 create table comment_mind(
-	good number(3),
 	id varchar2(20) not null,
-	Cnum number(3) not null,
-	constraint comment_mind_good_pk primary key(good),
+	cnum number(3) not null,
 	constraint comment_mind_id_fk foreign key (id) references s_member(id),
-	constraint comment_mind_Cnum_fk foreign key (Cnum) references s_comment(Cnum)
+	constraint comment_mind_cnum_fk foreign key (cnum) references s_comment(cnum)
 )									
 
-
-select * from s_post;
+select * from comment_mind;
 									
-drop table s_comment cascade constraints
+drop table post_mind cascade constraints
 
 select * 
-from (select rownum as rn, pnum, title, id, content, pdate from s_post order by pnum desc) A
+from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, id, content, pdate from s_post) A
 where a.rn between 1 and 1+9;
+<<<<<<< HEAD
 
 
 
@@ -115,9 +117,20 @@ values('나윤2', '나윤2', '123', 'ggumi1031@naver.com', '나윤2');
 									
 									
 
+				
 select count(*) from s_member where id='jaewoo'				
 									
 truncate table s_member
+
+select * 
+from s_comment
+where pnum=149
+order by cdate;
+
+		select count(*)
+		from post_mind
+		where pnum=149 and id='jaewoo';									
+									
 									
 select * from s_member									
 									

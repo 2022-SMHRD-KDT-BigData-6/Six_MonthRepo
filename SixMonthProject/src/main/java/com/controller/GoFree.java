@@ -25,14 +25,13 @@ public class GoFree extends HttpServlet {
 		// 세션에 page 개수를 저장함.
 		
 		int page = Integer.parseInt(request.getParameter("page"));
-		//dao 객체 생성
 		
 		BoardDAO dao = new BoardDAO();
-
+		
 		// 페이지 게시글을 리스트에 담아준다.
-		//
 		List<BoardVO> list = dao.pagging(page);
 		int boards = dao.boardList().size();
+		
 		
 		// 객체바인딩
 		// Scope영역에 전달하고자하는 객체를 저장

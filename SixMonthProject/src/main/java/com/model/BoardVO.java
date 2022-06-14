@@ -21,9 +21,8 @@ public class BoardVO {
 	private String id;// 작성자  
 	private String pdate; // 날짜
 	private String nick; // 닉네임
-	
-	// private String good; // 공감
-	
+	private int hit; // 조회수
+	private int good; // 공감
 	private String fileName; // 첨부파일
 	
 	

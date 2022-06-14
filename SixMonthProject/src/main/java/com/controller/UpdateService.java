@@ -53,9 +53,9 @@ public class UpdateService extends HttpServlet {
 		// 3. 성공 실패 구분
 		String nextPage = "";
 		if (cnt > 0) {
-			nextPage = "GoView?pnum="+pnum;
+			nextPage = "GoView?pnum="+pnum+"&cnt=1";
 		} else {
-			nextPage = "GoUpdate?pnum="+pnum;
+			nextPage = "GoUpdate?pnum="+pnum+"&cnt=1";
 		}
 		response.sendRedirect(nextPage);
 

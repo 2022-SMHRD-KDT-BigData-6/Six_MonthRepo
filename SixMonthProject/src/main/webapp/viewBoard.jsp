@@ -17,17 +17,8 @@
 <title>글 내용보기</title>
 </head>
 <body class="is-preload">
-	<script>
-		function cmUpdateOpen(cnum){            
-			window.name = "parentForm";            
-			window.open("CommentUpdateFormAction.co?num="+cnum,                        
-					"updateForm", "width=570, height=350, resizable = no, scrollbars = no");        
-			}
-	</script>
 
 	<%
-		// request영역에서 데이터 꺼내오기
-		// 페이지에 출력하기
 		BoardVO view = (BoardVO)request.getAttribute("view");
 		List<CommentVO> list = (List<CommentVO>)request.getAttribute("list");
 		MemberVO vo = (MemberVO)session.getAttribute("vo");
@@ -66,6 +57,12 @@
 				</td>
 			</tr>
 			<tr>
+				<td>작성일</td>
+				<td>
+					<%= view.getPdate() %>
+				</td>
+			</tr>
+			<tr>
 				<td colspan="2">내용</td>
 			</tr>
 			<tr>
@@ -78,12 +75,28 @@
 					<%= view.getContent() %>
 				</td>
 			</tr>
+
 		</table>
+		
+		<!-- 공감 수 입력 --> 
+			<tr>
+				<td>
+				<form action="GoodInsertService" method="post">
+						<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+						<input name="id" type="hidden" value="<%= view.getId() %>">
+						<%= view.getGood() %>
+						<input type="submit" class="button primary buttonSize" value="공감하기">
+	         	</form>
+				
+				</td>
+			</tr>
+			
+
 			<div class="align-left">
 				<a href="#" class="vote"><img src="image/like.png" class="like_icon"> 0</a>
 				
 				<div class="align-right">
-						<span>조회수 : 5</span>
+						<span>조회수 : <%= view.getHit() %></span>
 				</div>
 			</div>
 

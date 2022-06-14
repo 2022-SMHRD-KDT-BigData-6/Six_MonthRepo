@@ -25,7 +25,7 @@ public class ComDeleteService extends HttpServlet {
 		// 3. BoardDAO에 있는 boardDelete()메서드 사용
 		int cnt = dao.commentDelete(cnum);
 		// 4. 성공 실패 판단후 페이지 이동
-		String nextPage = "GoView?pnum="+pnum;
+		String nextPage = "GoView?pnum="+pnum+"&cnt=0";
 
 		response.sendRedirect(nextPage);
 

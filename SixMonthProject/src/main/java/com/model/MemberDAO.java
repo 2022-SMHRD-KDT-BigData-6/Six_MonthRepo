@@ -129,4 +129,19 @@ public class MemberDAO {
 		}
 		return row;
 	}
+	
+	// 이메일 중복 확인 메소드
+		public int emailCheck(String email) {
+			try {
+				session = sqlFactory.openSession(true);
+				row = session.selectOne("emailCheck", email);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			return row;
+		}
+	
 }

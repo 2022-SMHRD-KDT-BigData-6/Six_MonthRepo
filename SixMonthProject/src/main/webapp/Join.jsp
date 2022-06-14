@@ -11,77 +11,63 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
-<title> SMHRD 커뮤니티 회원가입 </title>
+<title>SMHRD 커뮤니티 회원가입</title>
 </head>
 <body class="login">
 	<div id="wrapper" align="center">
 		<header class="major">
-			<br> <br> <a href="GoMain"><span class="logo"><img src="image/logo.big.png" /></span></a>
+			<br> <br> <a href="GoMain"><span class="logo"><img
+					src="image/logo.big.png" /></span></a>
 			<h2>회원가입</h2>
 		</header>
 
-	<!-- 회원가입 form 
+		<!-- 회원가입 form 
 	<form action=JoinService method="post">-->
 		<section id="first" class="main special">
 			<ul class="features">
 				<li>
-					<h3>아이디</h3> <input type="text" id="id" name="id" placeholder="ID을 입력하세요">
-					<br>
-					<button type="button" id="idCheck">중복 확인</button>
-					<br>
-					<br>
-					<div id=text></div>
+					<h3>아이디</h3> <input type="text" id="id" name="id"
+					placeholder="ID을 입력하세요"> <br>
+					<button type="button" id="idCheck">중복 확인</button> <br> <br>
+					<div id=text></div> <br>
+
+					<h3>비밀번호</h3> <input type="password" name="pw" id="userPw"
+					placeholder="PW를 입력하세요"> <br>
+					<h3>비밀번호 확인</h3> <input type="password" name="pwCheck"
+					id="userPwChk" placeholder="PW를 입력하세요"> <br>
+					<div id=chkNotice></div> <br>
+
+					<h3>이메일</h3> <input type="email" name="email" id="email"
+					placeholder="이메일을 입력하세요"> <br>
+					<button type="button" id="send">인증번호 전송</button> <br> <br>
+					<div id="mailNotice"></div> <br>
+					<h3>인증번호 입력</h3> <input type="text" name="input" id="emailCheck"
+					placeholder="인증번호를 입력하세요"> <br>
+					<button type="button" id="auth">인증 확인</button> <br> <br>
 					<br>
 
-					<h3>비밀번호</h3>
-					<input type="password" name="pw" id="userPw" placeholder="PW를 입력하세요">
-					<br>
-					<h3>비밀번호 확인</h3>
-					<input type="password" name="pwCheck" id="userPwChk" placeholder="PW를 입력하세요">
-					<br>
-					<div id=chkNotice></div>
-					<br>
+					<h3>이름</h3> <input type="text" name="name" id="name"
+					placeholder="이름을 입력하세요"> <br> <br>
 
-					<h3>이메일</h3>
-					<input type="email" name="email" id="email" placeholder="이메일을 입력하세요">
-					<br>
-					<button type="button" id="send">인증번호 전송</button>
-					<br>
-					<br>
-					<div id="mailNotice"></div>
-					<br>
-					<h3>인증번호 입력</h3>
-					<input type="text" name="input" id="emailCheck" placeholder="인증번호를 입력하세요">
-					<br>
-					<button type="button" id="auth">인증 확인</button>
-					<br>
-					<br>
-					<br>
-					
-					<h3>이름</h3>
-					<input type="text" name="name" id="name" placeholder="이름을 입력하세요">
-					<br>
-					<br>
-
-					<h3>닉네임</h3>
-					<input type="text" name="nick" id="nick" placeholder="닉네임을 입력하세요">
-					<br>
-					<br>
+					<h3>닉네임</h3> <input type="text" name="nick" id="nick"
+					placeholder="닉네임을 입력하세요"> <br> <br>
 					<div id="nkNotice"></div>
-					
+
 				</li>
 			</ul>
 			<footer class="major">
 				<ul class="actions special">
 					<!-- <li><input type="submit" value="JoinUs" id="btnSubmit" class="button fit"></li> -->
-					<button id="btnSubmit"> 전송하기 </button>
+					<button id="btnSubmit">전송하기</button>
 				</ul>
 			</footer>
-	<!-- </form> -->
+			<!-- </form> -->
 		</section>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"> </script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous"> </script>
 
 	<script>	
 	// 최종 submit 전에 확인되어야 할 조건들
@@ -127,15 +113,15 @@
 						}
 					});
 				} else if(ChkID==0){
-					console.log("아이디 조건 불만족"+ChkID)
+					alert("아이디를 확인해주세요")
 				} else if(ChkPw==0){
-					console.log("패스워드 조건 불만족"+ChkPw)
+					alert("패스워드를 확인해주세요")
 				}else if(ChkEm==0){
-					console.log("이메일 조건 불만족"+ChkEm)
+					alert("이메일을 확인해주세요")
 				}else if(ChkNk==0){
-					console.log("닉네임 조건 불만족"+ChkNk)
+					alert("닉네임를 확인해주세요")
 				}else if(ChkName==0){
-					console.log("이름 조건 불만족"+ChkName)
+					alert("이름을 확인해주세요")
 				}
 			});
 	
@@ -197,40 +183,64 @@
 	    });
 	
 	    
-
+	<!-- 이메일 중복 체크 -->
 	<!-- 이메일 인증 -->
-    <!-- 이메일 중복 체크 -->
 
-	// 알림창을 기다리라는 메시지 너무 늦게 띄워짐
-	<!-- 	이메일 입력 시 인증번호가 발송되는 기능 	-->
 		$('button#send').on('click', function(){
-			
 			let email = $('input[name=email]').val();
 			let div = document.getElementById('mailNotice')
+			div.innerHTML = '<h5> 알림창이 뜰 때까지 잠시만 기다려주세요 </h5><br>'
 			
 			if(!email){
 				alert('이메일을 입력해주세요')
-			} else {
-				div.innerHTML = '<h5> 알림창이 뜰 때까지 잠시만 기다려주세요 </h5><br>'
+			} else{
+				// 일단 가입할 수 있는 이메일인지 판단
 				$.ajax({
-		 			url :'http://172.30.1.22:3500',
-		 			type : 'POST',
-		 			data : {'email':email},
-		 			dataType : 'text',
-		 			async : false,
-		 			success : function(res){
-		 				alert('이메일이 성공적으로 발송되었습니다')
-		 				result_data = res;
-		 				console.log(res)
-		 			},
-		 			error : function(){
-		 				alert('연결 실패')
-		 			}
-		 		});
+					url : 'emailCheck',
+					type : 'POST',
+					data : {'email':email},
+					dataType : 'text',
+					async : false,
+					success : function(cnt){
+						result = cnt;
+						if (result >= 1) {
+	     					div.innerHTML = "<h5> 가입이 되어있는 이메일입니다 </h5> <h5> 다른 이메일로 이용해주십시오 </h5>";
+	     				} else if (result == 0) {
+	     					div.innerHTML = "<h5> 사용 가능한 이메일입니다 </h5>";
+	     				}
+					},
+					error : function(){
+						alert('연결 실패')
+					}
+				});
+				console.log(result)
+				
+				// 회원가입 가능한 이메일일 때
+				if(result == 0){
+					$.ajax({
+			 			url :'http://172.30.1.22:3500',
+			 			type : 'POST',
+			 			data : {'email':email},
+			 			dataType : 'text',
+			 			async : false,
+			 			success : function(res){
+			 				alert('이메일이 성공적으로 발송되었습니다')
+			 				result_data = res;
+			 				console.log(res)
+			 			},
+			 			error : function(){
+			 				alert('연결 실패')
+			 			}
+			 		});
+				} else {
+					alert('이메일을 다시 입력하세요')
+				}
+				
 			}
-			
 		});
-	
+		
+
+		
 	<!-- 	인증번호와 입력결과를 비교하는 기능 	-->	
 			$('button#auth').on('click', function(){
 				let input = $('input[name=input]').val();
@@ -273,9 +283,10 @@
 			let nick = $('input[name=nick]').val();
 			let div = document.getElementById('nkNotice')
 
-			if(nick.length <= 1){
-				
-			} else{
+			if(nick.length < 0){ // 닉네임을 입력하지 않음
+				ChkNk = 0;
+				div.innerHTML = "<h5> 닉네임을 입력해주세요 </h5>";
+			} else{ // 사용 가능한 닉네임
 				$.ajax({
 					url : 'nickCheck',
 					type : 'POST',
