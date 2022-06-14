@@ -39,7 +39,7 @@
 		</header>
 
 		<!-- Main -->
-		<div id="main">
+		<div id="main"> 
 
 			<!-- Content -->
 			<section id="content" class="main">

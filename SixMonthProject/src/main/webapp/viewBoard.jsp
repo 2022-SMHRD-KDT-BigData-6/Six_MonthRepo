@@ -31,7 +31,7 @@
 	<header id="header">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<br><br>
-			<h1>자유게시판</h1>
+			<h1>자유게시판</h1> 
 	</header>
 
 	<!-- 글 내용 보기 -->
