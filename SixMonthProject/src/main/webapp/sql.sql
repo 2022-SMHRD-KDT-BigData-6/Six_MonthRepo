@@ -106,7 +106,7 @@ drop table post_mind cascade constraints
 select * 
 from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, id, content, pdate from s_post) A
 where a.rn between 1 and 1+9;
-<<<<<<< HEAD
+
 
 
 
