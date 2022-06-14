@@ -27,7 +27,7 @@
 	</select>
 	 
 	 <!-- 일치하는 id가 있는지 sql -->
-	 <select id="findPW" parameterType="com.model.MemberVO" resultType="com.model.MemberVO">
+	 <select id="findPW" resultType="com.model.MemberVO">
 		select *
 		from s_member
 		where id=#{id}
@@ -43,7 +43,7 @@
 	<!-- 비밀번호 update sql -->
 	<update id="changePW" parameterType="com.model.MemberVO" >
 		update s_member
-		set pw =#{pw}
+		set pw=#{pw}
 		where id=#{id}
 	</update>
 

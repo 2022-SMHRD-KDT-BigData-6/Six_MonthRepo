@@ -134,17 +134,9 @@
 								<td>제목</td>
 								<td>작성자</td>
 							</tr>
-<<<<<<< HEAD
 
-							<%
-
-							for (int i = 0; i < 5; i++) {
-								BoardVO bvo = list.get(i);
-							%>
-=======
 						</thead>
 						<tbody>		
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 							<tr>
 						<%
 							for(int i=0; i<5; i++){
@@ -153,18 +145,11 @@
 								<td><%=bvo.getTitle() %></td>
 								<td><%=bvo.getNick() %></td>
 							</tr>
-<<<<<<< HEAD
-							<%
-								}
 
-							%>
-
-=======
 						<%
 						}
 						%>
 						</tbody>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 
 						</table>
 						<div class="align-center">

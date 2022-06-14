@@ -102,9 +102,6 @@ public class MemberDAO {
 			return row;
 		}
 
-
-	
-
 	// 아이디 중복 확인 메소드
 	public int idCheck(String id) {
 		try {

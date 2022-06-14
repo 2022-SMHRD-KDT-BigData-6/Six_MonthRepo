@@ -73,66 +73,42 @@
 			alert("이메일을 입력해주세요")
 		}else{
 			// 사용자의 id에 연동된 email이 아닐경우
-			if(email.value != <%=email%>){
+			if(email.value !="<%=email%>"){
 				alert("이메일을 잘못 입력하셨습니다.");
 			}else{
-					// let email = $('input[name=email]').val();
-					
-					$.ajax({
-			 			url :'http://172.30.1.17:3500',
-			 			type : 'POST',
-			 			data : {'email':email},
-			 			dataType : 'text',
-			 			async : false,
-			 			success : function(res){
-			 				alert('이메일이 성공적으로 발송되었습니다')
-			 				console.log(res)
-			 				result_data = res;
-			 			},
-			 			error : function(){
-			 				alert('연결 실패')
-			 			}
-			 		});
-				
-				
-				
 			div.innerHTML='<input type="text" id="number" name="number" placeholder="인증번호를 입력하세요" >'
-			div.innerHTML+='<input type="submit" id="confirm" value="확인" class="button fit">'
-			
+			div.innerHTML+='<input type="button" id="confirm" value="확인" class="button fit">'
+			console.log(email.value);
+			$.ajax({
+		 			url :'http://172.30.1.17:3500',
+		 			type : 'POST',
+		 			data : {'email':email.value},
+		 			dataType : 'text',
+		 			async : false,
+		 			success : function(res){
+		 				alert('이메일이 성공적으로 발송되었습니다')
+		 				console.log(res)
+		 				result_data = res;
+		 			},
+		 			error : function(){
+		 				alert('연결 실패')
+		 			}
+		 		});
 				// 이메일 인증 여부
 				  $('input#confirm').on('click', function(){
 			            let input = $('input[name=number]').val();
-			              let result = result_data;
-			              
+			            let result = result_data;
+						console.log("나오니"+result);	
 			              if(!input){
-			                 alert('값을 입력해주세요')
+			                 alert('인증번호를 입력해주세요')
 			              } else{
-			               $.ajax({
-			                    url : '',
-			                    type : 'POST',
-			                    data : {
-			                       'input' : input,
-			                       'result' : result_data
-			                    },
-			                    dataType : 'text',
-			                    async : false,
-			                    success : function(res){
-			                       console.log(res)
-			                       if (res == 1) {
-			                          confirm('이메일 인증이 확인되었습니다')
-			                          ChkEm = 1;
-			                          $('input#number').attr('readonly',true) // 확인되면 수정 불가
-			                          $('input#confirm').attr('readonly',true) // 확인되면 수정 불가
-			                       } else {
-			                          confirm('인증번호가 틀렸습니다 다시 입력해주세요')
-			                          ChkEm = 0;
-			                          }
-			                       console.log(ChkEm)
-			                    },
-			                    error : function(){      
-			                       alert('연결 실패')
-			                    }
-			                 });
+			            	  if(input==result){
+			            		  console.log('성공~');
+			            		  // 다른 페이지로 이동하는 방법(자바스크립트)
+			            		  location.replace("foundPW.jsp")
+			            	  }else{
+							alert("잘못된 인증번호입니다.")
+			            	  }
 			            }
 			         });
 			

@@ -15,6 +15,9 @@
 <title>비밀번호 변경해주는 페이지</title>
 </head>
 <body class="login">
+<%
+	String newPW=(String)request.getAttribute("pw");
+%>
 
 	<div id="wrapper" align="center">
 			<section id="first" class="main special">
@@ -24,13 +27,13 @@
 				
 				
 				
-				<form action="ChangePW" name="changePW">
+				<form action="ChangePW">
 					<ul class="features">
 					<li>
-					<input type="password" name="pw" placeholder="새 비밀번호"> 
-					<input type="password" name="confirm_pw" placeholder="새 비밀번호 확인"> 
+					<input type="password" id="pw" name="pw" placeholder="새 비밀번호"> 
+					<input type="password" id="pw2" name="pw2" placeholder="새 비밀번호 확인"> 
 					<div id="text"></div>
-					<input type="button" id="cp" value="변경하기" class="button fit" onclick="changePW()"></a>
+					<input type="button" id="cp" value="변경하기" class="button fit" onclick="changePW()">
 					</li>
 					</ul>
 				</form>
@@ -48,39 +51,46 @@
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script>
-		
+	
 		function changePW(){
+			var pw= document.getElementById('pw');
+			var pw2= document.getElementById('pw2');
 			
-			var pw= document.changePW
+			console.log(pw.value)
+			console.log(pw2.value)
 			
-			if(pw.pw.value.length<1){
+			if(pw.value.length<1 || pw2.value.length<1){
 				alert("비밀번호를 입력해주세요")
 			}else{
-				console.log($('input#cp').attr('type','submit'))
+			
+			if($('#pw').val() == $('#pw2').val()){
+				alert('비밀번호가 변경되었습니다')
+	        	console.log($('input#cp').attr('type','submit'))
+	         }else{
+	        	alert('비밀번호를 다시 입력해주세요')
+	         }
 			}
+			
 		}
-		
+		 
+		// 입력한 비밀번호가 서로 같은지
 		$(function () {
 	           $('#pw').keyup(function () {
 	               $('#text').html('');
 	               console.log($('#pw').val())
 	           });
 
-	          $('#confirm_pw').keyup(function () {
-	                if ($('#pw').val() != $('#confirm_pw').val()) {
-	                    $('#text').html('<h5>비밀번호 일치하지 않음</h5><br>'); // 불일치할 때 눈에 더 잘띄게 만들면 좋을 듯!
-	                    ChkPw = 0;
+	          $('#pw2').keyup(function () {
+	                if ($('#pw').val() != $('#pw2').val()) {
+	                    $('#text').html('<h5>비밀번호 일치하지 않음</h5><br>');
 	                } else {
 	                    $('#text').html('<h5>비밀번호 일치함</h5><br>');
-	                    $('input#pw').attr('readonly',true) // 확인되면 수정 불가
-	                    $('input#confirm_pw').attr('readonly',true) // 확인되면 수정 불가
-	                    ChkPw = 1
 	                }
-	                console.log(ChkPw)
 	            });
+	          
+	          
 	       });
-		
-		
+
 	</script>
 
 </body>

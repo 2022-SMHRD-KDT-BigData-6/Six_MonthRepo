@@ -119,7 +119,7 @@ select count(*) from s_member where id='jaewoo'
 									
 truncate table s_member
 									
-									
+select * from s_member									
 									
 									
 									

@@ -14,7 +14,9 @@
 <title>ID/PW찾기</title>
 </head>
 <body class="login">
-
+<%
+	String id=(String)request.getAttribute("id");
+%>
 	<div id="wrapper" align="center">
 			<section id="first" class="main special">
 				<header class="major">
