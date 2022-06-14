@@ -103,6 +103,7 @@ public class BoardDAO {
 		return cnt;
 	}
 	
+	// 게시글 보여주기
 	public BoardVO boardVO(int pnum){
 		//1.sqlSession 빌려오기 
 		SqlSession session = sqlSessionFactory.openSession(true);
@@ -114,6 +115,7 @@ public class BoardDAO {
 		return cnt2;
 	}
 
+	// 게시글 수정
 	public int boardUpdate(BoardVO bvo) {
 		
 		// 1. SqlSession 빌려오기
@@ -129,6 +131,67 @@ public class BoardDAO {
 		session.close();
 
 		// 4. 쿼리문 실행 결과 리턴
+		return cnt;
+	}
+	
+	//게시글 조회수 증가
+	public int boardHitCount(int pnum) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		try {
+			cnt = session.update("boardHitCount", pnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		session.close();
+		
+		return cnt;
+		
+	}
+	
+	// 공감한 ID
+	public int boardGoodInsert(GoodVO gvo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		try {
+			cnt = session.insert("boardGoodInsert", gvo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		session.close();
+
+		return cnt;
+	}
+	
+	// 공감한 ID 확인
+	public int boardGoodCheck(GoodVO gvo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		try {
+			cnt = session.selectOne("boardGoodCheck", gvo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		session.close();
+
+		return cnt;
+	}
+	
+	// 공감 개수 증가
+	public int boardGoodCount(int pnum) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		try {
+			cnt = session.update("boardGoodCount", pnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		session.close();
+		
 		return cnt;
 	}
 	

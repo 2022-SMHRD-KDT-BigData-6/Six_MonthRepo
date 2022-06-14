@@ -8,11 +8,7 @@
 	<!-- 회원가입sql -->
 	<insert id="memberInsert" parameterType="com.model.MemberVO">
 		insert into s_member
-		values (#{id},
-				#{name},
-				#{pw},
-				#{email},
-				#{nick})
+		values (#{id},#{name},#{pw},#{email},#{nick})
 	</insert>
 	
 	<!-- 로그인 sql -->
@@ -22,5 +18,48 @@
 		where id=#{id}
 		and pw=#{pw}
 	</select>
+	
+	<!-- 일치하는 email이 있는지 sql -->  
+	<select id="findID" parameterType="com.model.MemberVO" resultType="com.model.MemberVO"> 
+		select * 
+		from s_member 
+		where email=#{email}
+	</select>
+	 
+	 <!-- 일치하는 id가 있는지 sql -->
+	 <select id="findPW" resultType="com.model.MemberVO">
+		select *
+		from s_member
+		where id=#{id}
+	</select>
+	
+	<!-- 회원의id와 email이 같은지 sql -->
+	 <select id="confirmEmail" parameterType="com.model.MemberVO" resultType="com.model.MemberVO">
+		select email
+		from s_member
+		where id=#{id}
+	</select>
+	
+	<!-- 비밀번호 update sql -->
+	<update id="changePW" parameterType="com.model.MemberVO" >
+		update s_member
+		set pw=#{pw}
+		where id=#{id}
+	</update>
 
+	<!-- 아이디 중복 확인 -->
+	<select id="idCheck" resultType="int">
+		select count(*) from s_member where id=#{id}
+	</select>
+	
+	<!-- 닉네임 중복 확인 -->
+	<select id="nickCheck" resultType="int">
+		select count(*) from s_member where nick=#{nick}
+	</select>
+	
+	<!-- 이메일 중복 확인 -->
+	<select id="emailCheck" resultType="int">
+		select count(*) from s_member where email=#{email}
+	</select>
+	
 </mapper>

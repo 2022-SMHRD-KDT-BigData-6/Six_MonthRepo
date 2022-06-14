@@ -36,7 +36,7 @@ public class ComInsertService extends HttpServlet {
 		int cnt = dao.commentInsert(cvo);
 		
 
-		String nextPage = "GoView?pnum="+pnum;
+		String nextPage = "GoView?pnum="+pnum+"&cnt=0";
 		if(cnt>0) {
 			response.sendRedirect(nextPage);
 		}else{

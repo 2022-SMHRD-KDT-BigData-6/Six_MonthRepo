@@ -50,6 +50,7 @@
 			</a>
 			<h1>Smhrd커뮤니티</h1>
 
+
 			<p> Created by Six_month </p>
 			
 
@@ -92,6 +93,11 @@
                   <%
                   } else {// 로그인 했을때
                   %>
+
+
+                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> 
+                  <a href="#"><%=vo.getNick()%></a><br>
+
                   <img alt="profile" src="image/profile.png">
                   		<br>
                   		<p class="school"><%=vo.getName()%></p>
@@ -137,6 +143,7 @@
 								<td>제목</td>
 								<td>작성자</td>
 							</tr>
+
 						</thead>
 						<tbody>		
 							<tr>
@@ -147,6 +154,7 @@
 								<td><%=bvo.getTitle() %></td>
 								<td><%=bvo.getNick() %></td>
 							</tr>
+
 						<%
 						}
 						%>
@@ -169,6 +177,7 @@
 								<td>제목</td>
 								<td>작성일자</td>
 							</tr>
+
 							<%
 							for (int i = 0; i < 5; i++) {
 								BoardVO bvo = list.get(i);
@@ -185,6 +194,7 @@
 						<div class="align-center">
 							<a href="GoFree?page=1" class="button">더보기</a></li>
 						</div>
+
 
 					</div>			
 

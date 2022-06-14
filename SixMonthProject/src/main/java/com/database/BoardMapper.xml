@@ -19,7 +19,7 @@
    </select>
 
    <insert id="boardInsert" parameterType="com.model.BoardVO">
-      insert into s_post
+      insert into s_post(pnum,title,content,id,nick,pdate,fileName)
       values(
          post_num_seq.nextval,
          #{title},
@@ -32,7 +32,7 @@
    </insert>
    
    <!-- 채워줄 값이 한개만 있는경우, parameter type 생략 -->
-   <delete id="boardDelete">
+   <delete id="boardDelete" parameterType="com.model.BoardVO">
 
       delete from s_post
       where pnum = #{pnum}
@@ -54,18 +54,49 @@
 		where pnum=#{pnum}
 	</update>
 	
+	<!-- 조회수 count -->
+	<update id="boardHitCount" parameterType="BoardVO">
+		update s_post
+		set hit = hit+1
+		where pnum=#{pnum}
+	</update>
+	
+	<!-- 게시글 공감 id-->
+	<insert id="boardGoodInsert" parameterType="com.model.GoodVO">
+		insert into post_mind
+		values(
+			#{pnum},
+			#{id}
+		)
+	</insert>
+	
+	<!-- 게시글 공간한 id 확인 -->
+	<select id="boardGoodCheck" resultType="com.model.GoodVO">
+		select count(*)
+		from post_mind
+		where pnum=#{pnum} and id=#{id}
+	</select>
+	
+	<!-- 게시글 공감 count -->
+	<update id="boardGoodCount" parameterType="BoardVO">
+		update s_post
+		set good = good+1
+		where pnum=#{pnum}
+	</update>
+	
+	<!-- 페이지 구분 -->
 	<select 
 	 id="pagging"
 	 resultType="BoardVO"
  	>
 	 	select * 
-		from (select rownum as rn, pnum, title, nick, content, pdate from s_post order by pnum desc) A
+		from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, nick, content, hit, pdate from s_post) A
 		where a.rn between #{page}  and  #{page} + 9
  	</select>
  	
  	<!-- 댓글 작성 -->
  	<insert id="commentInsert" parameterType="com.model.CommentVO">
- 		insert into s_comment
+ 		insert into s_comment(cnum,pnum,comments,id,nick,cdate)
  		values(
  			comment_num_seq.nextval,
  			#{pnum},
@@ -81,6 +112,7 @@
       select * 
       from s_comment
       where pnum=#{pnum}
+      order by cdate
    </select>
 
 	<!-- 댓글 삭제 -->
@@ -88,6 +120,7 @@
 		delete from s_comment
 		where cnum=#{cnum}
 	</delete>
+	
 	
 	
 </mapper>

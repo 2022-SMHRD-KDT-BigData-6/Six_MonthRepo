@@ -8,49 +8,43 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.MemberDAO;
 import com.model.MemberVO;
 
-// 회원가입 기능
-@WebServlet("/JoinService")
-public class JoinService extends HttpServlet {
+@WebServlet("/ChangePW")
+public class ChangePW extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+
 		request.setCharacterEncoding("UTF-8");
 
-		String id = request.getParameter("id");
-		String name = request.getParameter("name");
-		String pw = request.getParameter("pw");
-		String email = request.getParameter("email");
-		String nick = request.getParameter("nick");
-		
-		System.out.println(id);
-		System.out.println(name);
-		System.out.println(pw);
-		System.out.println(email);
-		System.out.println(nick);
+		// 새 비밀번호
+		String newPW = request.getParameter("pw");
+
+		// 해당 유저를 구분할 수 있는 정보추출
+		String id = ((MemberVO) session.getAttribute("vo")).getId();
 
 		MemberVO vo = new MemberVO();
+		vo.setPw(newPW);
 		vo.setId(id);
-		vo.setName(name);
-		vo.setPw(pw);
-		vo.setEmail(email);
-		vo.setNick(nick);
 
 		MemberDAO dao = new MemberDAO();
-		int cnt = dao.insert(vo);
+
+		int cnt = dao.changePW(vo);
 
 		if (cnt > 0) {
-			System.out.println("회원 가입 성공");
+			request.setAttribute("id", vo.getId());
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			rd.forward(request, response);
 
-		} else if(cnt==0) {
-			System.out.println("회원 가입 실패");
 		} else {
-			System.out.println("나도 모르는 오류..");
+			response.sendRedirect("foundPW.jsp");
 		}
 
 	}

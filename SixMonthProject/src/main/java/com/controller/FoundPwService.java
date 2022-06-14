@@ -8,49 +8,40 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.MemberDAO;
 import com.model.MemberVO;
 
-// 회원가입 기능
-@WebServlet("/JoinService")
-public class JoinService extends HttpServlet {
+@WebServlet("/FoundPwService")
+public class FoundPwService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		
 		request.setCharacterEncoding("UTF-8");
 
-		String id = request.getParameter("id");
-		String name = request.getParameter("name");
-		String pw = request.getParameter("pw");
 		String email = request.getParameter("email");
-		String nick = request.getParameter("nick");
+		String id=((MemberVO)session.getAttribute("vo")).getId();
 		
-		System.out.println(id);
-		System.out.println(name);
-		System.out.println(pw);
-		System.out.println(email);
-		System.out.println(nick);
-
 		MemberVO vo = new MemberVO();
-		vo.setId(id);
-		vo.setName(name);
-		vo.setPw(pw);
-		vo.setEmail(email);
-		vo.setNick(nick);
+		vo.setEmail(email);;
 
 		MemberDAO dao = new MemberDAO();
-		int cnt = dao.insert(vo);
 
-		if (cnt > 0) {
-			System.out.println("회원 가입 성공");
+		MemberVO cnt = dao.confirmEmail(email);
 
-		} else if(cnt==0) {
-			System.out.println("회원 가입 실패");
+		if (cnt!= null) {
+			session.setAttribute("id", id);
+			
+			request.setAttribute("pw", cnt.getPw());
+			RequestDispatcher rd = request.getRequestDispatcher("foundPW.jsp");
+			rd.forward(request, response);
 		} else {
-			System.out.println("나도 모르는 오류..");
+			response.sendRedirect("foundPW.jsp");
 		}
 
 	}
