@@ -43,8 +43,28 @@
 
 			<!-- Content -->
 			<section id="content" class="main">
-				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
 				<h2>글목록</h2>
+				
+					<!-- 검색기능 -->
+						<form action="" method="">
+							<div class="icon-Div-Align-Right">
+								<div>
+									<select style="text-align:center" id="selectHeight">
+										<option value="title">글 제목</option>
+										<option value="contents">글 내용</option>
+										<option value="writer">작성자</option>
+									</select>
+								</div>
+								<div>
+									<input type="text" id="searchSize" placeholder="검색어 입력">
+								</div>
+								<div>
+									<input type="submit" class="button buttonSize" value="검색" id="searchButtonSize">
+								</div>
+							</div>
+						</form>
+					
+				
 				<table id="list">
 					<thead>
 
@@ -54,6 +74,7 @@
 							<td>작성자</td>
 							<td>조회수</td>
 							<td>작성일</td>
+							<!-- 조회수 UI 추가 -->
 						</tr>
 
 					</thead>
@@ -70,6 +91,8 @@
 							<td><%=bvo.getNick()%></td>
 							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
+							<!-- 조회수 UI 추가 -->
+							<%-- url?name=value --%>
 							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>
 						<%

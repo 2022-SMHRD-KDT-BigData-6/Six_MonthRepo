@@ -9,6 +9,8 @@
 	constraint member_nick_uk unique (nick)
 )
 
+drop table s_member
+
 insert into s_member
 values('jaewoo', '梯營辦', '1234', 'kimjaewu09@naver.com', '營辦噙');
 
@@ -104,6 +106,10 @@ drop table post_mind cascade constraints
 select * 
 from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, id, content, pdate from s_post) A
 where a.rn between 1 and 1+9;
+				
+select count(*) from s_member where id='jaewoo'				
+									
+truncate table s_member
 
 select * 
 from s_comment
@@ -113,8 +119,6 @@ order by cdate;
 		select count(*)
 		from post_mind
 		where pnum=149 and id='jaewoo';									
-									
-									
 									
 									
 									

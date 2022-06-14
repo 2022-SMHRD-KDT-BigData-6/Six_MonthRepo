@@ -22,18 +22,13 @@
 	MemberVO vo = (MemberVO) session.getAttribute("vo");
 	%>
 	
-	<header id="header" class="alt">
-		<a href="GoMain"><span class="logo"><img
-				src="image/logo.big.png" /></span></a>
-		<h1>Smhrd커뮤니티</h1>
-		<p>빅데이터 분석서비스 개발자과정</p>
-	</header>
-	
 	<!-- Wrapper -->
 	<div id="wrapper">
 
 		<!-- Header -->
 		<header id="header">
+			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<br><br>
 			<h1>게시글 작성페이지</h1>
 		</header>
 
@@ -69,19 +64,19 @@
 					</td>
 				</tr>
 			</table>
-				
-		<div class="align-right">
-               <input type="checkbox" id="demo-copy" name="demo-copy">
-                  <label for="demo-copy" >익명</label>
-                  <input type="submit" value="작성완료" class="button">
-               </div>
-               
-         </form>
-            <div class="align-center">      
-               <a href = "GoFree?page=1" class="button primary buttonSize"> 글 목록</a>
-            </div>
-      
-         </section>
+				<div class="icondiv">
+					<div>
+						<a href = "GoFree?page=1" class="button buttonSize"> 글 목록</a>
+					</div>
+					<div>
+						<input type="checkbox" id="demo-copy" name="demo-copy">
+							<label for="demo-copy" >익명</label>
+						<input type="submit" value="작성완료" class="button primary buttonSize">
+					</div>
+				</div>
+			</form>
+		
+			</section>
 		
 		</div>
 

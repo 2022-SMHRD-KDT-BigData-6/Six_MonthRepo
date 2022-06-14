@@ -40,6 +40,7 @@
 		<div id="main">
 
 		<section id="content" class="main">
+
 		<table id="list">
 			<tr>
 				<td>제목</td>
@@ -62,12 +63,6 @@
 				</td>
 			</tr>
 			<tr>
-				<td>조회수</td>
-				<td>
-					<%= view.getHit() %>
-				</td>
-			</tr>
-			<tr>
 				<td colspan="2">내용</td>
 			</tr>
 			<tr>
@@ -83,6 +78,7 @@
 
 		</table>
 		
+		<!-- 공감 수 입력 --> 
 			<tr>
 				<td>
 				<form action="GoodInsertService" method="post">
@@ -95,10 +91,23 @@
 				</td>
 			</tr>
 			
-		  <div class="align-center" >
-            <a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button buttonSize">수정하기</a>
-            <a href="GoFree?page=1" class="button primary buttonSize">글 목록</a>
-         </div>
+
+			<div class="align-left">
+				<a href="#" class="vote"><img src="image/like.png" class="like_icon"> 0</a>
+				
+				<div class="align-right">
+						<span>조회수 : <%= view.getHit() %></span>
+				</div>
+			</div>
+
+			<div class="icondiv">
+				<div>
+					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+				</div>
+				<div>
+					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button primary buttonSize">수정하기</a>
+				</div>
+			</div>
 		
 		<%-- 댓글 보여주기 --%>
 		<div class="comments">
