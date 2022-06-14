@@ -44,7 +44,7 @@
 			<!-- Content -->
 			<section id="content" class="main">
 				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-				<h2>리스트</h2>
+				<h2>글목록</h2>
 				<table id="list">
 					<thead>
 
@@ -52,7 +52,8 @@
 							<td>번호</td>
 							<td>제목</td>
 							<td>작성자</td>
-							<td>시간</td>
+							<td>조회수</td>
+							<td>작성일</td>
 						</tr>
 
 					</thead>
@@ -64,11 +65,11 @@
 						%>
 						<tr>
 							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
+							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
 							    <%=bvo.getTitle()%></a></td>
 							<td><%=bvo.getNick()%></td>
+							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
-							<%-- url?name=value --%>
 							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>
 						<%
