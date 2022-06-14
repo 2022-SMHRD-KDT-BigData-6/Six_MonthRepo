@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.model.CalendarDAO">
+   <!-- namespace=> DAO이름(클래스 경로까지) class 파일을 가져오는 경우 .으로 폴더구분 SQL문을 작성하는 Mapper파일 -->
+
+   <!-- select 태그 insert 태그 
+   parameterType : 바인드변수를 채워줄 대상 사용하고자하는 문장과 동일한 이름 
+      태그 사용 
+   resultType : select 할때만 사용 어떤 데이터 타입으로 결과를 묶어줄 것 resultType을 생략 가능 -->
+
+   <!-- sql문에 붙여주는 고유값 (겹치면 안된다) -->
+   <select id="calendarList" resultType="com.model.CalendarVO">
+      select * 
+      from calendar
+      <!-- #{필드명} => 해당하는 변수명을 가진 필드의 값을 깨내오기 -->
+   </select>
+  
+	
+</mapper>

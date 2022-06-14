@@ -235,11 +235,6 @@
 				
 					<div id='calendar'></div>
 				
-				<footer class="major">
-					<ul class="actions special">
-						<li><a href="generic.html" class="button">Learn More</a></li>
-					</ul>
-				</footer>
 			</section>
 
 			<!-- Get Started -->
