@@ -18,6 +18,7 @@
 
 <%
 	MemberVO vo=(MemberVO)session.getAttribute("vo");
+	String newNick=(String)request.getAttribute("nick");
 %>
 
 		<header id="header" class="alt">
@@ -32,41 +33,39 @@
 				<h2>내 정보</h2>
 			</header>
 			
-			<!-- 로그인 form -->
-			<form action=pwChange method="post">
-			<ul class="features">
-				<li>
-				<span style="text-align: left">새 비밀번호</span>
-				<input type="password" name="pw" placeholder="새 비밀번호">
-				<input type="password" name="pw" placeholder="새 비밀번호 확인">
-				<span style="text-align: left">현재 비밀번호</span>
-				<input type="password" name="pw" <%=(String)session.getAttribute("pw") %>placeholder="현재 비밀번호">
-				<input type="submit" value="비밀번호변경"	class="button fit">
-				</li>
-			</ul>
-			</form>
+		
 			
 			<form action=nickChange method="post">
-			<ul class="features">
+					<ul class="features">
 				<li>
-				<span style="text-align: left">닉네임</span>
-				<input type="text" name="text" placeholder="기존아이디">
-				<input type="submit" value="닉네임변경"	class="button fit">
+				<span style="text-align: left" style="font-size:20px">닉네임</span>
+				<input type="text" id="nick" name="nick" placeholder=<%=(String)vo.getNick()%>>
+				<p align="right" style="font-size:14px">※영문,숫자,특문 포함 6자이내 변경가능</p>
+				<input type="button" id="cn" value="닉네임변경"	class="button fit" onclick="changeNICK()">
 				</li>
 			</ul>
 			
 			
 			</form>
-			
-			<ul class="features">
-				<li>
-				<a href="GoMain" class="button fit">메인으로</a>
-				</li>
-			</ul>
 			
 		</section>
 
 
 	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+	
+		function changeNICK(){
+			var nick= document.getElementById('nick');
+			
+			if(nick.value.length<1 ){
+				alert("변경할 닉네임을 입력해주세요")
+			}else{
+				alert('닉네임이 변경되었습니다')
+		        console.log($('input#cn').attr('type','submit'))
+			}
+		}
+	</script>
 </body>
 </html>

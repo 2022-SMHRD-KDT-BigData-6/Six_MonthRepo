@@ -114,6 +114,17 @@ drop table s_comment cascade constraints
 select * 
 from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, id, content, pdate from s_post) A
 where a.rn between 1 and 1+9;
+
+
+
+
+									
+
+insert into s_member
+values('³ªÀ±2', '³ªÀ±2', '123', 'ggumi1031@naver.com', '³ªÀ±2');									
+									
+									
+
 				
 select count(*) from s_member where id='jaewoo'				
 									
@@ -134,7 +145,7 @@ where title like '%°ø°¨%'
 order by pdate desc
 									
 									
-									
+select * from s_member									
 									
 									
 									
