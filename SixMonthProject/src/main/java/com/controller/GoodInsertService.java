@@ -42,9 +42,8 @@ public class GoodInsertService extends HttpServlet {
 	    String nextPage = "GoView?pnum="+pnum+"&cnt=0";
 	    if(goodCheck > 0) {
 	    	out.println("<script>");
-	    	out.println("alert('이미 추천하셨습니다!');");
+	    	out.println("alert('이미 추천하였습니다.'); location.href='GoView?pnum="+pnum+"&cnt=0';");
 	    	out.println("</script>");
-	    	response.sendRedirect(nextPage);
 	    	out.close();
 	    }else {
 	    	int resultInsert = dao.boardGoodInsert(gvo);

@@ -84,7 +84,7 @@
 				<form action="GoodInsertService" method="post">
 					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
 					<input name="id" type="hidden" value="<%= vo.getId() %>">
-					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼" >
+					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼">
 					<%= view.getGood() %>
 				</form>
 				
@@ -182,6 +182,7 @@
 
 
 	</div>
+	
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
