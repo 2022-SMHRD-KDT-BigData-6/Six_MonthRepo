@@ -101,6 +101,20 @@ public class MemberDAO {
 			}
 			return row;
 		}
+	
+	// 닉네임 변경 DAO
+		public int changeNICK(MemberVO vo) {
+					
+				try {
+					session = sqlFactory.openSession(true);
+					row = session.update("changeNICK", vo);
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					session.close();
+				}
+				return row;
+			}
 
 	// 아이디 중복 확인 메소드
 	public int idCheck(String id) {

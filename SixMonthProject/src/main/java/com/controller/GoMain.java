@@ -31,7 +31,7 @@ public class GoMain extends HttpServlet {
 		List<BoardVO> list = dao.boardList();
 	
 		// 객체바인딩
-		// Scope영역에 전달하고자하는 객체를 저장\
+		// Scope영역에 전달하고자하는 객체를 저장
 		// request 영역
 		request.setAttribute("list", list);
 		
