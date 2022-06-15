@@ -32,12 +32,12 @@ public class FoundPwService extends HttpServlet {
 
 		MemberDAO dao = new MemberDAO();
 
-		MemberVO cnt = dao.confirmEmail(email);
+		MemberVO result = dao.confirmEmail(email);
 
-		if (cnt!= null) {
+		if (result!= null) {
 			session.setAttribute("id", id);
 			
-			request.setAttribute("pw", cnt.getPw());
+			request.setAttribute("pw", result.getPw());
 			RequestDispatcher rd = request.getRequestDispatcher("foundPW.jsp");
 			rd.forward(request, response);
 		} else {
