@@ -1,3 +1,5 @@
+<%@page import="com.model.MemberDAO"%>
+<%@page import="com.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,41 +12,46 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
-<title>ID/PW찾기</title>
+<title>ID찾아주는 화면</title>
 </head>
 <body class="login">
+<%
+	String id=(String)request.getAttribute("id");
+%>
 	<div id="wrapper" align="center">
 			<section id="first" class="main special">
 				<header class="major">
-					<h2>ID/PW찾기</h2>
+					<h2>ID 찾기</h2>
 				</header>
 				
-				<form action="">
+				
+				<!-- 아이디 찾아주는 곳 -->
+				<form action="FindIdService">
 					<ul class="features">
-							<li>
-								<h3>ID찾기</h3> 
-								<input type="text" placeholder="Email을 입력하세요"> 
-								<input type="submit" value="ID찾기" class="button fit">
-							</li>
+					<li>
+					<%
+					if(id!=null){
+					%>
+						<h4>회원님의 아이디는</h4>
+						<h4>"<%=id%>"</h4>
+						<h4>입니다.</h4>
+					<%}else{%>
+						<h4>아이디 찾기를 실패하였습니다.</h4>
+					<%}%>
+					</li>
 					</ul>
 				</form>
 				
-				<form action="">
-					<ul class="features">
-							<li>
-								<h3>PW찾기</h3>
-								<input type="text" placeholder="가입한 ID를 입력하세요">
-								<input type="submit" value="PW찾기" class="button fit">
-							</li>
-					</ul>
-				</form>
 				
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="login.jsp">뒤로가기</a></li>
+						<li><a href="login.jsp">로그인하기</a></li>
+						<li><a href="findID.jsp">아이디찾기</a></li>
 					</ul>
 				</footer>
 			</section>
 	</div>
+	
+
 </body>
 </html>

@@ -21,7 +21,6 @@ public class BoardDAO {
 
 	// 글 전체를 가져오는 메서드
 	public List<BoardVO> boardList() {
-		System.out.println(sqlSessionFactory);
 
 		// 1. SqlSession 빌려오기
 		// openSession(auto commit);
@@ -104,6 +103,7 @@ public class BoardDAO {
 		return cnt;
 	}
 	
+	// 게시글 보여주기
 	public BoardVO boardVO(int pnum){
 		//1.sqlSession 빌려오기 
 		SqlSession session = sqlSessionFactory.openSession(true);
@@ -115,6 +115,7 @@ public class BoardDAO {
 		return cnt2;
 	}
 
+	// 게시글 수정
 	public int boardUpdate(BoardVO bvo) {
 		
 		// 1. SqlSession 빌려오기
@@ -132,12 +133,114 @@ public class BoardDAO {
 		// 4. 쿼리문 실행 결과 리턴
 		return cnt;
 	}
-
-	public int getCount(String kwd) {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	//게시글 조회수 증가
+	public int boardHitCount(int pnum) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		try {
+			cnt = session.update("boardHitCount", pnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		session.close();
+		
+		return cnt;
+		
 	}
+	
+	// 공감한 ID
+	public int boardGoodInsert(GoodVO gvo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
 
+		try {
+			cnt = session.insert("boardGoodInsert", gvo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		session.close();
+
+		return cnt;
+	}
+	
+	// 공감한 ID 확인
+	public int boardGoodCheck(GoodVO gvo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		try {
+			cnt = session.selectOne("boardGoodCheck", gvo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		session.close();
+
+		return cnt;
+	}
+	
+	// 공감 개수 증가
+	public int boardGoodCount(int pnum) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		try {
+			cnt = session.update("boardGoodCount", pnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		session.close();
+		
+		return cnt;
+	}
+	
+	// 댓글 작성
+	public int commentInsert(CommentVO cvo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		try {
+			cnt = session.insert("commentInsert", cvo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		session.close();
+		
+		return cnt;
+	}
+	
+	// 댓글 보기
+	public List<CommentVO> commentList(int pnum) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		List<CommentVO> list = session.selectList("commentList",pnum);
+
+		// 3. 빌려온 session 반환
+		session.close();
+
+		// 4. 쿼리실행 결과 리턴
+		return list;
+		
+	}
+	
+	// 댓글 삭제
+	public int commentDelete(int cnum) {
+		//1. SQLSession 빌려오기   
+		SqlSession session = sqlSessionFactory.openSession(true);
+		//2. SQL문 실행 
+		try {
+			cnt = session.delete("commentDelete",cnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		session.close();
+	
+		
+		return cnt;
+	}
+	
+	
 }
 
 // SQL문 실행 준비

@@ -16,9 +16,18 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
+<link href='fullcalendar/main.css' rel='stylesheet' />
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+<style>
+#calendar {
+	max-width: 100%;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	margin: 0 auto;
+	font-size: 14px;
+}
+</style>
 </head>
 <body class="is-preload">
 
@@ -32,8 +41,15 @@
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<a href="GoMain">
+			
+			<span class="logo">
+			<img src="image/logo.big.png"/>
+			</span>
+			
+			</a>
 			<h1>Smhrd커뮤니티</h1>
+
 
 			<p> Created by Six_month </p>
 			
@@ -58,7 +74,7 @@
 			<section id="intro" class="main">
 			<div class="spotlight">
 				<div class="content" style="padding-right:10px" style="padding-left:10px">
-					<img alt="banner" src="image/banner.jpg">
+					<img alt="banner" src="image/banner.jpg" class="bannerimg">
 				</div>
 				
 				<div class="content align-center" id="login" style="padding-right:10px" style="padding-left:10px">
@@ -78,13 +94,29 @@
                   } else {// 로그인 했을때
                   %>
 
-                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> <a href="#"><%=vo.getNick()%></a><br>
+
+                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> 
+                  <a href="#"><%=vo.getNick()%></a><br>
+
+                  <img alt="profile" src="image/profile.png">
+                  		<br>
+                  		<p class="school"><%=vo.getName()%></p>
+                  		<p class="school"><%=vo.getNick()%></p> 
+                  		
+                  	<ul class="myInfo">
+                  		<li class="myInfo_li"><a href="myPage.jsp">내 정보</a></li>
+                  	
+                  	
                   <%
                   session.setAttribute("vo", vo);
                   %>
                   
                   <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
-                  <a href='logout'> 로그아웃 </a>
+                  		<li class="myInfo_li"><a href='logout'> 로그아웃 </a></li>
+                  		<li class="myInfo_li"><a href='myWrite.jsp' class="myArticle"> 내 글 </a></li>
+                  		<li class="myInfo_li"><a href='myComment.jsp' > 내 댓글 </a></li>
+                  		
+                  </ul>
                   <%
                   }
                   %>
@@ -94,6 +126,7 @@
 				</div>
 					
 			</div>
+			
 			</section>
 			<!-- Introduction -->
 
@@ -105,21 +138,27 @@
 							<h2>자유게시판</h2>
 						</header>
 						<table>
+						<thead>
 							<tr>
 								<td>제목</td>
 								<td>작성자</td>
 							</tr>
-							<%-- <%
-							for (int i = 0; i < 5; i++) {
-								BoardVO bvo = list.get(i);
-							%>
+
+						</thead>
+						<tbody>		
 							<tr>
-								<td><%=bvo.getTitle()%></td>
-								<td><%=bvo.getId()%></td>
+						<%
+							for(int i=0; i<5; i++){
+							BoardVO bvo = list.get(i);
+						%>
+								<td><%=bvo.getTitle() %></td>
+								<td><%=bvo.getNick() %></td>
 							</tr>
-							<%
-								}
-							%> --%>
+
+						<%
+						}
+						%>
+						</tbody>
 
 						</table>
 						<div class="align-center">
@@ -138,7 +177,8 @@
 								<td>제목</td>
 								<td>작성일자</td>
 							</tr>
-							<%-- <%
+
+							<%
 							for (int i = 0; i < 5; i++) {
 								BoardVO bvo = list.get(i);
 							%>
@@ -148,16 +188,15 @@
 							</tr>
 							<%
 								}
-							%> --%>
+							%> 
 
 						</table>
 						<div class="align-center">
 							<a href="GoFree?page=1" class="button">더보기</a></li>
 						</div>
 
-					</div>
 
-					
+					</div>			
 
 				</div>
 			</section>
@@ -191,37 +230,10 @@
 			<section id="second" class="main special">
 				<header class="major">
 					<h2>일정표</h2>
-					<p>
-						
-					</p>
 				</header>
-				<ul class="statistics">
-					<li class="style1"><span class="icon solid fa-code-branch"></span>
-						<strong>5,120</strong> Etiam</li>
-					<li class="style2"><span class="icon fa-folder-open"></span> <strong>8,192</strong>
-						Magna</li>
-					<li class="style3"><span class="icon solid fa-signal"></span>
-						<strong>2,048</strong> Tempus</li>
-					<li class="style4"><span class="icon solid fa-laptop"></span>
-						<strong>4,096</strong> Aliquam</li>
-					<li class="style5"><span class="icon fa-gem"></span> <strong>1,024</strong>
-						Nullam</li>
-				</ul>
-				<p class="content">Nam elementum nisl et mi a commodo porttitor.
-					Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a
-					orci mi, elementum ac arcu sit amet, fermentum pellentesque et
-					purus. Integer maximus varius lorem, sed convallis diam accumsan
-					sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar
-					faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur
-					vestibulum. Integer eget purus nec nulla mattis et accumsan ut
-					magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus
-					et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam
-					porta. Cras eu ornare dui curabitur lacinia.</p>
-				<footer class="major">
-					<ul class="actions special">
-						<li><a href="generic.html" class="button">Learn More</a></li>
-					</ul>
-				</footer>
+				
+					<div id='calendar'></div>
+				
 			</section>
 
 			<!-- Get Started -->
@@ -247,39 +259,21 @@
 		<!-- Footer -->
 		<footer id="footer">
 			<section>
-				<h2>Aliquam sed mauris</h2>
-				<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat
-					consequat magna adipiscing tempus etiam dolore veroeros. eget
-					dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula
-					erat egestas velit, vitae tincidunt odio.</p>
-				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn More</a></li>
-				</ul>
+				<h2>핵심융합프로젝트</h2>
+				<p>제작기간 : 2022.06.03~2022.06.20</p>
+				<p>발표 : 2022.06.20</p>
 			</section>
 			<section>
-				<h2>Etiam feugiat</h2>
+				<h2>Six_Month</h2>
 				<dl class="alt">
-					<dt>Address</dt>
-					<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
-					<dt>Phone</dt>
-					<dd>(000) 000-0000 x 0000</dd>
-					<dt>Email</dt>
-					<dd>
-						<a href="#">information@untitled.tld</a>
-					</dd>
+					<dt>Leader</dt>
+					<dd>Jae Woo Kim</dd>
+					<dt>member</dt>
+					<dd>Jun Seong Kim</dd>
+					<dd>Na Yun Hwang</dd>
+					<dd>Yu Rim Kim</dd>
+					<dd>Tae Min No</dd>
 				</dl>
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter alt"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-facebook-f alt"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram alt"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-github alt"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble alt"><span
-							class="label">Dribbble</span></a></li>
-				</ul>
 			</section>
 			<p class="copyright">
 				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
@@ -296,6 +290,76 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src='fullcalendar/main.js'></script>
+	<script src='fullcalendar/locales-all.js'></script>
+	<script src='fullcalendar/ko.js'></script>
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var calendarEl = document.getElementById('calendar');
 
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+			headerToolbar : {
+				left : 'prev,next today',
+				center : 'title',
+				right : 'dayGridMonth,timeGridWeek,timeGridDay'
+			},
+			initialDate : '2022-06-13', // 초기 로딩 날짜
+			navLinks : true, // can click day/week names to navigate views
+			selectable : true,
+			selectMirror : true,
+			
+			// 이벤트명 : function(){} : 각 날짜에 대한 이벤트를 통해 처리할 내용
+			/* select : function(arg) {
+				var title = prompt('Event Title:');
+				if (title) {
+					calendar.addEvent({
+						title : title,
+						start : arg.start,
+						end : arg.end,
+						allDay : arg.allDay
+					})
+				}
+				calendar.unselect()
+			},
+			 */
+			// 삭제기능
+			/* eventClick : function(arg) {
+				if (confirm('Are you sure you want to delete this event?')) {
+					arg.event.remove()
+				}
+			}, */
+			editable : false,
+			locale : 'ko',
+			dayMaxEvents : true, // allow "more" link when too many events
+			events : function(info, successCallback, failureCallback){
+				$.ajax({
+					type:'post',
+					url:'Calendar',
+					dataType: 'json',
+					contentType :"application/json;charset=utf-8",
+					success: function(jsonarray){
+						console.log(jsonarray);	
+						
+						var events = [];
+						for(var i=0 ; i<jsonarray.length ;i++){
+						events.push({
+							title : jsonarray[i].caltitle,
+							start : jsonarray[i].start1,
+							end : jsonarray[i].end1
+							});
+						}
+						console.log(events);
+						successCallback(events);
+					},
+					error : function(){
+						alert("실패")
+					}
+				});
+			}
+			});
+					
+			calendar.render();
+		});
+</script>
 </body>
 </html>
