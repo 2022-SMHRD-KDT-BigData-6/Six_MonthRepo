@@ -26,9 +26,9 @@ public class DeleteService extends HttpServlet {
 		//3. BoardDAO에 있는 boardDelete()메서드 사용 
 		int cnt = dao.boardDelete(pnum);
 		//4. 성공 실패 판단후 페이지 이동 
-		String nextPage = "GoMain";
+		String nextPage = "GoFree";
 		
-		response.sendRedirect("GoMain?page=1");
+		response.sendRedirect("GoFree?page=1");
 	}
 
 }

@@ -1,5 +1,7 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.model.MemberVO"%>
 <%@page import="com.model.BoardVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -15,70 +17,84 @@
 </noscript>
 </head>
 <body class="is-preload">
-	<%
-	// request영역에서 데이터 꺼내오기
-	// 페이지에 출력하기
-	BoardVO view = (BoardVO) request.getAttribute("view");
-	MemberVO vo = (MemberVO) session.getAttribute("vo");
+
+	<% 
+	//obj타입 업캐스팅 된채로 저장 
+	//request에 저장해둔 list 꺼내오기
+	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
+	int boards = (int)request.getAttribute("boards");
+	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+	
+
 	%>
 	
-	<header id="header" class="alt">
-		<a href="index.jsp"><span class="logo"><img
-				src="image/logo.big.png" /></span></a>
-		<h1>Smhrd커뮤니티</h1>
-		<p>빅데이터 분석서비스 개발자과정</p>
-	</header>
 	
 	<!-- Wrapper -->
 	<div id="wrapper">
 
 		<!-- Header -->
 		<header id="header">
-			<h1>게시글 작성페이지</h1>
+			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<br><br>
+			<h1>자유게시판</h1>
+			
 		</header>
 
 		<!-- Main -->
 		<div id="main">
 
 			<!-- Content -->
-			<section>
+			<section id="content" class="main">
+				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
+				<h2>리스트</h2>
+				<table id="list">
+					<thead>
 
-			<form action="InsertService" method="post" enctype="multipart/form-data"> <!-- multipart/form-data 파일 인코딩 X!! -->
-			<table id="list">
-				<tr>
-					<td>제목</td>
-					<td><input  name="title" type="text"></td>
-				</tr>
-				<tr>
-					<td>작성자</td>
-					<td><%=vo.getNick()%></td>
-				</tr>
-				<tr>
-					<td colspan="2">내용</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-					<input name="file" type="file">
-					<textarea name="content" rows="10" style="resize: none;"></textarea>
-					</td>
-				</tr>
-				<tr class="align-center">
-					<td colspan="2">
-					<input type="image" src="image/check_box.png" alt="제출">
-					</td>
-				</tr>
-			</table>
-		</form>
+						<tr>
+							<td>번호</td>
+							<td>제목</td>
+							<td>작성자</td>
+							<td>시간</td>
+						</tr>
+
+					</thead>
+					<tbody>			
+						
+						<%
+						for (int i = 0; i < list.size(); i++) {
+							BoardVO bvo = list.get(i);
+						%>
+						<tr>
+							<td><%=bvo.getPnum()%></td>
+							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
+							    <%=bvo.getTitle()%></a></td>
+							<td><%=bvo.getId()%></td>
+							<td><%=bvo.getPdate()%></td>
+							<%-- url?name=value --%>
+							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
+						</tr>
+						<%
+						}
+						%>
+					</tbody>
+				</table>
 		
-		<table id="list">
-		<tr>
-			<td class="align-right">
-			<a href = "GoFree?page=1"><image src="image/back.png" alt="뒤로가기"></image></a>
-			</td>
-		</tr>
-		</table>
-		</section>
-		
+				<div class="align-right">
+				<a href="GoWriter" style=""><image src="image/write_3.png" alt="작성하러가기"></image></a>
+				</div>
+				
+				<br>
+				
+			<div class="align-center">
+					<% for(int i =0; i<=boards/10; i++){
+					%>
+					<a href="GoFree?page=<%=i*10+1%>"><%=i+1 %></a>		
+				
+				<% }%>
+			</div>
+
+			</section>
+
 		</div>
 
 		<!-- Footer -->

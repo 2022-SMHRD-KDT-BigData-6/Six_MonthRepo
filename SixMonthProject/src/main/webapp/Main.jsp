@@ -1,3 +1,6 @@
+<%@page import="com.model.BoardVO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -19,16 +22,22 @@
 </head>
 <body class="is-preload">
 
-
+<%
+	MemberVO vo=(MemberVO)session.getAttribute("vo");
+	List<BoardVO> list = (List<BoardVO>)request.getAttribute("list");
+%>
 
 	<!-- Wrapper -->
 	<div id="wrapper">
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<a href="index.jsp"><span class="logo"><img src="image/logo.big.png"/></span></a>
+			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<h1>Smhrd커뮤니티</h1>
-			<p>빅데이터 분석서비스 개발자과정</p>
+
+			<p> Created by Six_month </p>
+			
+
 		</header>
 
 
@@ -44,13 +53,54 @@
 
 		<!-- Main -->
 		<div id="main">
+		
+			<!-- 로그인 및 사진 추가 -->
+			<section id="intro" class="main">
+			<div class="spotlight">
+				<div class="content" style="padding-right:10px" style="padding-left:10px">
+					<img alt="banner" src="image/banner.jpg">
+				</div>
+				
+				<div class="content align-center" id="login" style="padding-right:10px" style="padding-left:10px">
+				<form>
+                  <% // 로그인 안했을때 
+                  if (vo == null) {
+                  %>
+                  
+                 	<img alt="icon" src="image/login_logo.png">
+					<br>
+					<a href="login.jsp" class="button primary">로그인</a>
+					<br>
+					<a href="Join.jsp" class="button">회원가입</a>
+					
 
+                  <%
+                  } else {// 로그인 했을때
+                  %>
+
+                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> <a href="#"><%=vo.getNick()%></a><br>
+                  <%
+                  session.setAttribute("vo", vo);
+                  %>
+                  
+                  <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
+                  <a href='logout'> 로그아웃 </a>
+                  <%
+                  }
+                  %>
+               </form>
+				
+		
+				</div>
+					
+			</div>
+			</section>
 			<!-- Introduction -->
 
 			<!-- 게시판 리스트 불러오기 -->
 			<section id="intro" class="main">
 				<div class="spotlight">
-					<div class="content">
+					<div class="content" style="padding-right:10px" style="padding-left:10px">
 						<header class="major">
 							<h2>자유게시판</h2>
 						</header>
@@ -59,24 +109,55 @@
 								<td>제목</td>
 								<td>작성자</td>
 							</tr>
+							<%-- <%
+							for (int i = 0; i < 5; i++) {
+								BoardVO bvo = list.get(i);
+							%>
 							<tr>
-								<td>1번글입니다.</td>
-								<td>김준성</td>
+								<td><%=bvo.getTitle()%></td>
+								<td><%=bvo.getId()%></td>
 							</tr>
-							<tr>
-								<td>2번글입니다.</td>
-								<td>김재우</td>
-							</tr>
+							<%
+								}
+							%> --%>
 
 						</table>
-						<ul class="actions">
-							<li><a href="GoMain?page=1" class="button">더보기</a></li>
+						<div class="align-center">
+							<a href="GoFree?page=1" class="button">더보기</a>
+						</div>
 
-						</ul>
+					</div>
+					
+					<!-- 공지사항 table -->
+					<div class="content" style="padding-right:10px" style="padding-left:10px">
+						<header class="major">
+							<h2>공지사항</h2>
+						</header>
+						<table >
+							<tr>
+								<td>제목</td>
+								<td>작성일자</td>
+							</tr>
+							<%-- <%
+							for (int i = 0; i < 5; i++) {
+								BoardVO bvo = list.get(i);
+							%>
+							<tr>
+								<td><%=bvo.getTitle()%></td>
+								<td><%=bvo.getId()%></td>
+							</tr>
+							<%
+								}
+							%> --%>
+
+						</table>
+						<div class="align-center">
+							<a href="GoFree?page=1" class="button">더보기</a></li>
+						</div>
 
 					</div>
 
-					<a href="login.jsp" class="image"><img src="image/Login.jpg"/></a>
+					
 
 				</div>
 			</section>
@@ -87,22 +168,21 @@
 					<h2>취업게시판</h2>
 				</header>
 				<ul class="features">
-					<li><span class="icon solid major style1 fa-code"></span>
-						<h3>서울/경기</h3>
-						<p>Sed lorem amet ipsum dolor et amet nullam consequat a
-							feugiat consequat tempus veroeros sed consequat.</p></li>
-					<li><span class="icon major style3 fa-copy"></span>
+					<li><span><image src="image/soul.jpeg" id="mapping"></span>
+						<h3>서울</h3>
+						<p></p></li>
+					<li><span><image src="image/gw.jpeg" id="mapping"></span>
 						<h3>광주/전남</h3>
-						<p>Sed lorem amet ipsum dolor et amet nullam consequat a
-							feugiat consequat tempus veroeros sed consequat.</p></li>
-					<li><span class="icon major style5 fa-gem"></span>
+						<p></p></li>
+					<li><span><image src="image/word.jpeg" id="mapping"></span>
 						<h3>국외</h3>
-						<p>Sed lorem amet ipsum dolor et amet nullam consequat a
-							feugiat consequat tempus veroeros sed consequat.</p></li>
+						<p></p></li>
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="jobBoard.jsp" class="button">더보기</a></li>
+						<li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li>
+					<li><li><li><li><li><li><li><li><li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li></li></li></li></li></li></li></li></li>
+						<li><li><li><li><li><li><li><li><li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li></li></li></li></li></li></li></li></li>
 					</ul>
 				</footer>
 			</section>
@@ -112,8 +192,7 @@
 				<header class="major">
 					<h2>일정표</h2>
 					<p>
-						Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-						posuere. Nulla massa urna, fermentum eget quam aliquet.
+						
 					</p>
 				</header>
 				<ul class="statistics">
