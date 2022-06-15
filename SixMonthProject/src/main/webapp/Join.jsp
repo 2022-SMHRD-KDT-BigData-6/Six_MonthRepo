@@ -21,8 +21,7 @@
 			<h2>회원가입</h2>
 		</header>
 
-		<!-- 회원가입 form 
-	<form action=JoinService method="post">-->
+		<!-- 회원가입 form -->
 		<section id="first" class="main special">
 			<ul class="features">
 				<li>
@@ -61,7 +60,6 @@
 					<button id="btnSubmit">전송하기</button>
 				</ul>
 			</footer>
-			<!-- </form> -->
 		</section>
 	</div>
 
@@ -148,7 +146,6 @@
 	     					div.innerHTML = "<h5> 사용할 수 없는 아이디입니다 </h5>";
 	     				} else if (cnt == 0) {
 	     					div.innerHTML = "<h5> 사용 가능한 아이디입니다 </h5>";
-	     					$('input#id').attr('readonly',true) // 사용 가능한 아이디일 경우 수정 불가
 	     					ChkID = 1;
 	     				}
 	        			console.log(ChkID)
@@ -158,7 +155,19 @@
 	        		}
 	        	});
 	        }
-		})
+		});
+		
+		/* 중복체크 버튼을 누른 후에 수정이 발생하는 것을 못 잡아줌
+		if(ChkID == 1){
+			$('input#id').on('keyup', function(){
+				let input = document.getElementById('input#id')
+				let div = document.getElementById('text')
+				console.log(ChkID)
+				div.innerHTML = "<h5> 아이디 중복확인을 다시 진행해주십시오 </h5>";
+				ChkID = 0
+			});
+		} 
+		*/
 
 	    
 	<!-- 비밀번호 확인 기능 -->
@@ -174,8 +183,6 @@
                     ChkPw = 0;
                 } else {
                     $('#chkNotice').html('<h5>비밀번호 일치함</h5><br>');
-                    $('input#userPw').attr('readonly',true) // 확인되면 수정 불가
-                    $('input#userPwChk').attr('readonly',true) // 확인되면 수정 불가
                     ChkPw = 1
                 }
                 console.log(ChkPw)
@@ -263,8 +270,6 @@
 		     				if (res == 1) {
 		     					confirm('이메일 인증이 확인되었습니다')
 		     					ChkEm = 1;
-		     					$('input#email').attr('readonly',true) // 확인되면 수정 불가
-		     					$('input#emailCheck').attr('readonly',true) // 확인되면 수정 불가
 		     				} else {
 		     					confirm('인증번호가 틀렸습니다 다시 입력해주세요')
 		     					ChkEm = 0;

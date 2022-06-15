@@ -19,6 +19,7 @@ public class DeleteService extends HttpServlet {
 		//1.파라미터 수집
 		int pnum = Integer.parseInt(request.getParameter("pnum"));
 		
+		
 		//2. boardDelete()메서드 만들기 
 		BoardDAO dao = new BoardDAO();
 		

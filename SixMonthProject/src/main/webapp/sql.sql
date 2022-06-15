@@ -60,10 +60,10 @@ create table s_comment(
 	good number(3) default 0,
 	cdate date,
 	constraint com_num_pk primary key (cnum),
-	constraint member_id_fk foreign key (id) references s_member(id),
-	constraint comment_nick_fk foreign key (nick) references s_member(nick),
-	constraint post_pnum_fk foreign key (pnum) references s_post(pnum)
-)		
+	constraint member_id_fk foreign key (id) references s_member(id) on delete cascade,
+	constraint comment_nick_fk foreign key (nick) references s_member(nick) on delete cascade,
+	constraint post_pnum_fk foreign key (pnum) references s_post(pnum) on delete cascade
+)
 
 select * from s_comment
 
@@ -101,7 +101,7 @@ create table comment_mind(
 
 select * from comment_mind;
 									
-drop table post_mind cascade constraints
+drop table s_comment cascade constraints
 
 select * 
 from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, id, content, pdate from s_post) A
@@ -134,8 +134,7 @@ order by cdate;
 									
 select * from s_member									
 									
-									
-									
+delete S_MEMBER where id='³ªÀ±3'						
 									
 									
 
