@@ -86,7 +86,9 @@
 						%> --%>
 					</tbody>
 				</table>
-		
+				<div class="align-right">
+							<a href="GoMain" class="button">돌아가기</a>
+				</div>
 				
 		<%-- 	
 			페이징 부분

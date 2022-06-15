@@ -47,7 +47,7 @@
 			</form>
 			
 			<form action=nickChange method="post">
-					<ul class="features">
+			<ul class="features">
 				<li>
 				<span style="text-align: left">닉네임</span>
 				<input type="text" name="text" placeholder="기존아이디">
@@ -57,6 +57,12 @@
 			
 			
 			</form>
+			
+			<ul class="features">
+				<li>
+				<a href="GoMain" class="button fit">메인으로</a>
+				</li>
+			</ul>
 			
 		</section>
 

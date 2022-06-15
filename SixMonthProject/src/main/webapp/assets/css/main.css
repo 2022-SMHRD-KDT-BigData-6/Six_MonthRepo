@@ -209,6 +209,7 @@ input.text {
       text-decoration: none;
       text-decoration-line: none;
       /* border-bottom: dotted 1px; */
+      font-size:15px;
       color: inherit;
    }
 

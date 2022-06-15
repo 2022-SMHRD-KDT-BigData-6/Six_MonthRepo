@@ -19,11 +19,10 @@
 <body class="is-preload">
 
 	<% 
-		//obj타입 업캐스팅 된채로 저장 
-		//request에 저장해둔 list 꺼내오기
 		List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
 		int boards = (int)request.getAttribute("boards");
-		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+		MemberVO vo = (MemberVO)session.getAttribute("vo");
+		List<BoardVO> searchList = (List<BoardVO>)request.getAttribute("searchList");
 	%>
 	
 	
@@ -45,26 +44,63 @@
 			<section id="content" class="main">
 				<h2>글목록</h2>
 				
+				
 					<!-- 검색기능 -->
-						<form action="" method="">
+						<form action="GoSearch" method="post">
 							<div class="icon-Div-Align-Right">
 								<div>
-									<select style="text-align:center" id="selectHeight">
-										<option value="title">글 제목</option>
-										<option value="contents">글 내용</option>
+									<select name='option' style="text-align:center" id="selectHeight">
+										<option  value="title">글 제목</option>
+										<option value="content">글 내용</option>
 										<option value="writer">작성자</option>
 									</select>
 								</div>
 								<div>
-									<input type="text" id="searchSize" placeholder="검색어 입력">
+									<input type="text" name='search' id="searchSize" placeholder="검색어 입력">
 								</div>
 								<div>
 									<input type="submit" class="button buttonSize" value="검색" id="searchButtonSize">
 								</div>
 							</div>
 						</form>
-					
 				
+				<%if(searchList != null){ %>
+					<table id="list">
+					<thead>
+
+						<tr>
+							<td>번호</td>
+							<td>제목</td>
+							<td>작성자</td>
+							<td>조회수</td>
+							<td>작성일</td>
+						</tr>
+
+					</thead>
+					<tbody>			
+						
+						<%
+						for (int i = 0; i < searchList.size(); i++) {
+							BoardVO bvo = searchList.get(i);
+						%>
+						<tr>
+							<td><%=bvo.getPnum()%></td>
+							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
+							    <%=bvo.getTitle()%></a></td>
+							<td><%=bvo.getNick()%></td>
+							<td><%=bvo.getHit()%></td>
+							<td><%=bvo.getPdate()%></td>
+							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
+						</tr>
+						<%
+						}
+						%>
+					</tbody>
+				</table>
+				<div class="align-right">
+							<a href="GoFree?page=1" class="button">돌아가기</a>
+				</div>
+				<%}else{%>
 				<table id="list">
 					<thead>
 
@@ -74,7 +110,6 @@
 							<td>작성자</td>
 							<td>조회수</td>
 							<td>작성일</td>
-							<!-- 조회수 UI 추가 -->
 						</tr>
 
 					</thead>
@@ -91,7 +126,6 @@
 							<td><%=bvo.getNick()%></td>
 							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
-							<!-- 조회수 UI 추가 -->
 							<%-- url?name=value --%>
 							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>
@@ -100,10 +134,15 @@
 						%>
 					</tbody>
 				</table>
-		
+				<div class="icondiv">	
+					<div>
+						<a href = "GoMain" class="button buttonSize">메인으로</a>
+					</div>
+					
 					<div class="align-right">
 						<a href="GoWriter" class="button primary buttonSize">작성하러가기</a>
 					</div>
+				</div>
 				
 				<br>
 				
@@ -114,11 +153,11 @@
 				
 				<% }%>
 			</div>
-
+			
 			</section>
 
 		</div>
-
+		<%} %>
 		<!-- Footer -->
 	<footer id="footer">
 			<section>

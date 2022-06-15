@@ -68,6 +68,8 @@
 						<td>2022.06.10</td>
 						<td><a>X</</a></td>
 					</tr>
+					
+					
 					<%-- 	<%
 						for (int i = 0; i < list.size(); i++) {
 							BoardVO bvo = list.get(i);
@@ -86,6 +88,9 @@
 						%> --%>
 					</tbody>
 				</table>
+				<div class="align-right">
+							<a href="GoMain" class="button">돌아가기</a>
+				</div>
 		
 				
 		<%-- 	

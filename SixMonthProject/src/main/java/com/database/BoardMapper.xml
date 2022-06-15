@@ -10,14 +10,30 @@
       태그 사용 
    resultType : select 할때만 사용 어떤 데이터 타입으로 결과를 묶어줄 것 resultType을 생략 가능 -->
 
-   <!-- sql문에 붙여주는 고유값 (겹치면 안된다) -->
+   <!-- 전체 게시글 -->
    <select id="boardList" resultType="com.model.BoardVO">
       select * 
       from s_post
       order by pnum desc
       <!-- #{필드명} => 해당하는 변수명을 가진 필드의 값을 깨내오기 -->
    </select>
+   
+   <!-- 핫 게시글 -->
+   <select id="boardHotList" resultType="com.model.BoardVO">
+	  select *
+	  from s_post
+	  order by good desc
+   </select>
+   
+   <!-- 검색 sql문 -->
+   <select id="boardSearchList" resultType="com.model.BoardVO">
+      select *
+      from s_post
+      where title like #{title} or nick like #{nick} or content like #{content}
+      order by pdate desc
+   </select>
 
+   <!-- 게시글 작성 -->
    <insert id="boardInsert" parameterType="com.model.BoardVO">
       insert into s_post(pnum,title,content,id,nick,pdate,fileName)
       values(
@@ -31,7 +47,7 @@
       )
    </insert>
    
-   <!-- 채워줄 값이 한개만 있는경우, parameter type 생략 -->
+   <!-- 게시글 삭제 -->
    <delete id="boardDelete" parameterType="com.model.BoardVO">
 
       delete from s_post
@@ -39,18 +55,25 @@
       
    </delete>
 
-
+   <!-- 게시글 내용 보기 -->
    <select id="boardView" resultType="com.model.BoardVO">
       select * from s_post
       where pnum = #{pnum}
    </select>
 
-	<!-- result 는 select 있을때만 사용 숫자만 나옴 -->
+	<!-- 게시글 수정 -->
 	<update id="boardUpdate" parameterType="BoardVO">
 		update s_post
 		set title = #{title},
 		content = #{content},
 		fileName = #{fileName, jdbcType=VARCHAR}
+		where pnum=#{pnum}
+	</update>
+	
+	<!-- 게시글 사진 삭제 -->
+	<update id="boardFileDel" parameterType="BoardVO">
+		update s_post
+		set fileName=NULL
 		where pnum=#{pnum}
 	</update>
 	
@@ -70,8 +93,8 @@
 		)
 	</insert>
 	
-	<!-- 게시글 공간한 id 확인 -->
-	<select id="boardGoodCheck" resultType="com.model.GoodVO">
+	<!-- 게시글 공감한 id 확인 -->
+	<select id="boardGoodCheck" parameterType="com.model.GoodVO" resultType="java.lang.Integer">
 		select count(*)
 		from post_mind
 		where pnum=#{pnum} and id=#{id}

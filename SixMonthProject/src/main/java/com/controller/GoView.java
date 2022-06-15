@@ -28,6 +28,7 @@ public class GoView extends HttpServlet {
 		int pnum = Integer.parseInt(request.getParameter("pnum"));
 		int cnt = Integer.parseInt(request.getParameter("cnt"));
 		
+		
 		// 2DA의 boardView()메서드를 사용
 		BoardDAO dao = new BoardDAO();
 		if (cnt > 0) {
