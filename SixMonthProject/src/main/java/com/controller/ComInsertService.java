@@ -23,19 +23,26 @@ public class ComInsertService extends HttpServlet {
 		String id = request.getParameter("id");
 		String contents = request.getParameter("contents");
 		int pnum = Integer.parseInt(request.getParameter("pnum"));
+		String anony = request.getParameter("anony");
 		
+		if(anony == null) {
+			anony = "off";
+		}
+		
+		System.out.println(anony);
 		
 		CommentVO cvo = new CommentVO();
 		cvo.setPnum(pnum);
 		cvo.setNick(nick);
 		cvo.setId(id);
 		cvo.setComments(contents);
-
+		cvo.setAnony(anony);
+		
+		System.out.println(cvo);
 		
 		BoardDAO dao = new BoardDAO();
 		int cnt = dao.commentInsert(cvo);
 		
-
 		String nextPage = "GoView?pnum="+pnum+"&cnt=0";
 		if(cnt>0) {
 			response.sendRedirect(nextPage);

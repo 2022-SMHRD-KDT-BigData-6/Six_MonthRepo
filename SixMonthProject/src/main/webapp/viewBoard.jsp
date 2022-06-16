@@ -49,7 +49,8 @@
 					</div>
 				<!-- 익명 -->
 					<div class="viewBoardProfile2">
-						<h3 class="viewBoardh3">	<% if(view.getAnonymous().equals("on")){%>
+						<h3 class="viewBoardh3">	
+						<% if(view.getAnonymous().equals("on")){%>
 									익명
 							<%} else { %>
 									<%=view.getNick()%>
@@ -104,8 +105,15 @@
                CommentVO cvo = list.get(i);
             %>
             <article class="articlesy">
+            <%-- 유림 : 닉네임 익명 수정 --%>
                   <li>
-                  <h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro"> <%=cvo.getNick() %></h3>
+                  	<h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro">
+	                  	<% if(cvo.getAnony().equals("on")){ %>
+	                  		익명
+	                  	<%}else{ %>
+	                  	<%=cvo.getNick() %>
+	                  	<%} %>
+                  	</h3>
                   </li>
                   
                   <li>
@@ -159,8 +167,7 @@
                </tr>
             </div>
                      <div class="col-6 col-12-small align-right">
-                           <input type="checkbox" id="demo-copy" name="demo-copy">
-                           <label for="demo-copy">익명</label>
+                           <input type="checkbox" id="anony" name="anony"><label for="anony">익명</label>
                      <input type="submit" class="button primary buttonSize" value="댓글등록">
                      </div>
               

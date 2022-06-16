@@ -143,14 +143,15 @@
  	
  	<!-- 댓글 작성 -->
  	<insert id="commentInsert" parameterType="com.model.CommentVO">
- 		insert into s_comment(cnum,pnum,comments,id,nick,cdate)
+ 		insert into s_comment(cnum,pnum,comments,id,nick,cdate,anony)
  		values(
  			comment_num_seq.nextval,
  			#{pnum},
  			#{comments},
  			#{id},
  			#{nick},
- 			current_date
+ 			current_date,
+ 			#{anony}
  		)
  	</insert>
  	
