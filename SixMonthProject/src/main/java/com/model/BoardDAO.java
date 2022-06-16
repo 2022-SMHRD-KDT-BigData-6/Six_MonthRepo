@@ -2,6 +2,8 @@ package com.model;
 
 import java.util.List;
 
+import javax.xml.stream.events.Comment;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -42,6 +44,69 @@ public class BoardDAO {
 		return list;
 	}
 	
+	// 핫게시글 가져오는 메서드
+	public List<BoardVO> boardHotList(){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		List<BoardVO> list = session.selectList("boardHotList");
+
+		session.close();
+
+		return list;
+	}
+	
+	// 검색된 글 전체를 가져오는 메서드
+	public List<BoardVO> boardTitleSearch(BoardVO bvo) {
+
+
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		List<BoardVO> list = session.selectList("boardTitleSearch", bvo);
+
+		session.close();
+
+		return list;
+	}
+	
+	// 검색된 내용 전체 가져오는 메서드
+	public List<BoardVO> boardContentSearch(BoardVO bvo) {
+
+
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		List<BoardVO> list = session.selectList("boardContentSearch", bvo);
+
+		session.close();
+
+		return list;
+	}
+	
+	public List<BoardVO> boardWriterSearch(BoardVO bvo) {
+
+
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		List<BoardVO> list = session.selectList("boardWriterSearch", bvo);
+
+		session.close();
+
+		return list;
+	}
+	
+	// 회원 확인 메서드
+//	public List<MemberVO> memberCheck(MemberVO mvo) {
+//		SqlSession session = sqlSessionFactory.openSession(true);
+//		
+//		List<MemberVO> memberList = session.selectList("memberCheck", mvo);
+//
+//		// 3. 빌려온 session 반환
+//		session.close();
+//
+//		// 4. 쿼리실행 결과 리턴
+//		return memberList;
+//	}
+	
+	// 글 페이징
 	public List<BoardVO> pagging(int page) {
 
 		// 1. SqlSession 빌려오기
@@ -56,7 +121,7 @@ public class BoardDAO {
 		// 채워줄 바인드 있으면 id, 채울값
 		// 없으면 id만
 		List<BoardVO> list = session.selectList("pagging", page);
-
+		System.out.println(list);
 		// 3. 빌려온 session 반환
 		session.close();
 
@@ -131,6 +196,19 @@ public class BoardDAO {
 		session.close();
 
 		// 4. 쿼리문 실행 결과 리턴
+		return cnt;
+	}
+	
+	// 게시글 사진 삭제
+	public int boardFileDel(int pnum) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		try {
+			cnt = session.update("boardFileDel",pnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		session.close();
+		
 		return cnt;
 	}
 	
@@ -239,6 +317,32 @@ public class BoardDAO {
 		
 		return cnt;
 	}
+	
+	// 나의 게시글만 보는 DAO
+	public List<BoardVO> boardMyList(String id) {
+
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		List<BoardVO> list = session.selectList("boardMyList",id);
+
+		session.close();
+
+		return list;
+	}
+	
+	// 나의 댓글만 보는 DAO
+	public List<CommentVO> boardMyComment(String id) {
+		
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		List<CommentVO> list = session.selectList("boardMyComment",id);
+
+		session.close();
+
+		return list;
+		
+	}
+	
 	
 	
 }

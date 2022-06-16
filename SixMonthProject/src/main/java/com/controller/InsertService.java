@@ -41,9 +41,17 @@ public class InsertService extends HttpServlet {
 		String id = multi.getParameter("id");
 		String content = multi.getParameter("content");
 		String nick = multi.getParameter("nick");
-		
-		// 파일 이름 가져오기
 		String fileName = multi.getFilesystemName("file");
+		
+		// 익명 체크 여부
+		String anonymous = multi.getParameter("anonymous");
+		
+		if(anonymous == null) {
+			anonymous = "off";
+		}
+		
+		System.out.println(fileName+"파일이름");
+		System.out.println(anonymous+"익명");
 		
 		BoardVO bvo = new BoardVO();
 		bvo.setTitle(title);
@@ -51,7 +59,7 @@ public class InsertService extends HttpServlet {
 		bvo.setNick(nick);
 		bvo.setContent(content);
 		bvo.setFileName(fileName);
-		
+		bvo.setAnonymous(anonymous);
 		
 		// DAO이용해서 저장
 		BoardDAO dao = new BoardDAO();
@@ -63,5 +71,6 @@ public class InsertService extends HttpServlet {
 		}else{
 			response.sendRedirect("GoWriter");
 		}
+		
 	}
 }

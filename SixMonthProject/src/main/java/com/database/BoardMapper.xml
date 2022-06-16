@@ -10,16 +10,55 @@
       태그 사용 
    resultType : select 할때만 사용 어떤 데이터 타입으로 결과를 묶어줄 것 resultType을 생략 가능 -->
 
-   <!-- sql문에 붙여주는 고유값 (겹치면 안된다) -->
+   <!-- 전체 게시글 -->
    <select id="boardList" resultType="com.model.BoardVO">
       select * 
       from s_post
       order by pnum desc
       <!-- #{필드명} => 해당하는 변수명을 가진 필드의 값을 깨내오기 -->
    </select>
+   
+   <!-- 핫 게시글 -->
+   <select id="boardHotList" resultType="com.model.BoardVO">
+	  select *
+	  from s_post
+	  order by good desc
+   </select>
+   
+   <!-- 글제목 검색 -->
+   <select id="boardTitleSearch" resultType="com.model.BoardVO">
+      select *
+      from s_post
+      where title like '%' || #{title} || '%'
+      order by pdate desc
+   </select>
+   
+   <!-- 글내용 검색 -->
+   <select id="boardContentSearch" resultType="com.model.BoardVO">
+      select *
+      from s_post
+      where nick like '%' || #{content} || '%'
+      order by pdate desc
+   </select>
+   
+   <!-- 작성자 검색 -->
+   <select id="boardWriterSearch" resultType="com.model.BoardVO">
+      select *
+      from s_post
+      where content like '%' || #{nick} || '%'
+      order by pdate desc
+   </select>
+   
+   <!-- 회원 확인
+   <select id="memberCheck" resultType="com.model.MemberVO">
+      select *
+      from s_member
+   </select>
+    -->
 
+   <!-- 게시글 작성 -->
    <insert id="boardInsert" parameterType="com.model.BoardVO">
-      insert into s_post(pnum,title,content,id,nick,pdate,fileName)
+      insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
       values(
          post_num_seq.nextval,
          #{title},
@@ -27,11 +66,12 @@
          #{id},
          #{nick},
          current_date,
-         #{fileName, jdbcType=VARCHAR}
+         #{fileName, jdbcType=VARCHAR},
+         #{anonymous}
       )
    </insert>
    
-   <!-- 채워줄 값이 한개만 있는경우, parameter type 생략 -->
+   <!-- 게시글 삭제 -->
    <delete id="boardDelete" parameterType="com.model.BoardVO">
 
       delete from s_post
@@ -39,18 +79,25 @@
       
    </delete>
 
-
+   <!-- 게시글 내용 보기 -->
    <select id="boardView" resultType="com.model.BoardVO">
       select * from s_post
       where pnum = #{pnum}
    </select>
 
-	<!-- result 는 select 있을때만 사용 숫자만 나옴 -->
+	<!-- 게시글 수정 -->
 	<update id="boardUpdate" parameterType="BoardVO">
 		update s_post
 		set title = #{title},
 		content = #{content},
 		fileName = #{fileName, jdbcType=VARCHAR}
+		where pnum=#{pnum}
+	</update>
+	
+	<!-- 게시글 사진 삭제 -->
+	<update id="boardFileDel" parameterType="BoardVO">
+		update s_post
+		set fileName=NULL
 		where pnum=#{pnum}
 	</update>
 	
@@ -70,8 +117,8 @@
 		)
 	</insert>
 	
-	<!-- 게시글 공간한 id 확인 -->
-	<select id="boardGoodCheck" resultType="com.model.GoodVO">
+	<!-- 게시글 공감한 id 확인 -->
+	<select id="boardGoodCheck" parameterType="com.model.GoodVO" resultType="java.lang.Integer">
 		select count(*)
 		from post_mind
 		where pnum=#{pnum} and id=#{id}
@@ -90,7 +137,7 @@
 	 resultType="BoardVO"
  	>
 	 	select * 
-		from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, nick, content, hit, pdate from s_post) A
+		from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, nick, content, hit, pdate, anonymous from s_post) A
 		where a.rn between #{page}  and  #{page} + 9
  	</select>
  	
@@ -121,6 +168,18 @@
 		where cnum=#{cnum}
 	</delete>
 	
+	<!-- 내 게시글만 볼수 있는 sql  -->
+	<select id="boardMyList" resultType="com.model.BoardVO">
+		select * from s_post
+	    where id = #{id}
+	    order by pdate desc
+	</select>
 	
+	<!-- 내 댓글만 볼수 있는 sql  -->
+	<select id="boardMyComment" resultType="com.model.CommentVO">
+		select * from s_comment
+	    where id = #{id}
+	    order by cdate desc
+	</select>
 	
 </mapper>

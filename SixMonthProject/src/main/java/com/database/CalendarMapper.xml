@@ -17,5 +17,26 @@
       <!-- #{필드명} => 해당하는 변수명을 가진 필드의 값을 깨내오기 -->
    </select>
   
+  <insert id="calendarInsert" parameterType="com.model.CalendarVO">
+  	  insert into calendar(id,caltitle,start1,end1,textcolor,backgroundcolor,bordercolor,cnum)
+      values(
+         #{id},
+         #{caltitle},
+         #{start1},
+         #{end1},
+         #{textcolor},
+         #{backgroundcolor},
+         #{bordercolor},
+         calendar_num_seq.nextval
+      ) 
+  </insert>
+  
+  <!-- 일정삭제 SQL문 -->
+  <delete id="calendarDelete" parameterType="com.model.CalendarVO">
+      delete from calendar
+      where caltitle=#{caltitle} 
+      and to_char(start1,'yyyy/mm/dd') = #{start1} 
+      and to_char(end1,'yyyy/mm/dd') = #{end1}
+   </delete>
 	
 </mapper>

@@ -7,7 +7,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>내 글</title>
+<title>자유게시판</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -18,17 +18,13 @@
 </head>
 <body class="is-preload">
 
-<%-- 
 	<% 
-	//obj타입 업캐스팅 된채로 저장 
-	//request에 저장해둔 list 꺼내오기
-	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
-	int boards = (int)request.getAttribute("boards");
-	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
-	
-
+		//obj타입 업캐스팅 된채로 저장 
+		//request에 저장해둔 list 꺼내오기
+		List<BoardVO> myList= (List<BoardVO>)request.getAttribute("myList");
+		MemberVO vo = (MemberVO)session.getAttribute("vo");
 	%>
-	 --%>
+	
 	
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -37,7 +33,7 @@
 		<header id="header">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<br><br>
-			<h1>내 글</h1>
+			<h1>자유게시판</h1>
 			
 		</header>
 
@@ -46,8 +42,8 @@
 
 			<!-- Content -->
 			<section id="content" class="main">
-				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-				<h2>내 글 리스트</h2>
+				<h2>내가 쓴 글</h2>
+				
 				<table id="list">
 					<thead>
 
@@ -55,55 +51,53 @@
 							<td>번호</td>
 							<td>제목</td>
 							<td>작성자</td>
-							<td>시간</td>
+							<td>조회수</td>
+							<td>작성일</td>
+							<!-- 조회수 UI 추가 -->
 						</tr>
 
 					</thead>
 					<tbody>			
-					
-					<tr>
-						<td>1</td>
-						<td><a href="#">글1</a></td>
-						<td>작성ID</td>
-						<td>2022.06.10</td>
-						<td><a>X</</a></td>
-					</tr>
-					<%-- 	<%
-						for (int i = 0; i < list.size(); i++) {
-							BoardVO bvo = list.get(i);
+						
+						<%
+						for (int i = 0; i < myList.size(); i++) {
+							BoardVO bvo = myList.get(i);
 						%>
 						<tr>
 							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
+							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
 							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getId()%></td>
+							<td><%=bvo.getNick()%></td>
+							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
-							url?name=value
+							<!-- 조회수 UI 추가 -->
+							<%-- url?name=value --%>
 							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>
 						<%
 						}
-						%> --%>
+						%>
 					</tbody>
 				</table>
+<<<<<<< HEAD
+				<div class="align-right">
+							<a href="GoMain" class="button">돌아가기</a>
+				</div>
+=======
 		
+					<div class="align-right">
+						<a href="GoWriter" class="button primary buttonSize">작성하러가기</a>
+					</div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 				
-		<%-- 	
-			페이징 부분
-			<div class="align-center">
-					<% for(int i =0; i<=boards/10; i++){
-					%>
-					<a href="GoFree?page=<%=i*10+1%>"><%=i+1 %></a>		
-				
-				<% }%>
-			</div> --%>
+				<br>
 
 			</section>
 
 		</div>
 
 		<!-- Footer -->
-		<footer id="footer">
+	<footer id="footer">
 			<section>
 				<h2>핵심융합프로젝트</h2>
 				<p>제작기간 : 2022.06.03~2022.06.20</p>

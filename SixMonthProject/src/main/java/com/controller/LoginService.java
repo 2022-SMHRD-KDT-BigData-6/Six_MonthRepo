@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +22,12 @@ public class LoginService extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
+		response.setContentType("text/html; charset=UTF-8");
+
+		PrintWriter out = response.getWriter();
+
+
+		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 
@@ -34,9 +42,15 @@ public class LoginService extends HttpServlet {
 			// 로그인 정보 session에 저장
 			HttpSession session = request.getSession();
 			session.setAttribute("vo", result);
-			// 로그인 성공하면 메인페이지로
-			response.sendRedirect("GoMain");
+			out.println("<script>"); 
+			out.println("alert('로그인 되었습니다'); location.href='GoMain';");
+			out.println("</script>"); 
+			out.close();
 		} else {
+			out.println("<script>"); 
+			out.println("alert('아이디 또는 비밀번호를 잘못입력했습니다.'); location.href='login.jsp';");
+			out.println("</script>"); 
+			out.close();
 			// 로그인 실패하면 로그인페이지로
 			response.sendRedirect("login.jsp");
 		}

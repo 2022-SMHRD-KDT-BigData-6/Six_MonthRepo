@@ -73,7 +73,7 @@
 			alert("이메일을 입력해주세요")
 		}else{
 			// 사용자의 id에 연동된 email이 아닐경우
-			if(email.value !="<%=email%>"){
+			if(email.value !="<%=email%>" ){
 				alert("이메일을 잘못 입력하셨습니다.");
 			}else{
 			div.innerHTML='<input type="text" id="number" name="number" placeholder="인증번호를 입력하세요" >'

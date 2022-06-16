@@ -16,7 +16,7 @@ public class logout extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 로그아웃 버튼 눌렀을때 넘어오는 페이지(우리 눈에 안보임)
+		// 로그아웃 버튼 눌렀을때 넘어오는 페이지
 		HttpSession session = request.getSession();
 		session.removeAttribute("vo");
 		response.sendRedirect("GoMain");

@@ -672,6 +672,7 @@ position: relative;
       text-decoration: none;
       text-decoration-line: none;
       /* border-bottom: dotted 1px; */
+      font-size:15px;
       color: inherit;
    }
 
@@ -802,7 +803,7 @@ position: relative;
          padding: 1em 1.5em;
          overflow-x: auto;
       }
-.aaaa{
+.charRed{
 	color:red;
 	margin-left: 107px;
 	font-size:13px;

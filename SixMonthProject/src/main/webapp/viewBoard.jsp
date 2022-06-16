@@ -1,3 +1,4 @@
+<%@page import="com.model.GoodVO"%>
 <%@page import="com.model.MemberVO"%>
 <%@page import="com.model.CommentVO"%>
 <%@page import="java.util.List"%>
@@ -31,16 +32,16 @@
 	<header id="header">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<br><br>
-			<h1>자유게시판</h1>
+			<h1>자유게시판</h1> 
 	</header>
 
 	<!-- 글 내용 보기 -->
 	<div id="wrapper">
 
 		<div id="main">
-
 		<section id="content" class="main">
-
+		<span>조회수 : <%= view.getHit() %></span>
+		<br><br>
 		<table id="list">
 		<div>
 		<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
@@ -54,9 +55,15 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td>
-					<%--작성자 출력 --%>
-					<%= view.getNick() %>
+
+					<td>
+						<!-- 유림 : 익명 -->
+						<% if(view.getAnonymous().equals("on")){%>
+								익명
+						<%} else { %>
+								<%=view.getNick()%>
+						<%} %>
+					</td>
 				</td>
 			</tr>
 			<tr>
@@ -82,33 +89,35 @@
 		</table>
 		
 		<!-- 공감 수 입력 --> 
-			<tr>
-				<td>
-				<form action="GoodInsertService" method="post">
-						<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
-						<input name="id" type="hidden" value="<%= view.getId() %>">
-						<%= view.getGood() %>
-						<input type="submit" class="button primary buttonSize" value="공감하기">
-	         	</form>
-				
-				</td>
-			</tr>
-			
-
 			<div class="align-left">
-				<a href="#" class=" vote"><img src="image/like.png" class="like_icon"> 0</a>
+				<form action="GoodInsertService" method="post">
+					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+					<input name="id" type="hidden" value="<%= vo.getId() %>">
+					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼">
+					<%= view.getGood() %>
+				</form>
+				
 				
 				<div class="align-right">
-						<span>조회수 : <%= view.getHit() %></span>
+				 <td>
+					<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
+						<a href="DeleteService?pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
+						<% } %>	
+				</td>
+						
 				</div>
 			</div>
 
 			<div class="icondiv">
+				
+				
 				<div>
-					
 				</div>
+				
 				<div>
+				<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
 					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button primary buttonSize">수정하기</a>
+					<%} %>
 				</div>
 			</div>
 		
@@ -124,16 +133,18 @@
                   <li>
                   <h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro"> <%=cvo.getNick() %></h3>
                   </li>
+                  
                   <li>
                     
                   </li>
-                   
-                  <p class="commentP"><a href="#" class=" size21">공감</a><a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="aaaa">삭제</a></p>
-                  </li>
                   
-                
-                 	
-                     <li class="align-right">
+                  <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
+                  <p class="commentP"><a href="#" class=" size21">공감</a><a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a></p>
+                  <%}else{%>
+                  <% } %>
+                  </li>
+
+                  
                    
                      <li style="font-size:18px;"><%=cvo.getComments()%> </li>
                      <br>
@@ -148,7 +159,8 @@
                      
                     <div class="align-left">
 				</article>
-                 
+                     
+                     
                  <%
 					}
 				 %>
@@ -163,7 +175,7 @@
 	        	<div class="col-12">
 						<td>
 						<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
-						<input name="id" type="hidden"  value="<%=view.getId()%>">
+						<input name="id" type="hidden"  value="<%=vo.getId()%>">
 						<input name="nick" type="hidden" value="<%=vo.getNick() %>">
 						</td>
 					<tr>
@@ -180,7 +192,9 @@
 	           
 	         </form>
       	</div>
-		
+			<div>
+					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+			</div>
 			
 			</section>
 		</div>
@@ -211,6 +225,7 @@
 
 
 	</div>
+	
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

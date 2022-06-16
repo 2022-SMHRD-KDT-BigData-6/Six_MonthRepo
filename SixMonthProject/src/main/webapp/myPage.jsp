@@ -15,11 +15,11 @@
 
 </head>
 <body class="login">
-<%-- 
+
 <%
 	MemberVO vo=(MemberVO)session.getAttribute("vo");
 %>
- --%>
+
 		<header id="header" class="alt">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 		</header>
@@ -32,32 +32,14 @@
 				<h2>내 정보</h2>
 			</header>
 			
-			<!-- 로그인 form -->
-			<form action=pwChange method="post">
-			<ul class="features">
-				<li>
-				<span style="text-align: left">새 비밀번호</span>
-				<input type="password" name="pw" placeholder="새 비밀번호">
-				<input type="password" name="pw" placeholder="새 비밀번호 확인">
-				<span style="text-align: left">현재 비밀번호</span>
-				<input type="password" name="pw" <%=(String)session.getAttribute("pw") %>placeholder="현재 비밀번호">
-				<input type="submit" value="비밀번호변경"	class="button fit">
-				</li>
-			</ul>
-			</form>
-			
-			<form action=nickChange method="post">
-					<ul class="features">
-				<li>
-				<span style="text-align: left">닉네임</span>
-				<input type="text" name="text" placeholder="기존아이디">
-				<input type="submit" value="닉네임변경"	class="button fit">
-				</li>
-			</ul>
-			
-			
-			</form>
-			
+			<a href="changePW.jsp">비밀번호 변경</a>
+			<br><br>
+			<a href="changeNick.jsp">닉네임 변경</a>
+			<br><br>
+			<a href="deleteMember.jsp">회원탈퇴</a>
+			<br><br>
+			<a href="GoMain" class="button">메인으로</a>
+
 		</section>
 
 

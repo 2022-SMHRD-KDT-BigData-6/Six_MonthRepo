@@ -37,14 +37,12 @@
 			<ul class="features">
 				<li>
 				<span class="id"></span>
-				<input type="text" name="id" <%=(String)session.getAttribute("id") %>placeholder="ID을 입력하세요"> 
-				<input type="password" name="pw" <%=(String)session.getAttribute("pw") %>placeholder="PW를 입력하세요">
-				<input type="submit" value="로그인"	class="button fit">
+				<input type="text" id="id" name="id" placeholder="ID을 입력하세요"> 
+				<input type="password" id="pw" name="pw" placeholder="PW를 입력하세요">
+				<input type="submit" value="로그인" class="button fit" >
 				</li>
-
 			</ul>
 			</form>
-			
 		</section>
 
 		<footer class="major">
@@ -62,5 +60,7 @@
 		</footer>
 
 	</div>
+
+	
 </body>
 </html>
