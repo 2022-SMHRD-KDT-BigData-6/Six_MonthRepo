@@ -115,6 +115,7 @@
 						</tr>
 
 					</thead>
+					
 					<tbody>			
 						
 						<%
@@ -189,8 +190,9 @@
 						%>
 						<tr>
 							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
-							    <%=bvo.getTitle()%></a></td>
+							<td id="cc">
+								<a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle()%></a>
+							</td>
 							<td>
 								<!-- 유림 : 익명 -->
 								<% if(bvo.getAnonymous().equals("on")){%>
@@ -208,7 +210,6 @@
 								<a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a>
 							<% } %>	
 							</td> --%>
-							
 						</tr>
 						<%
 						}
@@ -276,6 +277,21 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+	
+	$(document).ready(function(){
+			<% if((MemberVO)session.getAttribute("vo") ==null){ %>
+				$('#cc>a').attr('href','#');
+				$('#cc>a').on('click', function(){
+					alert('로그인 해주세요');
+					location.href="GoMain"
+				});	
+			<%}%>
+	});
+	
+	
+	</script>
 
 
 </body>

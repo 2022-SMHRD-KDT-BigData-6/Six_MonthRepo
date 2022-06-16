@@ -165,7 +165,7 @@ values('junseong', 'test10', '22/06/12', '22/06/20', 'white', 'black', 'black', 
 
 select * from all_tables									
 									
-alter table S_POST add anonymous varchar(25)
+alter table S_POST add anonymous varchar(25) default 'off'
 alter table S_POST drop column anonymous cascade constraint
 									
 select * from S_POST									
