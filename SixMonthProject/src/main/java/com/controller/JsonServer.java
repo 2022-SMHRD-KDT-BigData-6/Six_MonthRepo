@@ -35,11 +35,11 @@ public class JsonServer extends HttpServlet {
 		response.setContentType("text/html' charset=UTF-8");
 		// 2. pritWriter °´Ã¼ »ý¼º
 		
-
+		String data = request.getParameter("data");
 		PrintWriter out = response.getWriter();
 
 		try {
-			Object obj = parser.parse(new FileReader("/Users/GITCT/Crawling/data.json"));
+			Object obj = parser.parse(new FileReader("C://Users//GITCT//Crawling/data.json"));
 
 			JSONObject jsonObject = (JSONObject) obj;
 			out.print(jsonObject);

@@ -44,7 +44,7 @@ footer, header, hgroup, menu, nav, section {
     display: inline-block;
     border-radius: 35px;
     font-family: "paybooc-Light", sans-serif;
-    width: 860px;
+    width: 880px;
     left: 200px;
     box-shadow: 0 15px 35px rgb(0 0 0 / 20%);
     text-decoration: none;
@@ -304,8 +304,7 @@ footer, header, hgroup, menu, nav, section {
 .w-btn-neon2 {
     position: relative;
     border: none;
-    min-width: 320px;
-    min-height: 50px;
+    min-height: 45px;
     left:800px;
     background: linear-gradient(
         90deg,
@@ -495,12 +494,19 @@ input.text {
 
 /* Type */
 
+.circle-aside{
+	padding-left:30px;
+	width:27.27273%;
+	
+}
+
 
 .w-btn-neon2 {
     position: relative;
     border: none;
+    left:330px;
     min-width: 200px;
-    min-height: 50px;
+    min-height: 45px;
     background: linear-gradient(
         90deg,
         rgba(129, 230, 217, 1) 0%,
@@ -559,8 +565,8 @@ position: relative;
 .w-btn {
     position: relative;
     border: none;
-    width:1450px;
-    left:0px;
+    width:800px;
+    left:60px;
     display: inline-block;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
@@ -598,17 +604,18 @@ position: relative;
 	height:350px;
 }
 
+
 #mapping {
-	width:300px;
-	height:300px;
+	width:30%;
+	height:80%;
 	border-radius:60%;
 }
 
 #content12{	
 	position: static;
 	border-radius:50%;
-	width:300px;
-	height:250px;
+	width:30%;
+	height:40%;
 	overflow:hidden;
 }
 
@@ -631,6 +638,7 @@ position: relative;
 	.buttonSize {
 	
 		font-size: 12pt;
+		width:200px;
 	}
 
       @media screen and (max-width: 1680px) {
@@ -794,7 +802,14 @@ position: relative;
          padding: 1em 1.5em;
          overflow-x: auto;
       }
-
+.aaaa{
+	color:red;
+	margin-left: 107px;
+	font-size:13px;
+}
+.pro{
+	width:23px;
+}
    hr {
       border: 0;
       border-bottom: solid 1px;
@@ -3045,7 +3060,7 @@ position: relative;
    }
 
       ul.actions li {
-         padding: 0 0 0 1em;
+         padding: 0 0 0 12em;
          vertical-align: middle;
       }
 
@@ -3169,12 +3184,43 @@ position: relative;
          ul.icons li:last-child {
             padding-right: 0 !important;
          }
-
+        
+.special2234{
+	background-color:#646464;
+}
 /* Section/Article */
 
    section.special, article.special {
       text-align: center;
    }
+   
+.quick .item a i {
+    padding: 10px 9px 7px;
+    border-radius: 50%;
+    background: #008acc;
+    color: #fff;
+    font-size: 25px;
+}
+
+.quick {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 9999;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    border-radius: 20px 0 0 20px;
+    box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 30%);
+}
+.whitecool{
+	font-color:fffff;
+}
+.smhrdddd22{
+ 	width:250px;
+ 	height:50px;
+ }
 
    header.major {
       margin-bottom: 3em;
@@ -3240,7 +3286,10 @@ position: relative;
       }
 
    }
-
+#mappingg2{
+	width:15px;
+	height:15px;
+}
    header.major h2:after {
       background-color: rgba(255, 255, 255, 0.35);
    }
@@ -3754,6 +3803,13 @@ position: relative;
       }
 
 /* Nav */
+
+#ulux{
+	list-style: disc;
+	margin: 0 0 2em 0;
+	padding-left: 2em;
+}
+
 
    #nav {
       -moz-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
@@ -4394,22 +4450,61 @@ position: relative;
     border-top: 1px solid #e3e3e3;
 	}
 	
+a.vote231 {
+    padding-left: 94px;
+    color: #c62917;
+    float: left;
+    font-size: 13px;
+    margin-left: 8px;
+    padding: 0 px;
+    height: 10px;
+    line-height: 3px;
+    color: #a6a6a6;
+   
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 11px 11px;
+    cursor: pointer;
+}
+.medium22 {
+        float: left;
+    max-width: 100px;
+    margin: -3px 0px;
+    height: 0px;
+    line-height: 17px;
+    font-size: 11px;
+    color: #d9d7d7;
+    font-weight: bold;
+}
+.articlesy{
+	width:500px;
+	height:200px;
+	word-break:break-all;
+}
+
+.size21{
+	
+	font-size: 13px;
+	color: #c3b7b7;
+	margin:-80px;
+}
+	
 	.medium {
-		float: left;
-	    max-width: 90px;
-	    margin: 0 10px 5px 0;
-	    height: 20px;
-	    line-height: 15px;
-	    font-size: 15px;
-	    font-weight: bold;
+		    float: left;
+    max-width: 90px;
+    margin: 1px 0px;
+    height: 0px;
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: bold;
 	}
 	
 	p.commentP {
-		padding-bottom: 5px;
+		padding-bottom: 2px;
 	    line-height: 15px;
 	    color: #444444;
 	    font-size: 15px;
-		margin-left:2em;
+		margin-left:48em;
 	}
 	
 	p.medium {

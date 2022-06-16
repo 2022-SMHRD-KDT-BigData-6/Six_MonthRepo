@@ -42,6 +42,9 @@
 		<section id="content" class="main">
 
 		<table id="list">
+		<div>
+		<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+			</div>
 			<tr>
 				<td>제목</td>
 				<td>
@@ -93,7 +96,7 @@
 			
 
 			<div class="align-left">
-				<a href="#" class="vote"><img src="image/like.png" class="like_icon"> 0</a>
+				<a href="#" class=" vote"><img src="image/like.png" class="like_icon"> 0</a>
 				
 				<div class="align-right">
 						<span>조회수 : <%= view.getHit() %></span>
@@ -102,7 +105,7 @@
 
 			<div class="icondiv">
 				<div>
-					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+					
 				</div>
 				<div>
 					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button primary buttonSize">수정하기</a>
@@ -117,16 +120,35 @@
 					for (int i = 0; i < list.size(); i++) {
 					CommentVO cvo = list.get(i);
 				%>
+				<article class="articlesy">
                   <li>
-                  <h3 class="medium"><%=cvo.getNick() %></h3>
+                  <h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro"> <%=cvo.getNick() %></h3>
                   </li>
                   <li>
-                     <p class="medium"><%=cvo.getCdate() %></p>
+                    
                   </li>
+                   
+                  <p class="commentP"><a href="#" class=" size21">공감</a><a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="aaaa">삭제</a></p>
+                  </li>
+                  
+                
+                 	
                      <li class="align-right">
-                     <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>">X</a>
-                     </li>
-                  <p class="commentP"><%=cvo.getComments()%></p>
+                   
+                     <li style="font-size:18px;"><%=cvo.getComments()%> </li>
+                     <br>
+                     <br>
+        
+                     <p class="medium22"><%=cvo.getCdate() %> </p>
+				<a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a> 
+                     <br>
+                     <br>
+                     <br>
+                     
+                     
+                    <div class="align-left">
+				</article>
+                 
                  <%
 					}
 				 %>
