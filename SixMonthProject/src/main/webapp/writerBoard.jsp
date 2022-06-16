@@ -126,30 +126,21 @@
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-		crossorigin="anonymous">
-	</script>
+		crossorigin="anonymous"> </script>
 	
 	<script>
-	/*
-		$('input#submit').on('click', function(){
-			let checkbox = document.getElementById('anonymous');
-			
-			// 익명을 체크함
-			if(checkbox.checked == false){
-				$.ajax({
-					url : 'InsertService',
-					type : 'POST',
-					data : {'anonymous':'off'},
-					success : function(){
-						alert("성공")
-					},
-					error : function(){
-						alert("실패")
-					}
-				})
+	$('input#submit').on('click', function(){
+		$.ajax({
+			url : 'InsertService',
+			success : function(){
+				alert('성공!')
+			},
+			error : function(){
+				alert('실패')
 			}
-		});  
-	*/   
+		});
+	});
+	</script>
 	</script>
 	
 		

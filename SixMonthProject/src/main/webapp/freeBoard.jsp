@@ -192,7 +192,12 @@
 							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
 							    <%=bvo.getTitle()%></a></td>
 							<td>
-								<%=bvo.getNick()%>
+								<!-- 유림 : 익명 -->
+								<% if(bvo.getAnonymous().equals("on")){%>
+									익명
+								<%} else { %>
+									<%=bvo.getNick()%>
+								<%} %>
 							</td>
 							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
@@ -217,7 +222,7 @@
 					</div>
 					
 					<div class="align-right">
-						<a href="GoWriter" class="button primary buttonSize">작성하러가기</a>
+						<a href="GoWriter" class="button primary buttonSize" id="btn">작성하러가기</a>
 					</div>
 				</div>
 				
@@ -270,6 +275,8 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	
+
 
 </body>
 </html>
