@@ -157,5 +157,19 @@ public class MemberDAO {
 			}
 			return row;
 		}
+
+		public int deleteMember(MemberVO vo) {
+			
+			try {
+				session = sqlFactory.openSession(true);
+				row = session.delete("deleteMember", vo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			return row;
+		}
+		
 	
 }
