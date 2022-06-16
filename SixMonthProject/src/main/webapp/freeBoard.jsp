@@ -197,12 +197,12 @@
 							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
 							<%-- url?name=value --%>
-							<td>
-							<%-- 유림 : 밑에 조건문 한 줄 추가함 --%>
+							<%-- <td>
+							<%-- 유림 : 밑에 조건문 한 줄 추가함 
 							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(bvo.getNick())){ %>
 								<a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a>
 							<% } %>	
-							</td>
+							</td> --%>
 							
 						</tr>
 						<%
