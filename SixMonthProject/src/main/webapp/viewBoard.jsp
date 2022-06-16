@@ -41,7 +41,9 @@
 		<div id="main">
 		<section id="content" class="main">
 		<span>조회수 : <%= view.getHit() %></span>
-		<br><br>
+		
+		
+		<!-- 수정 전 글 내용 -->
 		<table id="list">
 			<tr>
 				<td>제목</td>
@@ -84,7 +86,7 @@
 				<form action="GoodInsertService" method="post">
 					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
 					<input name="id" type="hidden" value="<%= vo.getId() %>">
-					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼">
+					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼" style="width:3%">
 					<%= view.getGood() %>
 				</form>
 				

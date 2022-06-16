@@ -61,7 +61,7 @@
 					 <%
 					 if (view.getFileName() != null) {
 					 %> 
-					 <div><img alt="" src="image/<%=view.getFileName()%>"></div>
+					 <div><img alt="" src="image/<%=view.getFileName()%>" style="width:30%"></div>
 					 
 					 <div class="align-right">
 					 <a href="DeleteFileService?pnum=<%=view.getPnum() %>"><img src="image/deleteUI.png"></a>

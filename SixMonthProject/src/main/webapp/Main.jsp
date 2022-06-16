@@ -151,7 +151,7 @@
 						%>
 							<tr>
 								<td><%=bvo.getPnum() %></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black">
 								<%=bvo.getTitle() %></a></td>
 								<td><%=bvo.getNick() %></td>
 								<td><%=bvo.getHit() %></td>
@@ -187,7 +187,7 @@
 							%>
 							<tr>
 								<td><%=i+1 %></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black">
 								<%=bvo.getTitle()%></a></td>
 								<td><%=bvo.getNick()%></td>
 								<td><%=bvo.getGood()%></td>
