@@ -4,9 +4,9 @@
 	pw varchar2(20) not null,
 	email varchar2(30) not null,
 	nick varchar2(10) not null,
-	constraint member_id_pk primary key(id),
-	constraint member_email_uk unique (email),
-	constraint member_nick_uk unique (nick)
+	constraint member_id_pk primary key(id) on delete cascade,
+	constraint member_email_uk unique (email) on delete cascade,
+	constraint member_nick_uk unique (nick) on delete cascade
 )
 
 alter table s_member modify nick varchar2(20)
@@ -33,9 +33,9 @@ create table s_post(
 	hit number(3) default 0,
 	pdate date,
 	fileName varchar2(100),
-	constraint post_pnum_pk primary key(pnum),
-	constraint post_id_fk foreign key (id) references s_member(id),
-	constraint post_nick_fk foreign key (nick) references s_member(nick)
+	constraint post_pnum_pk primary key(pnum) on delete cascade,
+	constraint post_id_fk foreign key (id) references s_member(id) on delete cascade,
+	constraint post_nick_fk foreign key (nick) references s_member(nick) on delete cascade
 )
 
 select * from s_post
