@@ -58,7 +58,7 @@
 
    <!-- 게시글 작성 -->
    <insert id="boardInsert" parameterType="com.model.BoardVO">
-      insert into s_post(pnum,title,content,id,nick,pdate,fileName)
+      insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
       values(
          post_num_seq.nextval,
          #{title},
@@ -66,7 +66,8 @@
          #{id},
          #{nick},
          current_date,
-         #{fileName, jdbcType=VARCHAR}
+         #{fileName, jdbcType=VARCHAR},
+         #{anonymous}
       )
    </insert>
    
@@ -167,6 +168,18 @@
 		where cnum=#{cnum}
 	</delete>
 	
+	<!-- 내 게시글만 볼수 있는 sql  -->
+	<select id="boardMyList" resultType="com.model.BoardVO">
+		select * from s_post
+	    where id = #{id}
+	    order by pdate desc
+	</select>
 	
+	<!-- 내 댓글만 볼수 있는 sql  -->
+	<select id="boardMyComment" resultType="com.model.CommentVO">
+		select * from s_comment
+	    where id = #{id}
+	    order by cdate desc
+	</select>
 	
 </mapper>

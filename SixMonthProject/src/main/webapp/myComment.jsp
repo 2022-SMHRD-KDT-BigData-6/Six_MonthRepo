@@ -1,13 +1,12 @@
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.model.MemberVO"%>
-<%@page import="com.model.BoardVO"%>
+<%@page import="com.model.CommentVO"%>
 <%@page import="java.util.List"%>
+<%@page import="com.model.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>내 댓글</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -15,98 +14,63 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+<title>글 내용보기</title>
 </head>
 <body class="is-preload">
 
-<%-- 
-	<% 
-	//obj타입 업캐스팅 된채로 저장 
-	//request에 저장해둔 list 꺼내오기
-	List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
-	int boards = (int)request.getAttribute("boards");
-	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
-	
-
+	<%
+		BoardVO view = (BoardVO)request.getAttribute("view");
+		List<CommentVO> myCommentList = (List<CommentVO>)request.getAttribute("myCommentList");
+		MemberVO vo = (MemberVO)session.getAttribute("vo");
 	%>
-	 --%>
 	
-	<!-- Wrapper -->
-	<div id="wrapper">
 
-		<!-- Header -->
-		<header id="header">
+	<div id="wrapper">
+	<!-- Header -->
+
+	<header id="header">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<br><br>
-			<h1>내 댓글</h1>
-			
-		</header>
-
-		<!-- Main -->
-		<div id="main">
-
-			<!-- Content -->
-			<section id="content" class="main">
-				<span class="image main"><img src="images/pic04.jpg" alt="" /></span>
-				<h2>내 댓글 리스트</h2>
-				<table id="list">
-					<thead>
-
-						<tr>
-							<td>번호</td>
-							<td>댓글</td>
-							<td>작성자</td>
-							<td>시간</td>
-						</tr>
-
-					</thead>
-					<tbody>			
-					
-					<tr>
-						<td>1</td>
-						<td><a href="#">오늘하루도 고생했어!!</a></td>
-						<td>Six_months</td>
-						<td>2022.06.10</td>
-						<td><a>X</</a></td>
-					</tr>
-					
-					
-					<%-- 	<%
-						for (int i = 0; i < list.size(); i++) {
-							BoardVO bvo = list.get(i);
-						%>
-						<tr>
-							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>"> 
-							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getId()%></td>
-							<td><%=bvo.getPdate()%></td>
-							url?name=value
-							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
-						</tr>
-						<%
-						}
-						%> --%>
-					</tbody>
-				</table>
-				<div class="align-right">
-							<a href="GoMain" class="button">돌아가기</a>
-				</div>
+			<h1>자유게시판</h1>
+	</header>
 		
+		<%-- 댓글 보여주기 --%>
+		<div class="comments main">
+			<div id="main">
+			<section id="comment" class="main">
+				<h2>내가 쓴 댓글</h2>
 				
-		<%-- 	
-			페이징 부분
-			<div class="align-center">
-					<% for(int i =0; i<=boards/10; i++){
-					%>
-					<a href="GoFree?page=<%=i*10+1%>"><%=i+1 %></a>		
-				
-				<% }%>
-			</div> --%>
-
-			</section>
-
-		</div>
-
+			<table id="list">
+               <ul class="myInfo" id="commentUl">
+                <%
+				for (int i = 0; i < myCommentList.size(); i++) {
+					CommentVO cvo = myCommentList.get(i);
+				%>
+				<tr>
+                  <td>
+                  	<h3 class="medium"><%=cvo.getNick() %></h3>
+                  </td>
+                  <td>
+                     <p class="medium"><%=cvo.getCdate() %></p>
+                  </td>
+                  <td>
+                   	  <a href="GoView?pnum=<%=cvo.getPnum()%>&cnt=1">
+                  	  <p class="commentP"><%=cvo.getComments()%></p>
+                  </td>
+                 <%
+					}
+				 %>
+               	 </ul>
+               	 <tr>
+              </table>
+              
+              
+             </section>
+             </div>
+          </div>
+		
+		
+		
 		<!-- Footer -->
 		<footer id="footer">
 			<section>
@@ -133,15 +97,13 @@
 
 
 	</div>
-
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
-
 </body>
 </html>

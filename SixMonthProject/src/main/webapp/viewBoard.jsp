@@ -32,7 +32,7 @@
 	<header id="header">
 			<a href="GoMain"><span class="logo"><img src="image/logo.big.png"/></span></a>
 			<br><br>
-			<h1>자유게시판</h1>
+			<h1>자유게시판</h1> 
 	</header>
 
 	<!-- 글 내용 보기 -->
@@ -98,7 +98,9 @@
 					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
 				</div>
 				<div>
+				<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
 					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button primary buttonSize">수정하기</a>
+					<%} %>
 				</div>
 			</div>
 		
@@ -113,12 +115,21 @@
                   <li>
                   <h3 class="medium"><%=cvo.getNick() %></h3>
                   </li>
+                  
                   <li>
                      <p class="medium"><%=cvo.getCdate() %></p>
                   </li>
+                  
                      <li class="align-right">
+                     
+                     <%-- 유림 : 밑에 조건문 한 줄 추가함 --%>
+					<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
                      <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>">X</a>
+                     <%}else{%>
+                    	<br><br>
+                     <% } %>
                      </li>
+                     
                   <p class="commentP"><%=cvo.getComments()%></p>
                  <%
 					}

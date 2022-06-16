@@ -23,6 +23,7 @@ public class BoardVO {
 	private int hit; // 조회수
 	private int good; // 공감
 	private String fileName; // 첨부파일
+	private String anonymous; // 익명 체크
 	
 	// 글 검색
 	public BoardVO(String title, String content, String nick) {
@@ -33,5 +34,6 @@ public class BoardVO {
 	
 	
 	
+
 	
 }
