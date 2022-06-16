@@ -79,9 +79,8 @@
 						<a href = "GoFree?page=1" class="button buttonSize"> 글 목록</a>
 					</div>
 					<div>
-						<input type="checkbox" id="demo-copy" name="demo-copy">
-							<label for="demo-copy" >익명</label>
-						<input type="submit" value="작성완료" class="button primary buttonSize">
+						<input type="checkbox" id="anonymous" name="anonymous" value="on"><label for="anonymous">익명</label>
+						<input type="submit" value="작성완료" id="submit" class="button primary buttonSize">
 					</div>
 				</div>
 			</form>
@@ -124,6 +123,35 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous">
+	</script>
+	
+	<script>
+	/*
+		$('input#submit').on('click', function(){
+			let checkbox = document.getElementById('anonymous');
+			
+			// 익명을 체크함
+			if(checkbox.checked == false){
+				$.ajax({
+					url : 'InsertService',
+					type : 'POST',
+					data : {'anonymous':'off'},
+					success : function(){
+						alert("성공")
+					},
+					error : function(){
+						alert("실패")
+					}
+				})
+			}
+		});  
+	*/   
+	</script>
+	
+		
 </body>
 </html>

@@ -136,16 +136,28 @@ select * from s_member
 									
 delete S_MEMBER where id='나윤3'						
 									
-									
+show table status from S_MEMBER				
 
+select * from all_tables									
 									
+alter table S_POST add anonymous varchar(25)
+alter table S_POST drop column anonymous cascade constraint
 									
+select * from S_POST									
 									
-									
-									
-									
-									
-									
+desc S_POST
+
+insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
+      values(
+         post_num_seq.nextval,
+         '제목',
+         '내용',
+         'yurim',
+         '유리밍',
+         current_date,
+         null,
+         null
+      )
 									
 									
 									

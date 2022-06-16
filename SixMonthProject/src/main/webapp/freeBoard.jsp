@@ -88,7 +88,9 @@
 							<td><%=bvo.getPnum()%></td>
 							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
 							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getNick()%></td>
+							<td>
+								<%=bvo.getNick()%>
+							</td>
 							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
 							<!-- 조회수 UI 추가 -->
