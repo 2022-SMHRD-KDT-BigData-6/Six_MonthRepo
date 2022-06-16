@@ -128,21 +128,6 @@
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 		crossorigin="anonymous"> </script>
 	
-	<script>
-	$('input#submit').on('click', function(){
-		$.ajax({
-			url : 'InsertService',
-			success : function(){
-				alert('성공!')
-			},
-			error : function(){
-				alert('실패')
-			}
-		});
-	});
-	</script>
-	</script>
-	
 		
 </body>
 </html>
