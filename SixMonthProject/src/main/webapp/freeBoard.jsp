@@ -39,7 +39,7 @@
 		</header>
 
 		<!-- Main -->
-		<div id="main">
+		<div id="main"> 
 
 			<!-- Content -->
 			<section id="content" class="main">
@@ -88,12 +88,20 @@
 							<td><%=bvo.getPnum()%></td>
 							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
 							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getNick()%></td>
+							<td>
+								<%=bvo.getNick()%>
+							</td>
 							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
 							<!-- 조회수 UI 추가 -->
 							<%-- url?name=value --%>
-							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
+							<td>
+							<%-- 유림 : 밑에 조건문 한 줄 추가함 --%>
+							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(bvo.getNick())){ %>
+								<a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a>
+							<% } %>	
+							</td>
+							
 						</tr>
 						<%
 						}

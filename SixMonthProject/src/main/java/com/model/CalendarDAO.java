@@ -11,7 +11,7 @@ public class CalendarDAO {
 
 	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
-	
+	int cnt=0;
 	// 글 전체를 가져오는 메서드
 		public List<CalendarVO> calendarList() {
 
@@ -34,5 +34,52 @@ public class CalendarDAO {
 		
 			// 4. 쿼리실행 결과 리턴
 			return calendarList;
+		}
+		
+
+		// 글을 DB에 insert하는 메서드
+		public int calendarInsert(CalendarVO cvo) {
+
+			// 1. SqlSession 빌려오기
+			SqlSession session = sqlSessionFactory.openSession(true);
+
+			// try catch
+			// DB에 변화가 일어나는 경우
+			// insert, delete, update 세가지는 가급적 예외처리할 것
+
+			try {
+				cnt = session.insert("calendarInsert", cvo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// 3. SqlSession 반납
+			session.close();
+
+			// 4. 쿼리문 실행 결과 리턴
+			return cnt;
+		}
+
+
+		public int calendarDelete(CalendarVO cvo) {
+
+			// 1. SqlSession 빌려오기
+			SqlSession session = sqlSessionFactory.openSession(true);
+
+			// try catch
+			// DB에 변화가 일어나는 경우
+			// insert, delete, update 세가지는 가급적 예외처리할 것
+
+			try {
+				cnt = session.delete("calendarDelete", cvo);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				// 3. SqlSession 반납
+				session.close();
+
+				// 4. 쿼리문 실행 결과 리턴
+				return cnt;
 		}
 }
