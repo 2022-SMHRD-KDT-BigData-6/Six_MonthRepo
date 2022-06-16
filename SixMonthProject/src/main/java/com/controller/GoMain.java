@@ -29,12 +29,13 @@ public class GoMain extends HttpServlet {
 		CalendarDAO cdao = new CalendarDAO();
 		// 페이지 게시글을 리스트에 담아준다.
 		List<BoardVO> list = dao.boardList();
-	
+		List<BoardVO> hotList = dao.boardHotList();
+		
 		// 객체바인딩
 		// Scope영역에 전달하고자하는 객체를 저장
 		// request 영역
 		request.setAttribute("list", list);
-		
+		request.setAttribute("hotList", hotList);
 		
 		// forward방식으로 이동
 		// RequestDispatcher 객체 생성

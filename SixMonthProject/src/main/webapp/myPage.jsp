@@ -37,7 +37,9 @@
 			<a href="changeNick.jsp">닉네임 변경</a>
 			<br><br>
 			<a href="deleteMember.jsp">회원탈퇴</a>
-			
+			<br><br>
+			<a href="GoMain" class="button">메인으로</a>
+
 		</section>
 
 

@@ -34,6 +34,7 @@
 <%
 	MemberVO vo=(MemberVO)session.getAttribute("vo");
 	List<BoardVO> list = (List<BoardVO>)request.getAttribute("list");
+	List<BoardVO> hotList = (List<BoardVO>)request.getAttribute("hotList");
 %>
 
 	<!-- Wrapper -->
@@ -110,8 +111,8 @@
                   
                   <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
                   		<li class="myInfo_li"><a href='logout'> 로그아웃 </a></li>
-                  		<li class="myInfo_li"><a href='myWrite.jsp' class="myArticle"> 내 글 </a></li>
-                  		<li class="myInfo_li"><a href='myComment.jsp' > 내 댓글 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" > 내 글 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyComment?id=<%=vo.getId() %>'> 내 댓글 </a></li>
                   </ul>
                   <%
                   }
@@ -136,17 +137,19 @@
 						<table>
 						<thead>
 							<tr>
+								<td>글번호</td>
 								<td>제목</td>
 								<td>작성자</td>
+								<td>조회수</td>
 							</tr>
 
 						</thead>
 						<tbody>		
-							<tr>
 						<%
 							for(int i=0; i<5; i++){
 							BoardVO bvo = list.get(i);
 						%>
+<<<<<<< HEAD
 								<td><%=bvo.getTitle() %></td>
 								<!-- 유림 : 익명 -->
 								<td>
@@ -156,6 +159,14 @@
 									<%=bvo.getNick()%>
 								<%} %>
 							</td>
+=======
+							<tr>
+								<td><%=bvo.getPnum() %></td>
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
+								<%=bvo.getTitle() %></a></td>
+								<td><%=bvo.getNick() %></td>
+								<td><%=bvo.getHit() %></td>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 							</tr>
 
 						<%
@@ -167,25 +178,27 @@
 						<div class="align-center">
 							<a href="GoFree?page=1" class="button">더보기</a>
 						</div>
-
 					</div>
 					
-					<!-- 공지사항 table -->
+					<!-- 핫게시글 table -->
 					<div class="content" style="padding-right:10px" style="padding-left:10px">
 						<header class="major">
-							<h2>공지사항</h2>
+							<h2>핫게시글</h2>
 						</header>
 						<table >
 							<tr>
+								<td>순위</td>
 								<td>제목</td>
-								<td>작성일자</td>
+								<td>작성자</td>
+								<td>공감수</td>
 							</tr>
 
 							<%
 							for (int i = 0; i < 5; i++) {
-								BoardVO bvo = list.get(i);
+								BoardVO bvo = hotList.get(i);
 							%>
 							<tr>
+<<<<<<< HEAD
 								<td><%=bvo.getTitle()%></td>
 								<!-- 유림 : 익명 -->
 								<td>
@@ -195,6 +208,13 @@
 									<%=bvo.getNick()%>
 								<%} %>
 							</td>
+=======
+								<td><%=i+1 %></td>
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
+								<%=bvo.getTitle()%></a></td>
+								<td><%=bvo.getNick()%></td>
+								<td><%=bvo.getGood()%></td>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 							</tr>
 							<%
 								}

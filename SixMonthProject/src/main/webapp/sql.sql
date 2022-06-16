@@ -9,6 +9,8 @@
 	constraint member_nick_uk unique (nick)
 )
 
+alter table s_member modify nick varchar2(20)
+
 drop table s_member
 
 insert into s_member
@@ -16,6 +18,8 @@ values('jaewoo', '김재우', '1234', 'kimjaewu09@naver.com', '재우쓰');
 
 insert into s_member
 values('jaewoo09', '김재우', '1234', 'kimjaewu@naver.com', '재우');
+
+delete from s_member where id='jaewoo09';
 
 select * from s_member;
 
@@ -35,6 +39,20 @@ create table s_post(
 )
 
 select * from s_post
+
+      select *
+      from s_post
+      where title like '%검색%'
+      order by pdate desc
+      
+            select *
+      from s_post
+      where title like '%' || #{title} || '%'
+      order by pdate desc
+
+update s_post
+set fileName=NULL
+where pnum=195
 
 insert into s_post(pnum,title,content,id,nick,pdate,fileName)
 values(post_num_seq.nextval, '조회수 되니?', '되니?', 'jaewoo', '재우쓰', sysdate, 'aa');
@@ -127,12 +145,22 @@ from s_comment
 where pnum=149
 order by cdate;
 
-		select count(*)
-		from post_mind
-		where pnum=149 and id='jaewoo';									
+select count(*)
+from post_mind
+where pnum=153 and id='jaewoo09';			
+
+select *
+from s_post
+where title like '%공감%'
+order by pdate desc
 									
 									
 select * from s_member									
+									
+									
+									
+									
+									
 									
 delete S_MEMBER where id='나윤3'						
 									
@@ -152,7 +180,7 @@ delete from S_POST where anonymous = 'ㅇㅇ'
 									
 desc S_POST
 
-//
+
 insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
       values(
          post_num_seq.nextval,
@@ -166,7 +194,8 @@ insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
       )
 									
 									
-									
+	select comments from s_comment
+	    where id = 'jaewoo'								
 									
 									
 									

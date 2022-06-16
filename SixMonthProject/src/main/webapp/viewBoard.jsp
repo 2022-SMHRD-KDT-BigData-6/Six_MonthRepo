@@ -1,3 +1,4 @@
+<%@page import="com.model.GoodVO"%>
 <%@page import="com.model.MemberVO"%>
 <%@page import="com.model.CommentVO"%>
 <%@page import="java.util.List"%>
@@ -38,9 +39,9 @@
 	<div id="wrapper">
 
 		<div id="main">
-
 		<section id="content" class="main">
-
+		<span>조회수 : <%= view.getHit() %></span>
+		<br><br>
 		<table id="list">
 			<tr>
 				<td>제목</td>
@@ -85,31 +86,31 @@
 		</table>
 		
 		<!-- 공감 수 입력 --> 
-			<tr>
-				<td>
-				<form action="GoodInsertService" method="post">
-						<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
-						<input name="id" type="hidden" value="<%= view.getId() %>">
-						<%= view.getGood() %>
-						<input type="submit" class="button primary buttonSize" value="공감하기">
-	         	</form>
-				
-				</td>
-			</tr>
-			
-
 			<div class="align-left">
-				<a href="#" class="vote"><img src="image/like.png" class="like_icon"> 0</a>
+				<form action="GoodInsertService" method="post">
+					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+					<input name="id" type="hidden" value="<%= vo.getId() %>">
+					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼">
+					<%= view.getGood() %>
+				</form>
+				
 				
 				<div class="align-right">
-						<span>조회수 : <%= view.getHit() %></span>
+				 <td>
+					<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
+						<a href="DeleteService?pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
+						<% } %>	
+				</td>
+						
 				</div>
 			</div>
 
 			<div class="icondiv">
+				
+				
 				<div>
-					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
 				</div>
+				
 				<div>
 				<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
 					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button primary buttonSize">수정하기</a>
@@ -137,7 +138,7 @@
                      
                      <%-- 유림 : 밑에 조건문 한 줄 추가함 --%>
 					<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
-                     <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>">X</a>
+                     <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
                      <%}else{%>
                     	<br><br>
                      <% } %>
@@ -158,7 +159,7 @@
 	        	<div class="col-12">
 						<td>
 						<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
-						<input name="id" type="hidden"  value="<%=view.getId()%>">
+						<input name="id" type="hidden"  value="<%=vo.getId()%>">
 						<input name="nick" type="hidden" value="<%=vo.getNick() %>">
 						</td>
 					<tr>
@@ -175,7 +176,9 @@
 	           
 	         </form>
       	</div>
-		
+			<div>
+					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+			</div>
 			
 			</section>
 		</div>
@@ -206,6 +209,7 @@
 
 
 	</div>
+	
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

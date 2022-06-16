@@ -46,8 +46,6 @@ public class LoginService extends HttpServlet {
 			out.println("alert('로그인 되었습니다'); location.href='GoMain';");
 			out.println("</script>"); 
 			out.close();
-			// 로그인 성공하면 메인페이지로
-			response.sendRedirect("GoMain");
 		} else {
 			out.println("<script>"); 
 			out.println("alert('아이디 또는 비밀번호를 잘못입력했습니다.'); location.href='login.jsp';");

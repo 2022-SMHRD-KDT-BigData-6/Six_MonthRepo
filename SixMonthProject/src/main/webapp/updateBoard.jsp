@@ -49,6 +49,7 @@
 						<td>작성자</td>
 						<%-- 작성자를 출력하세요. --%>
 						<%-- <input disabled type="text" value="<%=view.getWriter()%>"> --%>
+<<<<<<< HEAD
 						<%-- disabled 속성을 이용해서 수정을 방지, form태그로 보내지지 않음 --%>
 						<!-- 유림 : 익명 -->
 						<td>
@@ -58,16 +59,28 @@
 								<%=view.getNick()%>
 							<%} %>
 						</td>
+=======
+						<%-- disabled 속성을 이용해서 수정을 방지,
+						 form태그로 보내지지 않음
+					 --%>
+
+						<td><%=view.getNick()%></td>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 					</tr>
 					<tr>
-						<td colspan="2"><input name="file" type="file"> 
-					<%
+						<td colspan="2">
+						<div><input name="file" type="file"></div>
+					 <%
 					 if (view.getFileName() != null) {
-					 %> <img alt="" src="image/<%=view.getFileName()%>"> 
+					 %> 
+					 <div><img alt="" src="image/<%=view.getFileName()%>"></div>
 					 
+					 <div class="align-right">
+					 <a href="DeleteFileService?pnum=<%=view.getPnum() %>"><img src="image/deleteUI.png"></a>
+					 </div>
 					 <%
 					 }
-					 %> <br></td>
+					 %></td>
 					</tr>
 					<tr>
 						<td colspan="2">내용</td>
