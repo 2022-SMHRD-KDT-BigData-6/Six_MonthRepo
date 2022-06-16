@@ -92,7 +92,7 @@
 					<div>
 					<a href="Join.jsp" class="button" style="width:7em">회원가입</a>
 					</div>
-
+					
                   <%
                   } else {// 로그인 했을때
                   %>
