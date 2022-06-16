@@ -150,6 +150,7 @@ select * from S_POST
 									
 desc S_POST
 
+//
 insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
       values(
          post_num_seq.nextval,
