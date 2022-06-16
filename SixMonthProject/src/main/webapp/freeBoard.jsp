@@ -95,12 +95,12 @@
 							<td><%=bvo.getPdate()%></td>
 							<!-- 조회수 UI 추가 -->
 							<%-- url?name=value --%>
-							<td>
-							<%-- 유림 : 밑에 조건문 한 줄 추가함 --%>
+							<%-- <td>
+							<%-- 유림 : 밑에 조건문 한 줄 추가함 
 							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(bvo.getNick())){ %>
 								<a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a>
 							<% } %>	
-							</td>
+							</td> --%>
 							
 						</tr>
 						<%
