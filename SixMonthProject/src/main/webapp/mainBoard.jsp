@@ -25,7 +25,6 @@
 	int boards = (int)request.getAttribute("boards");
 	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
 	
-
 	%>
 	
 	
@@ -157,5 +156,7 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
+
+	
 </body>
 </html>

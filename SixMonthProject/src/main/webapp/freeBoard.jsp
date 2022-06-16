@@ -121,21 +121,26 @@
 						%>
 						<tr>
 							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
-							    <%=bvo.getTitle()%></a></td>
+							<td id="cc">
+								<a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle()%></a>
+							</td>
 							<td>
-								<%=bvo.getNick()%>
+								<!-- 유림 : 익명 -->
+								<% if(bvo.getAnonymous().equals("on")){%>
+									익명
+								<%} else { %>
+									<%=bvo.getNick()%>
+								<%} %>
 							</td>
 							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
 							<%-- url?name=value --%>
-							<td>
-							<%-- 유림 : 밑에 조건문 한 줄 추가함 --%>
+							<%-- <td>
+							<%-- 유림 : 밑에 조건문 한 줄 추가함 
 							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(bvo.getNick())){ %>
 								<a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a>
 							<% } %>	
-							</td>
-							
+							</td> --%>
 						</tr>
 						<%
 						}
@@ -149,7 +154,7 @@
 					</div>
 					
 					<div class="align-right">
-						<a href="GoWriter" class="button primary buttonSize">작성하러가기</a>
+						<a href="GoWriter" class="button primary buttonSize" id="btn">작성하러가기</a>
 					</div>
 				</div>
 				
@@ -202,6 +207,23 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+	
+	$(document).ready(function(){
+			<% if((MemberVO)session.getAttribute("vo") ==null){ %>
+				$('#cc>a').attr('href','#');
+				$('#cc>a').on('click', function(){
+					alert('로그인 해주세요');
+					location.href="GoMain"
+				});	
+			<%}%>
+	});
+	
+	
+	</script>
+
 
 </body>
 </html>

@@ -153,14 +153,8 @@ select *
 from s_post
 where title like '%공감%'
 order by pdate desc
-									
-									
-select * from s_member									
-									
-									
-									
-									
-									
+														
+select * from s_member												
 									
 delete S_MEMBER where id='나윤3'						
 									
@@ -171,10 +165,12 @@ values('junseong', 'test10', '22/06/12', '22/06/20', 'white', 'black', 'black', 
 
 select * from all_tables									
 									
-alter table S_POST add anonymous varchar(25)
+alter table S_POST add anonymous varchar(25) default 'off'
 alter table S_POST drop column anonymous cascade constraint
 									
 select * from S_POST									
+delete from S_POST where anonymous is null								
+delete from S_POST where anonymous = 'ㅇㅇ'
 									
 desc S_POST
 
@@ -188,7 +184,7 @@ insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
          '유리밍',
          current_date,
          null,
-         null
+         'on'
       )
       
        select *
@@ -197,41 +193,6 @@ insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
       order by pdate desc
 									
 									
-									
-									
-									
-									
-									
-
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
+select comments from s_comment where id = 'jaewoo'								
+ 									
 									

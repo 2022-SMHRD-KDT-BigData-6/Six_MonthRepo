@@ -49,11 +49,15 @@
 						<td>작성자</td>
 						<%-- 작성자를 출력하세요. --%>
 						<%-- <input disabled type="text" value="<%=view.getWriter()%>"> --%>
-						<%-- disabled 속성을 이용해서 수정을 방지,
-						 form태그로 보내지지 않음
-					 --%>
-
-						<td><%=view.getNick()%></td>
+						<%-- disabled 속성을 이용해서 수정을 방지, form태그로 보내지지 않음 --%>
+						<!-- 유림 : 익명 -->
+						<td>
+							<% if(view.getAnonymous().equals("on")){%>
+								익명
+							<%} else { %>
+								<%=view.getNick()%>
+							<%} %>
+						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -61,7 +65,7 @@
 					 <%
 					 if (view.getFileName() != null) {
 					 %> 
-					 <div><img alt="" src="image/<%=view.getFileName()%>"></div>
+					 <div><img alt="" src="image/<%=view.getFileName()%>" style="width:30%"></div>
 					 
 					 <div class="align-right">
 					 <a href="DeleteFileService?pnum=<%=view.getPnum() %>"><img src="image/deleteUI.png"></a>

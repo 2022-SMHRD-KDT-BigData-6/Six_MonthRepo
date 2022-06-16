@@ -137,7 +137,7 @@
 	 resultType="BoardVO"
  	>
 	 	select * 
-		from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, nick, content, hit, pdate from s_post) A
+		from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, nick, content, hit, pdate, anonymous from s_post) A
 		where a.rn between #{page}  and  #{page} + 9
  	</select>
  	
