@@ -60,10 +60,10 @@ create table s_comment(
 	good number(3) default 0,
 	cdate date,
 	constraint com_num_pk primary key (cnum),
-	constraint member_id_fk foreign key (id) references s_member(id),
-	constraint comment_nick_fk foreign key (nick) references s_member(nick),
-	constraint post_pnum_fk foreign key (pnum) references s_post(pnum)
-)		
+	constraint member_id_fk foreign key (id) references s_member(id) on delete cascade,
+	constraint comment_nick_fk foreign key (nick) references s_member(nick) on delete cascade,
+	constraint post_pnum_fk foreign key (pnum) references s_post(pnum) on delete cascade
+)
 
 select * from s_comment
 
@@ -101,7 +101,7 @@ create table comment_mind(
 
 select * from comment_mind;
 									
-drop table post_mind cascade constraints
+drop table s_comment cascade constraints
 
 select * 
 from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, id, content, pdate from s_post) A
@@ -139,15 +139,34 @@ select * from s_member
 									
 									
 									
+delete S_MEMBER where id='나윤3'						
+									
+delete from CALENDAR where caltitle='test01' and start1='22/06/12' and end1='22/06/15';
+							
+insert into CALENDAR
+values('junseong', 'test10', '22/06/12', '22/06/20', 'white', 'black', 'black', calendar_num_seq.nextval);
 
+select * from all_tables									
 									
+alter table S_POST add anonymous varchar(25)
+alter table S_POST drop column anonymous cascade constraint
 									
+select * from S_POST									
 									
-									
-									
-									
-									
-									
+desc S_POST
+
+
+insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
+      values(
+         post_num_seq.nextval,
+         '제목',
+         '내용',
+         'yurim',
+         '유리밍',
+         current_date,
+         null,
+         null
+      )
 									
 									
 									
