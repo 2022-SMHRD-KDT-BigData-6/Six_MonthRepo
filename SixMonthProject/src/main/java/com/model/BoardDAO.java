@@ -2,6 +2,8 @@ package com.model;
 
 import java.util.List;
 
+import javax.xml.stream.events.Comment;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -239,6 +241,32 @@ public class BoardDAO {
 		
 		return cnt;
 	}
+	
+	// 나의 게시글만 보는 DAO
+	public List<BoardVO> boardMyList(String id) {
+
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		List<BoardVO> list = session.selectList("boardMyList",id);
+
+		session.close();
+
+		return list;
+	}
+	
+	// 나의 댓글만 보는 DAO
+	public List<CommentVO> boardMyComment(String id) {
+		
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		List<CommentVO> list = session.selectList("boardMyComment",id);
+
+		session.close();
+
+		return list;
+		
+	}
+	
 	
 	
 }

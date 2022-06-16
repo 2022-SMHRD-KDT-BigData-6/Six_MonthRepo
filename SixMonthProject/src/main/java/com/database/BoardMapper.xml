@@ -121,6 +121,18 @@
 		where cnum=#{cnum}
 	</delete>
 	
+	<!-- 내 게시글만 볼수 있는 sql  -->
+	<select id="boardMyList" resultType="com.model.BoardVO">
+		select * from s_post
+	    where id = #{id}
+	    order by pdate desc
+	</select>
 	
+	<!-- 내 댓글만 볼수 있는 sql  -->
+	<select id="boardMyComment" resultType="com.model.CommentVO">
+		select * from s_comment
+	    where id = #{id}
+	    order by cdate desc
+	</select>
 	
 </mapper>

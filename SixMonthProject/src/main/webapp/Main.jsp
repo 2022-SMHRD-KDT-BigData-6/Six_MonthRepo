@@ -110,8 +110,8 @@
                   
                   <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
                   		<li class="myInfo_li"><a href='logout'> 로그아웃 </a></li>
-                  		<li class="myInfo_li"><a href='myWrite.jsp' class="myArticle"> 내 글 </a></li>
-                  		<li class="myInfo_li"><a href='myComment.jsp' > 내 댓글 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" > 내 글 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyComment?id=<%=vo.getId() %>'> 내 댓글 </a></li>
                   </ul>
                   <%
                   }
