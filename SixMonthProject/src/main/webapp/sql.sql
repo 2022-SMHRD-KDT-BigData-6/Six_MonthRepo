@@ -147,6 +147,8 @@ alter table S_POST add anonymous varchar(25)
 alter table S_POST drop column anonymous cascade constraint
 									
 select * from S_POST									
+delete from S_POST where anonymous is null								
+delete from S_POST where anonymous = '¤·¤·'
 									
 desc S_POST
 
@@ -160,7 +162,7 @@ insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
          'À¯¸®¹Ö',
          current_date,
          null,
-         null
+         'on'
       )
 									
 									

@@ -148,7 +148,14 @@
 							BoardVO bvo = list.get(i);
 						%>
 								<td><%=bvo.getTitle() %></td>
-								<td><%=bvo.getNick() %></td>
+								<!-- 유림 : 익명 -->
+								<td>
+								<% if(bvo.getAnonymous().equals("on")){%>
+									익명
+								<%} else { %>
+									<%=bvo.getNick()%>
+								<%} %>
+							</td>
 							</tr>
 
 						<%
@@ -180,7 +187,14 @@
 							%>
 							<tr>
 								<td><%=bvo.getTitle()%></td>
-								<td><%=bvo.getId()%></td>
+								<!-- 유림 : 익명 -->
+								<td>
+								<% if(bvo.getAnonymous().equals("on")){%>
+									익명
+								<%} else { %>
+									<%=bvo.getNick()%>
+								<%} %>
+							</td>
 							</tr>
 							<%
 								}

@@ -46,15 +46,12 @@ public class InsertService extends HttpServlet {
 		// 익명 체크 여부
 		String anonymous = multi.getParameter("anonymous");
 		
-		System.out.println(fileName+"파일이름");
-		System.out.println(anonymous+"익명");
-		/*
-		System.out.println("값이 비었니"+multi.getParameter("anonymous").isBlank());
-		
-		if(multi.getParameter("anonymous").isBlank() == false) {
+		if(anonymous == null) {
 			anonymous = "off";
 		}
-		*/
+		
+		System.out.println(fileName+"파일이름");
+		System.out.println(anonymous+"익명");
 		
 		BoardVO bvo = new BoardVO();
 		bvo.setTitle(title);

@@ -51,9 +51,15 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td>
-					<%--작성자 출력 --%>
-					<%= view.getNick() %>
+
+					<td>
+						<!-- 유림 : 익명 -->
+						<% if(view.getAnonymous().equals("on")){%>
+								익명
+						<%} else { %>
+								<%=view.getNick()%>
+						<%} %>
+					</td>
 				</td>
 			</tr>
 			<tr>
