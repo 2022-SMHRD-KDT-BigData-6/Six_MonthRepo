@@ -64,7 +64,7 @@
 				<li><a href="#intro" class="active"  style="color:black !important">자유게시판</a></li>
 				<li><a href="#first"  style="color:black !important">취업게시판</a></li>
 				<li><a href="#second"  style="color:black !important">일정표</a></li>
-				<li><a href="#cta"  style="color:black !important">Get Started</a></li>
+				<li><a href="#cta"  style="color:black !important">스마트인재 개발원</a></li>
 			</ul>
 		</nav>
 
