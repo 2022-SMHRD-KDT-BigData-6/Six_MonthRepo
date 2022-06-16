@@ -37,7 +37,7 @@
 
 	<!-- 글 내용 보기 -->
 	<div id="wrapper">
-
+	
 		<div id="main">
 
 		<section id="content" class="main">

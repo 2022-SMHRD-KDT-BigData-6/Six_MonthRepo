@@ -57,7 +57,7 @@
 			<footer class="major">
 				<ul class="actions special">
 					<!-- <li><input type="submit" value="JoinUs" id="btnSubmit" class="button fit"></li> -->
-					<button id="btnSubmit">전송하기</button>
+					<button id="btnSubmit">가입하기</button>
 				</ul>
 			</footer>
 		</section>
