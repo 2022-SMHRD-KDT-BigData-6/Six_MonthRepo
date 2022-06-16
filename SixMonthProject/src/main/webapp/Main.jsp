@@ -237,9 +237,9 @@
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li>
-					<li><li><li><li><li><li><li><li><li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li></li></li></li></li></li></li></li></li>
-						<li><li><li><li><li><li><li><li><li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li></li></li></li></li></li></li></li></li>
+						<li><a href="jobBoard.jsp" class="button">더 보기</a></li>
+					<li><a href="gwjobBoard.jsp" class="button">더 보기</a></li>
+						<li><a href="wordjobBoard.jsp" class="button">더 보기</a></li>
 					</ul>
 				</footer>
 			</section>
@@ -248,6 +248,7 @@
 			<section id="second" class="main special">
 				<header class="major">
 					<h2>일정표</h2>
+
 				</header>
 					
 					<div id='calendar' style="max-width:900px"></div>
@@ -288,23 +289,37 @@
 
 				
 			</section>
-
+	
 			<!-- Get Started -->
-			<section id="cta" class="main special">
+			
+			<section id="cta" class="main special2234">
+			
 				<header class="major">
-					<h2>Congue imperdiet</h2>
-					<p>
-						Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-						posuere. Nulla massa urna, fermentum eget quam aliquet.
-					</p>
-				</header>
-				<footer class="major">
+				<div>
+				<img src="image/smhrdddd22.png" class="smhrdddd22">
+				</div>
+		
+		<iframe src="https://www.youtube.com/embed/fNviG_HcxTw?playlist=fNviG_HcxTw&loop=1&mute=1&amp;autoplay=1" width="500" height="260" frameborder="0" allowfullscreen=""> </iframe>
+	<div class="quick">
+        <div class="tit">QUICK<br>MENU</div>
+        <div class="item"><a href="https://smhrd.or.kr/request/"><img src="image/snhim1.png" id="mappingg2"></i><span class="name">수강신청</span></a></div>
+        <div class="item"><a href="https://smhrd.or.kr/qna/"><span class="name">간편상담</span></a></div>
+        <div class="item"><a href="https://pf.kakao.com/_VYlpM" target="_blank"><span class="name">카톡상담</span></a></div>
+        <div class="item"><a href="tel:062-655-3506"><span class="name">전화상담</span></a></div>
+        <div class="item"><a href="https://smhrd.or.kr/job/live/"><span class="name">취업현황</span></a></div>
+    </div>
+ <footer class="major">
 					<ul class="actions special">
-						<li><a href="generic.html" class="button primary">Get
-								Started</a></li>
-						<li><a href="generic.html" class="button">Learn More</a></li>
+						<li><a href="https://smhrd.or.kr/" class="button primary">스마트인재 개발원</a></li>
+						<li></li>
 					</ul>
 				</footer>
+    
+    
+  </section>
+					
+				</header>
+				
 			</section>
 
 		</div>
