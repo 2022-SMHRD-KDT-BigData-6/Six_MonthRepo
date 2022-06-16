@@ -49,7 +49,8 @@
 					</div>
 				<!-- 익명 -->
 					<div class="viewBoardProfile2">
-						<h3 class="viewBoardh3">	<% if(view.getAnonymous().equals("on")){%>
+						<h3 class="viewBoardh3">	
+						<% if(view.getAnonymous().equals("on")){%>
 									익명
 							<%} else { %>
 									<%=view.getNick()%>
@@ -114,9 +115,16 @@
            <div class= "commentBox"style="border: 1px solid lightgrey; padding: 10px; ">
            
             <article class="articlesy">
-             
+
+            <%-- 유림 : 닉네임 익명 수정 --%>
                   <li>
-                  <h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro"> <%=cvo.getNick() %></h3>
+                  	<h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro">
+	                  	<% if(cvo.getAnony().equals("on")){ %>
+	                  		익명
+	                  	<%}else{ %>
+	                  	<%=cvo.getNick() %>
+	                  	<%} %>
+                  	</h3>
                   </li>
                  
                   
@@ -178,6 +186,13 @@
                   </td>
                </tr>
             </div>
+<<<<<<< HEAD
+                     <div class="col-6 col-12-small align-right">
+                           <input type="checkbox" id="anony" name="anony"><label for="anony">익명</label>
+                     <input type="submit" class="button primary buttonSize" value="댓글등록">
+                     </div>
+              
+=======
             		<div class="icondiv">
 			             <div>
 							<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
@@ -188,6 +203,7 @@
 	                     		<input type="submit" class="button primary buttonSize3" value="댓글등록">
 	                     </div>
 					 </div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
             </form>
         </div>
       		
