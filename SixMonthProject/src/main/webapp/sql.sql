@@ -188,42 +188,6 @@ insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
       )
 									
 									
-	select comments from s_comment
-	    where id = 'jaewoo'								
-									
-									
-									
-									
-
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
+select comments from s_comment where id = 'jaewoo'								
 									
 									
