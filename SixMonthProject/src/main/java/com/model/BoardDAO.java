@@ -121,7 +121,7 @@ public class BoardDAO {
 		// 채워줄 바인드 있으면 id, 채울값
 		// 없으면 id만
 		List<BoardVO> list = session.selectList("pagging", page);
-
+		System.out.println(list);
 		// 3. 빌려온 session 반환
 		session.close();
 

@@ -52,7 +52,7 @@
 			<h1>Smhrd커뮤니티</h1>
 
 
-			<p> Created by Six_month </p>
+			<p style="color:white"> Created by Six_month </p>
 			
 
 		</header>
@@ -102,7 +102,7 @@
                   		<p class="school"><%=vo.getName()%></p>
                   		
                   	<ul class="myInfo">
-                  		<li class="myInfo_li"><a href="myPage.jsp">내 정보</a></li>
+                  		<li class="myInfo_li"><a href="myPage.jsp" style="color:black">내 정보</a></li>
                   	
                   	
                   <%
@@ -110,9 +110,9 @@
                   %>
                   
                   <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
-                  		<li class="myInfo_li"><a href='logout'> 로그아웃 </a></li>
-                  		<li class="myInfo_li"><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" > 내 글 </a></li>
-                  		<li class="myInfo_li"><a href='GoMyComment?id=<%=vo.getId() %>'> 내 댓글 </a></li>
+                  		<li class="myInfo_li"><a href='logout' style="color:black"> 로그아웃 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" style="color:black"> 내 글 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyComment?id=<%=vo.getId() %>'style="color:black"> 내 댓글 </a></li>
                   </ul>
                   <%
                   }
@@ -151,9 +151,17 @@
 						%>
 							<tr>
 								<td><%=bvo.getPnum() %></td>
-								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
-								<%=bvo.getTitle() %></a></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle() %></a></td>
 								<td><%=bvo.getNick() %></td>
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
+								<!-- 유림 : 익명 -->
+								<td>
+									<% if(bvo.getAnonymous().equals("on")){%>
+										익명
+									<%} else { %>
+										<%=bvo.getNick()%>
+									<%} %>
+								</td>
 								<td><%=bvo.getHit() %></td>
 							</tr>
 
@@ -187,9 +195,17 @@
 							%>
 							<tr>
 								<td><%=i+1 %></td>
-								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
-								<%=bvo.getTitle()%></a></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle()%></a></td>
 								<td><%=bvo.getNick()%></td>
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle()%></a></td>
+								<!-- 유림 : 익명 -->
+								<td>
+									<% if(bvo.getAnonymous().equals("on")){%>
+										익명
+									<%} else { %>
+										<%=bvo.getNick()%>
+									<%} %>
+								</td>
 								<td><%=bvo.getGood()%></td>
 							</tr>
 							<%
@@ -225,9 +241,9 @@
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li>
-					<li><li><li><li><li><li><li><li><li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li></li></li></li></li></li></li></li></li>
-						<li><li><li><li><li><li><li><li><li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li></li></li></li></li></li></li></li></li>
+						<li><a href="jobBoard.jsp" class="button">더 보기</a></li>
+					<li><a href="gwjobBoard.jsp" class="button">더 보기</a></li>
+						<li><a href="wordjobBoard.jsp" class="button">더 보기</a></li>
 					</ul>
 				</footer>
 			</section>
@@ -236,6 +252,7 @@
 			<section id="second" class="main special">
 				<header class="major">
 					<h2>일정표</h2>
+
 				</header>
 					
 					<div id='calendar' style="max-width:900px"></div>
@@ -276,23 +293,37 @@
 
 				
 			</section>
-
+	
 			<!-- Get Started -->
-			<section id="cta" class="main special">
+			
+			<section id="cta" class="main special2234">
+			
 				<header class="major">
-					<h2>Congue imperdiet</h2>
-					<p>
-						Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-						posuere. Nulla massa urna, fermentum eget quam aliquet.
-					</p>
-				</header>
-				<footer class="major">
+				<div>
+				<img src="image/smhrdddd22.png" class="smhrdddd22">
+				</div>
+		
+		<iframe src="https://www.youtube.com/embed/fNviG_HcxTw?playlist=fNviG_HcxTw&loop=1&mute=1&amp;autoplay=1" width="500" height="260" frameborder="0" allowfullscreen=""> </iframe>
+	<div class="quick">
+        <div class="tit">QUICK<br>MENU</div>
+        <div class="item"><a href="https://smhrd.or.kr/request/"><img src="image/snhim1.png" id="mappingg2"></i><span class="name">수강신청</span></a></div>
+        <div class="item"><a href="https://smhrd.or.kr/qna/"><span class="name">간편상담</span></a></div>
+        <div class="item"><a href="https://pf.kakao.com/_VYlpM" target="_blank"><span class="name">카톡상담</span></a></div>
+        <div class="item"><a href="tel:062-655-3506"><span class="name">전화상담</span></a></div>
+        <div class="item"><a href="https://smhrd.or.kr/job/live/"><span class="name">취업현황</span></a></div>
+    </div>
+ <footer class="major">
 					<ul class="actions special">
-						<li><a href="generic.html" class="button primary">Get
-								Started</a></li>
-						<li><a href="generic.html" class="button">Learn More</a></li>
+						<li><a href="https://smhrd.or.kr/" class="button primary">스마트인재 개발원</a></li>
+						<li></li>
 					</ul>
 				</footer>
+    
+    
+  </section>
+					
+				</header>
+				
 			</section>
 
 		</div>
@@ -301,12 +332,12 @@
 		<footer id="footer">
 			<section>
 				<h2>핵심융합프로젝트</h2>
-				<p>제작기간 : 2022.06.03~2022.06.20</p>
-				<p>발표 : 2022.06.20</p>
+				<p style="color:white">제작기간 : 2022.06.03~2022.06.20</p>
+				<p style="color:white">발표 : 2022.06.20</p>
 			</section>
 			<section>
 				<h2>Six_Month</h2>
-				<dl class="alt">
+				<dl class="alt" style="color:white">
 					<dt>Leader</dt>
 					<dd>Jae Woo Kim</dd>
 					<dt>member</dt>
@@ -316,8 +347,8 @@
 					<dd>Tae Min No</dd>
 				</dl>
 			</section>
-			<p class="copyright">
-				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
+			<p class="copyright" style="color:white">
+				&copy; Untitled. Design: <a href="https://html5up.net" style="color:white">HTML5 UP</a>.
 			</p>
 		</footer>
 

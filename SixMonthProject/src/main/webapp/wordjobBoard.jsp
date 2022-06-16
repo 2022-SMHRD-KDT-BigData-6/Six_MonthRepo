@@ -42,11 +42,14 @@
 				<h1>취업게시판</h1>
 				<p>빅데이터 분석서비스 개발과정</p>
 			</header>
-			<br><br><br><br>
 
 
 
-
+				<br>
+				<br>
+				<br>
+				<br>
+				
 			<!-- Main -->
 			
 
@@ -58,32 +61,29 @@
 						
 							<!-- Content  -->
 							<section id="content" class="w-btn w-btn-gra1">
-								<div>
-								<img alt="img" src="image/soul.jpeg" id="mapping">
-								</div>
+								
+								<img alt="img" src="image/img12.png" id="content12">
+								
 								<h2>채용정보</h2>
 
-								<h1>서울 취업 정보</h1>
-								<h3>WEB(프론트엔드/백엔드) 웹 / 데이터 / 개발자 채용</h3>
+								<h1>해외 취업 정보</h1>
+								<h3>WEB(프론트엔드/백엔드) 웹 / 데이터 / java 개발자 채용</h3>
 
+							
 								<br>
-								<li><a href="gwjobBoard.jsp" class="w-btn-outline w-btn-pink-outline">광주/전남 취업정보 이동</a></li><br>
-								<li><a href="wordjobBoard.jsp" class="w-btn-outline w-btn-pink-outline">해외 취업정보 이동</a></li><br>
+								<li><a href="jobBoard.jsp" class="w-btn-outline w-btn-pink-outline">서울 취업정보 이동</a></li><br>
+								<li><a href="gwjobBoard.jsp" class="w-btn-outline w-btn-pink-outline">광주/전남  취업정보 이동</a></li><br>
 								
-								<ul id="ulux"><a href="GoMain" id="buttonleft" class="button">메인 페이지 이동 
-								</a> <button class="w-btn-neon2" id="toggle-button1" onClick="crawlling(1);">채용정보 확인하기</button></ul>
+								<ul><a href="GoMain" id="buttonleft"class="button">메인 페이지 이동 </a> <button class="w-btn-neon2" id="toggle-button1" onClick="crawlling(1);">채용정보 확인하기</button></ul>
 								<div class="section collapsed div1"></div>
-								
 								</section>
 						<!-- </div> -->
 						<br><br><br>
 						
 						<div></div>
-						
+						-
  <!--</section>  -->			
-			
-
-
+		<!--</section>  -->			
 
 
 	<!-- Table -->
@@ -319,6 +319,9 @@
 			
 		</div>
 		
+		
+			
+		
 	
 	
 			
@@ -327,18 +330,7 @@
 		
 
 			
-	
-	
-
-	
-	<!-- Form -->
-	
-
-
-	
-
-
-
+		</div>
 	<!-- Scripts -->
 	
 	<script>
@@ -388,10 +380,10 @@
          
          let div = document.querySelector('.div' + number)
 		
-         let seo = [];
+         let word = [];
         
-         for(let i=0; i < json.서울.length; i++){
-        	 seo[i] = json.서울[i].주소;
+         for(let i=0; i < json.해외.length; i++){
+        	 word[i] = json.해외[i].주소;
            	// console.log(json.서울[0].주소)        
 
         	 
@@ -404,15 +396,15 @@
              <table>
                 <h2>
                    <tr>
-                   ` +json.서울[i].서울 +   ` 
+                   ` +json.해외[i].해외 +   ` 
                       <td>
                       
               		
                
-              		<a href="" class="asas"><button>
+              		<a href="" class="wordd"><button>
               		
               		
-                ` +json.서울[i].내용 +` 
+                ` +json.해외[i].내용 +` 
                 </button>
                </a> 
             
@@ -426,7 +418,7 @@
                
              </table>`
 
-             document.getElementsByClassName('asas')[i].setAttribute('href',seo[i])
+             document.getElementsByClassName('wordd')[i].setAttribute('href',word[i])
        
      
           
