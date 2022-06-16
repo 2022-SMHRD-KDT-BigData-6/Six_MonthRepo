@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor //모든요소를 매개변수로 갖는 생성자.
 @NoArgsConstructor //기본생성자(매개변수가 없는 생성자)
 public class BoardVO {
-	
 	// 반드시 지킬 것!!
 	// 필드의 이름과 테이블의 컬럼명이 일치할것 
 	
@@ -24,6 +23,17 @@ public class BoardVO {
 	private int hit; // 조회수
 	private int good; // 공감
 	private String fileName; // 첨부파일
-	private String anonymous;
+	private String anonymous; // 익명 체크
+	
+	// 글 검색
+	public BoardVO(String title, String content, String nick) {
+		this.title = title;
+		this.content = content;
+		this.nick = nick;
+	}
+	
+	
+	
+
 	
 }

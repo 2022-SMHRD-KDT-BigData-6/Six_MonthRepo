@@ -79,10 +79,16 @@
 						%>
 					</tbody>
 				</table>
+<<<<<<< HEAD
+				<div class="align-right">
+							<a href="GoMain" class="button">돌아가기</a>
+				</div>
+=======
 		
 					<div class="align-right">
 						<a href="GoWriter" class="button primary buttonSize">작성하러가기</a>
 					</div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 				
 				<br>
 

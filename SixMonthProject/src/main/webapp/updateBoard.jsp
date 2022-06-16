@@ -53,17 +53,22 @@
 						 form태그로 보내지지 않음
 					 --%>
 
-						<td><%=view.getId()%></td>
+						<td><%=view.getNick()%></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input name="file" type="file"> 
-					<%
+						<td colspan="2">
+						<div><input name="file" type="file"></div>
+					 <%
 					 if (view.getFileName() != null) {
-					 %> <img alt="" src="image/<%=view.getFileName()%>"> 
+					 %> 
+					 <div><img alt="" src="image/<%=view.getFileName()%>"></div>
 					 
+					 <div class="align-right">
+					 <a href="DeleteFileService?pnum=<%=view.getPnum() %>"><img src="image/deleteUI.png"></a>
+					 </div>
 					 <%
 					 }
-					 %> <br></td>
+					 %></td>
 					</tr>
 					<tr>
 						<td colspan="2">내용</td>
