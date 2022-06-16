@@ -83,7 +83,7 @@
 					<%if(view.getFileName() != null){ %>
 					<img style="width:30%" alt="" src="image/<%= view.getFileName()%>">
 					<%} %>
-					<br>
+					<br><br>
 					<%= view.getContent() %>
 			</p>
 			<!-- 공감수 -->
@@ -161,14 +161,14 @@
                      <div class="col-6 col-12-small align-right">
                            <input type="checkbox" id="demo-copy" name="demo-copy">
                            <label for="demo-copy">익명</label>
-                     <input type="submit" class="button primary buttonSize" value="댓글등록">
+                     <input type="submit" class="button primary buttonSize2" value="댓글등록">
                      </div>
               
             </form>
          </div>
       		
 			<div>
-					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+					<a href="GoFree?page=1" class="button buttonSize2">글 목록</a>
 			</div>
 			
 			</section>

@@ -83,13 +83,15 @@
                   <% // 로그인 안했을때 
                   if (vo == null) {
                   %>
-                  
+                  	<div style="margin-bottom:2%">
                  	<img alt="icon" src="image/login_logo.png">
-					<br>
-					<a href="login.jsp" class="button primary">로그인</a>
-					<br>
-					<a href="Join.jsp" class="button">회원가입</a>
-					
+                 	</div>
+					<div style="margin-bottom: 0.5%">
+					<a href="login.jsp" class="button primary" style="width:7em">로그인</a>
+					</div>
+					<div>
+					<a href="Join.jsp" class="button" style="width:7em">회원가입</a>
+					</div>
 
                   <%
                   } else {// 로그인 했을때
@@ -370,7 +372,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 	
 	<script>
 	

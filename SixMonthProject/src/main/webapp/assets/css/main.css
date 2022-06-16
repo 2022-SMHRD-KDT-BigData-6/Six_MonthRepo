@@ -638,7 +638,7 @@ position: relative;
 	.buttonSize {
 	
 		font-size: 12pt;
-		width:200px;
+		width:100%;
 	}
 
       @media screen and (max-width: 1680px) {
@@ -4584,4 +4584,14 @@ a.vote231 {
 	font-weight: bold;
     margin-top: 4%;
     margin-bottom: 1%;
+	}
+	
+	.buttonSize2 {
+	font-size: 12pt;
+	width:15%;
+	}
+	
+	.buttonSize3 {
+	font-size: 12pt;
+	width: 58%;
 	}
