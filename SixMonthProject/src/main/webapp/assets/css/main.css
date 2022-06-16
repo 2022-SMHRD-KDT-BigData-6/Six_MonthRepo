@@ -4460,5 +4460,33 @@ position: relative;
 	}
 
 	#selectHeight {
-	height: 1.7em
+	height: 1.7em;
+	}
+	
+	.viewBoardProfile {
+	float : left;
+	width : 25%;
+	margin-right : 5px;
+	}
+	
+	.viewBoardProfile2 {
+	float: left;
+	}
+	
+	.viewBoardh3 {
+	margin : 0.2em 0 0.2em 0 !important;	
+	}
+	
+	#viewBoardp {
+	margin : 0 0 0 0;
+	}
+	
+	.margin-bottom {
+	maring-bottom : 4% !important; 
+	}
+	
+	.writeTitle {
+	font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 1%;
 	}

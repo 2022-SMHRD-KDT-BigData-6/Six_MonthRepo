@@ -149,24 +149,18 @@
 							for(int i=0; i<5; i++){
 							BoardVO bvo = list.get(i);
 						%>
-<<<<<<< HEAD
-								<td><%=bvo.getTitle() %></td>
-								<!-- 유림 : 익명 -->
-								<td>
-								<% if(bvo.getAnonymous().equals("on")){%>
-									익명
-								<%} else { %>
-									<%=bvo.getNick()%>
-								<%} %>
-							</td>
-=======
 							<tr>
 								<td><%=bvo.getPnum() %></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black">
-								<%=bvo.getTitle() %></a></td>
-								<td><%=bvo.getNick() %></td>
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
+								<!-- 유림 : 익명 -->
+								<td>
+									<% if(bvo.getAnonymous().equals("on")){%>
+										익명
+									<%} else { %>
+										<%=bvo.getNick()%>
+									<%} %>
+								</td>
 								<td><%=bvo.getHit() %></td>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 							</tr>
 
 						<%
@@ -198,23 +192,17 @@
 								BoardVO bvo = hotList.get(i);
 							%>
 							<tr>
-<<<<<<< HEAD
-								<td><%=bvo.getTitle()%></td>
+								<td><%=i+1 %></td>
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle()%></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
-								<% if(bvo.getAnonymous().equals("on")){%>
-									익명
-								<%} else { %>
-									<%=bvo.getNick()%>
-								<%} %>
-							</td>
-=======
-								<td><%=i+1 %></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black">
-								<%=bvo.getTitle()%></a></td>
-								<td><%=bvo.getNick()%></td>
+									<% if(bvo.getAnonymous().equals("on")){%>
+										익명
+									<%} else { %>
+										<%=bvo.getNick()%>
+									<%} %>
+								</td>
 								<td><%=bvo.getGood()%></td>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
 							</tr>
 							<%
 								}

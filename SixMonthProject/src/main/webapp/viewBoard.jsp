@@ -39,16 +39,68 @@
 	<div id="wrapper">
 
 		<div id="main">
-		<section id="content" class="main">
-		<span>조회수 : <%= view.getHit() %></span>
+		<section id="content" class="main" >
+		<div style="border: 1px solid lightgrey; padding: 10px;">
+				<span>조회수 : <%= view.getHit() %></span>
+			<div class="icondiv" >
+				<div>
+					<div class="viewBoardProfile">
+						<img alt="profile" src="image/profile.png" style="width:100%">
+					</div>
+				<!-- 익명 -->
+					<div class="viewBoardProfile2">
+						<h3 class="viewBoardh3">	<% if(view.getAnonymous().equals("on")){%>
+									익명
+							<%} else { %>
+									<%=view.getNick()%>
+							<%} %>
+						</h3>
+					<p id="viewBoardp"><%= view.getPdate() %></p>
+					</div>
+				</div>
+				<div>
+					<ul class="myInfo">
+						<li class="viewBoardProfile2">
+							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
+							<a href="GoUpdate?pnum=<%=view.getPnum()%>" >수정</a>
+							<%} %>
+						</li>
+						<li class="viewBoardProfile2">
+							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
+							<a href="DeleteService?pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
+							<% } %>	
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<%--게시글 제목 출력 --%>
+			<h2 class="writeTitle">		
+				<%=view.getTitle()%>
+			</h2>
+			<p>
+			<%--게시글 내용 출력 --%>
+					<%if(view.getFileName() != null){ %>
+					<img style="width:30%" alt="" src="image/<%= view.getFileName()%>">
+					<%} %>
+					<br>
+					<%= view.getContent() %>
+			</p>
+			<form action="GoodInsertService" method="post" style="margin-bottom: 0px">
+					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+					<input name="id" type="hidden" value="<%= vo.getId() %>">
+					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼" style="width:3%">
+					<%= view.getGood() %>
+			</form>
+		</div>
 		
 		
 		<!-- 수정 전 글 내용 -->
-		<table id="list">
+		<%-- <table id="list">
 			<tr>
 				<td>제목</td>
 				<td>
-					<%--게시글 제목 출력 --%>
+					게시글 제목 출력
 					<%=view.getTitle()%>
 				</td>
 			</tr>
@@ -76,7 +128,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<%--게시글 내용 출력 --%>
+					게시글 내용 출력
 					<%if(view.getFileName() != null){ %>
 					<img style="width:30%" alt="" src="image/<%= view.getFileName()%>">
 					<%} %>
@@ -85,18 +137,18 @@
 				</td>
 			</tr>
 
-		</table>
+		</table> --%>
 		
-		<!-- 공감 수 입력 --> 
-			<div class="align-left">
+	<%-- 	<!-- 공감 수 입력 --> 
+			
 				<form action="GoodInsertService" method="post">
 					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
 					<input name="id" type="hidden" value="<%= vo.getId() %>">
 					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼" style="width:3%">
 					<%= view.getGood() %>
-				</form>
+				</form> --%>
 				
-				
+			<%-- <div class="align-left">
 				<div class="align-right">
 				 <td>
 					<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
@@ -105,20 +157,17 @@
 				</td>
 						
 				</div>
-			</div>
+			</div> --%>
 
-			<div class="icondiv">
+		<%-- 	<div class="icondiv">
 				
-				
-				<div>
-				</div>
 				
 				<div>
 				<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
 					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button primary buttonSize">수정하기</a>
 					<%} %>
 				</div>
-			</div>
+			</div> --%>
 		
 		<%-- 댓글 보여주기 --%>
 		<div class="comments">
