@@ -135,8 +135,10 @@ order by cdate;
 select * from s_member									
 									
 									
-									
-									
+delete from CALENDAR where caltitle='test01' and start1='22/06/12' and end1='22/06/15';
+							
+insert into CALENDAR
+values('junseong', 'test10', '22/06/12', '22/06/20', 'white', 'black', 'black', calendar_num_seq.nextval);
 									
 
 									
