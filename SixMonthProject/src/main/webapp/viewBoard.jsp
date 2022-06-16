@@ -40,7 +40,8 @@
 
 		<div id="main">
 		<section id="content" class="main">
-
+		<span>조회수 : <%= view.getHit() %></span>
+		<br><br>
 		<table id="list">
 			<tr>
 				<td>제목</td>
@@ -79,7 +80,7 @@
 		</table>
 		
 		<!-- 공감 수 입력 --> 
-			<div class="align-center">
+			<div class="align-left">
 				<form action="GoodInsertService" method="post">
 					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
 					<input name="id" type="hidden" value="<%= vo.getId() %>">
@@ -87,23 +88,21 @@
 					<%= view.getGood() %>
 				</form>
 				
+				
 				<div class="align-right">
-						<span>조회수 : <%= view.getHit() %></span>
+				 <td>
+					<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
+						<a href="DeleteService?pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
+						<% } %>	
+				</td>
+						
 				</div>
 			</div>
 
 			<div class="icondiv">
-				<div>
-					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
-				</div>
+				
 				
 				<div>
-				 <td>
-							유림 : 밑에 조건문 한 줄 추가함 
-							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
-								<a href="DeleteService?pnum=<%=view.getPnum()%>">X</a>
-							<% } %>	
-							</td>
 				</div>
 				
 				<div>
@@ -133,7 +132,7 @@
                      
                      <%-- 유림 : 밑에 조건문 한 줄 추가함 --%>
 					<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
-                     <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>">X</a>
+                     <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
                      <%}else{%>
                     	<br><br>
                      <% } %>
@@ -171,7 +170,9 @@
 	           
 	         </form>
       	</div>
-		
+			<div>
+					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+			</div>
 			
 			</section>
 		</div>
