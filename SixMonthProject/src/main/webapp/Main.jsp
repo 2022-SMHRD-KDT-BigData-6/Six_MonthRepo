@@ -151,9 +151,7 @@
 						%>
 							<tr>
 								<td><%=bvo.getPnum() %></td>
-								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle() %></a></td>
-								<td><%=bvo.getNick() %></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
 									<% if(bvo.getAnonymous().equals("on")){%>
@@ -171,9 +169,7 @@
 						</tbody>
 
 						</table>
-						<div class="align-center">
-							<a href="GoFree?page=1" class="button">더보기</a>
-						</div>
+
 					</div>
 					
 					<!-- 핫게시글 table -->
@@ -195,9 +191,7 @@
 							%>
 							<tr>
 								<td><%=i+1 %></td>
-								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle()%></a></td>
-								<td><%=bvo.getNick()%></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle()%></a></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle()%></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
 									<% if(bvo.getAnonymous().equals("on")){%>
@@ -213,14 +207,13 @@
 							%> 
 
 						</table>
-						<div class="align-center">
-							<a href="GoFree?page=1" class="button">더보기</a></li>
-						</div>
 
 
 					</div>			
-
 				</div>
+						<div class="align-center">
+							<a href="GoFree?page=1" class="button">더보기</a></li>
+						</div>
 			</section>
 
 			<!-- First Section -->
@@ -375,8 +368,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-	
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script>
 	
 	

@@ -97,9 +97,22 @@
 						%>
 					</tbody>
 				</table>
-				<div class="align-right">
-							<a href="GoFree?page=1" class="button">돌아가기</a>
+				
+				<div class="icondiv">	
+					<div>
+						<a href = "GoMain" class="button primary buttonSize">메인으로</a>
+					</div>
+					
+					<div class="align-right">
+								<a href="GoFree?page=1" class="button">돌아가기</a>
+					</div>
+
 				</div>
+				
+
+			
+				</section>
+			</div>
 				<%}else{ %>
 				<table id="list">
 					<thead>

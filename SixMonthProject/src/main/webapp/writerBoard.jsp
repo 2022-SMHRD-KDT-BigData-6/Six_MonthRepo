@@ -80,7 +80,7 @@
 					</div>
 					<div>
 						<input type="checkbox" id="anonymous" name="anonymous" value="on"><label for="anonymous">익명</label>
-						<input type="submit" value="작성완료" id="submit" class="button primary buttonSize">
+						<input type="submit" value="작성완료" id="submit" class="button primary buttonSize3">
 					</div>
 				</div>
 			</form>
