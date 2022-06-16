@@ -69,7 +69,7 @@
 				<td colspan="2">
 					<%--게시글 내용 출력 --%>
 					<%if(view.getFileName() != null){ %>
-					<img alt="" src="image/<%= view.getFileName()%>">
+					<img style="width:30%" alt="" src="image/<%= view.getFileName()%>">
 					<%} %>
 					<br>
 					<%= view.getContent() %>

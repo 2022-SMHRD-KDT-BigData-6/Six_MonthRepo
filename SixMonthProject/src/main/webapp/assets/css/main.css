@@ -621,7 +621,7 @@ position: relative;
 	
 
 	body, input, select, textarea, a {
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family:  Source Sans Pro, "Malgun Gothic", Helvetica, sans-serif;
 		font-size: 12pt;
 		font-weight: 300;
 		text-decoration-line: none;
