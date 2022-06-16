@@ -14,7 +14,7 @@ alter table s_member modify nick varchar2(20)
 drop table s_member
 
 insert into s_member
-values('jaewoo', '梯營辦', '1234', 'kimjaewu09@naver.com', '營辦噙');
+values('10', '梯營辦', '10', '10@naver.com', '10');
 
 insert into s_member
 values('jaewoo09', '梯營辦', '1234', 'kimjaewu@naver.com', '營辦');
@@ -191,6 +191,11 @@ insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
          null,
          'on'
       )
+      
+       select *
+      from s_post
+      where nick like '%營辦韁%'
+      order by pdate desc
 									
 									
 select comments from s_comment where id = 'jaewoo'								

@@ -37,7 +37,7 @@
    <select id="boardContentSearch" resultType="com.model.BoardVO">
       select *
       from s_post
-      where nick like '%' || #{content} || '%'
+      where content like '%' || #{content} || '%'
       order by pdate desc
    </select>
    
@@ -45,7 +45,7 @@
    <select id="boardWriterSearch" resultType="com.model.BoardVO">
       select *
       from s_post
-      where content like '%' || #{nick} || '%'
+      where nick like '%' || #{nick} || '%'
       order by pdate desc
    </select>
    

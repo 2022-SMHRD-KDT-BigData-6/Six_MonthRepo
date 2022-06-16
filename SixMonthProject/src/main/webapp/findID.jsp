@@ -18,7 +18,7 @@
 	<div id="wrapper" align="center">
 			<section id="first" class="main special">
 				<header class="major">
-					<h2>ID/PW찾기</h2>
+					<h2>ID찾기</h2>
 				</header>
 				
 				<!-- 아이디 찾는곳 -->

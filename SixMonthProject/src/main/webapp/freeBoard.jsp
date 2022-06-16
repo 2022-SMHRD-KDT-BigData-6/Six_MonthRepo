@@ -22,9 +22,7 @@
 		List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
 		int boards = (int)request.getAttribute("boards");
 		MemberVO vo = (MemberVO)session.getAttribute("vo");
-		List<BoardVO> titleSearch = (List<BoardVO>)request.getAttribute("titleSearch");
-		List<BoardVO> contentSearch = (List<BoardVO>)request.getAttribute("contentSearch");
-		List<BoardVO> writerSearch = (List<BoardVO>)request.getAttribute("writerSearch");
+		List<BoardVO> Search = (List<BoardVO>)request.getAttribute("Search");
 	%>
 	
 	
@@ -66,7 +64,7 @@
 							</div>
 						</form>
 				
-				<%if(titleSearch != null){ %>
+				<%if(Search != null){ %>
 					<table id="list">
 					<thead>
 
@@ -82,8 +80,8 @@
 					<tbody>			
 						
 						<%
-						for (int i = 0; i < titleSearch.size(); i++) {
-							BoardVO bvo = titleSearch.get(i);
+						for (int i = 0; i < Search.size(); i++) {
+							BoardVO bvo = Search.get(i);
 						%>
 						<tr>
 							<td><%=bvo.getPnum()%></td>
@@ -99,76 +97,22 @@
 						%>
 					</tbody>
 				</table>
-				<div class="align-right">
-							<a href="GoFree?page=1" class="button">돌아가기</a>
-				</div>
-				<%}else if(contentSearch != null){%>
-				<table id="list">
-					<thead>
-
-						<tr>
-							<td>번호</td>
-							<td>제목</td>
-							<td>작성자</td>
-							<td>조회수</td>
-							<td>작성일</td>
-						</tr>
-
-					</thead>
+				
+				<div class="icondiv">	
+					<div>
+						<a href = "GoMain" class="button primary buttonSize">메인으로</a>
+					</div>
 					
-					<tbody>			
-						
-						<%
-						for (int i = 0; i < contentSearch.size(); i++) {
-							BoardVO bvo = contentSearch.get(i);
-						%>
-						<tr>
-							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
-							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getNick()%></td>
-							<td><%=bvo.getHit()%></td>
-							<td><%=bvo.getPdate()%></td>
-							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
-						</tr>
-						<%
-						}
-						%>
-					</tbody>
-				</table>
-				<%}else if(writerSearch != null){%>
-				<table id="list">
-					<thead>
+					<div class="align-right">
+								<a href="GoFree?page=1" class="button">돌아가기</a>
+					</div>
 
-						<tr>
-							<td>번호</td>
-							<td>제목</td>
-							<td>작성자</td>
-							<td>조회수</td>
-							<td>작성일</td>
-						</tr>
+				</div>
+				
 
-					</thead>
-					<tbody>			
-						
-						<%
-						for (int i = 0; i < writerSearch.size(); i++) {
-							BoardVO bvo = writerSearch.get(i);
-						%>
-						<tr>
-							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
-							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getNick()%></td>
-							<td><%=bvo.getHit()%></td>
-							<td><%=bvo.getPdate()%></td>
-							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
-						</tr>
-						<%
-						}
-						%>
-					</tbody>
-				</table>
+			
+				</section>
+			</div>
 				<%}else{ %>
 				<table id="list">
 					<thead>

@@ -38,6 +38,9 @@
 				<input type="password" id="pw" name="pw" placeholder="계정 비밀번호">
 				<p align="right" style="font-size:14px">※탈퇴 후 개인정보 데이터가 삭제됩니다.</p>
 				<input type="button" id="ip" value="회원탈퇴" class="button fit" onclick="inputPW()">
+				
+				<br><br>
+				<a href="myPage.jsp">이전으로</a>
 				</li>
 			</ul>
 			</form>

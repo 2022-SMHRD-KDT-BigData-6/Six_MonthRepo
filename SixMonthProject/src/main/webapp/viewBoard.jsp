@@ -37,7 +37,7 @@
 
 	<!-- 글 내용 보기 -->
 	<div id="wrapper">
-
+	
 		<div id="main">
 		<section id="content" class="main" >
 		<div style="border: 1px solid lightgrey; padding: 10px;">
@@ -186,17 +186,28 @@
                   </td>
                </tr>
             </div>
+<<<<<<< HEAD
                      <div class="col-6 col-12-small align-right">
                            <input type="checkbox" id="anony" name="anony"><label for="anony">익명</label>
                      <input type="submit" class="button primary buttonSize" value="댓글등록">
                      </div>
               
+=======
+            		<div class="icondiv">
+			             <div>
+							<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+						 </div>
+	                     <div class="col-6 col-12-small align-right">
+	                           	<input type="checkbox" id="demo-copy" name="demo-copy">
+	                           	<label for="demo-copy">익명</label>
+	                     		<input type="submit" class="button primary buttonSize3" value="댓글등록">
+	                     </div>
+					 </div>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
             </form>
-         </div>
+        </div>
       		
-			<div>
-					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
-			</div>
+			
 			
 			</section>
 		</div>
