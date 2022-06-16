@@ -52,7 +52,7 @@
 			<h1>Smhrd커뮤니티</h1>
 
 
-			<p> Created by Six_month </p>
+			<p style="color:white"> Created by Six_month </p>
 			
 
 		</header>
@@ -102,7 +102,7 @@
                   		<p class="school"><%=vo.getName()%></p>
                   		
                   	<ul class="myInfo">
-                  		<li class="myInfo_li"><a href="myPage.jsp">내 정보</a></li>
+                  		<li class="myInfo_li"><a href="myPage.jsp" style="color:black">내 정보</a></li>
                   	
                   	
                   <%
@@ -110,9 +110,9 @@
                   %>
                   
                   <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
-                  		<li class="myInfo_li"><a href='logout'> 로그아웃 </a></li>
-                  		<li class="myInfo_li"><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" > 내 글 </a></li>
-                  		<li class="myInfo_li"><a href='GoMyComment?id=<%=vo.getId() %>'> 내 댓글 </a></li>
+                  		<li class="myInfo_li"><a href='logout' style="color:black"> 로그아웃 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" style="color:black"> 내 글 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyComment?id=<%=vo.getId() %>'style="color:black"> 내 댓글 </a></li>
                   </ul>
                   <%
                   }
@@ -151,7 +151,7 @@
 						%>
 							<tr>
 								<td><%=bvo.getPnum() %></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle() %></a></td>
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
 									<% if(bvo.getAnonymous().equals("on")){%>
@@ -193,7 +193,7 @@
 							%>
 							<tr>
 								<td><%=i+1 %></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle()%></a></td>
+								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle()%></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
 									<% if(bvo.getAnonymous().equals("on")){%>
@@ -329,12 +329,12 @@
 		<footer id="footer">
 			<section>
 				<h2>핵심융합프로젝트</h2>
-				<p>제작기간 : 2022.06.03~2022.06.20</p>
-				<p>발표 : 2022.06.20</p>
+				<p style="color:white">제작기간 : 2022.06.03~2022.06.20</p>
+				<p style="color:white">발표 : 2022.06.20</p>
 			</section>
 			<section>
 				<h2>Six_Month</h2>
-				<dl class="alt">
+				<dl class="alt" style="color:white">
 					<dt>Leader</dt>
 					<dd>Jae Woo Kim</dd>
 					<dt>member</dt>
@@ -344,8 +344,8 @@
 					<dd>Tae Min No</dd>
 				</dl>
 			</section>
-			<p class="copyright">
-				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
+			<p class="copyright" style="color:white">
+				&copy; Untitled. Design: <a href="https://html5up.net" style="color:white">HTML5 UP</a>.
 			</p>
 		</footer>
 

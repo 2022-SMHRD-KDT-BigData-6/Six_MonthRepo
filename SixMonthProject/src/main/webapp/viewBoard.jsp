@@ -39,97 +39,71 @@
 	<div id="wrapper">
 
 		<div id="main">
-		<section id="content" class="main">
-		<span>조회수 : <%= view.getHit() %></span>
-		<br><br>
-		<table id="list">
-		<div>
-		<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+		<section id="content" class="main" >
+		<div style="border: 1px solid lightgrey; padding: 10px;">
+				<span>조회수 : <%= view.getHit() %></span>
+			<div class="icondiv" >
+				<div>
+					<div class="viewBoardProfile">
+						<img alt="profile" src="image/profile.png" style="width:100%">
+					</div>
+				<!-- 익명 -->
+					<div class="viewBoardProfile2">
+						<h3 class="viewBoardh3">	<% if(view.getAnonymous().equals("on")){%>
+									익명
+							<%} else { %>
+									<%=view.getNick()%>
+							<%} %>
+						</h3>
+					<p id="viewBoardp"><%= view.getPdate() %></p>
+					</div>
+				</div>
+				<div>
+					<ul class="myInfo">
+						<li class="viewBoardProfile2">
+							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
+							<a href="GoUpdate?pnum=<%=view.getPnum()%>" >수정</a>
+							<%} %>
+						</li>
+						<li class="viewBoardProfile2">
+							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
+							<a href="DeleteService?pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
+							<% } %>	
+						</li>
+					</ul>
+				</div>
 			</div>
-			<tr>
-				<td>제목</td>
-				<td>
-					<%--게시글 제목 출력 --%>
-					<%=view.getTitle()%>
-				</td>
-			</tr>
-			<tr>
-				<td>작성자</td>
-
-					<td>
-						<!-- 유림 : 익명 -->
-						<% if(view.getAnonymous().equals("on")){%>
-								익명
-						<%} else { %>
-								<%=view.getNick()%>
-						<%} %>
-					</td>
-				</td>
-			</tr>
-			<tr>
-				<td>작성일</td>
-				<td>
-					<%= view.getPdate() %>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">내용</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<%--게시글 내용 출력 --%>
+			
+			<%--게시글 제목 출력 --%>
+			<h2 class="writeTitle">		
+				<%=view.getTitle()%>
+			</h2>
+			<p>
+			<%--게시글 내용 출력 --%>
 					<%if(view.getFileName() != null){ %>
-					<img alt="" src="image/<%= view.getFileName()%>">
+					<img style="width:30%" alt="" src="image/<%= view.getFileName()%>">
 					<%} %>
 					<br>
 					<%= view.getContent() %>
-				</td>
-			</tr>
-
-		</table>
-		
-		<!-- 공감 수 입력 --> 
-			<div class="align-left">
-				<form action="GoodInsertService" method="post">
+			</p>
+			<!-- 공감수 -->
+			<form action="GoodInsertService" method="post" style="margin-bottom: 0px">
 					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
 					<input name="id" type="hidden" value="<%= vo.getId() %>">
-					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼">
+					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼" style="width:3%">
 					<%= view.getGood() %>
-				</form>
+			</form>
+		</div>
 				
-				
-				<div class="align-right">
-				 <td>
-					<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
-						<a href="DeleteService?pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
-						<% } %>	
-				</td>
-						
-				</div>
-			</div>
-
-			<div class="icondiv">
-				
-				
-				<div>
-				</div>
-				
-				<div>
-				<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
-					<a href="GoUpdate?pnum=<%=view.getPnum()%>" class="button primary buttonSize">수정하기</a>
-					<%} %>
-				</div>
-			</div>
-		
-		<%-- 댓글 보여주기 --%>
-		<div class="comments">
+		 <%-- 댓글 보여주기 --%>
+      <div class="comments">
 
                <ul class="myInfo" id="commentUl">
                 <%
-					for (int i = 0; i < list.size(); i++) {
-					CommentVO cvo = list.get(i);
-				%>
-				<article class="articlesy">
+               for (int i = 0; i < list.size(); i++) {
+               CommentVO cvo = list.get(i);
+            %>
+            <article class="articlesy">
                   <li>
                   <h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro"> <%=cvo.getNick() %></h3>
                   </li>
@@ -151,47 +125,48 @@
                      <br>
         
                      <p class="medium22"><%=cvo.getCdate() %> </p>
-				<a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a> 
+            <a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a> 
                      <br>
                      <br>
                      <br>
                      
                      
                     <div class="align-left">
-				</article>
+            </article>
                      
                      
                  <%
-					}
-				 %>
+               }
+             %>
                </ul>
                   
             </div>
-		
-		
-		<%-- 댓글 입력 --%>
-		<div class="col-12" style="padding-top: 1.5em">
-	        <form action="ComInsertService" method="post" class="writercomment">
-	        	<div class="col-12">
-						<td>
-						<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
-						<input name="id" type="hidden"  value="<%=vo.getId()%>">
-						<input name="nick" type="hidden" value="<%=vo.getNick() %>">
-						</td>
-					<tr>
-						<td colspan="2">
-						<textarea name="contents" id="demo-message" placeholder="댓글을 입력하세요." rows="6"></textarea>
-						</td>
-					</tr>
-				</div>
-	                  <div class="col-6 col-12-small align-right">
-	                        <input type="checkbox" id="demo-copy" name="demo-copy">
-	                        <label for="demo-copy">익명</label>
-	                  <input type="submit" class="button primary buttonSize" value="댓글등록">
-	                  </div>
-	           
-	         </form>
-      	</div>
+      
+      
+      <%-- 댓글 입력 --%>
+      <div class="col-12" style="padding-top: 1.5em">
+           <form action="ComInsertService" method="post" class="writercomment">
+              <div class="col-12">
+                  <td>
+                  <input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+                  <input name="id" type="hidden"  value="<%=vo.getId()%>">
+                  <input name="nick" type="hidden" value="<%=vo.getNick() %>">
+                  </td>
+               <tr>
+                  <td colspan="2">
+                  <textarea name="contents" id="demo-message" placeholder="댓글을 입력하세요." rows="6"></textarea>
+                  </td>
+               </tr>
+            </div>
+                     <div class="col-6 col-12-small align-right">
+                           <input type="checkbox" id="demo-copy" name="demo-copy">
+                           <label for="demo-copy">익명</label>
+                     <input type="submit" class="button primary buttonSize" value="댓글등록">
+                     </div>
+              
+            </form>
+         </div>
+      		
 			<div>
 					<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
 			</div>
