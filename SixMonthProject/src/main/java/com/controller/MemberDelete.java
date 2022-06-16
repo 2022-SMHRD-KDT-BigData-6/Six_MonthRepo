@@ -1,8 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.reflect.Array;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,33 +13,53 @@ import javax.servlet.http.HttpSession;
 import com.model.MemberDAO;
 import com.model.MemberVO;
 
-@WebServlet("/ConfirmEmail")
-public class ConfirmEmail extends HttpServlet {
+@WebServlet("/MemberDelete")
+public class MemberDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
 		
 		request.setCharacterEncoding("UTF-8");
-
-		String id = request.getParameter("id");
+		
+		String id = ((MemberVO) session.getAttribute("vo")).getId();
+		String pw = request.getParameter("pw");
+		
+		MemberVO vo = new MemberVO();
+		vo.setId(id);
+		vo.setPw(pw);
 
 		MemberDAO dao = new MemberDAO();
-
-		MemberVO result = dao.findPW(id);
-
-		if (result != null) {
-			session.setAttribute("vo", result);
-			request.setAttribute("email", result.getEmail());
-			RequestDispatcher rd = request.getRequestDispatcher("emailCheck.jsp");
-			rd.forward(request, response);
+		int cnt = dao.deleteMember(vo);
+		
+		if (cnt > 0) {
+			session.invalidate();
+			response.sendRedirect("GoMain");
 			
 		} else {
-			response.sendRedirect("emailCheck.jsp");
+			response.sendRedirect("deleteMember.jsp");
 		}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 
 }

@@ -69,4 +69,11 @@
 		select count(*) from s_member where email=#{email}
 	</select>
 	
+	<!-- 회원탈퇴 -->
+	<delete id="deleteMember" parameterType="com.model.MemberVO">
+		delete from s_member 
+		where id=#{id}
+		and pw=#{pw}
+	</delete>
+	
 </mapper>

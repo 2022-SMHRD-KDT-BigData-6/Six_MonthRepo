@@ -25,13 +25,36 @@
 	  order by good desc
    </select>
    
-   <!-- 검색 sql문 -->
-   <select id="boardSearchList" resultType="com.model.BoardVO">
+   <!-- 글제목 검색 -->
+   <select id="boardTitleSearch" resultType="com.model.BoardVO">
       select *
       from s_post
-      where title like #{title} or nick like #{nick} or content like #{content}
+      where title like '%' || #{title} || '%'
       order by pdate desc
    </select>
+   
+   <!-- 글내용 검색 -->
+   <select id="boardContentSearch" resultType="com.model.BoardVO">
+      select *
+      from s_post
+      where nick like '%' || #{content} || '%'
+      order by pdate desc
+   </select>
+   
+   <!-- 작성자 검색 -->
+   <select id="boardWriterSearch" resultType="com.model.BoardVO">
+      select *
+      from s_post
+      where content like '%' || #{nick} || '%'
+      order by pdate desc
+   </select>
+   
+   <!-- 회원 확인
+   <select id="memberCheck" resultType="com.model.MemberVO">
+      select *
+      from s_member
+   </select>
+    -->
 
    <!-- 게시글 작성 -->
    <insert id="boardInsert" parameterType="com.model.BoardVO">

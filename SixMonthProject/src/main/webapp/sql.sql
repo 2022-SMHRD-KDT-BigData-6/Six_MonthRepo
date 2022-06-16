@@ -40,6 +40,16 @@ create table s_post(
 
 select * from s_post
 
+      select *
+      from s_post
+      where title like '%°Ë»ö%'
+      order by pdate desc
+      
+            select *
+      from s_post
+      where title like '%' || #{title} || '%'
+      order by pdate desc
+
 update s_post
 set fileName=NULL
 where pnum=195

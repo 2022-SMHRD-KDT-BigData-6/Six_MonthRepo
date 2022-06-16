@@ -23,7 +23,8 @@ public class GoView extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		
 		// 1.Pnum 파라미터 수집
 		int pnum = Integer.parseInt(request.getParameter("pnum"));
 		int cnt = Integer.parseInt(request.getParameter("cnt"));

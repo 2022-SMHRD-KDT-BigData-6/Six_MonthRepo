@@ -96,13 +96,10 @@
                   %>
 
 
-                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> 
-                  <a href="#"><%=vo.getNick()%></a><br>
-
                   <img alt="profile" src="image/profile.png">
                   		<br>
+                  		<p class="school"  style="font-size:30px"><%=vo.getNick()%></p> 
                   		<p class="school"><%=vo.getName()%></p>
-                  		<p class="school"><%=vo.getNick()%></p> 
                   		
                   	<ul class="myInfo">
                   		<li class="myInfo_li"><a href="myPage.jsp">내 정보</a></li>
@@ -116,7 +113,6 @@
                   		<li class="myInfo_li"><a href='logout'> 로그아웃 </a></li>
                   		<li class="myInfo_li"><a href='myWrite.jsp' class="myArticle"> 내 글 </a></li>
                   		<li class="myInfo_li"><a href='myComment.jsp' > 내 댓글 </a></li>
-                  		
                   </ul>
                   <%
                   }

@@ -28,7 +28,7 @@
 
 		<section id="first" class="main special">
 			<header class="major">
-				<h2>내 정보</h2>
+				<h2>비밀번호 변경</h2>
 			</header>
 			
 			<!-- 로그인 form -->
@@ -39,7 +39,7 @@
 				<input type="password" id="pw" name="pw" placeholder="새 비밀번호">
 				<input type="password" id="pw2" name="pw2" placeholder="새 비밀번호 확인">
 				<div id="text"></div>
-				
+				<br><br>
 				<span style="text-align: left">기존 비밀번호</span>
 				<input type="password" id="pw3" name="pw3" placeholder="기존 비밀번호">
 				
@@ -48,8 +48,6 @@
 			</ul>
 			</form>
 
-			
-			</form>
 			
 		</section>
 
