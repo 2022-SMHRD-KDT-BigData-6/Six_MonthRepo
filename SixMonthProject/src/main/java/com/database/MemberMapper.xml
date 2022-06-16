@@ -47,6 +47,13 @@
 		where id=#{id}
 	</update>
 
+	<!-- 닉네임 update sql -->
+	<update id="changeNICK" parameterType="com.model.MemberVO" >
+		update s_member
+		set nick=#{nick}
+		where id=#{id}
+	</update>
+	
 	<!-- 아이디 중복 확인 -->
 	<select id="idCheck" resultType="int">
 		select count(*) from s_member where id=#{id}
@@ -61,5 +68,12 @@
 	<select id="emailCheck" resultType="int">
 		select count(*) from s_member where email=#{email}
 	</select>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="deleteMember" parameterType="com.model.MemberVO">
+		delete from s_member 
+		where id=#{id}
+		and pw=#{pw}
+	</delete>
 	
 </mapper>

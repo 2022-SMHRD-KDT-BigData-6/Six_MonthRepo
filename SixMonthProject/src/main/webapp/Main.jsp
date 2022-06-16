@@ -95,13 +95,10 @@
                   %>
 
 
-                  <a href="#"><%=vo.getName() + "님 환영합니다~"%></a><br> 
-                  <a href="#"><%=vo.getNick()%></a><br>
-
                   <img alt="profile" src="image/profile.png">
                   		<br>
+                  		<p class="school"  style="font-size:30px"><%=vo.getNick()%></p> 
                   		<p class="school"><%=vo.getName()%></p>
-                  		<p class="school"><%=vo.getNick()%></p> 
                   		
                   	<ul class="myInfo">
                   		<li class="myInfo_li"><a href="myPage.jsp">내 정보</a></li>
@@ -115,7 +112,6 @@
                   		<li class="myInfo_li"><a href='logout'> 로그아웃 </a></li>
                   		<li class="myInfo_li"><a href='myWrite.jsp' class="myArticle"> 내 글 </a></li>
                   		<li class="myInfo_li"><a href='myComment.jsp' > 내 댓글 </a></li>
-                  		
                   </ul>
                   <%
                   }
@@ -207,22 +203,21 @@
 					<h2>취업게시판</h2>
 				</header>
 				<ul class="features">
-					<li><span class="icon solid major style1 fa-code"></span>
-						<h3>서울/경기</h3>
-						<p>Sed lorem amet ipsum dolor et amet nullam consequat a
-							feugiat consequat tempus veroeros sed consequat.</p></li>
-					<li><span class="icon major style3 fa-copy"></span>
+					<li><span><image src="image/soul.jpeg" id="mapping"></span>
+						<h3>서울</h3>
+						<p></p></li>
+					<li><span><image src="image/gw.jpeg" id="mapping"></span>
 						<h3>광주/전남</h3>
-						<p>Sed lorem amet ipsum dolor et amet nullam consequat a
-							feugiat consequat tempus veroeros sed consequat.</p></li>
-					<li><span class="icon major style5 fa-gem"></span>
+						<p></p></li>
+					<li><span><image src="image/word.jpeg" id="mapping"></span>
 						<h3>국외</h3>
-						<p>Sed lorem amet ipsum dolor et amet nullam consequat a
-							feugiat consequat tempus veroeros sed consequat.</p></li>
+						<p></p></li>
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="jobBoard.jsp" class="button">더보기</a></li>
+						<li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li>
+					<li><li><li><li><li><li><li><li><li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li></li></li></li></li></li></li></li></li>
+						<li><li><li><li><li><li><li><li><li><li><a href="jobBoard.jsp" class="button">더 보기</a></li></li></li></li></li></li></li></li></li></li>
 					</ul>
 				</footer>
 			</section>

@@ -38,6 +38,15 @@
 			<version>05Nov2002</version>
 		</dependency>
 
+	
+	
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		    <version>1.13.1</version>
+		</dependency>
+
+
 	<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
 	<dependency>
 	    <groupId>com.googlecode.json-simple</groupId>
