@@ -153,14 +153,8 @@ select *
 from s_post
 where title like '%°ø°¨%'
 order by pdate desc
-									
-									
-select * from s_member									
-									
-									
-									
-									
-									
+														
+select * from s_member												
 									
 delete S_MEMBER where id='³ªÀ±3'						
 									
