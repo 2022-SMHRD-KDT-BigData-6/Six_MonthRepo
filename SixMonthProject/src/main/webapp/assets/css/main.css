@@ -804,9 +804,11 @@ position: relative;
          overflow-x: auto;
       }
 .charRed{
-	color:red;
-	margin-left: 107px;
-	font-size:13px;
+color: red;
+    margin-left: 696px;
+    font-size: 13px;
+   
+
 }
 .pro{
 	width:23px;
@@ -3187,7 +3189,7 @@ position: relative;
          }
         
 .special2234{
-	background-color:#646464;
+	background-color:#ffff;
 }
 /* Section/Article */
 
@@ -3287,10 +3289,7 @@ position: relative;
       }
 
    }
-#mappingg2{
-	width:15px;
-	height:15px;
-}
+
    header.major h2:after {
       background-color: rgba(255, 255, 255, 0.35);
    }
@@ -4471,6 +4470,7 @@ a.vote231 {
         float: left;
     max-width: 100px;
     margin: -3px 0px;
+    
     height: 0px;
     line-height: 17px;
     font-size: 11px;
@@ -4478,16 +4478,18 @@ a.vote231 {
     font-weight: bold;
 }
 .articlesy{
-	width:500px;
-	height:200px;
+	width:300px;
+	height:150px;
 	word-break:break-all;
 }
 
-.size21{
-	
-	font-size: 13px;
-	color: #c3b7b7;
-	margin:-80px;
+.size21 {
+    font-size: 13px;
+    color: #c3b7b7;
+    margin: -73px;
+}
+.sizedown{
+	margin:20px;
 }
 	
 	.medium {
@@ -4570,6 +4572,12 @@ a.vote231 {
 	
 	.viewBoardh3 {
 	margin : 0.2em 0 0.2em 0 !important;	
+	}
+	
+	.commentBox {
+		width:776px;
+		height:190px;
+		position: relative;
 	}
 	
 	#viewBoardp {

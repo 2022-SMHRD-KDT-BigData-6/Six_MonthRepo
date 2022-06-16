@@ -70,9 +70,12 @@
 							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
 							<a href="DeleteService?pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
 							<% } %>	
+							
+							
 						</li>
 					</ul>
 				</div>
+				
 			</div>
 			
 			<%--게시글 제목 출력 --%>
@@ -93,10 +96,15 @@
 					<input name="id" type="hidden" value="<%= vo.getId() %>">
 					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼" style="width:3%">
 					<%= view.getGood() %>
+			<br>
 			</form>
+			<br>
+			
 		</div>
 				
 		 <%-- 댓글 보여주기 --%>
+		 
+		 
       <div class="comments">
 
                <ul class="myInfo" id="commentUl">
@@ -104,7 +112,10 @@
                for (int i = 0; i < list.size(); i++) {
                CommentVO cvo = list.get(i);
             %>
+           <div class= "commentBox"style="border: 1px solid lightgrey; padding: 10px; ">
+           
             <article class="articlesy">
+
             <%-- 유림 : 닉네임 익명 수정 --%>
                   <li>
                   	<h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro">
@@ -115,37 +126,46 @@
 	                  	<%} %>
                   	</h3>
                   </li>
+                 
                   
-                  <li>
-                    
-                  </li>
                   
-                  <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
-                  <p class="commentP"><a href="#" class=" size21">공감</a><a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a></p>
-                  <%}else{%>
-                  <% } %>
-                  </li>
-
                   
+                  
+					
+                  <!-- -->
+                   <p class="commentP">
+                   <br>
                    
-                     <li style="font-size:18px;"><%=cvo.getComments()%> </li>
-                     <br>
-                     <br>
+                     <li style="font-size:18px;"> 
+                     <%=cvo.getComments()%> 
+                     </li> <br>
+                     </p>
+                    
+
         
-                     <p class="medium22"><%=cvo.getCdate() %> </p>
-            <a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a> 
                      <br>
-                     <br>
-                     <br>
-                     
+  
                      
                     <div class="align-left">
             </article>
+                     <p class="medium22"><%=cvo.getCdate() %> </p>
+            <a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a>
+            
+            
+                 <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
+                 <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a>
+                 <a href="#" class=" size21">공감</a>
+                 <%}%>
+            </div>
+           <br>  
                      
-                     
+                 
+                 
                  <%
                }
              %>
+             
+             
                </ul>
                   
             </div>

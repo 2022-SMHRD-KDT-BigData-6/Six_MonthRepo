@@ -64,7 +64,7 @@
 				<li><a href="#intro" class="active"  style="color:black !important">자유게시판</a></li>
 				<li><a href="#first"  style="color:black !important">취업게시판</a></li>
 				<li><a href="#second"  style="color:black !important">일정표</a></li>
-				<li><a href="#cta"  style="color:black !important">Get Started</a></li>
+				<li><a href="#cta"  style="color:black !important">스마트인재 개발원</a></li>
 			</ul>
 		</nav>
 
@@ -151,6 +151,8 @@
 						%>
 							<tr>
 								<td><%=bvo.getPnum() %></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle() %></a></td>
+								<td><%=bvo.getNick() %></td>
 								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
@@ -193,6 +195,8 @@
 							%>
 							<tr>
 								<td><%=i+1 %></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle()%></a></td>
+								<td><%=bvo.getNick()%></td>
 								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle()%></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
@@ -301,12 +305,13 @@
 		
 		<iframe src="https://www.youtube.com/embed/fNviG_HcxTw?playlist=fNviG_HcxTw&loop=1&mute=1&amp;autoplay=1" width="500" height="260" frameborder="0" allowfullscreen=""> </iframe>
 	<div class="quick">
-        <div class="tit">QUICK<br>MENU</div>
-        <div class="item"><a href="https://smhrd.or.kr/request/"><img src="image/snhim1.png" id="mappingg2"></i><span class="name">수강신청</span></a></div>
-        <div class="item"><a href="https://smhrd.or.kr/qna/"><span class="name">간편상담</span></a></div>
-        <div class="item"><a href="https://pf.kakao.com/_VYlpM" target="_blank"><span class="name">카톡상담</span></a></div>
-        <div class="item"><a href="tel:062-655-3506"><span class="name">전화상담</span></a></div>
-        <div class="item"><a href="https://smhrd.or.kr/job/live/"><span class="name">취업현황</span></a></div>
+        <div class="tit">QUICK<br>MENU<br></div>
+        <div class="item"><a href="GoFree?page=1"></i><span class="name">자유게시판</span></a></div>
+        <div class="item"><a href="jobBoard.jsp"><span class="name">취업-서울</span></a></div>
+        <div class="item"><a href="gwjobBoard.jsp" target="_blank"><span class="name">취업-광주</span></a></div>
+        <div class="item"><a href="wordjobBoard.jsp"><span class="name">취업-해외</span></a></div>
+        <div class="item"><a href='GoMyComment?id=<%=vo.getId() %>'>댓글확인 </a></div>
+        <div ><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" > 작성 글 </a></div>
     </div>
  <footer class="major">
 					<ul class="actions special">
@@ -372,7 +377,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script>
+	
+	
+	
+	$(document).ready(function(){
+			<% if((MemberVO)session.getAttribute("vo") ==null){ %>
+				$('#cc>a').attr('href','#');
+				$('#cc>a').on('click', function(){
+					alert('로그인 해주세요');
+					location.href="GoMain"
+				});	
+			<%}%>
+	});
+	
+	
+	
+	
 	
 	function date_to_str(format){    
 		var year = format.getFullYear();    
@@ -553,6 +575,8 @@
 					
 			calendar.render();
 		});
+	
+	
 		
 </script>
 </body>
