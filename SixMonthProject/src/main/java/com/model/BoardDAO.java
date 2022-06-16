@@ -44,6 +44,69 @@ public class BoardDAO {
 		return list;
 	}
 	
+	// 핫게시글 가져오는 메서드
+	public List<BoardVO> boardHotList(){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		List<BoardVO> list = session.selectList("boardHotList");
+
+		session.close();
+
+		return list;
+	}
+	
+	// 검색된 글 전체를 가져오는 메서드
+	public List<BoardVO> boardTitleSearch(BoardVO bvo) {
+
+
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		List<BoardVO> list = session.selectList("boardTitleSearch", bvo);
+
+		session.close();
+
+		return list;
+	}
+	
+	// 검색된 내용 전체 가져오는 메서드
+	public List<BoardVO> boardContentSearch(BoardVO bvo) {
+
+
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		List<BoardVO> list = session.selectList("boardContentSearch", bvo);
+
+		session.close();
+
+		return list;
+	}
+	
+	public List<BoardVO> boardWriterSearch(BoardVO bvo) {
+
+
+		SqlSession session = sqlSessionFactory.openSession(true);
+
+		List<BoardVO> list = session.selectList("boardWriterSearch", bvo);
+
+		session.close();
+
+		return list;
+	}
+	
+	// 회원 확인 메서드
+//	public List<MemberVO> memberCheck(MemberVO mvo) {
+//		SqlSession session = sqlSessionFactory.openSession(true);
+//		
+//		List<MemberVO> memberList = session.selectList("memberCheck", mvo);
+//
+//		// 3. 빌려온 session 반환
+//		session.close();
+//
+//		// 4. 쿼리실행 결과 리턴
+//		return memberList;
+//	}
+	
+	// 글 페이징
 	public List<BoardVO> pagging(int page) {
 
 		// 1. SqlSession 빌려오기
@@ -133,6 +196,19 @@ public class BoardDAO {
 		session.close();
 
 		// 4. 쿼리문 실행 결과 리턴
+		return cnt;
+	}
+	
+	// 게시글 사진 삭제
+	public int boardFileDel(int pnum) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		try {
+			cnt = session.update("boardFileDel",pnum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		session.close();
+		
 		return cnt;
 	}
 	

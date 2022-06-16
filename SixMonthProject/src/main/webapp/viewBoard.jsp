@@ -1,3 +1,4 @@
+<%@page import="com.model.GoodVO"%>
 <%@page import="com.model.MemberVO"%>
 <%@page import="com.model.CommentVO"%>
 <%@page import="java.util.List"%>
@@ -78,21 +79,13 @@
 		</table>
 		
 		<!-- 공감 수 입력 --> 
-			<tr>
-				<td>
+			<div class="align-center">
 				<form action="GoodInsertService" method="post">
-						<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
-						<input name="id" type="hidden" value="<%= view.getId() %>">
-						<%= view.getGood() %>
-						<input type="submit" class="button primary buttonSize" value="공감하기">
-	         	</form>
-				
-				</td>
-			</tr>
-			
-
-			<div class="align-left">
-				<a href="#" class="vote"><img src="image/like.png" class="like_icon"> 0</a>
+					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+					<input name="id" type="hidden" value="<%= vo.getId() %>">
+					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼">
+					<%= view.getGood() %>
+				</form>
 				
 				<div class="align-right">
 						<span>조회수 : <%= view.getHit() %></span>
@@ -209,6 +202,7 @@
 
 
 	</div>
+	
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
