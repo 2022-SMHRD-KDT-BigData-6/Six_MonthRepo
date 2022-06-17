@@ -229,7 +229,7 @@
 						<h3>광주/전남</h3>
 						<p></p></li>
 					<li><span><image src="image/word.jpeg" id="mapping"></span>
-						<h3>국외</h3>
+						<h3>해외지사</h3>
 						<p></p></li>
 				</ul>
 				<footer class="major">
