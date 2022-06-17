@@ -803,11 +803,13 @@ position: relative;
          padding: 1em 1.5em;
          overflow-x: auto;
       }
-.charRed{
-color: red;
-    margin-left: 696px;
+
+.charRed {
+    color: red;
+   position: relative;
+    left: 31px;
     font-size: 13px;
-   
+    width: 100%;
 
 }
 .pro{
@@ -3189,7 +3191,10 @@ color: red;
          }
         
 .special2234{
-	background-color:#ffff;
+	background-image: url("https://www.youtube.com/embed/fNviG_HcxTw?playlist=fNviG_HcxTw&loop=1&mute=1&amp;autoplay=1");
+	background-repeat:repeat;
+	
+	
 }
 /* Section/Article */
 
@@ -3220,15 +3225,22 @@ color: red;
 .whitecool{
 	font-color:fffff;
 }
-.smhrdddd22{
- 	width:250px;
- 	height:50px;
- }
 
+
+
+.smhrdddd22 {
+    width: 303px;
+    position: relative;
+    height: 77px;
+    left: 5px;
+}
    header.major {
       margin-bottom: 3em;
+      margin-left: 4.5em;
    }
-
+.tvbox{
+	margin:5px;
+}
       header.major h2 {
          font-size: 2em;
       }
@@ -4454,6 +4466,7 @@ a.vote231 {
     padding-left: 94px;
     color: #c62917;
     float: left;
+    left:156px;
     font-size: 13px;
     margin-left: 8px;
     padding: 0 px;
@@ -4477,16 +4490,18 @@ a.vote231 {
     color: #d9d7d7;
     font-weight: bold;
 }
-.articlesy{
-	width:300px;
-	height:150px;
-	word-break:break-all;
+.articlesy {
+    width: 300px;
+    padding-top: 16px;
+    height: 141px;
+    word-break: break-all;
 }
 
 .size21 {
     font-size: 13px;
     color: #c3b7b7;
-    margin: -73px;
+    position:relative;
+   left:17px;
 }
 .sizedown{
 	margin:20px;
@@ -4495,7 +4510,6 @@ a.vote231 {
 	.medium {
 		    float: left;
     max-width: 90px;
-    margin: 1px 0px;
     height: 0px;
     line-height: 20px;
     font-size: 15px;
@@ -4507,7 +4521,7 @@ a.vote231 {
 	    line-height: 15px;
 	    color: #444444;
 	    font-size: 15px;
-		margin-left:48em;
+		margin-left:5em;
 	}
 	
 	p.medium {
@@ -4577,6 +4591,7 @@ a.vote231 {
 	.commentBox {
 		width:776px;
 		height:190px;
+		left:13px;
 		position: relative;
 	}
 	
