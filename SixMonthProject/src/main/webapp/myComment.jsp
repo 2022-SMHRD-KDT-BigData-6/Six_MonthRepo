@@ -38,6 +38,7 @@
 		<div class="comments main">
 			<div id="main">
 			<section id="comment" class="main">
+			<div>
 				<h2>내가 쓴 댓글</h2>
 				
 			<table id="list">
@@ -64,7 +65,7 @@
                	 <tr>
               </table>
               
-              
+              </div>
              </section>
              </div>
           </div>

@@ -83,14 +83,16 @@
                   <% // 로그인 안했을때 
                   if (vo == null) {
                   %>
-                  
+                  	<div style="margin-bottom:2%">
                  	<img alt="icon" src="image/login_logo.png">
-					<br>
-					<a href="login.jsp" class="button primary">로그인</a>
-					<br>
-					<a href="Join.jsp" class="button">회원가입</a>
+                 	</div>
+					<div style="margin-bottom: 0.5%">
+					<a href="login.jsp" class="button primary" style="width:7em">로그인</a>
+					</div>
+					<div>
+					<a href="Join.jsp" class="button" style="width:7em">회원가입</a>
+					</div>
 					
-
                   <%
                   } else {// 로그인 했을때
                   %>
@@ -241,7 +243,7 @@
 						<h3>광주/전남</h3>
 						<p></p></li>
 					<li><span><image src="image/word.jpeg" id="mapping"></span>
-						<h3>국외</h3>
+						<h3>해외지사</h3>
 						<p></p></li>
 				</ul>
 				<footer class="major">
@@ -299,20 +301,41 @@
 				
 			</section>
 	
-			<!-- Get Started -->
+			<!-- 스마트인재개발원 페이지  -->
 			
 			<section id="cta" class="main special2234">
 			
 				<header class="major">
 				<div>
-				<img src="image/smhrdddd22.png" class="smhrdddd22">
+				<!-- 이미지 넣기  -->
+				<a href="https://smhrd.or.kr/"><img src="image/smhrdddd22.png" class="smhrdddd22"></a>
 				</div>
+		<!--동영상 넣기 -->
+		<iframe src="https://www.youtube.com/embed/fNviG_HcxTw?playlist=fNviG_HcxTw&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"></iframe> <iframe src="https://www.youtube.com/embed/I-39mosVNzA?playlist=I-39mosVNzA&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"> </iframe>
+	<iframe src="https://www.youtube.com/embed/MoLV-LaTXik?playlist=MoLV-LaTXik&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"></iframe> <iframe src="https://www.youtube.com/embed/tI-zW3YMyhA?playlist=tI-zW3YMyhA&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"> </iframe>
+		<div><!--전체 틀 박스 1 -->
+		<!-- -------------------------------- -->
+			<div class="sw_hub"><!--세부 박스(1) 2 -->
+				<div class="img"><!-- 이미지 박스3  -->
+		<img src="">
+		</div> <!-- 3 -->
 		
-		<iframe src="https://www.youtube.com/embed/fNviG_HcxTw?playlist=fNviG_HcxTw&loop=1&mute=1&amp;autoplay=1" width="500" height="260" frameborder="0" allowfullscreen=""> </iframe>
 
+		<div class="ctt">	<!-- 글내용4 -->
+		<div class>
+		
+		</div>   <!-- 4 -->
+		
+			</div>	<!-- 2 -->
+		</div>		<!-- 1 -->
+
+
+		</div>
+		
+		
  <footer class="major">
 					<ul class="actions special">
-						<li><a href="https://smhrd.or.kr/" class="button primary">스마트인재 개발원</a></li>
+						
 						<li></li>
 					</ul>
 				</footer>
@@ -566,8 +589,6 @@
 					
 			calendar.render();
 		});
-	
-	
 		
 </script>
 </body>
