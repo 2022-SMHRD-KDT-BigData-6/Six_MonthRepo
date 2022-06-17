@@ -42,6 +42,10 @@
 				<input type="text" id="nick" name="nick" placeholder=<%=(String)vo.getNick()%>>
 				<p align="right" style="font-size:14px">※영문,숫자,특문 포함 6자이내 변경가능</p>
 				<input type="button" id="cn" value="닉네임변경"	class="button fit" onclick="changeNICK()">
+				
+				<br><br>
+				<a href="myPage.jsp">이전으로</a>
+				
 				</li>
 			</ul>
 			

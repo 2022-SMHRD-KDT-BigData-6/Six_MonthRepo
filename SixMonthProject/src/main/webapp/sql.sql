@@ -4,9 +4,9 @@
 	pw varchar2(20) not null,
 	email varchar2(30) not null,
 	nick varchar2(10) not null,
-	constraint member_id_pk primary key(id),
-	constraint member_email_uk unique (email),
-	constraint member_nick_uk unique (nick)
+	constraint member_id_pk primary key(id) on delete cascade,
+	constraint member_email_uk unique (email) on delete cascade,
+	constraint member_nick_uk unique (nick) on delete cascade
 )
 
 alter table s_member modify nick varchar2(20)
@@ -14,7 +14,7 @@ alter table s_member modify nick varchar2(20)
 drop table s_member
 
 insert into s_member
-values('jaewoo', '梯營辦', '1234', 'kimjaewu09@naver.com', '營辦噙');
+values('10', '梯營辦', '10', '10@naver.com', '10');
 
 insert into s_member
 values('jaewoo09', '梯營辦', '1234', 'kimjaewu@naver.com', '營辦');
@@ -33,9 +33,9 @@ create table s_post(
 	hit number(3) default 0,
 	pdate date,
 	fileName varchar2(100),
-	constraint post_pnum_pk primary key(pnum),
-	constraint post_id_fk foreign key (id) references s_member(id),
-	constraint post_nick_fk foreign key (nick) references s_member(nick)
+	constraint post_pnum_pk primary key(pnum) on delete cascade,
+	constraint post_id_fk foreign key (id) references s_member(id) on delete cascade,
+	constraint post_nick_fk foreign key (nick) references s_member(nick) on delete cascade
 )
 
 select * from s_post
@@ -83,6 +83,9 @@ create table s_comment(
 	constraint post_pnum_fk foreign key (pnum) references s_post(pnum) on delete cascade
 )
 
+alter table s_comment add anony varchar(25) default 'off'
+alter table s_comment drop column anonymous cascade constraint
+
 select * from s_comment
 
 alter table s_comment add(good number(3));
@@ -116,6 +119,7 @@ create table comment_mind(
 	constraint comment_mind_id_fk foreign key (id) references s_member(id),
 	constraint comment_mind_cnum_fk foreign key (cnum) references s_comment(cnum)
 )									
+
 
 select * from comment_mind;
 									
@@ -167,6 +171,7 @@ select * from all_tables
 									
 alter table S_POST add anonymous varchar(25) default 'off'
 alter table S_POST drop column anonymous cascade constraint
+
 									
 select * from S_POST									
 delete from S_POST where anonymous is null								
@@ -186,6 +191,11 @@ insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
          null,
          'on'
       )
+      
+       select *
+      from s_post
+      where nick like '%營辦韁%'
+      order by pdate desc
 									
 									
 select comments from s_comment where id = 'jaewoo'								
