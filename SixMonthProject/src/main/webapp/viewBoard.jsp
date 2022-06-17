@@ -37,7 +37,7 @@
 
 	<!-- 글 내용 보기 -->
 	<div id="wrapper">
-
+	
 		<div id="main">
 		<section id="content" class="main" >
 		<div style="border: 1px solid lightgrey; padding: 10px;">
@@ -49,7 +49,8 @@
 					</div>
 				<!-- 익명 -->
 					<div class="viewBoardProfile2">
-						<h3 class="viewBoardh3">	<% if(view.getAnonymous().equals("on")){%>
+						<h3 class="viewBoardh3">	
+						<% if(view.getAnonymous().equals("on")){%>
 									익명
 							<%} else { %>
 									<%=view.getNick()%>
@@ -69,9 +70,12 @@
 							<% if(((MemberVO) session.getAttribute("vo")).getNick().equals(view.getNick())){ %>
 							<a href="DeleteService?pnum=<%=view.getPnum()%>" style="font-size:15px">삭제</a>
 							<% } %>	
+							
+							
 						</li>
 					</ul>
 				</div>
+				
 			</div>
 			
 			<%--게시글 제목 출력 --%>
@@ -92,10 +96,15 @@
 					<input name="id" type="hidden" value="<%= vo.getId() %>">
 					<input type="image" src="image/like.png" class="like_icon" alt="제출버튼" style="width:3%">
 					<%= view.getGood() %>
+			<br>
 			</form>
+			<br>
+			
 		</div>
 				
 		 <%-- 댓글 보여주기 --%>
+		 
+		 
       <div class="comments">
 
                <ul class="myInfo" id="commentUl">
@@ -103,74 +112,93 @@
                for (int i = 0; i < list.size(); i++) {
                CommentVO cvo = list.get(i);
             %>
+           <div class= "commentBox"style="border: 1px solid lightgrey; padding: 10px; ">
+           
             <article class="articlesy">
-                  <li>
-                  <h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro"> <%=cvo.getNick() %></h3>
-                  </li>
-                  
-                  <li>
-                    
-                  </li>
-                  
-                  <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
-                  <p class="commentP"><a href="#" class=" size21">공감</a><a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a></p>
-                  <%}else{%>
-                  <% } %>
-                  </li>
 
+            <%-- 유림 : 닉네임 익명 수정 --%>
+                  <li>
+                  	<h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro">
+	                  	<% if(cvo.getAnony().equals("on")){ %>
+	                  		익명
+	                  	<%}else{ %>
+	                  	<%=cvo.getNick() %>
+	                  	<%} %>
+                  	</h3>
+                  </li>
+                 
                   
+                  
+                  
+                  
+					
+                  <!-- -->
+                   <p class="commentP">
+                   <br>
                    
-                     <li style="font-size:18px;"><%=cvo.getComments()%> </li>
-                     <br>
-                     <br>
+                     <li style="font-size:18px;"> 
+                     <%=cvo.getComments()%> 
+                     </li> <br>
+                     </p>
+                    
+
         
-                     <p class="medium22"><%=cvo.getCdate() %> </p>
-            <a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a> 
                      <br>
-                     <br>
-                     <br>
-                     
+  
                      
                     <div class="align-left">
             </article>
+                     <p class="medium22"><%=cvo.getCdate() %> </p>
+            <a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a>
+            
+            
+                 <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
+                 <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a>
+                 <a href="#" class=" size21">공감</a>
+                 <%}%>
+            </div>
+           <br>  
                      
-                     
+                 
+                 
                  <%
                }
              %>
+             
+             
                </ul>
                   
             </div>
       
       
-      <%-- 댓글 입력 --%>
-      <div class="col-12" style="padding-top: 1.5em">
-           <form action="ComInsertService" method="post" class="writercomment">
-              <div class="col-12">
-                  <td>
-                  <input name="pnum" type="hidden" value="<%= view.getPnum() %>">
-                  <input name="id" type="hidden"  value="<%=vo.getId()%>">
-                  <input name="nick" type="hidden" value="<%=vo.getNick() %>">
-                  </td>
-               <tr>
-                  <td colspan="2">
-                  <textarea name="contents" id="demo-message" placeholder="댓글을 입력하세요." rows="6"></textarea>
-                  </td>
-               </tr>
-            </div>
-                     <div class="col-6 col-12-small align-right">
-                           <input type="checkbox" id="demo-copy" name="demo-copy">
-                           <label for="demo-copy">익명</label>
-                     <input type="submit" class="button primary buttonSize2" value="댓글등록">
-                     </div>
-              
-            </form>
-         </div>
+	      <%-- 댓글 입력 --%>
+	      <div class="col-12" style="padding-top: 1.5em">
+	           <form action="ComInsertService" method="post" class="writercomment">
+	              <div class="col-12">
+	                  <td>
+	                  <input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+	                  <input name="id" type="hidden"  value="<%=vo.getId()%>">
+	                  <input name="nick" type="hidden" value="<%=vo.getNick() %>">
+	                  </td>
+	               <tr>
+	                  <td colspan="2">
+	                  <textarea name="contents" id="demo-message" placeholder="댓글을 입력하세요." rows="6"></textarea>
+	                  </td>
+	               </tr>
+	            </div>
+	            		<div class="icondiv">
+				             <div>
+								<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+							 </div>
+		                     <div class="col-6 col-12-small align-right">
+		                           	<input type="checkbox" id="demo-copy" name="demo-copy">
+		                           	<label for="demo-copy">익명</label>
+		                     		<input type="submit" class="button primary buttonSize3" value="댓글등록">
+		                     </div>
+						 </div>
+	            </form>
+	        </div>
       		
-			<div>
-					<a href="GoFree?page=1" class="button buttonSize2">글 목록</a>
-			</div>
-			
 			</section>
 		</div>
 		

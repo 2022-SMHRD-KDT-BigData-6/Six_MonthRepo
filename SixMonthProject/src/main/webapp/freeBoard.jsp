@@ -22,9 +22,7 @@
 		List<BoardVO> list= (List<BoardVO>)request.getAttribute("list");
 		int boards = (int)request.getAttribute("boards");
 		MemberVO vo = (MemberVO)session.getAttribute("vo");
-		List<BoardVO> titleSearch = (List<BoardVO>)request.getAttribute("titleSearch");
-		List<BoardVO> contentSearch = (List<BoardVO>)request.getAttribute("contentSearch");
-		List<BoardVO> writerSearch = (List<BoardVO>)request.getAttribute("writerSearch");
+		List<BoardVO> Search = (List<BoardVO>)request.getAttribute("Search");
 	%>
 	
 	
@@ -66,7 +64,7 @@
 							</div>
 						</form>
 				
-				<%if(titleSearch != null){ %>
+				<%if(Search != null){ %>
 					<table id="list">
 					<thead>
 
@@ -82,8 +80,8 @@
 					<tbody>			
 						
 						<%
-						for (int i = 0; i < titleSearch.size(); i++) {
-							BoardVO bvo = titleSearch.get(i);
+						for (int i = 0; i < Search.size(); i++) {
+							BoardVO bvo = Search.get(i);
 						%>
 						<tr>
 							<td><%=bvo.getPnum()%></td>
@@ -99,75 +97,22 @@
 						%>
 					</tbody>
 				</table>
-				<div class="align-right">
-							<a href="GoFree?page=1" class="button">돌아가기</a>
+				
+				<div class="icondiv">	
+					<div>
+						<a href = "GoMain" class="button primary buttonSize">메인으로</a>
+					</div>
+					
+					<div class="align-right">
+								<a href="GoFree?page=1" class="button">돌아가기</a>
+					</div>
+
 				</div>
-				<%}else if(contentSearch != null){%>
-				<table id="list">
-					<thead>
+				
 
-						<tr>
-							<td>번호</td>
-							<td>제목</td>
-							<td>작성자</td>
-							<td>조회수</td>
-							<td>작성일</td>
-						</tr>
-
-					</thead>
-					<tbody>			
-						
-						<%
-						for (int i = 0; i < contentSearch.size(); i++) {
-							BoardVO bvo = contentSearch.get(i);
-						%>
-						<tr>
-							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
-							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getNick()%></td>
-							<td><%=bvo.getHit()%></td>
-							<td><%=bvo.getPdate()%></td>
-							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
-						</tr>
-						<%
-						}
-						%>
-					</tbody>
-				</table>
-				<%}else if(writerSearch != null){%>
-				<table id="list">
-					<thead>
-
-						<tr>
-							<td>번호</td>
-							<td>제목</td>
-							<td>작성자</td>
-							<td>조회수</td>
-							<td>작성일</td>
-						</tr>
-
-					</thead>
-					<tbody>			
-						
-						<%
-						for (int i = 0; i < writerSearch.size(); i++) {
-							BoardVO bvo = writerSearch.get(i);
-						%>
-						<tr>
-							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
-							    <%=bvo.getTitle()%></a></td>
-							<td><%=bvo.getNick()%></td>
-							<td><%=bvo.getHit()%></td>
-							<td><%=bvo.getPdate()%></td>
-							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
-						</tr>
-						<%
-						}
-						%>
-					</tbody>
-				</table>
+			
+				</section>
+			</div>
 				<%}else{ %>
 				<table id="list">
 					<thead>
@@ -189,8 +134,9 @@
 						%>
 						<tr>
 							<td><%=bvo.getPnum()%></td>
-							<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1">
-							    <%=bvo.getTitle()%></a></td>
+							<td id="cc">
+								<a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"><%=bvo.getTitle()%></a>
+							</td>
 							<td>
 								<!-- 유림 : 익명 -->
 								<% if(bvo.getAnonymous().equals("on")){%>
@@ -208,7 +154,6 @@
 								<a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a>
 							<% } %>	
 							</td> --%>
-							
 						</tr>
 						<%
 						}
@@ -276,6 +221,21 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+	
+	$(document).ready(function(){
+			<% if((MemberVO)session.getAttribute("vo") ==null){ %>
+				$('#cc>a').attr('href','#');
+				$('#cc>a').on('click', function(){
+					alert('로그인 해주세요');
+					location.href="GoMain"
+				});	
+			<%}%>
+	});
+	
+	
+	</script>
 
 
 </body>

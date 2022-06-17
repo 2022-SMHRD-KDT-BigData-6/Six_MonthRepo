@@ -14,7 +14,7 @@ alter table s_member modify nick varchar2(20)
 drop table s_member
 
 insert into s_member
-values('jaewoo', '梯營辦', '1234', 'kimjaewu09@naver.com', '營辦噙');
+values('10', '梯營辦', '10', '10@naver.com', '10');
 
 insert into s_member
 values('jaewoo09', '梯營辦', '1234', 'kimjaewu@naver.com', '營辦');
@@ -83,6 +83,9 @@ create table s_comment(
 	constraint post_pnum_fk foreign key (pnum) references s_post(pnum) on delete cascade
 )
 
+alter table s_comment add anony varchar(25) default 'off'
+alter table s_comment drop column anonymous cascade constraint
+
 select * from s_comment
 
 alter table s_comment add(good number(3));
@@ -116,6 +119,7 @@ create table comment_mind(
 	constraint comment_mind_id_fk foreign key (id) references s_member(id),
 	constraint comment_mind_cnum_fk foreign key (cnum) references s_comment(cnum)
 )									
+
 
 select * from comment_mind;
 									
@@ -165,8 +169,9 @@ values('junseong', 'test10', '22/06/12', '22/06/20', 'white', 'black', 'black', 
 
 select * from all_tables									
 									
-alter table S_POST add anonymous varchar(25)
+alter table S_POST add anonymous varchar(25) default 'off'
 alter table S_POST drop column anonymous cascade constraint
+
 									
 select * from S_POST									
 delete from S_POST where anonymous is null								
@@ -186,6 +191,11 @@ insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
          null,
          'on'
       )
+      
+       select *
+      from s_post
+      where nick like '%營辦韁%'
+      order by pdate desc
 									
 									
 select comments from s_comment where id = 'jaewoo'								

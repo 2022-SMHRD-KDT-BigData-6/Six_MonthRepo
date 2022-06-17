@@ -28,26 +28,23 @@ public class GoSearch extends HttpServlet {
 		
 		BoardDAO dao = new BoardDAO();
 		BoardVO bvo = new BoardVO("", "", "");
-		
+		List<BoardVO> Search = null;
 		if (option != null) {
 			if (option.equals("title")) {
 				bvo.setTitle(search);
-				List<BoardVO> titleSearch = dao.boardTitleSearch(bvo);
-				request.setAttribute("titleSearch", titleSearch);
-				System.out.println("글제목:"+titleSearch);
+				Search = dao.boardTitleSearch(bvo);
+				System.out.println("글제목:"+Search);
 			} else if (option.equals("content")) {
 				bvo.setContent(search);
-				List<BoardVO> contentSearch = dao.boardContentSearch(bvo);
-				request.setAttribute("contentSearch", contentSearch);
-				System.out.println("글내용:"+contentSearch);
+				Search = dao.boardContentSearch(bvo);
+				System.out.println("글내용:"+Search);
 			} else {
 				bvo.setNick(search);
-				List<BoardVO> writerSearch = dao.boardWriterSearch(bvo);
-				request.setAttribute("writerSearch", writerSearch);
-				System.out.println("작성자:"+writerSearch);
+				Search = dao.boardWriterSearch(bvo);
+				System.out.println("작성자:"+Search);
 			}
 		}
-		
+		request.setAttribute("Search",Search);
 		int boards = dao.boardList().size();
 		
 		request.setAttribute("boards", boards);
