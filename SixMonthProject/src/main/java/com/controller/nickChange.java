@@ -32,7 +32,7 @@ public class nickChange extends HttpServlet {
 		vo.setNick(newNick);
 		vo.setId(id);
 		
-		System.out.println(newNick);
+		System.out.println("새로운 닉네임"+newNick);
 		System.out.println(vo.getNick());
 		
 		MemberDAO dao = new MemberDAO();

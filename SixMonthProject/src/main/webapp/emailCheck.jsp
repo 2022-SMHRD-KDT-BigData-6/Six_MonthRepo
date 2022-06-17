@@ -80,7 +80,7 @@
 			div.innerHTML+='<input type="button" id="confirm" value="확인" class="button fit">'
 			console.log(email.value);
 			$.ajax({
-		 			url :'http://172.30.1.17:3500',
+		 			url :'http://172.30.1.22:3500',
 		 			type : 'POST',
 		 			data : {'email':email.value},
 		 			dataType : 'text',

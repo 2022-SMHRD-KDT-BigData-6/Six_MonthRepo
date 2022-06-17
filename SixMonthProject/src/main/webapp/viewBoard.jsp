@@ -149,12 +149,19 @@
                     <div class="align-left">
             </article>
                      <p class="medium22"><%=cvo.getCdate() %> </p>
-            <a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a>
             
+             <!-- 공감수 -->
+         <form action="GoodInsertService" method="post" style="margin-bottom: 0px">
+               <input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+               <input name="id" type="hidden" value="<%= vo.getId() %>">
+            <a href="#" class="vote231"><img src="image/like.png" class="like_icon"> </a>
+               <%= view.getGood() %>
+         <br>
+         </form>
             
                  <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
                  <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a>
-                 <a href="#" class=" size21">공감</a>
+                 <%}else{ %><a href="#" class=" size21">공감</a>
                  <%}%>
             </div>
            <br>  
@@ -193,8 +200,8 @@
 							<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
 						 </div>
 	                     <div class="col-6 col-12-small align-right">
-	                           	<input type="checkbox" id="demo-copy" name="demo-copy">
-	                           	<label for="demo-copy">익명</label>
+	                           	<input type="checkbox" id="anony" name="anony">
+	                           	<label for="anony">익명</label>
 	                     		<input type="submit" class="button primary buttonSize3" value="댓글등록">
 	                     </div>
 					 </div>

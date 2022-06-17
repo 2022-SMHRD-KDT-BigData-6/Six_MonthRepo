@@ -224,11 +224,12 @@
 	<script>
 	
 	$(document).ready(function(){
+		console.log('뭐야')
 			<% if((MemberVO)session.getAttribute("vo") ==null){ %>
 				$('#cc>a').attr('href','#');
 				$('#cc>a').on('click', function(){
 					alert('로그인 해주세요');
-					location.href="GoMain"
+					location.href="login.jsp"
 				});	
 			<%}%>
 	});

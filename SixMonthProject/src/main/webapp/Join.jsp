@@ -27,6 +27,7 @@
 				<li>
 					<h3>아이디</h3> <input type="text" id="id" name="id"
 					placeholder="ID을 입력하세요"> <br>
+					<p align="right" style="font-size:14px">※영문,숫자 포함 6자이내 가능</p>
 					<button type="button" id="idCheck">중복 확인</button> <br> <br>
 					<div id=text></div> <br>
 
