@@ -638,7 +638,7 @@ position: relative;
 	.buttonSize {
 	
 		font-size: 12pt;
-		width:200px;
+		width:100%;
 	}
 
       @media screen and (max-width: 1680px) {
@@ -807,9 +807,10 @@ position: relative;
 .charRed {
     color: red;
    position: relative;
-    left: 31px;
+    left: 558px;
     font-size: 13px;
     width: 100%;
+    overflow:hidden;
 
 }
 .pro{
@@ -4497,11 +4498,16 @@ a.vote231 {
     word-break: break-all;
 }
 
+.sw_hub {
+    padding: 40px;
+    background: #f4f4f4;
+    border-radius: 10px;
+}
 .size21 {
     font-size: 13px;
     color: #c3b7b7;
-    position:relative;
-   left:17px;
+    position: relative;
+    left: 558px;
 }
 .sizedown{
 	margin:20px;
@@ -4590,9 +4596,9 @@ a.vote231 {
 	
 	.commentBox {
 		width:776px;
-		height:190px;
-		left:13px;
+		height:182px;
 		position: relative;
+		overflow:hidden;
 	}
 	
 	#viewBoardp {
@@ -4608,3 +4614,13 @@ a.vote231 {
     margin-top: 4%;
     margin-bottom: 1%;
 	}
+	
+	.buttonSize2 {
+   font-size: 12pt;
+   width:15%;
+   }
+   
+   .buttonSize3 {
+   font-size: 12pt;
+   width: 58%;
+   }

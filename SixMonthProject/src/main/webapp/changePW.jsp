@@ -44,7 +44,12 @@
 				<input type="password" id="pw3" name="pw3" placeholder="기존 비밀번호">
 				
 				<input type="button" id="cp" value="비밀번호변경" class="button fit" onclick="changePW()">
+				
+				<br><br>
+				<a href="myPage.jsp">이전으로</a>
+				
 				</li>
+				
 			</ul>
 			</form>
 

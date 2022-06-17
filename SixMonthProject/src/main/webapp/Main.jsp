@@ -83,14 +83,16 @@
                   <% // 로그인 안했을때 
                   if (vo == null) {
                   %>
-                  
+                  	<div style="margin-bottom:2%">
                  	<img alt="icon" src="image/login_logo.png">
-					<br>
-					<a href="login.jsp" class="button primary">로그인</a>
-					<br>
-					<a href="Join.jsp" class="button">회원가입</a>
+                 	</div>
+					<div style="margin-bottom: 0.5%">
+					<a href="login.jsp" class="button primary" style="width:7em">로그인</a>
+					</div>
+					<div>
+					<a href="Join.jsp" class="button" style="width:7em">회원가입</a>
+					</div>
 					
-
                   <%
                   } else {// 로그인 했을때
                   %>
@@ -151,7 +153,7 @@
 						%>
 							<tr>
 								<td><%=bvo.getPnum() %></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
 									<% if(bvo.getAnonymous().equals("on")){%>
@@ -169,9 +171,7 @@
 						</tbody>
 
 						</table>
-						<div class="align-center">
-							<a href="GoFree?page=1" class="button">더보기</a>
-						</div>
+
 					</div>
 					
 					<!-- 핫게시글 table -->
@@ -193,7 +193,7 @@
 							%>
 							<tr>
 								<td><%=i+1 %></td>
-								<td><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle()%></a></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle()%></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
 									<% if(bvo.getAnonymous().equals("on")){%>
@@ -209,14 +209,13 @@
 							%> 
 
 						</table>
-						<div class="align-center">
-							<a href="GoFree?page=1" class="button">더보기</a></li>
-						</div>
 
 
 					</div>			
-
 				</div>
+						<div class="align-center">
+							<a href="GoFree?page=1" class="button">더보기</a></li>
+						</div>
 			</section>
 
 			<!-- First Section -->
@@ -302,7 +301,36 @@
 		<!--동영상 넣기 -->
 		<iframe src="https://www.youtube.com/embed/fNviG_HcxTw?playlist=fNviG_HcxTw&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"></iframe> <iframe src="https://www.youtube.com/embed/I-39mosVNzA?playlist=I-39mosVNzA&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"> </iframe>
 	<iframe src="https://www.youtube.com/embed/MoLV-LaTXik?playlist=MoLV-LaTXik&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"></iframe> <iframe src="https://www.youtube.com/embed/tI-zW3YMyhA?playlist=tI-zW3YMyhA&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"> </iframe>
+		<div><!--전체 틀 박스 1 -->
+		<!-- -------------------------------- -->
+		<div class="sw_hub"><!--세부 박스(1) 2 -->
+		<div class="img"><!-- 이미지 박스3  -->
+		<img src="">
+		</div> <!-- 3 -->
 		
+		<div class="ctt">	<!-- 글내용4 -->
+		<div class>
+		
+		</div>   <!-- 4 -->
+		
+		</div>	<!-- 2 -->
+		</div>		<!-- 1 -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
 		
 		
 		
@@ -378,8 +406,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-	
 	<script>
 	
 	function date_to_str(format){    

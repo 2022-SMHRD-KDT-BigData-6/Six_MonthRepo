@@ -39,13 +39,6 @@
 				</form>
 				
 				
-				<footer class="major">
-					<ul class="actions special">
-					
-						<li><a href="login.jsp">로그인 하기</a></li>
-						
-					</ul>
-				</footer>
 			</section>
 	</div>
 	

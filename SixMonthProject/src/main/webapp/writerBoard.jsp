@@ -23,14 +23,6 @@
 	%>
 	
 
-	<header id="header" class="alt">
-		<a href="GoMain"><span class="logo"><img
-				src="image/logo.big.png" /></span></a>
-		<h1>Smhrd커뮤니티</h1>
-		<p>빅데이터 분석서비스 개발자과정</p>
-	</header>
-	
-
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -80,7 +72,7 @@
 					</div>
 					<div>
 						<input type="checkbox" id="anonymous" name="anonymous" value="on"><label for="anonymous">익명</label>
-						<input type="submit" value="작성완료" id="submit" class="button primary buttonSize">
+						<input type="submit" value="작성완료" id="submit" class="button primary buttonSize3">
 					</div>
 				</div>
 			</form>
