@@ -807,6 +807,7 @@ position: relative;
 color: red;
     margin-left: 696px;
     font-size: 13px;
+    overflow:hidden;
    
 
 }
@@ -4486,7 +4487,8 @@ a.vote231 {
 .size21 {
     font-size: 13px;
     color: #c3b7b7;
-    margin: -73px;
+    position: relative;
+    left: 579px;
 }
 .sizedown{
 	margin:20px;
@@ -4578,6 +4580,7 @@ a.vote231 {
 		width:776px;
 		height:190px;
 		position: relative;
+		overflow:hidden;
 	}
 	
 	#viewBoardp {

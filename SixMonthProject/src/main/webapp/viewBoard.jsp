@@ -112,7 +112,7 @@
                for (int i = 0; i < list.size(); i++) {
                CommentVO cvo = list.get(i);
             %>
-           <div class= "commentBox"style="border: 1px solid lightgrey; padding: 10px; ">
+           <div class= "commentBox"style="border: 1px solid lightgrey; padding: 10px; width:100%">
            
             <article class="articlesy">
 
@@ -126,50 +126,34 @@
 	                  	<%} %>
                   	</h3>
                   </li>
-                 
-                  
-                  
-                  
-                  
-					
                   <!-- -->
                    <p class="commentP">
                    <br>
                    
                      <li style="font-size:18px;"> 
                      <%=cvo.getComments()%> 
-                     </li> <br>
-                     </p>
-                    
-
-        
-                     <br>
-  
+                     </li>
                      
                     <div class="align-left">
             </article>
+            
+            <div>
                      <p class="medium22"><%=cvo.getCdate() %> </p>
             <a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a>
             
-            
+            	
                  <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
                  <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a>
-                 <a href="#" class=" size21">공감</a>
-                 <%}%>
+                  <%}%><%else{ %><a href="#" class=" size21">공감</a>
+                	<% }%>
+                 </div>
             </div>
            <br>  
-                     
-                 
-                 
                  <%
                }
              %>
-             
-             
                </ul>
-                  
             </div>
-      
       
 	      <%-- 댓글 입력 --%>
 	      <div class="col-12" style="padding-top: 1.5em">

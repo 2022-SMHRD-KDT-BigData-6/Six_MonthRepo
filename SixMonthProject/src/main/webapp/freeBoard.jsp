@@ -90,7 +90,6 @@
 							<td><%=bvo.getNick()%></td>
 							<td><%=bvo.getHit()%></td>
 							<td><%=bvo.getPdate()%></td>
-							<td><a href="DeleteService?pnum=<%=bvo.getPnum()%>">X</a></td>
 						</tr>
 						<%
 						}
