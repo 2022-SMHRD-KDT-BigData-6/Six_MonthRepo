@@ -116,6 +116,16 @@
                   		<li class="myInfo_li"><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" style="color:black"> 내 글 </a></li>
                   		<li class="myInfo_li"><a href='GoMyComment?id=<%=vo.getId() %>'style="color:black"> 내 댓글 </a></li>
                   </ul>
+			                  
+			     <div class="quick">
+			        <div class="tit">QUICK<br>MENU<br></div>
+			        <div class="item"><a href="GoFree?page=1"></i><span class="name">자유게시판</span></a></div>
+			        <div class="item"><a href="jobBoard.jsp"><span class="name">취업-서울</span></a></div>
+			        <div class="item"><a href="gwjobBoard.jsp" target="_blank"><span class="name">취업-광주</span></a></div>
+			        <div class="item"><a href="wordjobBoard.jsp"><span class="name">취업-해외</span></a></div>
+			        <div class="item"><a href='GoMyComment?id=<%=vo.getId() %>'>댓글확인 </a></div>
+			        <div ><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" > 작성 글 </a></div>
+			    </div>
                   <%
                   }
                   %>
@@ -153,7 +163,9 @@
 						%>
 							<tr>
 								<td><%=bvo.getPnum() %></td>
-								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
+								<td id="cc">
+								<a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a>
+								</td>
 								<!-- 유림 : 익명 -->
 								<td>
 									<% if(bvo.getAnonymous().equals("on")){%>
@@ -303,47 +315,24 @@
 	<iframe src="https://www.youtube.com/embed/MoLV-LaTXik?playlist=MoLV-LaTXik&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"></iframe> <iframe src="https://www.youtube.com/embed/tI-zW3YMyhA?playlist=tI-zW3YMyhA&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"> </iframe>
 		<div><!--전체 틀 박스 1 -->
 		<!-- -------------------------------- -->
-		<div class="sw_hub"><!--세부 박스(1) 2 -->
-		<div class="img"><!-- 이미지 박스3  -->
+			<div class="sw_hub"><!--세부 박스(1) 2 -->
+				<div class="img"><!-- 이미지 박스3  -->
 		<img src="">
 		</div> <!-- 3 -->
 		
+
 		<div class="ctt">	<!-- 글내용4 -->
 		<div class>
 		
 		</div>   <!-- 4 -->
 		
-		</div>	<!-- 2 -->
+			</div>	<!-- 2 -->
 		</div>		<!-- 1 -->
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+
 		</div>
 		
 		
-		
-		<!-- 퀵메뉴 -->
-	<div class="quick">
-        <div class="tit">QUICK<br>MENU<br></div>
-        <div class="item"><a href="GoFree?page=1"></i><span class="name">자유게시판</span></a></div>
-        <div class="item"><a href="jobBoard.jsp"><span class="name">취업-서울</span></a></div>
-        <div class="item"><a href="gwjobBoard.jsp" target="_blank"><span class="name">취업-광주</span></a></div>
-        <div class="item"><a href="wordjobBoard.jsp"><span class="name">취업-해외</span></a></div>
-        <div class="item"><a href='GoMyComment?id=<%=vo.getId() %>'>댓글확인 </a></div>
-        <div ><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" > 작성 글 </a></div>
-    </div>
  <footer class="major">
 					<ul class="actions special">
 						
@@ -406,7 +395,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script>
+	
+	$(document).ready(function(){
+		console.log('될까')
+		<% if((MemberVO)session.getAttribute("vo") ==null){ %>
+			$('#cc>a').attr('href','#');
+			$('#cc>a').on('click', function(){
+				alert('로그인 해주세요');
+				location.href="login.jsp"
+			});	
+		<%}%>
+	});
 	
 	function date_to_str(format){    
 		var year = format.getFullYear();    

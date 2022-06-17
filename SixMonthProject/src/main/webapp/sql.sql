@@ -4,9 +4,9 @@
 	pw varchar2(20) not null,
 	email varchar2(30) not null,
 	nick varchar2(10) not null,
-	constraint member_id_pk primary key(id) on delete cascade,
-	constraint member_email_uk unique (email) on delete cascade,
-	constraint member_nick_uk unique (nick) on delete cascade
+	constraint member_id_pk primary key(id),
+	constraint member_email_uk unique (email),
+	constraint member_nick_uk unique (nick)
 )
 
 alter table s_member modify nick varchar2(20)
@@ -18,6 +18,14 @@ values('10', '±èÀç¿ì', '10', '10@naver.com', '10');
 
 insert into s_member
 values('jaewoo09', '±èÀç¿ì', '1234', 'kimjaewu@naver.com', 'Àç¿ì');
+
+insert into s_member
+values('³ªÀ¯´Ï', 'È²³ªÀ±', '123', 'ggumi1031@naver.com', '³ªÀ±');
+
+insert into s_member
+values('skdbs', 'È²³ªÀ±', '123', 'ggumi10@naver.com', '³ªÀ±¾²');
+
+
 
 delete from s_member where id='jaewoo09';
 
@@ -33,10 +41,12 @@ create table s_post(
 	hit number(3) default 0,
 	pdate date,
 	fileName varchar2(100),
-	constraint post_pnum_pk primary key(pnum) on delete cascade,
+	anonymous varchar2(10),
+	constraint post_pnum_pk primary key(pnum),
 	constraint post_id_fk foreign key (id) references s_member(id) on delete cascade,
 	constraint post_nick_fk foreign key (nick) references s_member(nick) on delete cascade
-)
+);
+
 
 select * from s_post
 
@@ -77,6 +87,7 @@ create table s_comment(
 	nick varchar2(10) not null,
 	good number(3) default 0,
 	cdate date,
+	anony varchar(25) default 'off',
 	constraint com_num_pk primary key (cnum),
 	constraint member_id_fk foreign key (id) references s_member(id) on delete cascade,
 	constraint comment_nick_fk foreign key (nick) references s_member(nick) on delete cascade,
@@ -85,6 +96,10 @@ create table s_comment(
 
 alter table s_comment add anony varchar(25) default 'off'
 alter table s_comment drop column anonymous cascade constraint
+
+alter table s_comment add constraint comment_nick_fk foreign key(nick) 
+references s_member(nick) on delete cascade;
+
 
 select * from s_comment
 
@@ -106,6 +121,7 @@ drop table s_comment
 			
 create table post_good(
 	pnum number(3),
+	cnum number(3),
 	id varchar2(20) not null,
 	constraint post_good_id_fk foreign key (id) references s_member(id) on delete cascade,
 	constraint post_good_pnum_fk foreign key (pnum) references s_post(pnum) on delete cascade
@@ -200,5 +216,5 @@ insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
 									
 									
 select comments from s_comment where id = 'jaewoo'								
- 									
+select * from s_member						
 									

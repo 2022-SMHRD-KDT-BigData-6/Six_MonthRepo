@@ -113,13 +113,13 @@
 
             <%-- 유림 : 닉네임 익명 수정 --%>
                   <li>
-                  	<h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro">
-	                  	<% if(cvo.getAnony().equals("on")){ %>
-	                  		익명
-	                  	<%}else{ %>
-	                  	<%=cvo.getNick() %>
-	                  	<%} %>
-                  	</h3>
+                     <h3 class="medium"><img alt="profile" src="image/profile.png" class= "pro">
+                        <% if(cvo.getAnony().equals("on")){ %>
+                           익명
+                        <%}else{ %>
+                        <%=cvo.getNick() %>
+                        <%} %>
+                     </h3>
                   </li>
                   <!-- -->
                    <p class="commentP">
@@ -154,60 +154,60 @@
                </ul>
             </div>
 
-	      <%-- 댓글 입력 --%>
-	      <div class="col-12" style="padding-top: 1.5em">
-	           <form action="ComInsertService" method="post" class="writercomment">
-	              <div class="col-12">
-	                  <td>
-	                  <input name="pnum" type="hidden" value="<%= view.getPnum() %>">
-	                  <input name="id" type="hidden"  value="<%=vo.getId()%>">
-	                  <input name="nick" type="hidden" value="<%=vo.getNick() %>">
-	                  </td>
-	               <tr>
-	                  <td colspan="2">
-	                  <textarea name="contents" id="demo-message" placeholder="댓글을 입력하세요." rows="6"></textarea>
-	                  </td>
-	               </tr>
-	            </div>
-	            		<div class="icondiv">
-				             <div>
-								<a href="GoFree?page=1" class="button buttonSize">글 목록</a>
-							 </div>
-		                     <div class="col-6 col-12-small align-right">
-		                           	<input type="checkbox" id="anony" name="anony">
-		                           	<label for="anony">익명</label>
-		                     		<input type="submit" class="button primary buttonSize3" value="댓글등록">
-		                     </div>
-						 </div>
-	            </form>
-	        </div>
-      		
-			</section>
-		</div>
-		
-		<!-- Footer -->
-		<footer id="footer">
-			<section>
-				<h2>핵심융합프로젝트</h2>
-				<p>제작기간 : 2022.06.03~2022.06.20</p>
-				<p>발표 : 2022.06.20</p>
-			</section>
-			<section>
-				<h2>Six_Month</h2>
-				<dl class="alt">
-					<dt>Leader</dt>
-					<dd>Jae Woo Kim</dd>
-					<dt>member</dt>
-					<dd>Jun Seong Kim</dd>
-					<dd>Na Yun Hwang</dd>
-					<dd>Yu Rim Kim</dd>
-					<dd>Tae Min No</dd>
-				</dl>
-			</section>
-			<p class="copyright">
-				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
-			</p>
-		</footer>
+         <%-- 댓글 입력 --%>
+         <div class="col-12" style="padding-top: 1.5em">
+              <form action="ComInsertService" method="post" class="writercomment">
+                 <div class="col-12">
+                     <td>
+                     <input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+                     <input name="id" type="hidden"  value="<%=vo.getId()%>">
+                     <input name="nick" type="hidden" value="<%=vo.getNick() %>">
+                     </td>
+                  <tr>
+                     <td colspan="2">
+                     <textarea name="contents" id="demo-message" placeholder="댓글을 입력하세요." rows="6"></textarea>
+                     </td>
+                  </tr>
+               </div>
+                     <div class="icondiv">
+                         <div>
+                        <a href="GoFree?page=1" class="button buttonSize">글 목록</a>
+                      </div>
+                           <div class="col-6 col-12-small align-right">
+                                    <input type="checkbox" id="anony" name="anony">
+                                    <label for="anony">익명</label>
+                                 <input type="submit" class="button primary buttonSize3" value="댓글등록">
+                           </div>
+                   </div>
+               </form>
+           </div>
+            
+         </section>
+      </div>
+      
+      <!-- Footer -->
+      <footer id="footer">
+         <section>
+            <h2>핵심융합프로젝트</h2>
+            <p>제작기간 : 2022.06.03~2022.06.20</p>
+            <p>발표 : 2022.06.20</p>
+         </section>
+         <section>
+            <h2>Six_Month</h2>
+            <dl class="alt">
+               <dt>Leader</dt>
+               <dd>Jae Woo Kim</dd>
+               <dt>member</dt>
+               <dd>Jun Seong Kim</dd>
+               <dd>Na Yun Hwang</dd>
+               <dd>Yu Rim Kim</dd>
+               <dd>Tae Min No</dd>
+            </dl>
+         </section>
+         <p class="copyright">
+            &copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
+         </p>
+      </footer>
 
 
    </div>

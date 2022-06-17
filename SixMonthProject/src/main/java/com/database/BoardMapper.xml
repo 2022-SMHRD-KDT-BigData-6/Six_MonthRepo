@@ -49,13 +49,6 @@
       order by pdate desc
    </select>
    
-   <!-- 회원 확인
-   <select id="memberCheck" resultType="com.model.MemberVO">
-      select *
-      from s_member
-   </select>
-    -->
-
    <!-- 게시글 작성 -->
    <insert id="boardInsert" parameterType="com.model.BoardVO">
       insert into s_post(pnum,title,content,id,nick,pdate,fileName,anonymous)
