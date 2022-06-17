@@ -88,7 +88,7 @@
 					<br><br>
 					<%= view.getContent() %>
 			</p>
-			<!-- 공감수 -->
+			<!-- 게시글 공감입력 -->
 			<form action="GoodInsertService" method="post" style="margin-bottom: 0px">
 					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
 					<input name="id" type="hidden" value="<%= vo.getId() %>">
@@ -102,7 +102,6 @@
 				
 		 <%-- 댓글 보여주기 --%>
       <div class="comments">
-
                <ul class="myInfo" id="commentUl">
                 <%
                for (int i = 0; i < list.size(); i++) {
@@ -134,12 +133,17 @@
             </article>
             
             <div>
-                     <p class="medium22"><%=cvo.getCdate() %> </p>
-            <a href="#" class="vote231"><img src="image/like.png" class="like_icon"> 0</a>
-            
+                 <p class="medium22"><%=cvo.getCdate() %> </p>
                  <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
-                 <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a>
-                  <%}%><%else{ %><a href="#" class=" size21">공감</a>
+                 	<a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a>
+                  <%}else{ %>
+               <form action="ComGoodInsertService" method="post" style="margin-bottom: 0px" class="com_like">
+					<input name="pnum" type="hidden" value="<%= view.getPnum() %>">
+					<input name="cnum" type="hidden" value="<%= cvo.getCnum() %>">
+					<input name="id" type="hidden" value="<%= vo.getId() %>">
+					<input type="image" src="image/like.png" class="com_like_icon" alt="제출버튼" style="width:2%">
+					<%= cvo.getGood() %>
+			   </form>
                 	<% }%>
                  </div>
             </div>

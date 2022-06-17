@@ -110,7 +110,7 @@
 	
 	<!-- 게시글 공감 id-->
 	<insert id="boardGoodInsert" parameterType="com.model.GoodVO">
-		insert into post_mind
+		insert into post_good
 		values(
 			#{pnum},
 			#{id}
@@ -120,7 +120,7 @@
 	<!-- 게시글 공감한 id 확인 -->
 	<select id="boardGoodCheck" parameterType="com.model.GoodVO" resultType="java.lang.Integer">
 		select count(*)
-		from post_mind
+		from post_good
 		where pnum=#{pnum} and id=#{id}
 	</select>
 	
@@ -129,6 +129,30 @@
 		update s_post
 		set good = good+1
 		where pnum=#{pnum}
+	</update>
+	
+	<!-- 댓글 공감 id-->
+	<insert id="commentGoodInsert" parameterType="com.model.ComGoodVO">
+		insert into comment_good
+		values(
+			#{id},
+			#{pnum},
+			#{cnum}
+		)
+	</insert>
+	
+	<!-- 댓글 공감한 id 확인 -->
+	<select id="commentGoodCheck" parameterType="com.model.ComGoodVO" resultType="java.lang.Integer">
+		select count(*)
+		from comment_good
+		where pnum=#{pnum} and id=#{id} and cnum=#{cnum}
+	</select>
+	
+	<!-- 댓글 공감 count -->
+	<update id="commentGoodCount" parameterType="com.model.CommentVO">
+		update s_comment
+		set good = good+1
+		where pnum=#{pnum} and cnum=#{cnum}
 	</update>
 	
 	<!-- 페이지 구분 -->

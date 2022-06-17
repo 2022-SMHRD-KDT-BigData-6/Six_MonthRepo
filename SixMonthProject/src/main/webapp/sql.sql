@@ -104,26 +104,27 @@ alter table s_comment add foreign key (good) references comment_mind(good)
 
 drop table s_comment
 			
-create table post_mind(
+create table post_good(
 	pnum number(3),
 	id varchar2(20) not null,
-	constraint post_mind_id_fk foreign key (id) references s_member(id) on delete cascade,
-	constraint post_mind_pnum_fk foreign key (pnum) references s_post(pnum) on delete cascade
+	constraint post_good_id_fk foreign key (id) references s_member(id) on delete cascade,
+	constraint post_good_pnum_fk foreign key (pnum) references s_post(pnum) on delete cascade
 )	
 
 select * from post_mind
 
-create table comment_mind(
+create table comment_good(
 	id varchar2(20) not null,
-	cnum number(3) not null,
-	constraint comment_mind_id_fk foreign key (id) references s_member(id),
-	constraint comment_mind_cnum_fk foreign key (cnum) references s_comment(cnum)
-)									
+	pnum number(3),
+	cnum number(3),
+	constraint comment_good_id_fk foreign key (id) references s_member(id) on delete cascade,
+	constraint comment_good_pnum_fk foreign key (pnum) references s_post(pnum) on delete cascade,
+	constraint comment_good_cnum_fk foreign key (cnum) references s_comment(cnum) on delete cascade
+)
 
-
-select * from comment_mind;
+select * from comment_good;
 									
-drop table s_comment cascade constraints
+drop table comment_good cascade constraints
 
 select * 
 from (select ROW_NUMBER() OVER(order by pdate desc) as rn, pnum, title, id, content, pdate from s_post) A

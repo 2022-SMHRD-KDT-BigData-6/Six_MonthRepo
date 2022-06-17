@@ -807,7 +807,7 @@ position: relative;
 .charRed {
     color: red;
    position: relative;
-    left: 558px;
+    left: 680px;
     font-size: 13px;
     width: 100%;
     overflow:hidden;
@@ -4483,8 +4483,7 @@ a.vote231 {
 .medium22 {
         float: left;
     max-width: 100px;
-    margin: -3px 0px;
-    
+    margin: 0px 0px;
     height: 0px;
     line-height: 17px;
     font-size: 11px;
@@ -4553,6 +4552,8 @@ a.vote231 {
 	img.like_icon {
 		height:100%
 	}
+	
+
 	
 	
 	.icondiv{
@@ -4623,4 +4624,8 @@ a.vote231 {
    .buttonSize3 {
    font-size: 12pt;
    width: 58%;
+   }
+   
+   .com_like{
+   	position:relative; left:110px;
    }

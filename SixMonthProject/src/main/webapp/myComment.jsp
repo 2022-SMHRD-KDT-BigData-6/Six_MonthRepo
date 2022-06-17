@@ -65,6 +65,12 @@
                	 <tr>
               </table>
               
+              <div class="icondiv">
+					<div >
+						<a href="GoMain" class="button buttonSize">돌아가기</a>
+					</div>
+			  </div>
+              
               </div>
              </section>
              </div>
