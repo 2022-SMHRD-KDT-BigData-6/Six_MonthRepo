@@ -3066,7 +3066,7 @@ position: relative;
    }
 
       ul.actions li {
-         padding: 0 0 0 12em;
+         padding: 0 0 0 12.6em;
          vertical-align: middle;
       }
 
@@ -3236,6 +3236,11 @@ position: relative;
     left: 5px;
 }
    header.major {
+      margin-bottom: 3em;
+      margin-left: 0em;
+   }
+   
+header.major3box {
       margin-bottom: 3em;
       margin-left: 4.5em;
    }
@@ -4198,6 +4203,11 @@ position: relative;
 
       #main > .main {
          padding: 5em 5em 3em 5em ;
+         border-top: solid 1px #dddddd;
+      }
+      
+       #main > .mainto  {
+         padding: 5em 1em 3em 5em ;
          border-top: solid 1px #dddddd;
       }
 
