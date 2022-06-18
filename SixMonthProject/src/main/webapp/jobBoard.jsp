@@ -136,7 +136,7 @@
 					<tr>
 						<td colspan="2"></td>
 						<td></td>
-						<td></td>
+						
 						
 					</tr>
 				</tfoot>
