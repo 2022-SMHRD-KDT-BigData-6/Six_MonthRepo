@@ -399,7 +399,7 @@
              document.getElementsByClassName('asas')[i].setAttribute('href',seo[i])
        
          }
-ㄴ            div.classList.toggle('collapsed');
+            div.classList.toggle('collapsed');
     }
    
   </script>
