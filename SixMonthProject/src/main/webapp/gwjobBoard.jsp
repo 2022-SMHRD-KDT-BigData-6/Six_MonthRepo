@@ -90,7 +90,7 @@
 	
 	<br><br><br><br>
 		
-		<h2>나와 어울리는 직업은 어떤 직업이 있을까?</h2>
+			<h2>나와 어울리는 직업은 어떤 직업이 있을까?</h2>
 		
 		<div class="table-wrapper">
 		
@@ -133,7 +133,7 @@
 					<tr>
 						<td colspan="2"></td>
 						<td></td>
-						<td>--</td>
+						
 						
 					</tr>
 				</tfoot>
@@ -178,7 +178,7 @@
 					<tr>
 						<td colspan="2"></td>
 						<td></td>
-						<td>--</td>
+						<td></td>
 					</tr>
 				</tfoot>
 			</table>
@@ -222,7 +222,7 @@
 					<tr>
 						<td colspan="2"></td>
 						<td></td>
-						<td>--</td>
+						<td></td>
 					</tr>
 				</tfoot>
 			</table>
@@ -266,16 +266,17 @@
 					<tr>
 						<td colspan="2"></td>
 						<td></td>
-						<td>--</td>
+						<td></td>
 					</tr>
 				</tfoot>
 			</table>
 		
+		
 		<table>
 				<thead>
 					<tr>
-						<th>파이썬 개발자</th>
-						<th>내용</th>
+						<th style="width:156px;">파이썬 개발자</th>
+						<th style="width:583px;">내용</th>
 						<th>상세내용</th>
 					</tr>
 				</thead>
@@ -286,7 +287,7 @@
 						<td><a href="https://tagilog.tistory.com/679"class="button">자세히 알아보기</a></td>
 					</tr>
 					<tr>
-						<td>어떤 프레임워크를 사용할까?</td>
+					<td>어떤 프레임워크를 사용할까?</td>
 						<td>큐빅웹 / 장고 / 웹투파이 / 웨피 / 조프 </td>
 						<td><a href="https://www.ciokorea.com/news/178939"class="button">자세히 알아보기</a></td>
 					</tr>
@@ -310,10 +311,11 @@
 					<tr>
 						<td colspan="2"></td>
 						<td></td>
-						<td>--</td>
+						<td></td>
 					</tr>
 				</tfoot>
 			</table>
+		
 			
 		</div>
 		
