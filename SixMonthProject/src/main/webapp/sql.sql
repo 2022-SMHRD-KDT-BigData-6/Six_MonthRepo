@@ -109,11 +109,8 @@ insert into s_comment
 values(comment_num_seq.nextval, '30', '´ñ±Û³»¿ë', 'jaewoo', sysdate);
 
 create sequence comment_num_seq
-	start with 1
-	increment by 1
-	maxvalue 999999
-	nocycle
-	nocache
+	
+
 
 alter table s_comment add foreign key (good) references comment_mind(good)
 

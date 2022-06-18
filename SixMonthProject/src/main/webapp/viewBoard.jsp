@@ -135,6 +135,7 @@
             <div>
                  <p class="medium22"><%=cvo.getCdate() %> </p>
                  <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
+
                  	<a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a>
                   <%}else{ %>
                <form action="ComGoodInsertService" method="post" style="margin-bottom: 0px" class="com_like">
