@@ -101,41 +101,37 @@
 							%>
 
 
+							<img alt="profile" src="image/profile.png"> <br>
+							<p class="school" style="font-size: 30px"><%=vo.getNick()%></p>
+							<p class="school"><%=vo.getName()%></p>
 
-                  <img alt="profile" src="image/profile.png">
-                  		<br>
-                  		<p class="school"  style="font-size:30px"><%=vo.getNick()%></p> 
-                  		<p class="school"><%=vo.getName()%></p>
-                  		
-                  	<ul class="myInfo">
-                  		<li class="myInfo_li"><a href="myPage.jsp" style="color:black">내 정보</a></li>
-                  	
-                  	
-                  <%
-                  session.setAttribute("vo", vo);
-                  %>
-                  
-                  <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
-                  		<li class="myInfo_li"><a href='logout' style="color:black"> 로그아웃 </a></li>
-                  		<li class="myInfo_li"><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" style="color:black"> 내 글 </a></li>
-                  		<li class="myInfo_li"><a href='GoMyComment?id=<%=vo.getId() %>'style="color:black"> 내 댓글 </a></li>
-                  </ul>
-			                  
-			     <div class="quick">
-			        <div class="tit">QUICK<br>MENU<br></div>
-			        <div class="item"><a href="GoFree?page=1"></i><span class="name">자유게시판</span></a></div>
-			        <div class="item"><a href="jobBoard.jsp"><span class="name">취업-서울</span></a></div>
-			        <div class="item"><a href="gwjobBoard.jsp" target="_blank"><span class="name">취업-광주</span></a></div>
-			        <div class="item"><a href="wordjobBoard.jsp"><span class="name">취업-해외</span></a></div>
-			        <div class="item"><a href='GoMyComment?id=<%=vo.getId() %>'>댓글확인 </a></div>
-			        <div ><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" > 작성 글 </a></div>
-			    </div>
-                  <%
-                  }
-                  %>
-               </form>
-				
-		
+							<ul class="myInfo">
+								<li class="myInfo_li"><a href="myPage.jsp"
+									style="color: black">내 정보</a></li>
+
+
+								<%
+								session.setAttribute("vo", vo);
+								%>
+
+								<!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
+								<li class="myInfo_li"><a href='logout' style="color: black">
+										로그아웃 </a></li>
+								<li class="myInfo_li"><a
+									href='GoMyWrite?id=<%=vo.getId()%>' class="myArticle"
+									style="color: black"> 내 글 </a></li>
+								<li class="myInfo_li"><a
+									href='GoMyComment?id=<%=vo.getId()%>' style="color: black">
+										내 댓글 </a></li>
+							</ul>
+							<%
+							}
+							%>
+						</form>
+
+
+					</div>
+
 				</div>
 
 			</section>
@@ -158,28 +154,29 @@
 									<td>조회수</td>
 								</tr>
 
-
-						</thead>
-						<tbody>		
-						<%
-							for(int i=0; i<5; i++){
-							BoardVO bvo = list.get(i);
-						%>
-							<tr>
-								<td><%=bvo.getPnum() %></td>
-								<td id="cc">
-								<a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a>
-								</td>
-								<!-- 유림 : 익명 -->
-								<td>
-									<% if(bvo.getAnonymous().equals("on")){%>
-										익명
-									<%} else { %>
-										<%=bvo.getNick()%>
-									<%} %>
-								</td>
-								<td><%=bvo.getHit() %></td>
-							</tr>
+							</thead>
+							<tbody>
+								<%
+								for (int i = 0; i < 5; i++) {
+									BoardVO bvo = list.get(i);
+								%>
+								<tr>
+									<td><%=bvo.getPnum()%></td>
+									<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"
+										style="color: black"><%=bvo.getTitle()%></a></td>
+									<!-- 유림 : 익명 -->
+									<td>
+										<%
+										if (bvo.getAnonymous().equals("on")) {
+										%> 익명 <%
+										} else {
+										%> <%=bvo.getNick()%>
+										<%
+										}
+										%>
+									</td>
+									<td><%=bvo.getHit()%></td>
+								</tr>
 
 								<%
 								}
@@ -253,7 +250,7 @@
 						<h3>광주/전남</h3>
 						<p></p></li>
 					<li><span><image src="image/word.jpeg" id="mapping"></span>
-						<h3>해외지사</h3>
+						<h3>국외</h3>
 						<p></p></li>
 				</ul>
 				<footer class="major">
@@ -270,9 +267,6 @@
 				<header class="major">
 					<h2>일정표</h2>
 
-				
-			</section>
-	
 				</header>
 
 				<div id='calendar' style="max-width: 900px"></div>
@@ -448,40 +442,33 @@
 	<script src='fullcalendar/ko.js'></script>
 
 	<!-- jquery -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- bootstrap 4 -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- bootstrap 4 -->
+	<link rel="stylesheet"
+		href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script>
-
-	$(document).ready(function(){
-		console.log('될까')
-		<% if((MemberVO)session.getAttribute("vo") ==null){ %>
-			$('#cc>a').attr('href','#');
-			$('#cc>a').on('click', function(){
-				alert('로그인 해주세요');
-				location.href="login.jsp"
-			});	
-		<%}%>
-	});
-	
-	function date_to_str(format){    
-		var year = format.getFullYear();    
-		var month = format.getMonth() + 1;   
-		if(month<10) month = '0' + month;    
-		var date = format.getDate();    
-		if(date<10) date = '0' + date;   
-		/*var hour = format.getHours();    
-		if(hour<10) hour = '0' + hour;    
-		var min = format.getMinutes();   
-		if(min<10) min = '0' + min;    
-		var sec = format.getSeconds();    
-		if(sec<10) sec = '0' + sec;*/        
-		return year + "/" + month + "/" + date;
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo.git
+		function date_to_str(format) {
+			var year = format.getFullYear();
+			var month = format.getMonth() + 1;
+			if (month < 10)
+				month = '0' + month;
+			var date = format.getDate();
+			if (date < 10)
+				date = '0' + date;
+			/*var hour = format.getHours();    
+			if(hour<10) hour = '0' + hour;    
+			var min = format.getMinutes();   
+			if(min<10) min = '0' + min;    
+			var sec = format.getSeconds();    
+			if(sec<10) sec = '0' + sec;*/
+			return year + "/" + month + "/" + date;
 		}
 
 		document

@@ -40,7 +40,6 @@ public class JsonServer extends HttpServlet {
 
 		try {
 			Object obj = parser.parse(new FileReader("C://Users//GITCT//Crawling/data.json"));
-
 			JSONObject jsonObject = (JSONObject) obj;
 			out.print(jsonObject);
 		} catch (Exception e) {
