@@ -31,27 +31,29 @@
 </head>
 <body class="is-preload">
 
-	<%
-	MemberVO vo = (MemberVO) session.getAttribute("vo");
-	List<BoardVO> list = (List<BoardVO>) request.getAttribute("list");
-	List<BoardVO> hotList = (List<BoardVO>) request.getAttribute("hotList");
-	%>
+<%
+	MemberVO vo=(MemberVO)session.getAttribute("vo");
+	List<BoardVO> list = (List<BoardVO>)request.getAttribute("list");
+	List<BoardVO> hotList = (List<BoardVO>)request.getAttribute("hotList");
+%>
 
 	<!-- Wrapper -->
 	<div id="wrapper">
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<a href="GoMain"> <span class="logo"> <img
-					src="image/logo.big.png" />
+			<a href="GoMain">
+			
+			<span class="logo">
+			<img src="image/logo.big.png"/>
 			</span>
-
+			
 			</a>
 			<h1>Smhrd커뮤니티</h1>
 
 
-			<p style="color: white">Created by Six_month</p>
-
+			<p style="color:white"> Created by Six_month </p>
+			
 
 		</header>
 
@@ -59,182 +61,163 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="#intro" class="active"
-					style="color: black !important">자유게시판</a></li>
-				<li><a href="#first" style="color: black !important">취업게시판</a></li>
-				<li><a href="#second" style="color: black !important">일정표</a></li>
-				<li><a href="#cta" style="color: black !important">스마트인재
-						개발원</a></li>
+				<li><a href="#intro" class="active"  style="color:black !important">자유게시판</a></li>
+				<li><a href="#first"  style="color:black !important">취업게시판</a></li>
+				<li><a href="#second"  style="color:black !important">일정표</a></li>
+				<li><a href="#cta"  style="color:black !important">스마트인재 개발원</a></li>
 			</ul>
 		</nav>
 
 		<!-- Main -->
 		<div id="main">
-
+		
 			<!-- 로그인 및 사진 추가 -->
 			<section id="intro" class="main">
-				<div class="spotlight">
-					<div class="content" style="padding-right: 10px"
-						style="padding-left:10px">
-						<img alt="banner" src="image/banner.jpg" class="bannerimg">
-					</div>
-
-					<div class="content align-center" id="login"
-						style="padding-right: 10px" style="padding-left:10px">
-						<form>
-							<%
-							// 로그인 안했을때 
-							if (vo == null) {
-							%>
-							<div style="margin-bottom: 2%">
-								<img alt="icon" src="image/login_logo.png">
-							</div>
-							<div style="margin-bottom: 0.5%">
-								<a href="login.jsp" class="button primary" style="width: 7em">로그인</a>
-							</div>
-							<div>
-								<a href="Join.jsp" class="button" style="width: 7em">회원가입</a>
-							</div>
-
-							<%
-							} else {// 로그인 했을때
-							%>
-
-
-							<img alt="profile" src="image/profile.png"> <br>
-							<p class="school" style="font-size: 30px"><%=vo.getNick()%></p>
-							<p class="school"><%=vo.getName()%></p>
-
-							<ul class="myInfo">
-								<li class="myInfo_li"><a href="myPage.jsp"
-									style="color: black">내 정보</a></li>
-
-
-								<%
-								session.setAttribute("vo", vo);
-								%>
-
-								<!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
-								<li class="myInfo_li"><a href='logout' style="color: black">
-										로그아웃 </a></li>
-								<li class="myInfo_li"><a
-									href='GoMyWrite?id=<%=vo.getId()%>' class="myArticle"
-									style="color: black"> 내 글 </a></li>
-								<li class="myInfo_li"><a
-									href='GoMyComment?id=<%=vo.getId()%>' style="color: black">
-										내 댓글 </a></li>
-							</ul>
-							<%
-							}
-							%>
-						</form>
-
-
-					</div>
-
+			<div class="spotlight">
+				<div class="content" style="padding-right:10px" style="padding-left:10px">
+					<img alt="banner" src="image/banner.jpg" class="bannerimg">
 				</div>
+				
+				<div class="content align-center" id="login" style="padding-right:10px" style="padding-left:10px">
+				<form>
+                  <% // 로그인 안했을때 
+                  if (vo == null) {
+                  %>
+                  	<div style="margin-bottom:2%">
+                 	<img alt="icon" src="image/login_logo.png">
+                 	</div>
+					<div style="margin-bottom: 0.5%">
+					<a href="login.jsp" class="button primary" style="width:7em">로그인</a>
+					</div>
+					<div>
+					<a href="Join.jsp" class="button" style="width:7em">회원가입</a>
+					</div>
+					
+                  <%
+                  } else {// 로그인 했을때
+                  %>
 
+
+                  <img alt="profile" src="image/profile.png">
+                  		<br>
+                  		<p class="school"  style="font-size:30px"><%=vo.getNick()%></p> 
+                  		<p class="school"><%=vo.getName()%></p>
+                  		
+                  	<ul class="myInfo">
+                  		<li class="myInfo_li"><a href="myPage.jsp" style="color:black">내 정보</a></li>
+                  	
+                  	
+                  <%
+                  session.setAttribute("vo", vo);
+                  %>
+                  
+                  <!-- 로그아웃 버튼 누르면 logout.java로 넘어갔다가 메인으로 돌아옴 -->
+                  		<li class="myInfo_li"><a href='logout' style="color:black"> 로그아웃 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" style="color:black"> 내 글 </a></li>
+                  		<li class="myInfo_li"><a href='GoMyComment?id=<%=vo.getId() %>'style="color:black"> 내 댓글 </a></li>
+                  </ul>
+                  <%
+                  }
+                  %>
+               </form>
+				
+		
+				</div>
+					
+			</div>
+			
 			</section>
 			<!-- Introduction -->
 
 			<!-- 게시판 리스트 불러오기 -->
-			<section id="intro" class="main">
+			<section id="intro" class="mainto">
 				<div class="spotlight">
-					<div class="content" style="padding-right: 10px"
-						style="padding-left:10px">
+					<div class="content" style="padding-right:10px" style="padding-left:10px">
 						<header class="major">
 							<h2>자유게시판</h2>
 						</header>
 						<table>
-							<thead>
-								<tr>
-									<td>글번호</td>
-									<td>제목</td>
-									<td>작성자</td>
-									<td>조회수</td>
-								</tr>
+						<thead>
+							<tr>
+								<td>글번호</td>
+								<td>제목</td>
+								<td>작성자</td>
+								<td>조회수</td>
+							</tr>
 
-							</thead>
-							<tbody>
-								<%
-								for (int i = 0; i < 5; i++) {
-									BoardVO bvo = list.get(i);
-								%>
-								<tr>
-									<td><%=bvo.getPnum()%></td>
-									<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"
-										style="color: black"><%=bvo.getTitle()%></a></td>
-									<!-- 유림 : 익명 -->
-									<td>
-										<%
-										if (bvo.getAnonymous().equals("on")) {
-										%> 익명 <%
-										} else {
-										%> <%=bvo.getNick()%>
-										<%
-										}
-										%>
-									</td>
-									<td><%=bvo.getHit()%></td>
-								</tr>
+						</thead>
+						<tbody>		
+						<%
+							for(int i=0; i<5; i++){
+							BoardVO bvo = list.get(i);
+						%>
+							<tr>
+								<td><%=bvo.getPnum() %></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle() %></a></td>
+								<!-- 유림 : 익명 -->
+								<td>
+									<% if(bvo.getAnonymous().equals("on")){%>
+										익명
+									<%} else { %>
+										<%=bvo.getNick()%>
+									<%} %>
+								</td>
+								<td><%=bvo.getHit() %></td>
+							</tr>
 
-								<%
-								}
-								%>
-							</tbody>
+						<%
+						}
+						%>
+						</tbody>
 
 						</table>
 
 					</div>
-
+					
 					<!-- 핫게시글 table -->
-					<div class="content" style="padding-right: 10px"
-						style="padding-left:10px">
+					<div class="content" style="padding-right:10px" style="padding-left:10px">
 						<header class="major">
 							<h2>핫게시글</h2>
 						</header>
-						<table>
+						<table >
+						<thead>
 							<tr>
 								<td>순위</td>
 								<td>제목</td>
 								<td>작성자</td>
 								<td>공감수</td>
 							</tr>
+							</thead>
 
 							<%
 							for (int i = 0; i < 5; i++) {
 								BoardVO bvo = hotList.get(i);
 							%>
 							<tr>
-								<td><%=i + 1%></td>
-								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1"
-									style="color: black"><%=bvo.getTitle()%></a></td>
+								<td><%=i+1 %></td>
+								<td id="cc"><a href="GoView?pnum=<%=bvo.getPnum()%>&cnt=1" style="color:black"><%=bvo.getTitle()%></a></td>
 								<!-- 유림 : 익명 -->
 								<td>
-									<%
-									if (bvo.getAnonymous().equals("on")) {
-									%> 익명 <%
-									} else {
-									%> <%=bvo.getNick()%>
-									<%
-									}
-									%>
+									<% if(bvo.getAnonymous().equals("on")){%>
+										익명
+									<%} else { %>
+										<%=bvo.getNick()%>
+									<%} %>
 								</td>
 								<td><%=bvo.getGood()%></td>
 							</tr>
 							<%
-							}
-							%>
-
+								}
+							%> 
+						
 						</table>
 
 
-					</div>
+					</div>			
 				</div>
-				<div class="align-center">
-					<a href="GoFree?page=1" class="button">더보기</a>
-					</li>
-				</div>
+						<div class="align-center">
+							<a href="GoFree?page=1" class="button">더보기</a></li>
+						</div>
 			</section>
 
 			<!-- First Section -->
@@ -256,7 +239,7 @@
 				<footer class="major">
 					<ul class="actions special">
 						<li><a href="jobBoard.jsp" class="button">더 보기</a></li>
-						<li><a href="gwjobBoard.jsp" class="button">더 보기</a></li>
+					<li><a href="gwjobBoard.jsp" class="button">더 보기</a></li>
 						<li><a href="wordjobBoard.jsp" class="button">더 보기</a></li>
 					</ul>
 				</footer>
@@ -268,135 +251,86 @@
 					<h2>일정표</h2>
 
 				</header>
-
-				<div id='calendar' style="max-width: 900px"></div>
+					
+					<div id='calendar' style="max-width:900px"></div>
 				<!-- modal 추가 -->
-				<div class="modal fade" id="calendarModal" tabindex="-1"
-					role="dialog" aria-labelledby="exampleModalLabel"
-					aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">일정을 입력하세요.</h5>
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<div class="form-group">
-									<label for="taskId" class="col-form-label">일정 내용</label> <input
-										type="text" class="form-control" id="calendar_content"
-										name="calendar_content"> <label for="taskId"
-										class="col-form-label">시작 날짜</label> <input type="date"
-										class="form-control" id="calendar_start_date"
-										name="calendar_start_date"> <label for="taskId"
-										class="col-form-label">종료 날짜</label> <input type="date"
-										class="form-control" id="calendar_end_date"
-										name="calendar_end_date"> <label for="taskId"
-										class="col-form-label">텍스트 색상</label> <input type="color"
-										class="form-control" id="calendar_text_color"
-										name="calendar_end_date"> <label for="taskId"
-										class="col-form-label">배경색상</label> <input type="color"
-										class="form-control" id="calendar_background_color"
-										name="calendar_end_date">
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-warning" id="addCalendar">추가</button>
-								<button type="button" class="btn btn-secondary"
-									data-dismiss="modal" id="sprintSettingModalClose">취소</button>
-							</div>
+				    <div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				        aria-hidden="true">
+				        <div class="modal-dialog" role="document">
+				            <div class="modal-content">
+				                <div class="modal-header">
+				                    <h5 class="modal-title" id="exampleModalLabel">일정을 입력하세요.</h5>
+				                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				                        <span aria-hidden="true">&times;</span>
+				                    </button>
+				                </div>
+				                <div class="modal-body">
+				                    <div class="form-group">
+				                        <label for="taskId" class="col-form-label">일정 내용</label>
+				                        <input type="text" class="form-control" id="calendar_content" name="calendar_content">
+				                        <label for="taskId" class="col-form-label">시작 날짜</label>
+				                        <input type="date" class="form-control" id="calendar_start_date" name="calendar_start_date">
+				                        <label for="taskId" class="col-form-label">종료 날짜</label>
+				                        <input type="date" class="form-control" id="calendar_end_date" name="calendar_end_date">
+				                        <label for="taskId" class="col-form-label">텍스트 색상</label>
+				                        <input type="color" class="form-control" id="calendar_text_color" name="calendar_end_date">
+				                        <label for="taskId" class="col-form-label">배경색상</label>
+				                        <input type="color" class="form-control" id="calendar_background_color" name="calendar_end_date">
+				                    </div>
+				                </div>
+				                <div class="modal-footer">
+				                    <button type="button" class="btn btn-warning" id="addCalendar">추가</button>
+				                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+				                        id="sprintSettingModalClose">취소</button>
+				                </div>
+				    
+				            </div>
+				        </div>
+				    </div>
 
-						</div>
-					</div>
-				</div>
-
-
+				
 			</section>
-
+	
 			<!-- 스마트인재개발원 페이지  -->
-
+			
 			<section id="cta" class="main special2234">
+			
+				<header class="major3box">
+				<div>
+				<!-- 이미지 넣기  -->
+				<a href="https://smhrd.or.kr/"><img src="image/smhrdddd22.png" class="smhrdddd22"></a>
+				</div>
+		<!--동영상 넣기 -->
+		<iframe src="https://www.youtube.com/embed/fNviG_HcxTw?playlist=fNviG_HcxTw&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"></iframe> <iframe src="https://www.youtube.com/embed/I-39mosVNzA?playlist=I-39mosVNzA&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"> </iframe>
+	<iframe src="https://www.youtube.com/embed/MoLV-LaTXik?playlist=MoLV-LaTXik&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"></iframe> <iframe src="https://www.youtube.com/embed/tI-zW3YMyhA?playlist=tI-zW3YMyhA&mute=1&amp;" width="350" height="260" frameborder="0" allowfullscreen="" class="tvbox"> </iframe>
 
-				<header class="major">
-					<div>
-						<!-- 이미지 넣기  -->
-						<a href="https://smhrd.or.kr/"><img src="image/smhrdddd22.png"
-							class="smhrdddd22"></a>
-					</div>
-					<!--동영상 넣기 -->
-					<iframe
-						src="https://www.youtube.com/embed/fNviG_HcxTw?playlist=fNviG_HcxTw&mute=1&amp;"
-						width="350" height="260" frameborder="0" allowfullscreen=""
-						class="tvbox"></iframe>
-					<iframe
-						src="https://www.youtube.com/embed/I-39mosVNzA?playlist=I-39mosVNzA&mute=1&amp;"
-						width="350" height="260" frameborder="0" allowfullscreen=""
-						class="tvbox"> </iframe>
-					<iframe
-						src="https://www.youtube.com/embed/MoLV-LaTXik?playlist=MoLV-LaTXik&mute=1&amp;"
-						width="350" height="260" frameborder="0" allowfullscreen=""
-						class="tvbox"></iframe>
-					<iframe
-						src="https://www.youtube.com/embed/tI-zW3YMyhA?playlist=tI-zW3YMyhA&mute=1&amp;"
-						width="350" height="260" frameborder="0" allowfullscreen=""
-						class="tvbox"> </iframe>
+	
+		</div>
+		
+		
+		
+		<!-- 퀵메뉴 -->
+	<div class="quick">
+        <div class="tit">QUICK<br>MENU<br></div>
+        <div class="item"><a href="GoFree?page=1"></i><span class="name">자유게시판</span></a></div>
+        <div class="item"><a href="jobBoard.jsp"><span class="name">취업-서울</span></a></div>
+        <div class="item"><a href="gwjobBoard.jsp" target="_blank"><span class="name">취업-광주</span></a></div>
+        <div class="item"><a href="wordjobBoard.jsp"><span class="name">취업-해외</span></a></div>
+        <div class="item"><a href='GoMyComment?id=<%=vo.getId() %>'>댓글확인 </a></div>
+        <div ><a href='GoMyWrite?id=<%=vo.getId() %>' class="myArticle" > 작성 글 </a></div>
+    </div>
+ <footer class="major">
+					<ul class="actions special">
+						
+						<li></li>
+					</ul>
+				</footer>
+    
+    
+  </section>
 					
-					
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					</div>
-
-
-
-					<!-- 퀵메뉴 -->
-					<div class="quick">
-						<div class="tit">
-							QUICK<br>MENU<br>
-						</div>
-						<div class="item">
-							<a href="GoFree?page=1"></i><span class="name">자유게시판</span></a>
-						</div>
-						<div class="item">
-							<a href="jobBoard.jsp"><span class="name">취업-서울</span></a>
-						</div>
-						<div class="item">
-							<a href="gwjobBoard.jsp" target="_blank"><span class="name">취업-광주</span></a>
-						</div>
-						<div class="item">
-							<a href="wordjobBoard.jsp"><span class="name">취업-해외</span></a>
-						</div>
-						<div class="item">
-							<a href='GoMyComment?id=<%=vo.getId()%>'>댓글확인 </a>
-						</div>
-						<div>
-							<a href='GoMyWrite?id=<%=vo.getId()%>' class="myArticle">
-								작성 글 </a>
-						</div>
-					</div>
-					<footer class="major">
-						<ul class="actions special">
-
-							<li></li>
-						</ul>
-					</footer>
-			</section>
-
-			</header>
-
+				</header>
+				
 			</section>
 
 		</div>
@@ -405,12 +339,12 @@
 		<footer id="footer">
 			<section>
 				<h2>핵심융합프로젝트</h2>
-				<p style="color: white">제작기간 : 2022.06.03~2022.06.20</p>
-				<p style="color: white">발표 : 2022.06.20</p>
+				<p style="color:white">제작기간 : 2022.06.03~2022.06.20</p>
+				<p style="color:white">발표 : 2022.06.20</p>
 			</section>
 			<section>
 				<h2>Six_Month</h2>
-				<dl class="alt" style="color: white">
+				<dl class="alt" style="color:white">
 					<dt>Leader</dt>
 					<dd>Jae Woo Kim</dd>
 					<dt>member</dt>
@@ -420,9 +354,8 @@
 					<dd>Tae Min No</dd>
 				</dl>
 			</section>
-			<p class="copyright" style="color: white">
-				&copy; Untitled. Design: <a href="https://html5up.net"
-					style="color: white">HTML5 UP</a>.
+			<p class="copyright" style="color:white">
+				&copy; Untitled. Design: <a href="https://html5up.net" style="color:white">HTML5 UP</a>.
 			</p>
 		</footer>
 
@@ -440,242 +373,196 @@
 	<script src='fullcalendar/main.js'></script>
 	<script src='fullcalendar/locales-all.js'></script>
 	<script src='fullcalendar/ko.js'></script>
-
+	
 	<!-- jquery -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!-- bootstrap 4 -->
-	<link rel="stylesheet"
-		href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script>
-		function date_to_str(format) {
-			var year = format.getFullYear();
-			var month = format.getMonth() + 1;
-			if (month < 10)
-				month = '0' + month;
-			var date = format.getDate();
-			if (date < 10)
-				date = '0' + date;
-			/*var hour = format.getHours();    
-			if(hour<10) hour = '0' + hour;    
-			var min = format.getMinutes();   
-			if(min<10) min = '0' + min;    
-			var sec = format.getSeconds();    
-			if(sec<10) sec = '0' + sec;*/
-			return year + "/" + month + "/" + date;
+	
+	function date_to_str(format){    
+		var year = format.getFullYear();    
+		var month = format.getMonth() + 1;   
+		if(month<10) month = '0' + month;    
+		var date = format.getDate();    
+		if(date<10) date = '0' + date;   
+		/*var hour = format.getHours();    
+		if(hour<10) hour = '0' + hour;    
+		var min = format.getMinutes();   
+		if(min<10) min = '0' + min;    
+		var sec = format.getSeconds();    
+		if(sec<10) sec = '0' + sec;*/        
+		return year + "/" + month + "/" + date;
 		}
+	
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		var calendarEl = document.getElementById('calendar');
 
-		document
-				.addEventListener(
-						'DOMContentLoaded',
-						function() {
-							var calendarEl = document
-									.getElementById('calendar');
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+			headerToolbar : {
+				left : 'prev,next today',
+				center : 'title',
+				right : 'dayGridMonth,timeGridWeek,timeGridDay'
+			},
+			initialDate : '2022-06-13', // 초기 로딩 날짜
+			navLinks : false, // can click day/week names to navigate views
+			selectable : true,
+			selectMirror : true,
+			
+			// 일정등록하기
+			 /*select : function(arg) {
+				var title = prompt('Event Title:');
+				if (title) {
+					calendar.addEvent({
+						title : title,
+						start : arg.start,
+						end : arg.end,
+						allDay : arg.allDay
+					})
+				}
+				calendar.unselect()
+			},
+			 */
+			 
+			// 삭제기능
+			eventClick : function(info) {
+				if (confirm(info.event.title+"일정을 삭제하시겠습니까?")) {
+					
+					// fullcalendar에서 제공하는 삭제 기능
+					info.event.remove() 
+					
+					// fullcalendar의 날짜데이터 변경을 위한 객체 생성
+					var sysdate = new Date(info.event._instance.range.start); 
+					
+					// 일정 데이터를 해당 변수로 초기화
+					var title = info.event._def.title;
+					var start = info.event._instance.range.start;
+					var end =info.event._instance.range.end;
+					
+					// json형식으로 일정 데이터 객체 초기화
+					var obj2 ={
+							title: title,
+							start: date_to_str(new Date(start)),
+							end: date_to_str(new Date(end))
+					}
+					
+					console.log(obj2);
+					
+				}
+				// 일정(json형식)데이터 servlet으로 보내주고 받기
+				$.ajax({
+                	url : "CalendarDelete",
+                	type : "GET",
+                 	data : obj2,
+                 	dataType : 'json',
+                 	success : function(res){
+                 		// 받기 성공한 경우!!
+                		console.log('일정삭제 성공!!!');
+                 	},
+                	error:function(){
+                		// 받기 실패한 경우!!
+                		console.log('일정삭제 실패!!!');
+                	}
+            	})
+            	
+			}, 
+			
+			editable : false,
+			locale : 'ko',
+			dayMaxEvents : true, // allow "more" link when too many events
+			displayEventTime: false,
+			events : function(info, successCallback, failureCallback){
+				$.ajax({
+					type:'post',
+					url:'Calendar',
+					dataType: 'json',
+					contentType :"application/json;charset=utf-8",
+					success: function(jsonarray){
+						
+						var events = [];
+						for(var i=0 ; i<jsonarray.length ;i++){
+						events.push({
+							title : jsonarray[i].caltitle,
+							start : jsonarray[i].start1,
+							end : jsonarray[i].end1,
+							textColor : jsonarray[i].textcolor,
+							backgroundColor : jsonarray[i].backgroundcolor,
+							borderColor : jsonarray[i].borderColor
+							});
+						}
+						successCallback(events);
+					},
+					error : function(){
+						alert("실패")
+					}
+				});
+			},
+			headerToolbar: {
+				center : 'addEventButton'
+			},
+			customButtons: {
+				addEventButton: { 					// 추가한 버튼 설정
+					text : "일정 추가", 				// 버튼 내용
+					click : function(){ 			// 버튼 클릭시 이벤트 추가
+						$("#calendarModal").modal("show"); // modal 나타내기
+						
+						$("#addCalendar").on("click",function(){  // modal의 추가 버튼 클릭 시
+                             var content = $("#calendar_content").val();
+                             var start_date = $("#calendar_start_date").val();
+                             var end_date = $("#calendar_end_date").val();
+                             var textcolor = $("#calendar_text_color").val();
+                             var bgcolor = $("#calendar_background_color").val();
+                             //내용 입력 여부 확인
+                                if(content == null || content == ""){
+                                    alert("내용을 입력하세요.");
+                                }else if(start_date == "" || end_date ==""){
+                                    alert("날짜를 입력하세요.");
+                                }else if(new Date(end_date)- new Date(start_date) < 0){ // date 타입으로 변경 후 확인
+                                    alert("종료일이 시작일보다 먼저입니다.");
+                                }else{ 				// 정상적인 입력 시
+                                    var obj = {
+                                        title : content,
+                                        start : start_date,
+                                        end : end_date,
+                                        textcolor : textcolor,
+                                        backgroundcolor : bgcolor
+                                    }				//전송할 객체 생성
 
-							var calendar = new FullCalendar.Calendar(
-									calendarEl,
-									{
-										headerToolbar : {
-											left : 'prev,next today',
-											center : 'title',
-											right : 'dayGridMonth,timeGridWeek,timeGridDay'
-										},
-										initialDate : '2022-06-13', // 초기 로딩 날짜
-										navLinks : false, // can click day/week names to navigate views
-										selectable : true,
-										selectMirror : true,
+                                    console.log(obj); //서버로 해당 객체를 전달해서 DB 연동 가능
+                                   
+                                }
+                                
+                                $.ajax({
+                                    	url : "CalendarInsert",
+                                    	type : "GET",
+                                     	data : obj,
+                                     	dataType : 'json',
+                                     	success : function(res){
+                                    		console.log('일정추가 성공!!!');
+                                     	},
+                                    	error:function(){
+                                    		console.log('일정추가 실패!!!');
+                                    	}
+                                }),    
+                                alert("일정등록성공")
+                                $("#calendarModal").modal("hide");
+                                location.href="GoMain";
+					    });
+					    
+                    	}
+                    	
+                	}
+            	}
 
-										// 일정등록하기
-										/*select : function(arg) {
-										var title = prompt('Event Title:');
-										if (title) {
-											calendar.addEvent({
-												title : title,
-												start : arg.start,
-												end : arg.end,
-												allDay : arg.allDay
-											})
-										}
-										calendar.unselect()
-										},
-										 */
-
-										// 삭제기능
-										eventClick : function(info) {
-											if (confirm(info.event.title
-													+ "일정을 삭제하시겠습니까?")) {
-
-												// fullcalendar에서 제공하는 삭제 기능
-												info.event.remove()
-
-												// fullcalendar의 날짜데이터 변경을 위한 객체 생성
-												var sysdate = new Date(
-														info.event._instance.range.start);
-
-												// 일정 데이터를 해당 변수로 초기화
-												var title = info.event._def.title;
-												var start = info.event._instance.range.start;
-												var end = info.event._instance.range.end;
-
-												// json형식으로 일정 데이터 객체 초기화
-												var obj2 = {
-													title : title,
-													start : date_to_str(new Date(
-															start)),
-													end : date_to_str(new Date(
-															end))
-												}
-
-												console.log(obj2);
-
-											}
-											// 일정(json형식)데이터 servlet으로 보내주고 받기
-											$.ajax({
-												url : "CalendarDelete",
-												type : "GET",
-												data : obj2,
-												dataType : 'json',
-												success : function(res) {
-													// 받기 성공한 경우!!
-													console.log('일정삭제 성공!!!');
-												},
-												error : function() {
-													// 받기 실패한 경우!!
-													console.log('일정삭제 실패!!!');
-												}
-											})
-
-										},
-
-										editable : false,
-										locale : 'ko',
-										dayMaxEvents : true, // allow "more" link when too many events
-										displayEventTime : false,
-										events : function(info,
-												successCallback,
-												failureCallback) {
-											$
-													.ajax({
-														type : 'post',
-														url : 'Calendar',
-														dataType : 'json',
-														contentType : "application/json;charset=utf-8",
-														success : function(
-																jsonarray) {
-
-															var events = [];
-															for (var i = 0; i < jsonarray.length; i++) {
-																events
-																		.push({
-																			title : jsonarray[i].caltitle,
-																			start : jsonarray[i].start1,
-																			end : jsonarray[i].end1,
-																			textColor : jsonarray[i].textcolor,
-																			backgroundColor : jsonarray[i].backgroundcolor,
-																			borderColor : jsonarray[i].borderColor
-																		});
-															}
-															successCallback(events);
-														},
-														error : function() {
-															alert("실패")
-														}
-													});
-										},
-										headerToolbar : {
-											center : 'addEventButton'
-										},
-										customButtons : {
-											addEventButton : { // 추가한 버튼 설정
-												text : "일정 추가", // 버튼 내용
-												click : function() { // 버튼 클릭시 이벤트 추가
-													$("#calendarModal").modal(
-															"show"); // modal 나타내기
-
-													$("#addCalendar")
-															.on(
-																	"click",
-																	function() { // modal의 추가 버튼 클릭 시
-																		var content = $(
-																				"#calendar_content")
-																				.val();
-																		var start_date = $(
-																				"#calendar_start_date")
-																				.val();
-																		var end_date = $(
-																				"#calendar_end_date")
-																				.val();
-																		var textcolor = $(
-																				"#calendar_text_color")
-																				.val();
-																		var bgcolor = $(
-																				"#calendar_background_color")
-																				.val();
-																		//내용 입력 여부 확인
-																		if (content == null
-																				|| content == "") {
-																			alert("내용을 입력하세요.");
-																		} else if (start_date == ""
-																				|| end_date == "") {
-																			alert("날짜를 입력하세요.");
-																		} else if (new Date(
-																				end_date)
-																				- new Date(
-																						start_date) < 0) { // date 타입으로 변경 후 확인
-																			alert("종료일이 시작일보다 먼저입니다.");
-																		} else { // 정상적인 입력 시
-																			var obj = {
-																				title : content,
-																				start : start_date,
-																				end : end_date,
-																				textcolor : textcolor,
-																				backgroundcolor : bgcolor
-																			} //전송할 객체 생성
-
-																			console
-																					.log(obj); //서버로 해당 객체를 전달해서 DB 연동 가능
-
-																		}
-
-																				$
-																						.ajax({
-																							url : "CalendarInsert",
-																							type : "GET",
-																							data : obj,
-																							dataType : 'json',
-																							success : function(
-																									res) {
-																								console
-																										.log('일정추가 성공!!!');
-																							},
-																							error : function() {
-																								console
-																										.log('일정추가 실패!!!');
-																							}
-																						}),
-																				alert("일정등록성공")
-																		$(
-																				"#calendarModal")
-																				.modal(
-																						"hide");
-																		location.href = "GoMain";
-																	});
-
-												}
-
-											}
-										}
-
-									});
-
-							calendar.render();
-						});
-	</script>
+			});
+					
+			calendar.render();
+		});
+		
+</script>
 </body>
 </html>

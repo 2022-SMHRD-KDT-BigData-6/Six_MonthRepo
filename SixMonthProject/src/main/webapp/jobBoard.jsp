@@ -178,12 +178,13 @@
 				<tfoot>
 					<tr>
 						<td colspan="2"></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</tfoot>
-			</table>
-			
+
+				</tr>
+				</tbody>
+				<tfoot>
+				</table>
+					
+					
 			<table>
 				<thead>
 					<tr>
@@ -225,8 +226,11 @@
 						<td></td>
 						<td></td>
 					</tr>
-				</tfoot>
-			</table>
+
+				</tbody>
+				<tfoot>
+				</table>
+					
 			
 			<table>
 				<thead>
@@ -269,22 +273,25 @@
 						<td></td>
 						<td></td>
 					</tr>
-				</tfoot>
-			</table>
+
+				</tbody>
+				<tfoot>
+				</table>
+					
 		
 		
 		<table>
 				<thead>
 					<tr>
-						<th style="width:156px;">파이썬 개발자</th>
-						<th style="width:583px;">내용</th>
+						<th>파이썬 개발자</th>
+						<th>내용</th>
 						<th>상세내용</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>파이썬 개발자란?</td>
-						<td>파이썬 전망 분야 업무내용 에 대한 정보</td>
+						<td>.파이썬 전망 분야 업무내용 에 대한 정보</td>
 						<td><a href="https://tagilog.tistory.com/679"class="button">자세히 알아보기</a></td>
 					</tr>
 					<tr>
@@ -314,29 +321,13 @@
 						<td></td>
 						<td></td>
 					</tr>
-				</tfoot>
-			</table>
-		
-			
+
+				</tbody>
+				<tfoot>
+				</table>
+
 		</div>
-		
 	
-	
-			
-		
-		
-		
-
-         
-   
-   
-
-   
-   <!-- Form -->
-   
-
-
-   
 
 
 
