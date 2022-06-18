@@ -4480,6 +4480,13 @@ a.vote231 {
     background-size: 11px 11px;
     cursor: pointer;
 }
+
+.sw_hub .ctt .tit{
+	    font-size: 1.25rem;
+    color: #008acc;
+    font-weight: 600;
+
+}
 .medium22 {
         float: left;
     max-width: 100px;
@@ -4497,11 +4504,15 @@ a.vote231 {
     height: 141px;
     word-break: break-all;
 }
-
+.sw_hub .ctt .txt{
+	margin: 15px 0;
+	
+}
 .sw_hub {
     padding: 40px;
     background: #f4f4f4;
     border-radius: 10px;
+    width:200px;
 }
 .size21 {
     font-size: 13px;

@@ -139,7 +139,7 @@
             
                  <% if(((MemberVO) session.getAttribute("vo")).getNick().equals(cvo.getNick())){ %>
                  <a href="ComDeleteService?cnum=<%=cvo.getCnum()%>&pnum=<%=view.getPnum()%>" class="charRed">삭제</a>
-                  <%}%><%else{ %><a href="#" class=" size21">공감</a>
+                  <%}%><%else{ %>  <a href="#" class=" size21">공감</a>
                 	<% }%>
                  </div>
             </div>

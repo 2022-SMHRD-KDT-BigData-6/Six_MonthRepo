@@ -16,6 +16,6 @@ public class CommentVO {
 	private String nick; // 작성자 닉네임
 	private String cdate; // 작성날짜
 	private int good; // 공감
-	private String anony;
+	private String anony; //익명
 
 }

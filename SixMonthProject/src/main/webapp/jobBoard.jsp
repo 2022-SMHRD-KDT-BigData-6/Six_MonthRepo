@@ -349,44 +349,25 @@
                               
 	
     function crawlling(number){
-        // click Enter 
-        
-       
-     //=====
     $.ajax({
 				//요청할 서버의 url
 				url : 'JsonServer',
 				type : 'GET',
-				
-				/* //반드시 키값을 달아서 데이터를 전송해줄것 
-				data : {
-					name : obj,
-					content : obj,
-					value : obj
-					
-				}, */
 				dataType : 'json',
 				
 				success : function(res) {
-					/* 서울/광주/ 객체 . -> 배열 [0] */
-					/* console.log(res.서울[0]); */
+					
 					getname(res,number)
 				},
 				//res---> 서버페이지에서 받아온 결과값
 
 				error : function() {
 					alert("요청실패!");
-				
 				}
 			})
-			
-			
      }; 
      
-     
      function getname(json,number){
-         /* console.log('getname 함수 내 json',json.서울[0])
-         console.log('getname 함수 내 json',json.광주[0]) */
          
          let div = document.querySelector('.div' + number)
 		
@@ -394,34 +375,21 @@
         
          for(let i=0; i < json.서울.length; i++){
         	 seo[i] = json.서울[i].주소;
-           	// console.log(json.서울[0].주소)        
-
-        	 
-        	 
-        	// console.log('add : '+add)
-        	 
+        
              div.innerHTML += `
 				
-
              <table>
                 <h2>
                    <tr>
                    ` +json.서울[i].서울 +   ` 
                       <td>
                       
-              		
-               
               		<a href="" class="asas"><button>
-              		
               		
                 ` +json.서울[i].내용 +` 
                 </button>
                </a> 
-            
                       </td>
-
-
-           
 
                    </tr>
                 </h2>
@@ -430,12 +398,8 @@
 
              document.getElementsByClassName('asas')[i].setAttribute('href',seo[i])
        
-     
-          
          }
-         
-            div.classList.toggle('collapsed');
-            
+ㄴ            div.classList.toggle('collapsed');
     }
    
   </script>
