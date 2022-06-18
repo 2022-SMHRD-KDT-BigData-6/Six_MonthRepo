@@ -103,11 +103,11 @@
 						<th>상세내용</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody >
 					<tr>
-						<td style="width:150px;">프론트엔드란?</td>
-						<td style="width:500px;">프론트엔드 개발자는 프론트엔드, 백엔드의 완전한 분리 구조를 지향하는 업무 스타일의 개발 방식으로 프론트단의 비지니스 로직과 사용자 영역의 개발을 담당</td>
-						<td style="width:175px;"><a href="https://namu.wiki/w/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C"class="button">자세히 알아보기</a></td>
+						<td>프론트엔드란?</td>
+						<td>프론트엔드 개발자는 프론트엔드, 백엔드의 완전한 분리 구조를 지향하는 업무 스타일의 개발 방식으로 프론트단의 비지니스 로직과 사용자 영역의 개발을 담당</td>
+						<td><a href="https://namu.wiki/w/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C"class="button">자세히 알아보기</a></td>
 					</tr>
 					<tr>
 						<td>어떤 프레임워크와 언어를 사용할까?</td>
@@ -131,7 +131,6 @@
 					</tr>
 				</tbody>
 				<tfoot>
-				</table>
 					<tr>
 						<td colspan="2"></td>
 						<td></td>
@@ -152,7 +151,7 @@
 				<tbody>
 					<tr>
 						<td>백엔드란?</td>
-						<td style="width:;">백엔드 개발자는 프론트엔드, 백엔드의 완전한 분리 구조를 지향하는 업무 스타일의 개발 방식으로 백엔드의 DB와 API 서버 개발을 맡는다</td>
+						<td>백엔드 개발자는 프론트엔드, 백엔드의 완전한 분리 구조를 지향하는 업무 스타일의 개발 방식으로 백엔드의 DB와 API 서버 개발을 맡는다</td>
 						<td><a href="https://namu.wiki/w/%EB%B0%B1%EC%97%94%EB%93%9C"class="button">자세히 알아보기</a></td>
 					</tr>
 					<tr>
@@ -179,11 +178,12 @@
 				<tfoot>
 					<tr>
 						<td colspan="2"></td>
-				</tr>
-				</tbody>
-				<tfoot>
-				</table>
-					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</tfoot>
+			</table>
+			
 			<table>
 				<thead>
 					<tr>
@@ -222,11 +222,11 @@
 				<tfoot>
 					<tr>
 						<td colspan="2"></td>
+						<td></td>
+						<td></td>
 					</tr>
-				</tbody>
-				<tfoot>
-				</table>
-					<tr>
+				</tfoot>
+			</table>
 			
 			<table>
 				<thead>
@@ -266,11 +266,11 @@
 				<tfoot>
 					<tr>
 						<td colspan="2"></td>
+						<td></td>
+						<td></td>
 					</tr>
-				</tbody>
-				<tfoot>
-				</table>
-					<tr>
+				</tfoot>
+			</table>
 		
 		
 		<table>
@@ -311,11 +311,11 @@
 				<tfoot>
 					<tr>
 						<td colspan="2"></td>
+						<td></td>
+						<td></td>
 					</tr>
-				</tbody>
-				<tfoot>
-				</table>
-					<tr>
+				</tfoot>
+			</table>
 		
 			
 		</div>
