@@ -22,6 +22,7 @@
 * JSP
 * Servlet
 * JavaScript
+* HTML/CSS
 * jQuery
 * Ajax
 * FullCalendar
