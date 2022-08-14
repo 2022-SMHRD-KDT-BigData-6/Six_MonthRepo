@@ -23,7 +23,7 @@
 * Servlet
 * JavaScript
 * jQuery
-* 
+* Ajax
 * FullCalendar
 * Flask
 
