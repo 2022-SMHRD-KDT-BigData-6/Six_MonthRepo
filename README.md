@@ -49,7 +49,7 @@
 [six_month화면설계서.pptx](https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo/files/9333480/six_month.pptx)
 <br>
 
-## 
+## 시연영상
 [SixMonth.zip](https://github.com/2022-SMHRD-KDT-BigData-6/Six_MonthRepo/files/9337119/SixMonth.zip)
 <br>
 
