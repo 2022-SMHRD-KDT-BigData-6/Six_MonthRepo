@@ -29,6 +29,7 @@
 * Ajax
 * FullCalendar
 * Flask
+* SQL
 
 <br>
 
